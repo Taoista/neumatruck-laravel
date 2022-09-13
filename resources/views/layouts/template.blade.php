@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="NeumaTruck.cl es una de las principales comercializadoras de marcas líderes de neumáticos para camión y buses, y líneas pesadas. Importamos solo marcas innovadoras con productos de alta tecnología en la industria">
+    <meta name="keywords"
+        content=" neumaticos camion, neumaticos camion michelin, neumaticos camion pirelli, neumáticos camión dunlop, neumaticos camion linglong, neumaticos camion goodride, neumaticos camion triangle, neumaticos camion chaoyang, neumaticos camion sumitomo, neumaticos camion windforce,  neumaticos camion samson, neumaticos camion fesite, neumaticos camion chaoyang, neumaticos camion Golden Crown, neumaticos camion bridgestone, neumaticos direccion, neumaticos traccion, neumaticos camion carretera, neumaticos traccionales, neumáticos para carretera, neumaticos para faena, neumatico mixto, neumaticos de camion, neumaticos para camion, ruedas de camion, ruedas camion, neumaticos para camiones precios, Neumaticos camion baratos, ruedas de camion baratos, neumatico camion precio, venta de neumaticos para camiones, neumaticos de invierno para camion, neumaticos camion online, neumaticos de camiones nuevos, neumaticos para camiones precios, neumatico 11 r22.5, neumatico 295 80 r22.5, neumaticos 215 75 r17.5, neumaticos agricola, ruedas tractor, neumaticos de tractor, neumatico agricola precio, neumatico 12 r22.5, neumaticos macizos, neumaticos 17.5, neumaticos mineria, neumaticos para construccion, neumaticos 23.5, neumaticos cargador frontal, neumaticos motoniveladoras, neumatico para cargador, neumatico forestal, neumatico grua horquilla, neumaticos maquinaria pesada, neumatico 275 80 r22.5, neumáticos otr, neumatico pantanero, neumaticos de bus, neumaticos buses, neumático 255 70 r22.5, neumático industrial, neumático 12.00 r24, neumático 1200, 235 75 r17.5, 1200 r20, 315 80 r22.5,  750 75 r17.5">
+    <meta name="google-site-verification" content="Si2YZwQ8s_-oWAcmJmbrZ2fNo4d0Myar0bTn7CCNr0Q">
+
+    <title> NeumaTruck - Portada</title>
+
+    <meta name="facebook-domain-verify" content="hmhiq76ah4inz05pdl0jgt08inex1h">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/slick.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/slick-theme.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/nouislider.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css?ver=1.4">
+    <link rel="stylesheet" type="text/css" href="assets/js/typeahead.css?ver=1.6">
+    <link rel="icon" type="image/png" href="assets/img/2.0/favicon.png">
+    <script type="text/javascript" id="zsiqscript" defer="" src="https://salesiq.zoho.com/widget"></script>
+    <script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
+    <script type="text/javascript" async=""
+        src="https://www.googletagmanager.com/gtag/js?id=AW-720676427&amp;l=dataLayer&amp;cx=c"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" async=""
+        src="https://www.googletagmanager.com/gtag/js?id=G-23WKK8S8T7&amp;l=dataLayer&amp;cx=c"></script>
+    <script src="https://connect.facebook.net/signals/config/4295041700542357?v=2.9.79&amp;r=stable" async=""></script>
+    <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-W39SRJ6"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-159179503-1"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-159179503-1');
+    </script>
+    {{-- *PIXEL --}}
+    <meta name="facebook-domain-verification" content="hmhiq76ah4inz05pdl0jgt08inex1h">
+
+    {{-- * HOTJA --}}
+    <script>
+        (function(h, o, t, j, a, r) {
+
+            h.hj = h.hj || function() {
+                (h.hj.q = h.hj.q || []).push(arguments)
+            };
+
+            h._hjSettings = {
+                hjid: 2147404,
+                hjsv: 6
+            };
+
+            a = o.getElementsByTagName('head')[0];
+
+            r = o.createElement('script');
+            r.async = 1;
+
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+
+            a.appendChild(r);
+
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+    <script async="" src="https://static.hotjar.com/c/hotjar-2147404.js?sv=6"></script>
+
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Ivana la cabezona codigo segumiento formulario -->
+
+    <!-- Global site tag (gtag.js) - Google Ads: 720676427 -->
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-720676427"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'AW-720676427');
+    </script>
+
+    <!-- VERIFICACION FACEBOK PAGINA FACEBBOK -->
+
+    <meta name="facebook-domain-verify" content="hmhiq76ah4inz05pdl0jgt08inex1h">
+
+    <!-- /MAIN HEADER -->
+
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-W39SRJ6');
+    </script>
+
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '4295041700542357'); 
+        fbq('track', 'PageView');
+        </script>
+    <noscript>
+        <img height="1" width="1" 
+        src="https://www.facebook.com/tr?id=4295041700542357&ev=PageView
+        &noscript=1"/>
+    </noscript>
+
+    <noscript>
+        <img height="1" width="1"
+            src="https://www.facebook.com/tr?id=4295041700542357&ev=PageView&noscript=1" />
+    </noscript>
+
+    <meta http-equiv="origin-trial" content="A7bG5hJ4XpMV5a3V1wwAR0PalkFSxLOZeL9D/YBYdupYUIgUgGhfVJ1zBFOqGybb7gRhswfJ+AmO7S2rNK2IOwkAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <script type="text/javascript" async=""
+        src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/720676427/?random=1663081732749&amp;cv=9&amp;fst=1663081732749&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1032&amp;u_aw=1920&amp;u_cd=24&amp;u_his=4&amp;u_tz=-180&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2oa970&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fdebug.neumatruck.cl%2F&amp;tiba=NeumaTruck%20-%20Portada&amp;auid=1022070958.1661550426&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4">
+    </script>
+</head>
+
+<body>
+    <strong>-&gt;9 assets/</strong>
+    <!-- GOOGLE TAG MANAGER -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W39SRJ6" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- TERMINO -->
+
+    <header>
+
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div id="div-interno-header" class="container" style="display:flex;justify-content:center">
+                <ul class="header-links pull-left">
+                    <li><a id="tel-text-fono" class="ul-telefonos" href="#">Fono ventas:</a></li>
+                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:+56964965790"><i class="fa fa-phone"></i>
+                            +569 6496 5790</a></li>
+                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:+56224846042"><i class="fa fa-phone"></i>
+                            +56 2 2484 6042</a></li>
+                    <li><a id="tel-max-second" class="ul-telefonos" href="tel:+56946649909"><i class="fa fa-phone"></i>
+                            +569 4664 9909</a></li>
+                    <li><a id="tel-max-second" class="ul-telefonos" href="tel:+56224846070"><i class="fa fa-phone"></i>
+                            +56 2 2484 6070</a></li>
+                </ul>
+            </div>
+            <!-- flex -->
+            <div id="div-interno-header telefono-fijo" class="container" style="justify-content:center">
+                <ul>
+                    <li><a id="tel-text-fono-fijo" style="color:white;font-size:23px" class="ul-telefonos-fijo"
+                            href="tel:+56946649909"><i class="fa fa-phone" style="color:#ffb03d"></i> +569 4664 9909</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container" style="display:flex;justify-content:center">
+                <ul class="header-links pull-left">
+                    <!-- <li><a id="mail-min" href="contacto.php"><i class="fa fa-envelope-o"></i> contacto@neumatruck.cl</a></li> -->
+                    <li><a id="mail-min" href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>
+                            contacto@neumatruck.cl</a></li>
+                    <li><a id="horario-min" href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes:
+                            09:00 a 18:00 hrs</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-4">
+                        <div class="header-logo">
+                            <a href="assets/" class="logo">
+                                <img class="img-logo" src="assets/img/logo.png" alt="NeumaTruck"
+                                    style="width:300px;">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
+                    <!-- SEARCH BAR -->
+                    <div class="col-md-7">
+                        <div class="header-search">
+                            <form name="buscador-principal" autocomplete="off"
+                                action="assets/resultados.php" method="GET">
+                                <div class="autocompletar text-center">
+                                    <input id="tipo-busqueda" class="input" name="tipo-item"
+                                        placeholder="Busca tu Medida" required="">
+                                    <button class="search-btn" type="submit">Buscar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /SEARCH BAR -->
+                    <!-- ACCOUNT -->
+                    <div class="col-md-1 clearfix">
+                        <div class="header-ctn cton-carrito">
+
+                            <!-- Cart -->
+                            <div class="dropdown ">
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa fa-shopping-cart" style="font-size:35px;"></i>
+                                    <div class="qty">0</div>
+                                </a>
+                            </div>
+                            <!-- /Cart -->
+                        </div>
+                        <!-- <i class="fa fa-shopping-cart"></i> -->
+                    </div>
+                    <!-- /ACCOUNT -->
+                </div>
+                <style>
+                    #header {
+                        padding-bottom: 0px;
+                    }
+
+                    .navbar {
+                        border-radius: 0px;
+                    }
+
+                    .navbar-default .container-fluid {
+                        padding-left: 0px;
+                    }
+
+                    .navbar-default .navbar-nav {
+                        padding-left: 0px;
+                    }
+
+                    .navbar-collapse {
+                        padding-left: 0px;
+                    }
+
+                    .nav>li>a {
+                        /*padding-left: 0px;
+  padding-right: 0px;*/
+                    }
+
+                    .navbar-default .navbar-nav>li>a {
+                        color: #e5e5e5;
+                        text-transform: uppercase;
+                    }
+
+                    .navbar-default .navbar-nav>li>a:hover {
+                        color: #fff;
+                    }
+
+                    .navbar-default .navbar-nav>li>a:active {
+                        color: #fff;
+                    }
+
+                    .navbar-nav>li {
+                        float: none;
+                    }
+
+                    @media (min-width: 768px) {
+                        .nav-justified>li {
+                            display: table-cell;
+                            width: 1%;
+                        }
+                    }
+                </style>
+                <!-- NAVEGADOR TOBLE -->
+                <div class="col-md-3 clearfix">
+                    <!-- <div id="carrito-responsive" class="visible-xs">
+       <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+        <i class="fa fa-shopping-cart" style="font-size:30px;"></i>
+        <div class="qty"></div>
+       </a>
+      </div> -->
+                    <div class="header-ctn">
+                        <div class="dropdown carrito-togle" style="position:absolute;left:5px">
+                            <a href="carro.php" onclick="continuarCarritoResponsive()" class="dropdown-toggle"
+                                data-toggle="dropdown" aria-expanded="true">
+                                <i class="fa fa-shopping-cart" style="font-size:40px;"></i>
+                                <div id="contenido-cantidad" class="qty">0</div>
+                            </a>
+                        </div>
+                        <!-- Menu Toogle -->
+                        <div class="menu-toggle">
+                            <a href="#" onclick="mostrarTogle()">
+                                <i class="fa fa-bars"></i>
+                                <span>Menu</span>
+                            </a>
+                        </div>
+                        <!-- /Menu Toogle -->
+                    </div>
+                </div>
+                <nav>
+                    <!-- container -->
+                    <div class="container">
+                        <!-- responsive-nav -->
+                        <div class="container">
+                            <!-- responsive-nav -->
+                            <div id="responsive-nav">
+                                <!-- NAV -->
+                                <ul class="main-nav nav navbar-nav">
+                                    <li class="active"><a href="index.php">Inicio</a></li>
+
+                                    <li><a href="categoria.php?tipo-item=Agricola">Agricola</a></li>
+                                    <li class="divider-vertical"></li>
+                                    <li><a href="categoria.php?tipo-item=Camion y Bus">Camion y Bus</a></li>
+                                    <li class="divider-vertical"></li>
+                                    <li><a href="categoria.php?tipo-item=Industrial">Industrial</a></li>
+                                    <li class="divider-vertical"></li>
+                                    <li><a href="categoria.php?tipo-item=OTR">OTR</a></li>
+                                    <li class="divider-vertical"></li>
+                                    <hr>
+                                    <!-- <li><a href="resultados.php?tipo-item=bateria">Baterias</a></li> -->
+                                    <li><a href="assets/contacto.php">Contacto</a></li>
+                                    <li><a href="ofertas.php" style="color: #FFB03D;">ofertas </a></li>
+                                    <li><a href="carro.php">Carrito</a></li>
+                                </ul>
+                                <!-- /NAV -->
+                            </div>
+                            <!-- /responsive-nav -->
+                        </div>
+                        <!-- /responsive-nav -->
+                    </div>
+                    <!-- /container -->
+                </nav>
+                <nav class="navbar navbar-default"
+                    style="border-color: transparent; background-color:transparent; border-top: 1px solid #fff; ">
+                    <div class="container-fluid">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav nav-justified navbar-nav">
+                                <li><a href="ofertas.php" style="color: #FFB03D;">ofertas </a></li>
+
+                                <li><a href="categoria.php?tipo-item=Agricola">Agricola</a></li>
+                                <li class="divider-vertical"></li>
+                                <li><a href="categoria.php?tipo-item=Camion y Bus">Camion y Bus</a></li>
+                                <li class="divider-vertical"></li>
+                                <li><a href="categoria.php?tipo-item=Industrial">Industrial</a></li>
+                                <li class="divider-vertical"></li>
+                                <li><a href="categoria.php?tipo-item=OTR">OTR</a></li>
+                                <li class="divider-vertical"></li>
+                                <!-- <li><a href="resultados.php?tipo-item=bateria">Baterias</a></li> -->
+                                <li><a href="assets/contacto.php">Contacto</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+    </header>
+    <!-- HEADER -->
+    <div class="icon-bar text-center">
+        <a target="_blank" style="background-color:#3b5998;" href="https://www.facebook.com/neumatruck.cl/"
+            class="facebook"><i class="fa fa-facebook"></i></a>
+        <a target="_blank" style="background-color:blue;" href="tel:+56946649909" class="google"><i
+                class="fa fa-phone"></i></a>
+        <a target="_blank"
+            style="background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);"
+            href="https://www.facebook.com/neumatruck.cl/&quot;" class="youtube"><i class="fa fa-instagram"></i></a>
+        <a target="_blank" style="background-color:#4FCE5D;"
+            href="https://api.whatsapp.com/send?phone=+56964965790&amp;text=Estoy%20interesado%20en%20sus%20productos"
+            class="twitter"><i class="fa fa-whatsapp"></i></a>
+        <!-- <a href="mailto:contacto@neumatruck.cl" class="linkedin"><i class="fa fa-envelope-o"></i></a> -->
+    </div>
+
+
+    <!-- BANNER -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script><iframe id="_hjSafeContext_3896019" src="about:blank"
+        style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe>
+    <!-- <img class="nature" src="img/2.0/banner/banner_1.jpg" width="100%"> -->
+    <!-- OFERTA -->
+
+    <!-- <a href="ofertas.php"><img class="nature" src="img/2.0/banner/ciber.webp" width="100%"></a> -->
+
+    <img class="nature" src="img/2.0/banner/ban1.webp" width="100%" style="display: block;">
+    <img class="nature" src="img/2.0/banner/ban2.webp" width="100%" style="display: none;">
+    <img class="nature" src="img/2.0/banner/ban3.webp" width="100%" style="display: none;">
+    <img class="nature" src="img/2.0/banner/ban4.webp" width="100%" style="display: none;">
+    <img class="nature" src="img/2.0/banner/ban5.webp" width="100%" style="display: none;">
+    <img class="nature" src="img/2.0/banner/ban6.webp" width="100%" style="display: none;">
+
+    <script>
+        w3.slideshow(".nature", 4000);
+    </script>
+
+
+    @yield('content-general')
+
+
+
+
+    <div id="newsletter" class="section">
+
+        <!-- container -->
+
+        <div class="container">
+
+            <!-- row -->
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <div class="newsletter">
+
+                        <p>Si deseas ser parte de nuestro circulo y recibir nuestro <strong>NEWSLETTER</strong></p>
+
+                        <!-- <form action="procesa-newsletter.php" method="POST" enctype="application/x-www-form-urlencoded">  -->
+                        <form method="POST" enctype="application/x-www-form-urlencoded">
+
+                            <input id="email-newslatter" class="input" type="email" name="email_newsletter"
+                                placeholder="Dirección de Email" required="">
+
+                            <button onclick="send_newslatter(event)" class="newsletter-btn" type="submit"><i
+                                    class="fa fa-envelope"></i> Suscribete</button>
+
+                        </form>
+
+                        <ul class="newsletter-follow">
+
+                            <li><a target="_blank" href="https://www.facebook.com/neumatruck.cl/"><i
+                                        class="fa fa-facebook"></i></a></li>
+
+                            <li><a target="_blank"
+                                    href="https://web.whatsapp.com/send?phone=56954104080&amp;text=Estoy%20interesado%20en%20sus%20productos"><i
+                                        class="fa fa-whatsapp"></i></a></li>
+
+                            <li><a target="_blank" href="https://www.instagram.com/neumatruck.cl/"><i
+                                        class="fa fa-instagram"></i></a></li>
+
+                            <li><a target="_blank" href="mailto:contacto@neumatruck.cl"><i
+                                        class="fa fa-envelope-o"></i></a></li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- /row -->
+
+        </div>
+
+        <!-- /container -->
+
+    </div>
+
+    <!-- /NEWSLETTER -->
+
+    <footer id="footer">
+
+        <!-- top footer -->
+
+        <div class="section">
+
+            <!-- container -->
+
+            <div class="container">
+
+                <!-- row -->
+
+                <div class="col-md-3 col-xs-6">
+
+                    <div class="footer">
+
+                        <h3 class="footer-title">Nosotros</h3>
+
+                        <p class="text-justify">
+
+                            NeumaTruck.cl es una de las principales comercializadoras de marcas líderes de neumáticos
+                            para camión y buses, y líneas pesadas. Importamos solo marcas innovadoras con productos de
+                            alta tecnología en la industria.
+                            Stock sujeto a cambios sin previo aviso
+
+                        </p>
+
+                        <ul class="footer-links">
+
+                            <li><a href="despacho.php"><i class="fa fa-truck"></i> Politicas de Despacho</a></li>
+                            <li><a href="devolucion.php"><i class="fa fa-truck"></i> Politicas de Devolución</a>
+                            </li>
+
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-2 col-xs-6 col-md-offset-1">
+
+                    <div class="footer">
+
+                        <h3 class="footer-title">Categorías</h3>
+
+                        <ul class="footer-links">
+
+
+                            <li><a href="categoria.php?tipo-item=Agricola">Agricola</a></li>
+
+
+                            <li><a href="categoria.php?tipo-item=Camion y Bus">Camion y Bus</a></li>
+
+
+                            <li><a href="categoria.php?tipo-item=Industrial">Industrial</a></li>
+
+
+                            <li><a href="categoria.php?tipo-item=OTR">OTR</a></li>
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="clearfix visible-xs"></div>
+
+
+
+                <div class="col-md-2 col-xs-6">
+
+                    <div class="footer">
+
+                        <h3 class="footer-title">Marcas</h3>
+
+                        <ul class="footer-links">
+
+                            <li><a href="marcas.php?marca=Pirelli&amp;idm=9">Pirelli</a></li>
+
+                            <li><a href="marcas.php?marca=Dunlop&amp;idm=20">Dunlop</a></li>
+
+                            <li><a href="marcas.php?marca=Fesite&amp;idm=16">Fesite</a></li>
+
+                            <li><a href="marcas.php?marca=Windforce&amp;idm=8">Windforce</a></li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-4 col-xs-6">
+
+                    <div class="footer">
+
+                        <h3 class="footer-title">Contacto</h3>
+
+                        <ul class="footer-links">
+
+                            <ul class="footer-links">
+
+                                <li><a href="assets/contacto.php"><i
+                                            class="fa fa-map-marker"></i>Santa Margarita 0448 - Santiago</a></li>
+
+
+                                <li><a href="tel:+56964965790"><i class="fa fa-phone"></i>+569 6496 5790</a></li>
+
+
+                                <li><a href="tel:+56224846042"><i class="fa fa-phone"></i>+56 2 2484 6042</a></li>
+
+
+                                <li><a href="tel:+56946649909"><i class="fa fa-phone"></i>+569 4664 9909</a></li>
+
+
+                                <li><a href="tel:+56224846070"><i class="fa fa-phone"></i>+56 2 2484 6070</a></li>
+
+
+                                <li><a href="mailto:contacto@neumatruck.cl"><i
+                                            class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
+
+                                <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes:
+                                        09:00 a 18:00 hrs</a></li>
+
+                            </ul>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- /row -->
+
+        </div>
+
+        <!-- /container -->
+
+
+
+        <!-- /top footer -->
+
+
+
+        <!-- bottom footer -->
+
+        <div id="bottom-footer" class="section">
+
+            <div class="container">
+
+                <!-- row -->
+
+                <div class="row">
+
+                    <div class="col-md-4 text-center">
+
+                        <ul class="footer-payments">
+
+                            <!-- LOGO -->
+
+                            <div class="col-md-3">
+
+                                <div class="header-logo">
+
+                                    <a href="assets/" class="logo">
+
+                                        <img src="assets/img/logo.png" alt="Neumatruck"
+                                            style="width:300px;">
+
+                                    </a>
+
+                                    <br class="visible-xs"><br class="visible-xs"><br class="visible-xs">
+
+                                </div>
+
+                            </div>
+
+                            <!-- /LOGO -->
+
+                        </ul>
+
+                    </div>
+
+                    <div class="col-md-4 text-center">
+
+
+
+                    </div>
+
+                    <div class="col-md-4 text-center">
+
+                        <ul class="footer-payments">
+
+                            <!-- LOGO -->
+
+                            <div class="col-md-3">
+
+                                <div class="header-logo">
+
+                                    <a href="assets/" class="logo">
+
+                                        <img style="margin-top:20px;" src="img/pgo.png" alt="Neumatruck">
+
+                                    </a>
+
+                                    <br class="visible-xs"><br class="visible-xs"><br class="visible-xs">
+
+                                </div>
+
+                            </div>
+
+                            <!-- /LOGO -->
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!-- /row -->
+
+            </div>
+
+            <!-- /container -->
+
+        </div>
+
+        <!-- /bottom footer -->
+    </footer>
+
+    <!-- /FOOTER modal -->
+    <div class="modal fade" id="mi_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Agrega tu correo</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="padding:15px">
+                        <label for="" style="color:red; display:none; text-align:center"
+                            id="lbl-error">Debe agregar un email valido para continuar</label>
+                        <input id="email-session" type="text" class="form-control" placeholder="Email"><br>
+                        <button id="verificar-session" type="button"
+                            class="btn btn-default center-block">Continuar</button>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/nouislider.min.js"></script>
+    <script src="assets/js/jquery.zoom.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        var _Url = "{{ url('/') }}/";
+    </script>
+
+
+
+    <script type="text/javascript">
+        const _Url = '<?php echo $GetDomain; ?>';
+        const session = '<?php echo $_SESSION["idunica"]; ?>'
+        // $('#mi_modal').modal({backdrop: 'static', keyboard: false})
+        const verificar_session = document.querySelector("#verificar-session")
+        const email_secction = document.querySelector("#email-session")
+        const lbl_error = document.querySelector("#lbl-error")
+        const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+        if(session == '' || session == null){
+            new Promise((resolve, reject) =>{
+                $.ajax({
+                    url:  _Url+"funciones/status_session.php",
+                    type: "GET",
+                    success:function(response){
+                        resolve(response);
+                    }
+                })
+            }).then(res =>{
+                // console.log(session)
+            })
+        }
+    
+    verificar_session.addEventListener("click", (e) => {
+            // e.preventDefault();
+            
+            if(email_secction.value == "" || email_secction.value == null){
+                    lbl_error.style.display = "block"
+            }else if(!emailRegex.test(email_secction.value)){
+                Swal.fire(
+                            'Inente en un momento',
+                            'Debe agregar un email correcto',
+                            'error'
+                            )
+            }else{
+                new Promise((resolve, reject) =>{
+                    // * consulta el esta de la session
+                    // console.log("entrando a la primesa")
+                    $.ajax({
+                            // data: parameters,
+                            url:  _Url+"funciones/create_session.php?email="+email_secction.value,
+                            type: "GET",
+                  
+                            beforeSend:function(){
+                               
+                            },
+                            success:function(response){
+                                resolve(response);
+                            }
+                        })
+                }).then(res =>{
+                    // console.log('resolviendo el response')
+                    console.log("aaaaaaaaaa 2")
+                    console.log(res)
+                    if(res == 'error'){
+                        console.log("entro en el error")
+                        Swal.fire(
+                            'Inente en un momento',
+                            'Debe agregar un email correcto',
+                            'error'
+                            )
+                    }else{
+                        // * debe llenar la funcion de crear elemento en el carrito
+                        var referencia		= $('.agregacarro').attr('rel'); //id del elemento
+                        var bla             = '1' //cantidad seleccionada
+                        var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla; 
+    
+                        console.log("---------------")
+                        console.log(url)
+                        window.location.href= url;
+                    }
+                })
+            }
+    })
+    
+    
+    function href_envio(id){
+        location.href = 'ficha.php?idProducto='+btoa(id);
+    }
+    
+    function agregar_product(rel,stock,estado){
+        if(stock == 0 || estado == 0){
+            Swal.fire({
+            title:'Verifica Stock con su vendedor',
+            icon: 'warning',
+            showCancelButton: false,
+            })
+    
+        }else{
+    
+            var baseurl = '<?php echo $GetDomain; ?>';
+    
+            var referencia		= rel;
+    
+            var bla             = '1' //cantidad seleccionada
+    
+            var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla;
+    
+            window.location.href= url;
+    
+        }
+    
+    }
+    
+    
+        var baseurl = '<?php echo $GetDomain; ?>';
+    
+    
+        //  * boton para agrear al carro
+        $('.agregacarro').click(function(event){
+            event.preventDefault();
+            if(session == "" || session == null){
+                $('#mi_modal').modal('show');
+            }else{
+                fbq('track', 'AddToCart');
+                var codigo_ivana = "codigo_demo_ivana";
+                // * elemento que crea el ingreso del producto
+                var referencia		= $(this).attr('rel'); //id del elemento
+                var bla             = '1' //cantidad seleccionada
+                var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla; 
+                // window.location.href= url;
+            }
+        });
+    
+        $(document).ready(function() {
+            $('input[type="checkbox"]').click(function() {
+                var $checked = $('input[type="checkbox"]:checked');
+                var $productsDiv = $('.resfiltro');
+                if ($checked.length > 0) {
+                    $productsDiv.hide();
+                    $checked.each(function() {
+                        var actual  = $(this).val();
+                        $('.' + actual ).fadeIn();
+                        $('html, body').animate({
+                            scrollTop: $('#breadcrumb').offset().top - 150
+                        }, 1000, 'swing');
+                    });
+                } else {
+                    $productsDiv.fadeIn();
+                }
+            });
+        });
+        if ( $("#hastaca").length > 0 ) {
+    
+            $('html, body').animate({
+    
+                scrollTop: $('#hastaca').offset().top - 150
+    
+            }, 1000, 'swing');
+    
+        }
+    
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function send_newslatter(e){
+            e.preventDefault();
+            let email = document.getElementById("email-newslatter").value;
+            let correccion = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+            if (correccion.exec(email)){
+                let parametros = {"email" : email};
+                const send_newslatter = new Promise((resolve, rejected) =>{
+                    $.ajax({
+                        data: parametros,
+                        type: "POST",
+                        url:  "./funciones/send_newslatter.php", 
+                        beforeSend:function(){
+                            Swal.fire({
+                                html:'<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>',
+                                title: 'Enviando..',
+                                showCloseButton: false,
+                                showCancelButton: false,
+                                focusConfirm: false,
+                                showConfirmButton:false,
+                            })
+                            $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)'); 
+                            $(".swal2-title").css("color","white"); 
+                        },
+                        success:function(response){
+                            resolve(response);
+                        }
+                    });
+                });
+        
+        
+                send_newslatter.then(res=>{
+                    
+                    swal.close();
+                    if(res == 'ingresado'){
+                        Swal.fire('Newsletter','Su Email fue agregado correctamente','success');
+                    }else{
+                        Swal.fire('Newsletter','Su Email ya esta en nuestros registros','success');
+                    }
+                });
+            }else{
+                Swal.fire('error','El email es invalido','error');
+            }
+        }
+    
+    </script>
+    <script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "90872474c6e22cee5d486a671662c849675c91e4c2dc01163e9240e46248b799", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
+    @stack("scripts")
+
+
+    @yield('content-script')
+
+</body>
+
+</html>
