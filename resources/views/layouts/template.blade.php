@@ -15,24 +15,17 @@
 
     <meta name="facebook-domain-verify" content="hmhiq76ah4inz05pdl0jgt08inex1h">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/slick.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/slick-theme.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/nouislider.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/style.css?ver=1.4">
-    <link rel="stylesheet" type="text/css" href="assets/js/typeahead.css?ver=1.6">
-    <link rel="icon" type="image/png" href="assets/img/2.0/favicon.png">
-    <script type="text/javascript" id="zsiqscript" defer="" src="https://salesiq.zoho.com/widget"></script>
-    <script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
-    <script type="text/javascript" async=""
-        src="https://www.googletagmanager.com/gtag/js?id=AW-720676427&amp;l=dataLayer&amp;cx=c"></script>
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-    <script type="text/javascript" async=""
-        src="https://www.googletagmanager.com/gtag/js?id=G-23WKK8S8T7&amp;l=dataLayer&amp;cx=c"></script>
-    <script src="https://connect.facebook.net/signals/config/4295041700542357?v=2.9.79&amp;r=stable" async=""></script>
-    <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
-    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-W39SRJ6"></script>
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
+    {{-- <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script> --}}
+
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/nouislider.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css?ver=1.4') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/js/typeahead.css?ver=1.6') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/2.0/favicon.png') }}">
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-159179503-1"></script>
 
     <script>
@@ -144,13 +137,11 @@
     </noscript>
 
     <meta http-equiv="origin-trial" content="A7bG5hJ4XpMV5a3V1wwAR0PalkFSxLOZeL9D/YBYdupYUIgUgGhfVJ1zBFOqGybb7gRhswfJ+AmO7S2rNK2IOwkAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
-    <script type="text/javascript" async=""
-        src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/720676427/?random=1663081732749&amp;cv=9&amp;fst=1663081732749&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1032&amp;u_aw=1920&amp;u_cd=24&amp;u_his=4&amp;u_tz=-180&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2oa970&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fdebug.neumatruck.cl%2F&amp;tiba=NeumaTruck%20-%20Portada&amp;auid=1022070958.1661550426&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4">
+    <script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/720676427/?random=1663081732749&amp;cv=9&amp;fst=1663081732749&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1032&amp;u_aw=1920&amp;u_cd=24&amp;u_his=4&amp;u_tz=-180&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2oa970&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fdebug.neumatruck.cl%2F&amp;tiba=NeumaTruck%20-%20Portada&amp;auid=1022070958.1661550426&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4">
     </script>
 </head>
 
 <body>
-    <strong>-&gt;9 assets/</strong>
     <!-- GOOGLE TAG MANAGER -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W39SRJ6" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -163,14 +154,10 @@
             <div id="div-interno-header" class="container" style="display:flex;justify-content:center">
                 <ul class="header-links pull-left">
                     <li><a id="tel-text-fono" class="ul-telefonos" href="#">Fono ventas:</a></li>
-                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:+56964965790"><i class="fa fa-phone"></i>
-                            +569 6496 5790</a></li>
-                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:+56224846042"><i class="fa fa-phone"></i>
-                            +56 2 2484 6042</a></li>
-                    <li><a id="tel-max-second" class="ul-telefonos" href="tel:+56946649909"><i class="fa fa-phone"></i>
-                            +569 4664 9909</a></li>
-                    <li><a id="tel-max-second" class="ul-telefonos" href="tel:+56224846070"><i class="fa fa-phone"></i>
-                            +56 2 2484 6070</a></li>
+                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:+56964965790"><i class="fa fa-phone"></i>+569 6496 5790</a></li>
+                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:+56224846042"><i class="fa fa-phone"></i>+56 2 2484 6042</a></li>
+                    <li><a id="tel-max-second" class="ul-telefonos" href="tel:+56946649909"><i class="fa fa-phone"></i>+569 4664 9909</a></li>
+                    <li><a id="tel-max-second" class="ul-telefonos" href="tel:+56224846070"><i class="fa fa-phone"></i>+56 2 2484 6070</a></li>
                 </ul>
             </div>
             <!-- flex -->
@@ -184,10 +171,8 @@
             <div class="container" style="display:flex;justify-content:center">
                 <ul class="header-links pull-left">
                     <!-- <li><a id="mail-min" href="contacto.php"><i class="fa fa-envelope-o"></i> contacto@neumatruck.cl</a></li> -->
-                    <li><a id="mail-min" href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>
-                            contacto@neumatruck.cl</a></li>
-                    <li><a id="horario-min" href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes:
-                            09:00 a 18:00 hrs</a></li>
+                    <li><a id="mail-min" href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
+                    <li><a id="horario-min" href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li>
                 </ul>
             </div>
         </div>
@@ -202,7 +187,7 @@
                     <div class="col-md-4">
                         <div class="header-logo">
                             <a href="assets/" class="logo">
-                                <img class="img-logo" src="assets/img/logo.png" alt="NeumaTruck"
+                                <img class="img-logo" src="{{ asset('assets/img/logo.png') }}" alt="NeumaTruck"
                                     style="width:300px;">
                             </a>
                         </div>
@@ -214,8 +199,7 @@
                             <form name="buscador-principal" autocomplete="off"
                                 action="assets/resultados.php" method="GET">
                                 <div class="autocompletar text-center">
-                                    <input id="tipo-busqueda" class="input" name="tipo-item"
-                                        placeholder="Busca tu Medida" required="">
+                                    <input id="tipo-busqueda" class="input" name="tipo-item" placeholder="Busca tu Medida" required="">
                                     <button class="search-btn" type="submit">Buscar</button>
                                 </div>
                             </form>
@@ -382,39 +366,7 @@
         </div>
     </header>
     <!-- HEADER -->
-    <div class="icon-bar text-center">
-        <a target="_blank" style="background-color:#3b5998;" href="https://www.facebook.com/neumatruck.cl/"
-            class="facebook"><i class="fa fa-facebook"></i></a>
-        <a target="_blank" style="background-color:blue;" href="tel:+56946649909" class="google"><i
-                class="fa fa-phone"></i></a>
-        <a target="_blank"
-            style="background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);"
-            href="https://www.facebook.com/neumatruck.cl/&quot;" class="youtube"><i class="fa fa-instagram"></i></a>
-        <a target="_blank" style="background-color:#4FCE5D;"
-            href="https://api.whatsapp.com/send?phone=+56964965790&amp;text=Estoy%20interesado%20en%20sus%20productos"
-            class="twitter"><i class="fa fa-whatsapp"></i></a>
-        <!-- <a href="mailto:contacto@neumatruck.cl" class="linkedin"><i class="fa fa-envelope-o"></i></a> -->
-    </div>
-
-
-    <!-- BANNER -->
-    <script src="https://www.w3schools.com/lib/w3.js"></script><iframe id="_hjSafeContext_3896019" src="about:blank"
-        style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe>
-    <!-- <img class="nature" src="img/2.0/banner/banner_1.jpg" width="100%"> -->
-    <!-- OFERTA -->
-
-    <!-- <a href="ofertas.php"><img class="nature" src="img/2.0/banner/ciber.webp" width="100%"></a> -->
-
-    <img class="nature" src="img/2.0/banner/ban1.webp" width="100%" style="display: block;">
-    <img class="nature" src="img/2.0/banner/ban2.webp" width="100%" style="display: none;">
-    <img class="nature" src="img/2.0/banner/ban3.webp" width="100%" style="display: none;">
-    <img class="nature" src="img/2.0/banner/ban4.webp" width="100%" style="display: none;">
-    <img class="nature" src="img/2.0/banner/ban5.webp" width="100%" style="display: none;">
-    <img class="nature" src="img/2.0/banner/ban6.webp" width="100%" style="display: none;">
-
-    <script>
-        w3.slideshow(".nature", 4000);
-    </script>
+ 
 
 
     @yield('content-general')
@@ -592,27 +544,13 @@
 
                             <ul class="footer-links">
 
-                                <li><a href="assets/contacto.php"><i
-                                            class="fa fa-map-marker"></i>Santa Margarita 0448 - Santiago</a></li>
-
-
+                                <li><a href="assets/contacto.php"><i class="fa fa-map-marker"></i>Santa Margarita 0448 - Santiago</a></li>
                                 <li><a href="tel:+56964965790"><i class="fa fa-phone"></i>+569 6496 5790</a></li>
-
-
                                 <li><a href="tel:+56224846042"><i class="fa fa-phone"></i>+56 2 2484 6042</a></li>
-
-
                                 <li><a href="tel:+56946649909"><i class="fa fa-phone"></i>+569 4664 9909</a></li>
-
-
                                 <li><a href="tel:+56224846070"><i class="fa fa-phone"></i>+56 2 2484 6070</a></li>
-
-
-                                <li><a href="mailto:contacto@neumatruck.cl"><i
-                                            class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
-
-                                <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes:
-                                        09:00 a 18:00 hrs</a></li>
+                                <li><a href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
+                                <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li>
 
                             </ul>
 
@@ -658,7 +596,7 @@
 
                                     <a href="assets/" class="logo">
 
-                                        <img src="assets/img/logo.png" alt="Neumatruck"
+                                        <img src="{{ asset('assets/img/logo.png') }}" alt="Neumatruck"
                                             style="width:300px;">
 
                                     </a>
@@ -674,52 +612,26 @@
                         </ul>
 
                     </div>
-
                     <div class="col-md-4 text-center">
 
 
 
                     </div>
-
                     <div class="col-md-4 text-center">
-
                         <ul class="footer-payments">
-
-                            <!-- LOGO -->
-
                             <div class="col-md-3">
-
                                 <div class="header-logo">
-
                                     <a href="assets/" class="logo">
-
-                                        <img style="margin-top:20px;" src="img/pgo.png" alt="Neumatruck">
-
+                                        <img style="margin-top:20px;" src="{{ asset('assets/img/pgo.png') }}" alt="Neumatruck">
                                     </a>
-
                                     <br class="visible-xs"><br class="visible-xs"><br class="visible-xs">
-
                                 </div>
-
                             </div>
-
-                            <!-- /LOGO -->
-
                         </ul>
-
                     </div>
-
                 </div>
-
-                <!-- /row -->
-
             </div>
-
-            <!-- /container -->
-
         </div>
-
-        <!-- /bottom footer -->
     </footer>
 
     <!-- /FOOTER modal -->
@@ -735,11 +647,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="row" style="padding:15px">
-                        <label for="" style="color:red; display:none; text-align:center"
-                            id="lbl-error">Debe agregar un email valido para continuar</label>
+                        <label for="" style="color:red; display:none; text-align:center" id="lbl-error">Debe agregar un email valido para continuar</label>
                         <input id="email-session" type="text" class="form-control" placeholder="Email"><br>
-                        <button id="verificar-session" type="button"
-                            class="btn btn-default center-block">Continuar</button>
+                        <button id="verificar-session" type="button" class="btn btn-default center-block">Continuar</button>
                     </div>
                 </div>
                 <!-- <div class="modal-footer">
@@ -749,12 +659,12 @@
         </div>
     </div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/slick.min.js"></script>
-    <script src="assets/js/nouislider.min.js"></script>
-    <script src="assets/js/jquery.zoom.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/slick.min.js') }}"></script>
+    <script src="{{ asset('assets/js/nouislider.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.zoom.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
     <script>
         var _Url = "{{ url('/') }}/";
     </script>
@@ -762,203 +672,186 @@
 
 
     <script type="text/javascript">
-        const _Url = '<?php echo $GetDomain; ?>';
-        const session = '<?php echo $_SESSION["idunica"]; ?>'
-        // $('#mi_modal').modal({backdrop: 'static', keyboard: false})
-        const verificar_session = document.querySelector("#verificar-session")
-        const email_secction = document.querySelector("#email-session")
-        const lbl_error = document.querySelector("#lbl-error")
-        const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-        if(session == '' || session == null){
-            new Promise((resolve, reject) =>{
-                $.ajax({
-                    url:  _Url+"funciones/status_session.php",
-                    type: "GET",
-                    success:function(response){
-                        resolve(response);
-                    }
-                })
-            }).then(res =>{
-                // console.log(session)
-            })
-        }
+    //     const session = ''
+    //     // $('#mi_modal').modal({backdrop: 'static', keyboard: false})
+    //     const verificar_session = document.querySelector("#verificar-session")
+    //     const email_secction = document.querySelector("#email-session")
+    //     const lbl_error = document.querySelector("#lbl-error")
+    //     const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+    //     if(session == '' || session == null){
+    //         new Promise((resolve, reject) =>{
+    //             $.ajax({
+    //                 url:  _Url+"funciones/status_session.php",
+    //                 type: "GET",
+    //                 success:function(response){
+    //                     resolve(response);
+    //                 }
+    //             })
+    //         }).then(res =>{
+    //             // console.log(session)
+    //         })
+    //     }
     
-    verificar_session.addEventListener("click", (e) => {
-            // e.preventDefault();
-            
-            if(email_secction.value == "" || email_secction.value == null){
-                    lbl_error.style.display = "block"
-            }else if(!emailRegex.test(email_secction.value)){
-                Swal.fire(
-                            'Inente en un momento',
-                            'Debe agregar un email correcto',
-                            'error'
-                            )
-            }else{
-                new Promise((resolve, reject) =>{
-                    // * consulta el esta de la session
-                    // console.log("entrando a la primesa")
-                    $.ajax({
-                            // data: parameters,
-                            url:  _Url+"funciones/create_session.php?email="+email_secction.value,
-                            type: "GET",
+    // verificar_session.addEventListener("click", (e) => {
+    //         if(email_secction.value == "" || email_secction.value == null){
+    //                 lbl_error.style.display = "block"
+    //         }else if(!emailRegex.test(email_secction.value)){
+    //             Swal.fire(
+    //                         'Inente en un momento',
+    //                         'Debe agregar un email correcto',
+    //                         'error'
+    //                         )
+    //         }else{
+    //             new Promise((resolve, reject) =>{
+    //                 $.ajax({
+    //                         // data: parameters,
+    //                         url:  _Url+"funciones/create_session.php?email="+email_secction.value,
+    //                         type: "GET",
                   
-                            beforeSend:function(){
+    //                         beforeSend:function(){
                                
-                            },
-                            success:function(response){
-                                resolve(response);
-                            }
-                        })
-                }).then(res =>{
-                    // console.log('resolviendo el response')
-                    console.log("aaaaaaaaaa 2")
-                    console.log(res)
-                    if(res == 'error'){
-                        console.log("entro en el error")
-                        Swal.fire(
-                            'Inente en un momento',
-                            'Debe agregar un email correcto',
-                            'error'
-                            )
-                    }else{
-                        // * debe llenar la funcion de crear elemento en el carrito
-                        var referencia		= $('.agregacarro').attr('rel'); //id del elemento
-                        var bla             = '1' //cantidad seleccionada
-                        var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla; 
+    //                         },
+    //                         success:function(response){
+    //                             resolve(response);
+    //                         }
+    //                     })
+    //             }).then(res =>{
+    //                 // console.log('resolviendo el response')
+    //                 console.log("aaaaaaaaaa 2")
+    //                 console.log(res)
+    //                 if(res == 'error'){
+    //                     console.log("entro en el error")
+    //                     Swal.fire(
+    //                         'Inente en un momento',
+    //                         'Debe agregar un email correcto',
+    //                         'error'
+    //                         )
+    //                 }else{
+    //                     // * debe llenar la funcion de crear elemento en el carrito
+    //                     var referencia		= $('.agregacarro').attr('rel'); //id del elemento
+    //                     var bla             = '1' //cantidad seleccionada
+    //                     var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla; 
     
-                        console.log("---------------")
-                        console.log(url)
-                        window.location.href= url;
-                    }
-                })
-            }
-    })
-    
-    
-    function href_envio(id){
-        location.href = 'ficha.php?idProducto='+btoa(id);
-    }
-    
-    function agregar_product(rel,stock,estado){
-        if(stock == 0 || estado == 0){
-            Swal.fire({
-            title:'Verifica Stock con su vendedor',
-            icon: 'warning',
-            showCancelButton: false,
-            })
-    
-        }else{
-    
-            var baseurl = '<?php echo $GetDomain; ?>';
-    
-            var referencia		= rel;
-    
-            var bla             = '1' //cantidad seleccionada
-    
-            var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla;
-    
-            window.location.href= url;
-    
-        }
-    
-    }
+    //                     console.log("---------------")
+    //                     console.log(url)
+    //                     window.location.href= url;
+    //                 }
+    //             })
+    //         }
+    // })
     
     
-        var baseurl = '<?php echo $GetDomain; ?>';
+    // function href_envio(id){
+    //     location.href = 'ficha.php?idProducto='+btoa(id);
+    // }
+    
+    // function agregar_product(rel,stock,estado){
+    //     if(stock == 0 || estado == 0){
+    //         Swal.fire({
+    //         title:'Verifica Stock con su vendedor',
+    //         icon: 'warning',
+    //         showCancelButton: false,
+    //         })
+    
+    //     }else{
+    //         var baseurl = _Url;
+    //         var referencia		= rel;
+    //         var bla             = '1' //cantidad seleccionada
+    //         var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla;
+    //         window.location.href= url;
+    //     }
+    
+    // }
     
     
-        //  * boton para agrear al carro
-        $('.agregacarro').click(function(event){
-            event.preventDefault();
-            if(session == "" || session == null){
-                $('#mi_modal').modal('show');
-            }else{
-                fbq('track', 'AddToCart');
-                var codigo_ivana = "codigo_demo_ivana";
-                // * elemento que crea el ingreso del producto
-                var referencia		= $(this).attr('rel'); //id del elemento
-                var bla             = '1' //cantidad seleccionada
-                var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla; 
-                // window.location.href= url;
-            }
-        });
+    //     var baseurl = _Url;
     
-        $(document).ready(function() {
-            $('input[type="checkbox"]').click(function() {
-                var $checked = $('input[type="checkbox"]:checked');
-                var $productsDiv = $('.resfiltro');
-                if ($checked.length > 0) {
-                    $productsDiv.hide();
-                    $checked.each(function() {
-                        var actual  = $(this).val();
-                        $('.' + actual ).fadeIn();
-                        $('html, body').animate({
-                            scrollTop: $('#breadcrumb').offset().top - 150
-                        }, 1000, 'swing');
-                    });
-                } else {
-                    $productsDiv.fadeIn();
-                }
-            });
-        });
-        if ( $("#hastaca").length > 0 ) {
+    //     $('.agregacarro').click(function(event){
+    //         event.preventDefault();
+    //         if(session == "" || session == null){
+    //             $('#mi_modal').modal('show');
+    //         }else{
+    //             fbq('track', 'AddToCart');
+    //             var codigo_ivana = "codigo_demo_ivana";
+    //             // * elemento que crea el ingreso del producto
+    //             var referencia		= $(this).attr('rel'); //id del elemento
+    //             var bla             = '1' //cantidad seleccionada
+    //             var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla; 
+    //         }
+    //     });
     
-            $('html, body').animate({
+    //     $(document).ready(function() {
+    //         $('input[type="checkbox"]').click(function() {
+    //             var $checked = $('input[type="checkbox"]:checked');
+    //             var $productsDiv = $('.resfiltro');
+    //             if ($checked.length > 0) {
+    //                 $productsDiv.hide();
+    //                 $checked.each(function() {
+    //                     var actual  = $(this).val();
+    //                     $('.' + actual ).fadeIn();
+    //                     $('html, body').animate({
+    //                         scrollTop: $('#breadcrumb').offset().top - 150
+    //                     }, 1000, 'swing');
+    //                 });
+    //             } else {
+    //                 $productsDiv.fadeIn();
+    //             }
+    //         });
+    //     });
+    //     if ( $("#hastaca").length > 0 ) {
     
-                scrollTop: $('#hastaca').offset().top - 150
+    //         $('html, body').animate({
     
-            }, 1000, 'swing');
+    //             scrollTop: $('#hastaca').offset().top - 150
     
-        }
+    //         }, 1000, 'swing');
     
-    </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script>
-        function send_newslatter(e){
-            e.preventDefault();
-            let email = document.getElementById("email-newslatter").value;
-            let correccion = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-            if (correccion.exec(email)){
-                let parametros = {"email" : email};
-                const send_newslatter = new Promise((resolve, rejected) =>{
-                    $.ajax({
-                        data: parametros,
-                        type: "POST",
-                        url:  "./funciones/send_newslatter.php", 
-                        beforeSend:function(){
-                            Swal.fire({
-                                html:'<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>',
-                                title: 'Enviando..',
-                                showCloseButton: false,
-                                showCancelButton: false,
-                                focusConfirm: false,
-                                showConfirmButton:false,
-                            })
-                            $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)'); 
-                            $(".swal2-title").css("color","white"); 
-                        },
-                        success:function(response){
-                            resolve(response);
-                        }
-                    });
-                });
+    //     }
+    
+ 
+    //     function send_newslatter(e){
+    //         e.preventDefault();
+    //         let email = document.getElementById("email-newslatter").value;
+    //         let correccion = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+    //         if (correccion.exec(email)){
+    //             let parametros = {"email" : email};
+    //             const send_newslatter = new Promise((resolve, rejected) =>{
+    //                 $.ajax({
+    //                     data: parametros,
+    //                     type: "POST",
+    //                     url:  "./funciones/send_newslatter.php", 
+    //                     beforeSend:function(){
+    //                         Swal.fire({
+    //                             html:'<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>',
+    //                             title: 'Enviando..',
+    //                             showCloseButton: false,
+    //                             showCancelButton: false,
+    //                             focusConfirm: false,
+    //                             showConfirmButton:false,
+    //                         })
+    //                         $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)'); 
+    //                         $(".swal2-title").css("color","white"); 
+    //                     },
+    //                     success:function(response){
+    //                         resolve(response);
+    //                     }
+    //                 });
+    //             });
         
         
-                send_newslatter.then(res=>{
+    //             send_newslatter.then(res=>{
                     
-                    swal.close();
-                    if(res == 'ingresado'){
-                        Swal.fire('Newsletter','Su Email fue agregado correctamente','success');
-                    }else{
-                        Swal.fire('Newsletter','Su Email ya esta en nuestros registros','success');
-                    }
-                });
-            }else{
-                Swal.fire('error','El email es invalido','error');
-            }
-        }
+    //                 swal.close();
+    //                 if(res == 'ingresado'){
+    //                     Swal.fire('Newsletter','Su Email fue agregado correctamente','success');
+    //                 }else{
+    //                     Swal.fire('Newsletter','Su Email ya esta en nuestros registros','success');
+    //                 }
+    //             });
+    //         }else{
+    //             Swal.fire('error','El email es invalido','error');
+    //         }
+    //     }
     
     </script>
     <script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "90872474c6e22cee5d486a671662c849675c91e4c2dc01163e9240e46248b799", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>

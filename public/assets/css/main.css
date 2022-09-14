@@ -1,0 +1,8 @@
+  /* contol de input file de las imagenes */
+  /* #mg-photo2{
+    display: none;
+} */
+
+#img-photo {
+  content: 'Seleccionar Archivo 1';
+}
