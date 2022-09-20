@@ -275,12 +275,7 @@
                 </style>
                 <!-- NAVEGADOR TOBLE -->
                 <div class="col-md-3 clearfix">
-                    <!-- <div id="carrito-responsive" class="visible-xs">
-       <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-        <i class="fa fa-shopping-cart" style="font-size:30px;"></i>
-        <div class="qty"></div>
-       </a>
-      </div> -->
+ 
                     <div class="header-ctn">
                         <div class="dropdown carrito-togle" style="position:absolute;left:5px">
                             <a href="carro.php" onclick="continuarCarritoResponsive()" class="dropdown-toggle"
@@ -310,16 +305,14 @@
                                 <ul class="main-nav nav navbar-nav">
                                     <li class="active"><a href="index.php">Inicio</a></li>
 
-                                    <li><a href="categoria.php?tipo-item=Agricola">Agricola</a></li>
+                                    <li><a class="section-selector" data-type="3">Agricola</a></li>
                                     <li class="divider-vertical"></li>
-                                    <li><a href="categoria.php?tipo-item=Camion y Bus">Camion y Bus</a></li>
+                                    <li><a class="section-selector" data-type="1">Camion y Bus</a></li>
                                     <li class="divider-vertical"></li>
-                                    <li><a href="categoria.php?tipo-item=Industrial">Industrial</a></li>
+                                    <li><a class="section-selector" data-type="2">Industrial</a></li>
                                     <li class="divider-vertical"></li>
-                                    <li><a href="categoria.php?tipo-item=OTR">OTR</a></li>
+                                    <li><a class="section-selector" data-type="4">OTR</a></li>
                                     <li class="divider-vertical"></li>
-                                    <hr>
-                                    <!-- <li><a href="resultados.php?tipo-item=bateria">Baterias</a></li> -->
                                     <li><a href="assets/contacto.php">Contacto</a></li>
                                     <li><a href="ofertas.php" style="color: #FFB03D;">ofertas </a></li>
                                     <li><a href="carro.php">Carrito</a></li>
@@ -346,13 +339,13 @@
                             <ul class="nav nav-justified navbar-nav">
                                 <li><a href="ofertas.php" style="color: #FFB03D;">ofertas </a></li>
 
-                                <li><a href="categoria.php?tipo-item=Agricola">Agricola</a></li>
+                                <li><a class="section-selector" data-type="3" href="#">Agricola</a></li>
                                 <li class="divider-vertical"></li>
-                                <li><a href="categoria.php?tipo-item=Camion y Bus">Camion y Bus</a></li>
+                                <li><a class="section-selector" data-type="1" href="#">Camion y Bus</a></li>
                                 <li class="divider-vertical"></li>
-                                <li><a href="categoria.php?tipo-item=Industrial">Industrial</a></li>
+                                <li><a class="section-selector" data-type="2" href="#">Industrial</a></li>
                                 <li class="divider-vertical"></li>
-                                <li><a href="categoria.php?tipo-item=OTR">OTR</a></li>
+                                <li><a class="section-selector" data-type="4" href="#">OTR</a></li>
                                 <li class="divider-vertical"></li>
                                 <!-- <li><a href="resultados.php?tipo-item=bateria">Baterias</a></li> -->
                                 <li><a href="assets/contacto.php">Contacto</a></li>
@@ -466,49 +459,24 @@
                             <li><a href="despacho.php"><i class="fa fa-truck"></i> Politicas de Despacho</a></li>
                             <li><a href="devolucion.php"><i class="fa fa-truck"></i> Politicas de Devolución</a>
                             </li>
-
-
-
                         </ul>
-
                     </div>
-
                 </div>
-
 
 
                 <div class="col-md-2 col-xs-6 col-md-offset-1">
-
                     <div class="footer">
-
                         <h3 class="footer-title">Categorías</h3>
-
                         <ul class="footer-links">
-
-
-                            <li><a href="categoria.php?tipo-item=Agricola">Agricola</a></li>
-
-
-                            <li><a href="categoria.php?tipo-item=Camion y Bus">Camion y Bus</a></li>
-
-
-                            <li><a href="categoria.php?tipo-item=Industrial">Industrial</a></li>
-
-
-                            <li><a href="categoria.php?tipo-item=OTR">OTR</a></li>
-
-
+                            <li><a class="section-selector" data-type="3">Agricola</a></li>
+                            <li><a class="section-selector" data-type="1">Camion y Bus</a></li>
+                            <li><a class="section-selector" data-type="2">Industrial</a></li>
+                            <li><a class="section-selector" data-type="4">OTR</a></li>
                         </ul>
-
                     </div>
-
                 </div>
 
-
-
                 <div class="clearfix visible-xs"></div>
-
-
 
                 <div class="col-md-2 col-xs-6">
 
@@ -670,7 +638,7 @@
         var _Url = "{{ url('/') }}/";
     </script>
     <script src="{{ asset('assets/js/search.js') }}"></script>
-
+    <script src="{{ asset('assets/js/selector.js') }}"></script>
 
 
     <script type="text/javascript">
