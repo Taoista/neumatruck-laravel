@@ -314,7 +314,9 @@
                                     <li><a class="section-selector" data-type="4">OTR</a></li>
                                     <li class="divider-vertical"></li>
                                     <li><a href="assets/contacto.php">Contacto</a></li>
-                                    <li><a href="ofertas.php" style="color: #FFB03D;">ofertas </a></li>
+                                    @if(oferta_primaria() == true)
+                                    <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas </a></li>
+                                    @endif
                                     <li><a href="carro.php">Carrito</a></li>
                                 </ul>
                                 <!-- /NAV -->
@@ -337,8 +339,9 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav nav-justified navbar-nav">
-                                <li><a href="ofertas.php" style="color: #FFB03D;">ofertas </a></li>
-
+                                @if(oferta_primaria() == true)
+                                <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas </a></li>
+                                @endif
                                 <li><a class="section-selector" data-type="3" href="#">Agricola</a></li>
                                 <li class="divider-vertical"></li>
                                 <li><a class="section-selector" data-type="1" href="#">Camion y Bus</a></li>

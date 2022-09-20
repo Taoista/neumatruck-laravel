@@ -58,7 +58,7 @@ class ProductosController extends Controller{
         }
     }
 
-    //  * oferta activa
+    //  * oferta activa ""primarria
     function activate_oferta(){
         $data = Configuracion::where("tipo", "of")->get()->first()->resultado;
         return $data;

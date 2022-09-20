@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SeccionController;
+use App\Http\Controllers\OfertasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +21,6 @@ Route::get("/busqueda/{key}",[SearchController::class, "busqueda"]);
 
 // * SECCIONES
 Route::get("/categoria/{id_tipe}",[SeccionController::class, "categoria"]);
+
+//  * OFERTAS
+Route::get("/ofertas",[OfertasController::class, "ofertas"]);
