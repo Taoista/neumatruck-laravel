@@ -26,8 +26,9 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css?ver=1.4') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/js/typeahead.css?ver=1.6') }}">
     <link rel="icon" type="image/png" href="{{ asset('assets/img/2.0/favicon.png') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-159179503-1"></script>
-
+    @livewireStyles
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -186,7 +187,7 @@
                     <!-- LOGO -->
                     <div class="col-md-4">
                         <div class="header-logo">
-                            <a href="assets/" class="logo">
+                            <a href="{{ url("./") }}" class="logo">
                                 <img class="img-logo" src="{{ asset('assets/img/logo.png') }}" alt="NeumaTruck"
                                     style="width:300px;">
                             </a>
@@ -196,11 +197,10 @@
                     <!-- SEARCH BAR -->
                     <div class="col-md-7">
                         <div class="header-search">
-                            <form name="buscador-principal" autocomplete="off"
-                                action="assets/resultados.php" method="GET">
+                            <form name="buscador-principal" autocomplete="off">
                                 <div class="autocompletar text-center">
                                     <input id="tipo-busqueda" class="input" name="tipo-item" placeholder="Busca tu Medida" required="">
-                                    <button class="search-btn" type="submit">Buscar</button>
+                                    <button id="btn-search" class="search-btn" type="submit">Buscar</button>
                                 </div>
                             </form>
                         </div>
@@ -665,9 +665,11 @@
     <script src="{{ asset('assets/js/nouislider.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.zoom.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         var _Url = "{{ url('/') }}/";
     </script>
+    <script src="{{ asset('assets/js/search.js') }}"></script>
 
 
 
@@ -859,7 +861,7 @@
 
 
     @yield('content-script')
-
+    @livewireScripts
 </body>
 
 </html>

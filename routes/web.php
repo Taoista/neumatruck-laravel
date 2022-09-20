@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +15,4 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get("/",[IndexController::class, "index"]);
+Route::get("/busqueda/{key}",[SearchController::class, "busqueda"]);
