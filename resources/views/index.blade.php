@@ -58,7 +58,6 @@
         w3.slideshow(".nature", 4000);
     </script>
 
- 
 
     <div class="section">
         <!-- container -->
@@ -93,95 +92,83 @@
         </div>
         <!-- /container -->
     </div>
-    <!-- /SECTION -->
-    <!-- SECTION -->
-    <div class="section index-section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <!-- section title -->
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h3 class="title">Camión y Bus</h3>
-                        <hr class="amarillo">
+  
+
+    <div>
+        <div class="section index-section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- section title -->
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h3 class="title">Camión y Bus</h3>
+                            <hr class="amarillo">
+                        </div>
+                    </div>
+    
+                    <div class="col-md-12">
+                        <div class="row">
+                            
+                            <section class="responsive">
+                                @foreach($camion_bus AS $item)
+                                    @livewire("card.card-index", ["id_producto" => $item->id, key($item->id)])
+                                @endforeach
+                            </section>
+                             
+                        </div>
+                    </div>
+                    <!-- Products tab & slick -->
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+    
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h3 class="title">OTR / INDUSTRIAL</h3>
+                            <hr class="amarillo">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <section class="responsive">
+                                @foreach($otr AS $item)
+                                    @livewire("card.card-index", ["id_producto" => $item->id, key($item->id)])
+                                @endforeach
+                            </section>
+                        </div>
                     </div>
                 </div>
-
-                <div class="col-md-12">
-                    <div class="row">
-                        
+            </div>
+        </div>
+    
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h3 class="title">AGRÍCOLA </h3>
+                            <hr class="amarillo">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
                         <section class="responsive">
-                            @foreach($camion_bus AS $item)
-                                @include("layouts.cards")
+                            @foreach($agricola AS $item)
+                                @livewire("card.card-index", ["id_producto" => $item->id, key($item->id)])
                             @endforeach
                         </section>
-                         
                     </div>
                 </div>
-                <!-- Products tab & slick -->
             </div>
-            <!-- /row -->
         </div>
-        <!-- /container -->
     </div>
-    <!-- /SECTION -->
-    <!-- SECTION -->
-    <div class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <!-- section title -->
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h3 class="title">OTR / INDUSTRIAL</h3>
-                        <hr class="amarillo">
-                    </div>
-                </div>
-                <!-- /section title -->
 
-                <!-- Products tab & slick -->
-                <div class="col-md-12">
-                    <div class="row">
-                        <section class="responsive">
-                            @foreach($otr AS $item)
-                                @include("layouts.cards")
-                            @endforeach
-                        </section>
-                    </div>
-                </div>
-                <!-- Products tab & slick -->
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /SECTION -->
-
-    <!-- SECTION -->
-    <div class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <!-- section title -->
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h3 class="title">AGRÍCOLA </h3>
-                        <hr class="amarillo">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <section class="responsive">
-                        @foreach($agricola AS $item)
-                            @include("layouts.cards")
-                        @endforeach
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 

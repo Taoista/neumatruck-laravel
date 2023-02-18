@@ -5,6 +5,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SeccionController;
 use App\Http\Controllers\OfertasController;
+use App\Http\Controllers\ContactoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +25,9 @@ Route::get("/categoria/{id_tipe}",[SeccionController::class, "categoria"]);
 
 //  * OFERTAS
 Route::get("/ofertas",[OfertasController::class, "ofertas"]);
+
+//  * Contacto
+Route::get("/contacto",[ContactoController::class, "contacto"]);
+// * envio del email
+
+

@@ -13,6 +13,12 @@ function format_money($val)
     return number_format($val, 0, ",", ".");
 }
 
+function set_money($val){
+    $iva = 1.19;
+    $data = round($val * $iva);
+    return  "$ ".number_format($data, 0, ",", ".");
+}
+
 function oferta_primaria()
 {
     $data = Configuracion::where("tipo", "of")->get()->first()->resultado;

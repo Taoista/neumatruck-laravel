@@ -28,7 +28,8 @@
         <div class="row">
 
             @foreach ($productos as $item)
-                @include("layouts.card-general")
+                {{-- @include("layouts.card-general") --}}
+                @livewire("card.card-general", ["id_producto" => $item->id, key($item->id)])
             @endforeach
 
         </div>

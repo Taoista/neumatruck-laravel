@@ -1,4 +1,4 @@
-<div class="col-md-4 col-xs-6 resfiltro marcaGOODRIDE medida ">
+<div class="col-md-4 col-xs-6">
     <div class="product"><a href="ficha.php?idProducto=NDY4">
             <div class="product-img"><img src="{{ $item->img }}">
                 @if($item->oferta == true)

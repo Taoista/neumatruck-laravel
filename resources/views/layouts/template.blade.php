@@ -28,6 +28,8 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/img/2.0/favicon.png') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-159179503-1"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+
     @livewireStyles
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -313,7 +315,7 @@
                                     <li class="divider-vertical"></li>
                                     <li><a class="section-selector" data-type="4">OTR</a></li>
                                     <li class="divider-vertical"></li>
-                                    <li><a href="assets/contacto.php">Contacto</a></li>
+                                    <li><a href="{{ url("./contacto") }}">Contacto</a></li>
                                     @if(oferta_primaria() == true)
                                     <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas </a></li>
                                     @endif
@@ -351,7 +353,7 @@
                                 <li><a class="section-selector" data-type="4" href="#">OTR</a></li>
                                 <li class="divider-vertical"></li>
                                 <!-- <li><a href="resultados.php?tipo-item=bateria">Baterias</a></li> -->
-                                <li><a href="assets/contacto.php">Contacto</a></li>
+                                <li><a href="{{ url("./contacto") }}">Contacto</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container-fluid -->
@@ -367,105 +369,28 @@
 
     @yield('content-general')
 
-
-
-
-    <div id="newsletter" class="section">
-
-        <!-- container -->
-
-        <div class="container">
-
-            <!-- row -->
-
-            <div class="row">
-
-                <div class="col-md-12">
-
-                    <div class="newsletter">
-
-                        <p>Si deseas ser parte de nuestro circulo y recibir nuestro <strong>NEWSLETTER</strong></p>
-
-                        <!-- <form action="procesa-newsletter.php" method="POST" enctype="application/x-www-form-urlencoded">  -->
-                        <form method="POST" enctype="application/x-www-form-urlencoded">
-
-                            <input id="email-newslatter" class="input" type="email" name="email_newsletter"
-                                placeholder="Dirección de Email" required="">
-
-                            <button onclick="send_newslatter(event)" class="newsletter-btn" type="submit"><i
-                                    class="fa fa-envelope"></i> Suscribete</button>
-
-                        </form>
-
-                        <ul class="newsletter-follow">
-
-                            <li><a target="_blank" href="https://www.facebook.com/neumatruck.cl/"><i
-                                        class="fa fa-facebook"></i></a></li>
-
-                            <li><a target="_blank"
-                                    href="https://web.whatsapp.com/send?phone=56954104080&amp;text=Estoy%20interesado%20en%20sus%20productos"><i
-                                        class="fa fa-whatsapp"></i></a></li>
-
-                            <li><a target="_blank" href="https://www.instagram.com/neumatruck.cl/"><i
-                                        class="fa fa-instagram"></i></a></li>
-
-                            <li><a target="_blank" href="mailto:contacto@neumatruck.cl"><i
-                                        class="fa fa-envelope-o"></i></a></li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- /row -->
-
-        </div>
-
-        <!-- /container -->
-
-    </div>
-
-    <!-- /NEWSLETTER -->
+    @livewire("newslatter")
+    
 
     <footer id="footer">
-
-        <!-- top footer -->
-
         <div class="section">
-
-            <!-- container -->
-
             <div class="container">
-
-                <!-- row -->
-
                 <div class="col-md-3 col-xs-6">
-
                     <div class="footer">
-
                         <h3 class="footer-title">Nosotros</h3>
-
                         <p class="text-justify">
-
                             NeumaTruck.cl es una de las principales comercializadoras de marcas líderes de neumáticos
                             para camión y buses, y líneas pesadas. Importamos solo marcas innovadoras con productos de
                             alta tecnología en la industria.
                             Stock sujeto a cambios sin previo aviso
-
                         </p>
-
                         <ul class="footer-links">
-
                             <li><a href="despacho.php"><i class="fa fa-truck"></i> Politicas de Despacho</a></li>
                             <li><a href="devolucion.php"><i class="fa fa-truck"></i> Politicas de Devolución</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-
 
                 <div class="col-md-2 col-xs-6 col-md-offset-1">
                     <div class="footer">
@@ -478,43 +403,23 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="clearfix visible-xs"></div>
-
                 <div class="col-md-2 col-xs-6">
-
                     <div class="footer">
-
                         <h3 class="footer-title">Marcas</h3>
-
                         <ul class="footer-links">
-
                             <li><a href="marcas.php?marca=Pirelli&amp;idm=9">Pirelli</a></li>
-
                             <li><a href="marcas.php?marca=Dunlop&amp;idm=20">Dunlop</a></li>
-
                             <li><a href="marcas.php?marca=Fesite&amp;idm=16">Fesite</a></li>
-
                             <li><a href="marcas.php?marca=Windforce&amp;idm=8">Windforce</a></li>
-
                         </ul>
-
                     </div>
-
                 </div>
-
-
-
                 <div class="col-md-4 col-xs-6">
-
                     <div class="footer">
-
                         <h3 class="footer-title">Contacto</h3>
-
                         <ul class="footer-links">
-
                             <ul class="footer-links">
-
                                 <li><a href="assets/contacto.php"><i class="fa fa-map-marker"></i>Santa Margarita 0448 - Santiago</a></li>
                                 <li><a href="tel:+56964965790"><i class="fa fa-phone"></i>+569 6496 5790</a></li>
                                 <li><a href="tel:+56224846042"><i class="fa fa-phone"></i>+56 2 2484 6042</a></li>
@@ -522,11 +427,8 @@
                                 <li><a href="tel:+56224846070"><i class="fa fa-phone"></i>+56 2 2484 6070</a></li>
                                 <li><a href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
                                 <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li>
-
                             </ul>
-
                         </ul>
-
                     </div>
 
                 </div>
@@ -536,16 +438,6 @@
             <!-- /row -->
 
         </div>
-
-        <!-- /container -->
-
-
-
-        <!-- /top footer -->
-
-
-
-        <!-- bottom footer -->
 
         <div id="bottom-footer" class="section">
 
@@ -606,29 +498,6 @@
     </footer>
 
     <!-- /FOOTER modal -->
-    <div class="modal fade" id="mi_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">×</span><span class="sr-only">Cerrar</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">Agrega tu correo</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row" style="padding:15px">
-                        <label for="" style="color:red; display:none; text-align:center" id="lbl-error">Debe agregar un email valido para continuar</label>
-                        <input id="email-session" type="text" class="form-control" placeholder="Email"><br>
-                        <button id="verificar-session" type="button" class="btn btn-default center-block">Continuar</button>
-                    </div>
-                </div>
-                <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        </div> -->
-            </div>
-        </div>
-    </div>
 
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
@@ -639,200 +508,19 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         var _Url = "{{ url('/') }}/";
+        let validador_email = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
+
     </script>
     <script src="{{ asset('assets/js/search.js') }}"></script>
     <script src="{{ asset('assets/js/selector.js') }}"></script>
 
+    
 
-    <script type="text/javascript">
-    //     const session = ''
-    //     // $('#mi_modal').modal({backdrop: 'static', keyboard: false})
-    //     const verificar_session = document.querySelector("#verificar-session")
-    //     const email_secction = document.querySelector("#email-session")
-    //     const lbl_error = document.querySelector("#lbl-error")
-    //     const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-    //     if(session == '' || session == null){
-    //         new Promise((resolve, reject) =>{
-    //             $.ajax({
-    //                 url:  _Url+"funciones/status_session.php",
-    //                 type: "GET",
-    //                 success:function(response){
-    //                     resolve(response);
-    //                 }
-    //             })
-    //         }).then(res =>{
-    //             // console.log(session)
-    //         })
-    //     }
-    
-    // verificar_session.addEventListener("click", (e) => {
-    //         if(email_secction.value == "" || email_secction.value == null){
-    //                 lbl_error.style.display = "block"
-    //         }else if(!emailRegex.test(email_secction.value)){
-    //             Swal.fire(
-    //                         'Inente en un momento',
-    //                         'Debe agregar un email correcto',
-    //                         'error'
-    //                         )
-    //         }else{
-    //             new Promise((resolve, reject) =>{
-    //                 $.ajax({
-    //                         // data: parameters,
-    //                         url:  _Url+"funciones/create_session.php?email="+email_secction.value,
-    //                         type: "GET",
-                  
-    //                         beforeSend:function(){
-                               
-    //                         },
-    //                         success:function(response){
-    //                             resolve(response);
-    //                         }
-    //                     })
-    //             }).then(res =>{
-    //                 // console.log('resolviendo el response')
-    //                 console.log("aaaaaaaaaa 2")
-    //                 console.log(res)
-    //                 if(res == 'error'){
-    //                     console.log("entro en el error")
-    //                     Swal.fire(
-    //                         'Inente en un momento',
-    //                         'Debe agregar un email correcto',
-    //                         'error'
-    //                         )
-    //                 }else{
-    //                     // * debe llenar la funcion de crear elemento en el carrito
-    //                     var referencia		= $('.agregacarro').attr('rel'); //id del elemento
-    //                     var bla             = '1' //cantidad seleccionada
-    //                     var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla; 
-    
-    //                     console.log("---------------")
-    //                     console.log(url)
-    //                     window.location.href= url;
-    //                 }
-    //             })
-    //         }
-    // })
-    
-    
-    // function href_envio(id){
-    //     location.href = 'ficha.php?idProducto='+btoa(id);
-    // }
-    
-    // function agregar_product(rel,stock,estado){
-    //     if(stock == 0 || estado == 0){
-    //         Swal.fire({
-    //         title:'Verifica Stock con su vendedor',
-    //         icon: 'warning',
-    //         showCancelButton: false,
-    //         })
-    
-    //     }else{
-    //         var baseurl = _Url;
-    //         var referencia		= rel;
-    //         var bla             = '1' //cantidad seleccionada
-    //         var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla;
-    //         window.location.href= url;
-    //     }
-    
-    // }
-    
-    
-    //     var baseurl = _Url;
-    
-    //     $('.agregacarro').click(function(event){
-    //         event.preventDefault();
-    //         if(session == "" || session == null){
-    //             $('#mi_modal').modal('show');
-    //         }else{
-    //             fbq('track', 'AddToCart');
-    //             var codigo_ivana = "codigo_demo_ivana";
-    //             // * elemento que crea el ingreso del producto
-    //             var referencia		= $(this).attr('rel'); //id del elemento
-    //             var bla             = '1' //cantidad seleccionada
-    //             var url             = baseurl + "carrito-accion.php?idpro="+referencia+"&accion=sumform&cantidad=" + bla; 
-    //         }
-    //     });
-    
-    //     $(document).ready(function() {
-    //         $('input[type="checkbox"]').click(function() {
-    //             var $checked = $('input[type="checkbox"]:checked');
-    //             var $productsDiv = $('.resfiltro');
-    //             if ($checked.length > 0) {
-    //                 $productsDiv.hide();
-    //                 $checked.each(function() {
-    //                     var actual  = $(this).val();
-    //                     $('.' + actual ).fadeIn();
-    //                     $('html, body').animate({
-    //                         scrollTop: $('#breadcrumb').offset().top - 150
-    //                     }, 1000, 'swing');
-    //                 });
-    //             } else {
-    //                 $productsDiv.fadeIn();
-    //             }
-    //         });
-    //     });
-    //     if ( $("#hastaca").length > 0 ) {
-    
-    //         $('html, body').animate({
-    
-    //             scrollTop: $('#hastaca').offset().top - 150
-    
-    //         }, 1000, 'swing');
-    
-    //     }
-    
- 
-    //     function send_newslatter(e){
-    //         e.preventDefault();
-    //         let email = document.getElementById("email-newslatter").value;
-    //         let correccion = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-    //         if (correccion.exec(email)){
-    //             let parametros = {"email" : email};
-    //             const send_newslatter = new Promise((resolve, rejected) =>{
-    //                 $.ajax({
-    //                     data: parametros,
-    //                     type: "POST",
-    //                     url:  "./funciones/send_newslatter.php", 
-    //                     beforeSend:function(){
-    //                         Swal.fire({
-    //                             html:'<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>',
-    //                             title: 'Enviando..',
-    //                             showCloseButton: false,
-    //                             showCancelButton: false,
-    //                             focusConfirm: false,
-    //                             showConfirmButton:false,
-    //                         })
-    //                         $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)'); 
-    //                         $(".swal2-title").css("color","white"); 
-    //                     },
-    //                     success:function(response){
-    //                         resolve(response);
-    //                     }
-    //                 });
-    //             });
-        
-        
-    //             send_newslatter.then(res=>{
-                    
-    //                 swal.close();
-    //                 if(res == 'ingresado'){
-    //                     Swal.fire('Newsletter','Su Email fue agregado correctamente','success');
-    //                 }else{
-    //                     Swal.fire('Newsletter','Su Email ya esta en nuestros registros','success');
-    //                 }
-    //             });
-    //         }else{
-    //             Swal.fire('error','El email es invalido','error');
-    //         }
-    //     }
-    
-    </script>
-    <script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "90872474c6e22cee5d486a671662c849675c91e4c2dc01163e9240e46248b799", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
+    {{-- <script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "90872474c6e22cee5d486a671662c849675c91e4c2dc01163e9240e46248b799", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script> --}}
     @stack("scripts")
-
 
     @yield('content-script')
     @livewireScripts
-</body>
 
+    </body>
 </html>
