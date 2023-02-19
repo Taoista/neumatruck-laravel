@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Configuracion;
 use App\Models\Ofertas;
+use App\Models\Carrito;
 use App\Models\OfertasControll AS OC;
+use Cookie;
 
 class ProductosController extends Controller{
 
@@ -68,6 +70,35 @@ class ProductosController extends Controller{
     public function value_oferta($id_producto){
         return Ofertas::select("p_oferta")->where("id_producto", $id_producto)->first()->p_oferta;
     }
+
+
+    // * function que toma el neto del carrito
+
+    public function get_sub_total()
+    {
+        $value = strtolower(base64_decode(Cookie::get('nt_session')));
+
+        $productos = Carrito::select("p.id", "carrito.cantidad", "p.p_venta","p.oferta")
+                        ->join("productos AS p", "p.id", "carrito.id_producto")
+                        ->where("carrito.email", $value)->get();
+          // * carlos productos en la cantidad
+
+        $total = 0;
+
+        foreach ($productos AS $item) {
+            if($item->oferta == true){
+                if($this->state_oferta($item->id) == true){
+                    $total += $this->value_oferta($item->id) * $item->cantidad;
+                }else{
+                    $total += $item->p_venta * $item->cantidad;
+                }
+            }else{
+                $total += $item->p_venta * $item->cantidad;
+            }
+        }
+        return $total;        
+    }
+
 
 
 }
