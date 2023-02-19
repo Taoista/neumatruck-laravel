@@ -6,6 +6,8 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SeccionController;
 use App\Http\Controllers\OfertasController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\FichaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,5 +31,13 @@ Route::get("/ofertas",[OfertasController::class, "ofertas"]);
 //  * Contacto
 Route::get("/contacto",[ContactoController::class, "contacto"]);
 // * envio del email
+
+// * carrito
+Route::get("/carrito",[CarritoController::class, "carrito"]);
+
+// * ficha del producto
+
+Route::get("/ficha/{id_producto}",[FichaController::class, "ficha"]);
+
 
 

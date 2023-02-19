@@ -29,6 +29,8 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-159179503-1"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    
+    @yield('content-css')
 
     @livewireStyles
     <script>
@@ -211,15 +213,17 @@
                     <!-- ACCOUNT -->
                     <div class="col-md-1 clearfix">
                         <div class="header-ctn cton-carrito">
-
                             <!-- Cart -->
-                            <div class="dropdown ">
-                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                    <i class="fa fa-shopping-cart" style="font-size:35px;"></i>
-                                    <div class="qty">0</div>
-                                </a>
-                            </div>
-                            <!-- /Cart -->
+                            @livewire("icon-carrito")
+                            {{-- <div class="dropdown ">
+								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+									<i class="fa fa-shopping-cart" style="font-size:35px;"></i>
+									<div class="qty">0</div>
+								</a>
+							</div> --}}
+
+                           
+
                         </div>
                         <!-- <i class="fa fa-shopping-cart"></i> -->
                     </div>
@@ -278,23 +282,21 @@
                 <!-- NAVEGADOR TOBLE -->
                 <div class="col-md-3 clearfix">
  
-                    <div class="header-ctn">
+                    @livewire("icon-carrito-responsive")
+                    {{-- <div class="header-ctn">
                         <div class="dropdown carrito-togle" style="position:absolute;left:5px">
-                            <a href="carro.php" onclick="continuarCarritoResponsive()" class="dropdown-toggle"
-                                data-toggle="dropdown" aria-expanded="true">
+                            <a href="carro.php" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <i class="fa fa-shopping-cart" style="font-size:40px;"></i>
                                 <div id="contenido-cantidad" class="qty">0</div>
                             </a>
                         </div>
-                        <!-- Menu Toogle -->
                         <div class="menu-toggle">
                             <a href="#" onclick="mostrarTogle()">
                                 <i class="fa fa-bars"></i>
                                 <span>Menu</span>
                             </a>
                         </div>
-                        <!-- /Menu Toogle -->
-                    </div>
+                    </div> --}}
                 </div>
                 <nav>
                     <!-- container -->

@@ -31,5 +31,18 @@ function oferta_secundaria()
     return $data;
 }
 
+function min_stock()
+{
+    $data = Configuracion::where("tipo", "minimo_stock")->get()->first()->resultado;
+    return $data;
+}
+
+// * toma el conteo del carrito
+// ! borrar
+function get_total_carrito()
+{
+    return 100;
+}
+
 
 ?>

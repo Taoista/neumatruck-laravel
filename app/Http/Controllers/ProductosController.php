@@ -15,6 +15,7 @@ class ProductosController extends Controller{
 
     // * MAIN del controll oferta
     function state_oferta($id_producto){
+        // ? VERFIICA SI ESTA ACTIVO LAS OFERTAS
         if($this->activate_oferta() == 1){
             $data = Ofertas::select("estado","controll")
                             ->where("id_producto", $id_producto)

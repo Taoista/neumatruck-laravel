@@ -8,41 +8,35 @@ use App\Models\Carrito;
 use App\Http\Controllers\ProductosController;
 use Cookie;
 
-class CardIndex extends Component
+class ButtonAdd extends Component
 {
 
     public $id_producto;
 
-    public function mount()
-    {
-        // dd($this->id_producto);
-    }
 
     public function render()
     {
 
         $item = $this->data_producto();
-        // dd($data->nombre);
-        // $nombre = $data->nombre;
 
         $controller = new ProductosController();
 
-        return view('livewire.card.card-index', compact('item', 'controller'));
+        return view('livewire.card.button-add' , compact('item', 'controller'));
     }
 
     public function data_producto()
     {
-        $data = Productos::select("productos.id", "productos.codigo", "productos.nombre", "productos.p_sistema",
-                                "productos.p_venta", "m.marca", "productos.img", "productos.stock")
-                    ->join("marcas AS m", "productos.id_marca", "m.id")
+        $data = Productos::select("productos.id")
                     ->where("productos.id", $this->id_producto)->get()->first();
 
         return $data;
     }
 
+    
     function show_modal($id, $cantidad = 1)
     {
         $value = Cookie::get('nt_session');
+
         // ? crear la session
         if($value == null){
             // ? abre el modal para agregar el email al carrito
@@ -73,6 +67,7 @@ class CardIndex extends Component
         $this->dispatchBrowserEvent("save_producto");
         return false;
     }
+
 
     public function add_card($id, $email = null, $cantidad = 1)
     {

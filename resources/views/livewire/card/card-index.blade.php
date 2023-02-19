@@ -1,7 +1,7 @@
 <div>
     
     <div class="product slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 263px;">
-        <div class="product-img"><a href="" tabindex="-1"><img src="{{ $item->img }}">
+        <div class="product-img"><a href="{{ url('./ficha').'/'.$item->id }}" tabindex="-1"><img src="{{ $item->img }}">
                 @if($item->oferta == true)
                     @if($controller->state_oferta($item->id) == true)
                     <div class="product-label-oferta"><span class="new">OFERTAS </span></div>
@@ -14,7 +14,7 @@
         </a>
         <div class="product-body"><br>
             <div class="product-label"></div>
-            <h3 class="product-name"><a href="#">{{ $item->nombre }}</a></h3>
+            <h3 class="product-name"><a href="{{ url('./ficha').'/'.$item->id }}">{{ $item->nombre }}</a></h3>
             @if($item->oferta == true)
                 @if($controller->state_oferta($item->id) == true)
                 <h4 class="product-price" style="color:red">OFERTA {{ "$ ".format_money(set_total($controller->value_oferta($item->id))) }}</h4>
@@ -72,7 +72,6 @@
 
     <script>
 
-        let validador_email = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
 
         document.addEventListener("livewire:load", function(){
 
@@ -102,7 +101,6 @@
                 },
                 add_card(id){
                     const email = document.querySelector("#email-session-"+id).value;
-                    console.log(email)
                     if(email == ""){
                         Swal.fire('Email','Debe Agregar un email para continuar','error')
                         return false;
