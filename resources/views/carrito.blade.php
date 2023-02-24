@@ -113,7 +113,7 @@
 
                             <div class="row">
         
-                                <a href="checkout.php" class="primary-btn pull-right order-submit" style="margin: 0 30px;">Continuar</a>
+                                <a href="{{ url('./checkout') }}" class="primary-btn pull-right order-submit" style="margin: 0 30px;">Continuar</a>
                                 </div>
                                     <div class="col-md-12">
                                         <p></p>

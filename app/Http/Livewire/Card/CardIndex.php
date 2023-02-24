@@ -78,12 +78,18 @@ class CardIndex extends Component
     {
         $value = Cookie::get('nt_session');
         if($value == null){
-            $carrito = new Carrito;
-            $carrito->email = strtolower($email);
-            $carrito->id_producto = $id;
-            $carrito->cantidad = $cantidad;
-            $carrito->save();
-
+            // ? busca el producto si existe
+            $data = Carrito::where("email", $email)->where("id_producto", $id)->get();
+            // ? si no existe
+            if(count($data) == 0){
+                $carrito = new Carrito;
+                $carrito->email = strtolower($email);
+                $carrito->id_producto = $id;
+                $carrito->cantidad = $cantidad;
+                $carrito->save();
+            }else{
+                Carrito::where("id", $data->first()->id)->update(["cantidad" => $data->first()->cantidad + $cantidad]);
+            }
             //  * crea las ession
             $time = 60 * 1;
 
@@ -95,6 +101,9 @@ class CardIndex extends Component
             $this->dispatchBrowserEvent("save_producto");
             return false;
         }
+
+        
+
 
         dd("hola mundo".$id);
     }

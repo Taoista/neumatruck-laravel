@@ -8,6 +8,7 @@ use App\Http\Controllers\OfertasController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\FichaController;
+use App\Http\Controllers\CheckoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +39,10 @@ Route::get("/carrito",[CarritoController::class, "carrito"]);
 // * ficha del producto
 
 Route::get("/ficha/{id_producto}",[FichaController::class, "ficha"]);
+
+// * checkout
+Route::get("/checkout",[CheckoutController::class, "checkout"]);
+
 
 
 

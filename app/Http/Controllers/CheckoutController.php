@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Cookie;
 
-
-
-class CarritoController extends Controller
+class CheckoutController extends Controller
 {
-    
-    function carrito()
+    function checkout()
     {
         $value = Cookie::get('nt_session');
         if($value == null){
@@ -23,7 +20,7 @@ class CarritoController extends Controller
         $data = base64_encode($email);
         Cookie::queue("nt_session", $data, $time);
 
-        return view("carrito");
-    }
 
+        return view("checkout");
+    }
 }
