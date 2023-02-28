@@ -29,7 +29,7 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-159179503-1"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
-    
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('content-css')
 
     @livewireStyles

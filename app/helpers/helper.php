@@ -44,5 +44,10 @@ function get_total_carrito()
     return 100;
 }
 
+// * estado del software 
+function state_production(){
+    $data = Configuracion::select("resultado")->where("tipo", "production")->get()->first()->resultado;
+    return $data == 1? true : false;
+}
 
 ?>

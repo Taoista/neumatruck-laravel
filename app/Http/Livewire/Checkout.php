@@ -166,35 +166,36 @@ class Checkout extends Component
              dd("Algunas de las variables están vacías");
              return false;
         } 
-
         if($this->selected_delivery == 2 AND ($this->selected_region == 0 OR $this->id_ciudad == 0)){
             dd("falta la direccion");
             return false;
         }
 
-        if($this->val_despacho == 0 OR $this->direccion == "" ){
+        if($this->selected_delivery == 2 AND $this->direccion == "" ){
             dd("falta la direccion");
             return false;
         }
 
         $compras= new Compras;
-        $compras->rut = '';
-        $compras->nombre = '';
-        $compras->email = '';
-        $compras->telefono = '';
-        $compras->contacto = '';
-        $compras->tipo_delivery = '';
-        $compras->id_ciudad = '';
-        $compras->direccion = '';
-        $compras->nota  = '';
-        $compras->neto = '';
-        $compras->iva = '';
-        $compras->delivery = '';
-        $compras->total = '';
-        $compras->dave();
+        $compras->id_plataforma = 1;
+        $compras->rut = $this->rut_empresa;
+        $compras->nombre = strtolower($this->razon_social);
+        $compras->email = strtolower($this->email);
+        $compras->telefono = $this->fono;
+        $compras->contacto = strtolower($this->contacto);
+        $compras->tipo_delivery = $this->selected_delivery;
+        $compras->id_ciudad = $this->id_ciudad;
+        $compras->direccion = $this->direccion;
+        $compras->nota  = $this->mensaje;
+        $compras->neto = $this->neto;
+        $compras->iva = $this->iva;
+        $compras->delivery = $this->val_despacho;
+        $compras->total = $this->total_pago;
+        $compras->save();
 
+        $this->dispatchBrowserEvent("loading_tbk", ["id_compra" => $compras->id]);
 
-        dd("enviando compra tbk");
+        // dd("enviando compra tbk");
 
     }
 

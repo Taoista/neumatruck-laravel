@@ -1,5 +1,5 @@
 <div>
-    <div class="section">
+    <div class="section" x-data="component_tbk()" x-init="demo()">
         <div class="container">
             <div class="row">
             {{-- <form class="checkout" > --}}
@@ -7,7 +7,7 @@
                     <div class="billing-details">
                         <div class="section-title">+
                             <img src="" alt="">
-                            <h3 class="title">Datos de Contacto</h3>
+                            <h3 class="title">Datos de Contacto / Facturacion </h3>
                         </div>
                         <div class="form-group">
                             <input class="input" type="text" name="rut_empresa" wire:model="rut_empresa" placeholder="Rut" maxlength="12" pattern="\d{3,8}-[\d|kK]{1}" required="">
@@ -136,7 +136,8 @@
                         </div>
                     </div>
     
-                    <button class="primary-btn btn-block order-submit btsubmit" wire:click="pgo_tbk">Realizar Pago</button><br>
+                    <button class="primary-btn btn-block order-submit btsubmit" wire:click="pgo_tbk" wire:loading.remove>Realizar Pago</button><br>
+                    <button class="primary-btn btn-block" wire:loading  wire:target="pgo_tbk" style="color:black" ><img style='width:20px' src="{{ asset('assets/img/loading-black.svg') }}" alt="">Cargando...</button><br>
                     <div class="text-center">
                         <p style="color:#ffb03d;"><i class="fa fa-truck"></i></p>
                         <p>* Despacho gratis en toda RM.</p>
@@ -158,6 +159,15 @@
 @push("scripts")
 
     <script>
+
+        function component_tbk(){
+            return {
+                demo(){
+                    // alert("comopnente de alpinejs")
+                }
+            }
+        }
+
         document.addEventListener("livewire:load", function(){
 
 
@@ -167,6 +177,35 @@
 
             window.addEventListener("error_region", (e) => {
                 Swal.fire('Delivery','Debe seleccionar region y ciudad cara continuar','error')
+            });
+
+
+            window.addEventListener("loading_tbk", (e) => {
+                const  id_compra = event.detail.id_compra
+
+
+                const parameters = {"id_compra" : id_compra}
+
+                // console.log($('meta[name="csrf-token"]').attr('content'))
+
+                new Promise((resolve, reject) =>{
+                    $.ajax({
+                        data: parameters,
+                        url:  _Url+"api/iniciar_compra",
+                        type: "POST",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        beforeSend:function(){
+                        },
+                        success:function(response){
+                            console.log(response)
+                            resolve(response);
+                        }
+                    })
+                }).then(res => {
+                    window.location.href = res;
+                })
             });
 
            
