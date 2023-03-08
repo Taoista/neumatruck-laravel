@@ -6,12 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\ConfiguracionData;
 use App\Models\Transbank;
 use App\Models\Compras;
+use App\Models\Productos;
+use App\Models\Carrito;
+use App\Models\ComprasProductos;
 
 use Transbank\Webpay\WebpayPlus;
 use Transbank\Webpay\WebpayPlus\Transaction;
 
 use App\Mail\ComprobanteCompra;
 use Illuminate\Support\Facades\Mail;
+
+use App\Http\Controllers\ProductosController;
 
 class TransbankController extends Controller
 {
@@ -65,6 +70,9 @@ class TransbankController extends Controller
         $confirmacion = (new Transaction)->commit($request->get("token_ws"));
 
         if($confirmacion->isApproved()){
+            $controller = new ProductosController();
+
+
             $id_order = $confirmacion->buyOrder;
             // $tbk = Transbank::where("id", $id_order)->first();
             Transbank::where("id", $id_order)
@@ -80,11 +88,38 @@ class TransbankController extends Controller
             Compras::where("id", $id_compra)->update(["id_tbk" => $id_order]);
             $email = Compras::select('email')->where("id", $id_compra)->get()->first()->email;
             // ? busca los productos en el carrito para poder agregarlos a COMPRAS_PRODUCTOS
-            $compras_productos = 
+            $compras_productos = Carrito::where("email", $email)->get();
+
+            foreach ($compras_productos AS $item) {
+                $state_oferta = 0;
+                $precio_original = Productos::select("p_venta")->where("id", $item->id_producto)->get()->first()->p_venta;
+                $precio_final = $precio_original;
+                if($item->oferta == true){
+                    if($controller->state_oferta($item->id) == true){
+                        $state_oferta = 1;
+                        $precio_final = $controller->value_oferta($item->id_producto);
+                    }else{
+                        $state_oferta = 0;
+                        $precio_final = $precio_original;
+                    }
+                }else{
+                    $state_oferta = 0;
+                    $precio_final = $precio_original;
+                }
+
+                ComprasProductos::insert([
+                    "id_compra" => $id_compra,
+                    "id_producto" => $item->id_producto,
+                    "cantidad" => $item->cantidad,
+                    "p_original" => $precio_original,
+                    "oferta" => $state_oferta,
+                    "p_venta" => $precio_final
+                ]);
+            }
 
 
             // ? se debe enviar el correo
-            $correo = new ComprobanteCompra;
+            $correo = new ComprobanteCompra($id_compra);
 
 
             Mail::to($email)->send($correo);

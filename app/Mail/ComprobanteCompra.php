@@ -8,6 +8,8 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Transbank;
 use App\Models\Compras;
+use App\Models\ComprasProductos;
+
 
 class ComprobanteCompra extends Mailable
 {
@@ -34,12 +36,17 @@ class ComprobanteCompra extends Mailable
      */
     public function build()
     {
-        return $this->view('email.comprobante_compra');
+
+        $productos = $this->data_compra();
+
+        return $this->view('email.comprobante_compra', compact("productos"));
     }
 
     function data_compra()
     {
-        $data = Compras
+        $data = ComprasProductos::select("p.codigo", "p.nombre", "p.img", "compras_productos.p_venta", "compras_productos.cantidad", "compras_productos.oferta")
+                ->join("productos AS p", "compras_productos.id_producto", "p.id")
+                ->where("compras_productos.id_compra", $this->id_compra)->get();
     }
 
 }
