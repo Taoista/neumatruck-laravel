@@ -1,11 +1,25 @@
 <?php
 use App\Models\Configuracion;
+use App\Models\ConfiguracionDato;
+use App\Models\ConfiguracionPhono;
 
 
 function set_total($price)
 {
     $iva = 1.19;
     return round($price * $iva);
+}
+
+// * toma los telefonos listados
+function get_phones()
+{
+    return ConfiguracionPhono::orderby("orden", "desc")->get();
+}
+
+// * telefono header de ventas
+function phone_main()
+{
+    return ConfiguracionDato::select("result")->where("data", "fono-venta")->get()->first()->result;
 }
 
 function format_money($val)

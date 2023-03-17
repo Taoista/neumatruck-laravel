@@ -159,17 +159,14 @@
             <div id="div-interno-header" class="container" style="display:flex;justify-content:center">
                 <ul class="header-links pull-left">
                     <li><a id="tel-text-fono" class="ul-telefonos" href="#">Fono ventas:</a></li>
-                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:+56964965790"><i class="fa fa-phone"></i>+569 6496 5790</a></li>
-                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:+56224846042"><i class="fa fa-phone"></i>+56 2 2484 6042</a></li>
-                    <li><a id="tel-max-second" class="ul-telefonos" href="tel:+56946649909"><i class="fa fa-phone"></i>+569 4664 9909</a></li>
-                    <li><a id="tel-max-second" class="ul-telefonos" href="tel:+56224846070"><i class="fa fa-phone"></i>+56 2 2484 6070</a></li>
+                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:{{ phone_main() }}"><i class="fa fa-phone"></i>{{ phone_main() }}</a></li>
                 </ul>
             </div>
             <!-- flex -->
             <div id="div-interno-header telefono-fijo" class="container" style="justify-content:center">
                 <ul>
                     <li><a id="tel-text-fono-fijo" style="color:white;font-size:23px" class="ul-telefonos-fijo"
-                            href="tel:+56946649909"><i class="fa fa-phone" style="color:#ffb03d"></i> +569 4664 9909</a>
+                            href="tel:+56946649909"><i class="fa fa-phone" style="color:#ffb03d"></i>{{ phone_main() }}</a>
                     </li>
                 </ul>
             </div>
@@ -423,10 +420,9 @@
                         <ul class="footer-links">
                             <ul class="footer-links">
                                 <li><a href="assets/contacto.php"><i class="fa fa-map-marker"></i>Santa Margarita 0448 - Santiago</a></li>
-                                <li><a href="tel:+56964965790"><i class="fa fa-phone"></i>+569 6496 5790</a></li>
-                                <li><a href="tel:+56224846042"><i class="fa fa-phone"></i>+56 2 2484 6042</a></li>
-                                <li><a href="tel:+56946649909"><i class="fa fa-phone"></i>+569 4664 9909</a></li>
-                                <li><a href="tel:+56224846070"><i class="fa fa-phone"></i>+56 2 2484 6070</a></li>
+                                @foreach (get_phones() as $item )
+                                <li><a href="tel:{{ $item->telefono }}"><i class="fa fa-phone"></i>{{ $item->telefono }}</a></li>
+                                @endforeach
                                 <li><a href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
                                 <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li>
                             </ul>
