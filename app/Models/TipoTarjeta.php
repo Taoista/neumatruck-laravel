@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ConfiguracionDato extends Model
+class TipoTarjeta extends Model
 {
     use HasFactory;
-    protected $table = "configuracion_data"; 
+    protected $table = "tipo_tarjeta"; 
     public $timestamps = false;
 }

@@ -31,7 +31,7 @@ class Carrito extends Component
 
         $sub_total = $controller->get_sub_total();
 
-        $iva = $sub_total * 0.10;
+        $iva = $sub_total * 0.19;
 
         return view('livewire.carrito', compact('controller', 'sub_total', "iva"));
     }
@@ -52,12 +52,14 @@ class Carrito extends Component
         return $productos;
     }
 
+    // * eleeimina un elemento del carrito
     function delete_item($id_producto)
     {
         $value = base64_decode(Cookie::get('nt_session'));
 
         Cart::where("email", $value)->where("id_producto", $id_producto)->delete();
 
+        $this->productos = $this->get_productos();
 
         $this->dispatchBrowserEvent("delete_item");
     }

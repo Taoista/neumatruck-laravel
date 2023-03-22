@@ -212,14 +212,6 @@
                         <div class="header-ctn cton-carrito">
                             <!-- Cart -->
                             @livewire("icon-carrito")
-                            {{-- <div class="dropdown ">
-								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-									<i class="fa fa-shopping-cart" style="font-size:35px;"></i>
-									<div class="qty">0</div>
-								</a>
-							</div> --}}
-
-                           
 
                         </div>
                         <!-- <i class="fa fa-shopping-cart"></i> -->
@@ -280,20 +272,7 @@
                 <div class="col-md-3 clearfix">
  
                     @livewire("icon-carrito-responsive")
-                    {{-- <div class="header-ctn">
-                        <div class="dropdown carrito-togle" style="position:absolute;left:5px">
-                            <a href="carro.php" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <i class="fa fa-shopping-cart" style="font-size:40px;"></i>
-                                <div id="contenido-cantidad" class="qty">0</div>
-                            </a>
-                        </div>
-                        <div class="menu-toggle">
-                            <a href="#" onclick="mostrarTogle()">
-                                <i class="fa fa-bars"></i>
-                                <span>Menu</span>
-                            </a>
-                        </div>
-                    </div> --}}
+                  
                 </div>
                 <nav>
                     <!-- container -->
@@ -304,21 +283,16 @@
                             <div id="responsive-nav">
                                 <!-- NAV -->
                                 <ul class="main-nav nav navbar-nav">
-                                    <li class="active"><a href="index.php">Inicio</a></li>
-
-                                    <li><a class="section-selector" data-type="3">Agricola</a></li>
+                                    <li class="active"><a href="{{ url('/') }}">Inicio</a></li>
+                                    @foreach (get_categorias() as $item)
+                                    <li><a class="section-selector" data-type="{{ $item->id }}">{{ $item->nombre }}</a></li>
                                     <li class="divider-vertical"></li>
-                                    <li><a class="section-selector" data-type="1">Camion y Bus</a></li>
-                                    <li class="divider-vertical"></li>
-                                    <li><a class="section-selector" data-type="2">Industrial</a></li>
-                                    <li class="divider-vertical"></li>
-                                    <li><a class="section-selector" data-type="4">OTR</a></li>
-                                    <li class="divider-vertical"></li>
+                                    @endforeach
                                     <li><a href="{{ url("./contacto") }}">Contacto</a></li>
                                     @if(oferta_primaria() == true)
-                                    <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas </a></li>
+                                    <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas</a></li>
                                     @endif
-                                    <li><a href="carro.php">Carrito</a></li>
+                                    <li><a href="{{ url("./carrito") }}">Carrito</a></li>
                                 </ul>
                                 <!-- /NAV -->
                             </div>
@@ -343,15 +317,10 @@
                                 @if(oferta_primaria() == true)
                                 <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas </a></li>
                                 @endif
-                                <li><a class="section-selector" data-type="3" href="#">Agricola</a></li>
+                                @foreach (get_categorias() as $item)
+                                <li><a class="section-selector" data-type="{{ $item->id }}" href="#">{{ $item->nombre }}</a></li>
                                 <li class="divider-vertical"></li>
-                                <li><a class="section-selector" data-type="1" href="#">Camion y Bus</a></li>
-                                <li class="divider-vertical"></li>
-                                <li><a class="section-selector" data-type="2" href="#">Industrial</a></li>
-                                <li class="divider-vertical"></li>
-                                <li><a class="section-selector" data-type="4" href="#">OTR</a></li>
-                                <li class="divider-vertical"></li>
-                                <!-- <li><a href="resultados.php?tipo-item=bateria">Baterias</a></li> -->
+                                @endforeach
                                 <li><a href="{{ url("./contacto") }}">Contacto</a></li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
@@ -362,14 +331,11 @@
             <!-- container -->
         </div>
     </header>
-    <!-- HEADER -->
- 
 
 
     @yield('content-general')
 
     @livewire("newslatter")
-    
 
     <footer id="footer">
         <div class="section">

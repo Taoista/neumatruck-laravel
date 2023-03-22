@@ -10,11 +10,7 @@ const email_regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"
 
 order_submit.addEventListener("click", (e) =>{
     e.preventDefault()
-    console.log(name.value)
-    console.log(email.value)
-    console.log(phone.value)
-    console.log(asunto.value)
-    console.log(msg.value)
+   
 
     if(name.value == "" || email.value == "" || phone.value == "" || asunto.value == "" || msg.value == ""){
         alert("debe llenar los datos")

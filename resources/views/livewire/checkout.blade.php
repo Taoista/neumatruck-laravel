@@ -65,19 +65,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <input class="input" type="text" name="direccion" wire:model="direccion" placeholder="Dirección de despacho"  @disabled($delivery_disabeled == true)>
+                        </div>
                         @if($delivery_disabeled == false)
                         <div class="form-group">
-                                <button type="button" class="btn btn-info" wire:click="add_despacho" wire:loading.remove>Agregar Despacho</button>
+                                <button type="button" class="btn btn-info" wire:click="add_despacho" wire:loading.remove>Calcular Despacho</button>
                                 <button type="button" class="btn btn-secondary" wire:loading wire:target="add_despacho">
                                 <img style="width: 20px" src="{{ asset('assets/img/loading.svg') }}" alt=""">Cargando</button>
                         </div>
                        
                         @endif
-
-                        <div class="form-group">
-                            <input class="input" type="text" name="direccion" wire:model="direccion" placeholder="Dirección de despacho"  @disabled($delivery_disabeled == true)>
-                        </div>
-    
                     </div>
     
                     <div class="order-notes">
@@ -102,12 +100,12 @@
                                 <div> {{ $item->cantidad }} x {{ strtoupper($item->nombre) }} </div>
                                 @if($item->oferta == true)
                                     @if($controller->state_oferta($item->id) == true)
-                                    <div>{{ "$ ".format_money($controller->value_oferta($item->id)  * $item->cantidad) }}</div>
+                                    <div>{{ set_money($controller->value_oferta($item->id)  * $item->cantidad) }}</div>
                                     @else
-                                    <div>{{ "$ ".format_money($item->p_venta * $item->cantidad)  }}</div>
+                                    <div>{{ set_money($item->p_venta * $item->cantidad)  }}</div>
                                     @endif
                                 @else
-                                <div>{{ "$ ".format_money($item->p_venta * $item->cantidad)  }}</div>
+                                <div>{{ set_money($item->p_venta * $item->cantidad)  }}</div>
                                 @endif
                             </div>
                             @endforeach
@@ -179,13 +177,39 @@
                 Swal.fire('Delivery','Debe seleccionar region y ciudad cara continuar','error')
             });
 
+            window.addEventListener("lading_pantalla", (e) => {
+                Swal.fire({
+                    html:'<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>',
+                    title: 'Cargando..',
+                    showCloseButton: false,
+                    showCancelButton: false,
+                    focusConfirm: false,
+                    showConfirmButton:false,
+                    })
+                $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)'); 
+                $(".swal2-title").css("color","white"); 
+            });
+
+            window.addEventListener("empty_direccion", (e) => {
+                Swal.fire('Delivery','Falta direccion para continuar','error')
+            });
+
+            window.addEventListener("empty_campos", (e) => {
+                Swal.fire('Delivery','Debe llenar los compos para continuar','error')
+            });
+
+            window.addEventListener("monto_minimo", (e) => {
+                const  monto_minimo = event.detail.lbl_monto_mostrar
+                Swal.fire('Monto Minimo',`Para realizar este pedido debe seleccionar forma de despacho`,'error')
+            });
+
 
             window.addEventListener("loading_tbk", (e) => {
                 const  id_compra = event.detail.id_compra
 
 
                 const parameters = {"id_compra" : id_compra}
-
+                console.log(parameters)
                 // console.log($('meta[name="csrf-token"]').attr('content'))
 
                 new Promise((resolve, reject) =>{
@@ -199,11 +223,13 @@
                         beforeSend:function(){
                         },
                         success:function(response){
+                            console.log('experando')
                             console.log(response)
                             resolve(response);
                         }
                     })
                 }).then(res => {
+                    console.log("resolviendo")
                     window.location.href = res;
                 })
             });

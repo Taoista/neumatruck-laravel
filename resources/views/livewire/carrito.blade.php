@@ -20,7 +20,7 @@
                     @endif
                 </a></p>
                 <p><small>Marca: {{ $item->marca }}<br>Código: {{ $item->codigo }}</small></p>
-                <a>Precio {{ format_money($item->p_venta) }}</a><br>
+                <a>Precio {{ set_money($item->p_venta) }}</a><br>
                 <button  @click="delete_item()" wire:click="delete_item('{{ $item->id }}')" > Eliminar</button>
             </div>
         </div>
@@ -41,10 +41,11 @@
             <br class="visible-xs">
             @if($item->oferta == true)
                 @if($controller->state_oferta($item->id) == true)
-                <span class="precio pull-right" ><strong style="font-size:15px">{{ format_money($controller->value_oferta($item->id)  * $item->cantidad) }}</strong></span><br>
+                <span class="precio pull-right" ><strong style="font-size:15px">{{ set_money($controller->value_oferta($item->id)  * $item->cantidad) }}</strong></span><br>
                 @endif
             @else
-                <span class="precio pull-right" ><strong style="font-size:15px">{{ format_money($item->p_venta * $item->cantidad) }}</strong></span><br>
+                {{-- <span class="precio pull-right" ><strong style="font-size:15px">{{ format_money($item->p_venta * $item->cantidad) }}</strong></span><br> --}}
+                <span class="precio pull-right" ><strong style="font-size:15px">{{ set_money($item->p_venta * $item->cantidad) }}</strong></span><br>
             @endif
         </div>
         <div class="clearfix"></div><hr>

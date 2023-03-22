@@ -2,7 +2,21 @@
 use App\Models\Configuracion;
 use App\Models\ConfiguracionDato;
 use App\Models\ConfiguracionPhono;
+use App\Models\Tipo;
 
+// * toma el monotop minimo valor neto
+function min_monto()
+{
+    return ConfiguracionDato::select("result")
+                            ->where("data", "monto-minimo")
+                            ->get()->first()->result;
+}
+
+// * toma las categorias
+function get_categorias()
+{
+    return Tipo::select("id", "nombre")->where("ver", 1)->get();
+}
 
 function set_total($price)
 {
@@ -63,5 +77,19 @@ function state_production(){
     $data = Configuracion::select("resultado")->where("tipo", "production")->get()->first()->resultado;
     return $data == 1? true : false;
 }
+
+// * facebook url
+
+function facebook()
+{
+    return ConfiguracionDato::select("result")->where("data", "facebook")->get()->first()->result;
+}
+
+function instagram()
+{
+    return ConfiguracionDato::select("result")->where("data", "instagram")->get()->first()->result;
+}
+
+
 
 ?>

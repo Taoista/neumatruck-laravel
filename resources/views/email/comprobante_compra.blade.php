@@ -112,7 +112,7 @@
 <table border="0" cellpadding="0" cellspacing="0" class="image_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
 <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-<div align="center" class="alignment" style="line-height:10px"><a href="htts://neumatruck.cl" style="outline:none" tabindex="-1" target="_blank"><img alt="neumatruck" src="{{ asset('assets/img/logo.png') }}" style="display: block; height: auto; border: 0; width: 130px; max-width: 100%;" title="neumatruck" width="130"/></a></div>
+<div align="center" class="alignment" style="line-height:10px"><a href="{{ url('/') }}" style="outline:none" tabindex="-1" target="_blank"><img alt="neumatruck" src="{{ asset('assets/img/logo.png') }}" style="display: block; height: auto; border: 0; width: 130px; max-width: 100%;" title="neumatruck" width="130"/></a></div>
 </td>
 </tr>
 </table>
@@ -141,7 +141,7 @@
 <td class="pad" style="padding-bottom:35px;padding-left:35px;padding-right:35px;padding-top:10px;">
 <div style="font-family: Arial, sans-serif">
 <div class="" style="font-size: 12px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; mso-line-height-alt: 18px; color: #393d47; line-height: 1.5;">
-<p style="margin: 0; font-size: 12px; text-align: center; mso-line-height-alt: 25.5px; letter-spacing: normal;"><span style="color:#ffffff;font-size:17px;">N {{ $id_compra }} - 16-01-1988</span></p>
+<p style="margin: 0; font-size: 12px; text-align: center; mso-line-height-alt: 25.5px; letter-spacing: normal;"><span style="color:#ffffff;font-size:17px;">N {{ $id_compra }} - {{ $fecha }}</span></p>
 </div>
 </div>
 </td>
@@ -175,121 +175,141 @@
 </tr>
 </tbody>
 </table>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #07071f;" width="100%">
-<tbody>
-<tr>
-<td>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #060e21; color: #000000; width: 650px;" width="650">
-<tbody>
-<tr>
-<td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
-<div class="spacer_block" style="height:20px;line-height:20px;font-size:1px;"> </div>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-3" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #07071f;" width="100%">
-<tbody>
-<tr>
-<td>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #060e21; color: #000000; width: 650px;" width="650">
-<tbody>
-<tr>
-<td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-left: 20px; padding-right: 20px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="50%">
-<table border="0" cellpadding="0" cellspacing="0" class="image_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tr>
-<td class="pad" style="width:100%;padding-right:0px;padding-left:0px;padding-top:5px;padding-bottom:5px;">
-<div align="center" class="alignment" style="line-height:10px"><img alt="Product Name" src="images/39905e1ed73a173ef13501fc3e2067e4.jpg" style="display: block; height: auto; border: 0; width: 242px; max-width: 100%;" title="Product Name" width="242"/></div>
-</td>
-</tr>
-</table>
-</td>
-<td class="column column-2" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-left: 20px; padding-right: 20px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="50%">
-<table border="0" cellpadding="0" cellspacing="0" class="button_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:15px;text-align:left;">
-<div align="left" class="alignment">
-<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://example.com" style="height:20px;width:78px;v-text-anchor:middle;" arcsize="200%" strokeweight="0.75pt" strokecolor="#FFFFFF" fill="false"><w:anchorlock/><v:textbox inset="0px,0px,0px,5px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:11px"><![endif]--><a href="http://example.com" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:transparent;border-radius:40px;width:auto;border-top:1px dashed #FFFFFF;font-weight:undefined;border-right:1px dashed #FFFFFF;border-bottom:1px dashed #FFFFFF;border-left:1px dashed #FFFFFF;padding-top:0px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:11px;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank"><span style="padding-left:15px;padding-right:15px;font-size:11px;display:inline-block;letter-spacing:normal;"><span dir="ltr" style="word-break: break-word;"><span data-mce-style="" dir="ltr" style="line-height: 13.2px;">CODIGO</span></span></span></a>
-<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
-</div>
-</td>
-</tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="heading_block block-3" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tr>
-<td class="pad" style="padding-left:10px;padding-right:10px;text-align:center;width:100%;">
-<h2 style="margin: 0; color: #ffb03d; direction: ltr; font-family: 'Oswald', Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 24px; font-weight: normal; letter-spacing: normal; line-height: 120%; text-align: left; margin-top: 0; margin-bottom: 0;"><strong>PRODUCT NAME</strong></h2>
-</td>
-</tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-4" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-left:10px;padding-right:10px;">
-<div style="font-family: Arial, sans-serif">
-<div class="" style="font-size: 12px; font-family: Oswald, Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 18px; color: #ef233c; line-height: 1.5;">
-<p style="margin: 0; font-size: 12px; text-align: left; mso-line-height-alt: 25.5px; letter-spacing: normal;"><span style="color:#ffffff;font-size:17px;"><span style="color:#ff1616;">$23.00</span><br/></span></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-<table border="0" cellpadding="10" cellspacing="0" class="divider_block block-5" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tr>
-<td class="pad">
-<div align="left" class="alignment">
-<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="15%">
-<tr>
-<td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 1px dashed #B23AB6;"><span> </span></td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-6" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-left:10px;padding-right:10px;padding-top:15px;">
-<div style="font-family: Arial, sans-serif">
-<div class="" style="font-size: 12px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; mso-line-height-alt: 18px; color: #393d47; line-height: 1.5;">
-<p style="margin: 0; font-size: 12px; text-align: left; mso-line-height-alt: 25.5px; letter-spacing: normal;"><span style="color:#ffffff;font-size:17px;"><span style="color:#b23ab6;"><span style="background-color:#000000;color:#ffe700;">CANTIDAD</span>:</span> 1<br/></span></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="text_block block-7" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:20px;padding-left:10px;padding-right:10px;">
-<div style="font-family: Arial, sans-serif">
-<div class="" style="font-size: 12px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; mso-line-height-alt: 18px; color: #393d47; line-height: 1.5;">
-<p style="margin: 0; font-size: 12px; text-align: left; mso-line-height-alt: 25.5px; letter-spacing: normal;"><span style="color:#ffffff;font-size:17px;"><span style="color:#b23ab6;"><span style="color:#ffe700;">Punitario</span>:</span> 123123<br/></span></p>
-</div>
-</div>
-</td>
-</tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" class="button_block block-8" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tr>
-<td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:10px;text-align:left;">
-<div align="left" class="alignment">
-<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://example.com" style="height:54px;width:192px;v-text-anchor:middle;" arcsize="25%" strokeweight="0.75pt" strokecolor="#ef233c" fillcolor="#ef233c"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="http://example.com" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ef233c;border-radius:13px;width:auto;border-top:1px solid transparent;font-weight:undefined;border-right:1px solid transparent;border-bottom:1px solid transparent;border-left:1px solid transparent;padding-top:10px;padding-bottom:10px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank"><span style="padding-left:30px;padding-right:30px;font-size:16px;display:inline-block;letter-spacing:normal;"><span dir="ltr" style="word-break: break-word; line-height: 32px;">VER PRODUCTO</span></span></a>
-<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
-</div>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
+
+	<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #07071f;" width="100%">
+	<tbody>
+	<tr>
+	<td>
+	<table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #060e21; color: #000000; width: 650px;" width="650">
+	<tbody>
+	<tr>
+	<td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
+	<div class="spacer_block" style="height:20px;line-height:20px;font-size:1px;"> </div>
+	</td>
+	</tr>
+	</tbody>
+	</table>
+	</td>
+	</tr>
+	</tbody>
+	</table>
+
+	{{-- * productos --}}
+
+	@foreach ($productos AS $item )
+		<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-3" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #07071f;" width="100%">
+		<tbody>
+		<tr>
+		<td>
+		<table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #060e21; color: #000000; width: 650px;" width="650">
+		<tbody>
+		<tr>
+		<td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-left: 20px; padding-right: 20px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="50%">
+		<table border="0" cellpadding="0" cellspacing="0" class="image_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+		<tr>
+		<td class="pad" style="width:100%;padding-right:0px;padding-left:0px;padding-top:5px;padding-bottom:5px;">
+		<div align="center" class="alignment" style="line-height:10px"><img alt="{{ $item->nombre }}" src="{{ $item->img }}" style="display: block; height: auto; border: 0; width: 242px; max-width: 100%;" title="{{ $item->nombre }}" width="242"/></div>
+		</td>
+		</tr>
+		</table>
+		</td>
+		<td class="column column-2" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-left: 20px; padding-right: 20px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="50%">
+		<table border="0" cellpadding="0" cellspacing="0" class="button_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+		<tr>
+		<td class="pad" style="padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:15px;text-align:left;">
+		<div align="left" class="alignment">
+		<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ url('/') }}" style="height:20px;width:78px;v-text-anchor:middle;" arcsize="200%" strokeweight="0.75pt" strokecolor="#FFFFFF" fill="false"><w:anchorlock/><v:textbox inset="0px,0px,0px,5px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:11px"><![endif]--><a href="{{ url("./ficha").'/'.$item->id }}" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:transparent;border-radius:40px;width:auto;border-top:1px dashed #FFFFFF;font-weight:undefined;border-right:1px dashed #FFFFFF;border-bottom:1px dashed #FFFFFF;border-left:1px dashed #FFFFFF;padding-top:0px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:11px;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank"><span style="padding-left:15px;padding-right:15px;font-size:11px;display:inline-block;letter-spacing:normal;"><span dir="ltr" style="word-break: break-word;"><span data-mce-style="" dir="ltr" style="line-height: 13.2px;">{{ $item->codigo }}</span></span></span></a>
+		<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+		</div>
+		</td>
+		</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" class="heading_block block-3" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+		<tr>
+		<td class="pad" style="padding-left:10px;padding-right:10px;text-align:center;width:100%;">
+		<h2 style="margin: 0; color: #ffb03d; direction: ltr; font-family: 'Oswald', Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 24px; font-weight: normal; letter-spacing: normal; line-height: 120%; text-align: left; margin-top: 0; margin-bottom: 0;"><strong>{{ $item->nombre }}</strong></h2>
+		</td>
+		</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" class="text_block block-4" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
+		<tr>
+			{{-- * precio totoal al mostrar en el label --}}
+		<td class="pad" style="padding-left:10px;padding-right:10px;">
+		<div style="font-family: Arial, sans-serif">
+		<div class="" style="font-size: 12px; font-family: Oswald, Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 18px; color: #ef233c; line-height: 1.5;">
+		<p style="margin: 0; font-size: 12px; text-align: left; mso-line-height-alt: 25.5px; letter-spacing: normal;"><span style="color:#ffffff;font-size:17px;">
+			@if($item->oferta == 1)
+				<span style="color:#ff1616;">Oferta {{ set_money($item->p_venta * $item->cantidad) }}</span>
+			@else
+				<span style="color:#ff1616;">{{ set_money($item->p_venta * $item->cantidad) }}</span>
+			@endif
+			<br/></span></p>
+		</div>
+		</div>
+		</td>
+		</tr>
+		</table>
+		<table border="0" cellpadding="10" cellspacing="0" class="divider_block block-5" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+		<tr>
+		<td class="pad">
+		<div align="left" class="alignment">
+		<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="15%">
+		<tr>
+		<td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 1px dashed #B23AB6;"><span> </span></td>
+		</tr>
+		</table>
+		</div>
+		</td>
+		</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" class="text_block block-6" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
+		<tr>
+		<td class="pad" style="padding-left:10px;padding-right:10px;padding-top:15px;">
+		<div style="font-family: Arial, sans-serif">
+		<div class="" style="font-size: 12px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; mso-line-height-alt: 18px; color: #393d47; line-height: 1.5;">
+		<p style="margin: 0; font-size: 12px; text-align: left; mso-line-height-alt: 25.5px; letter-spacing: normal;"><span style="color:#ffffff;font-size:17px;"><span style="color:#b23ab6;"><span style="background-color:#000000;color:#ffe700;">CANTIDAD</span>:</span> {{ $item->cantidad }}<br/></span></p>
+		</div>
+		</div>
+		</td>
+		</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" class="text_block block-7" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
+		<tr>
+		<td class="pad" style="padding-bottom:20px;padding-left:10px;padding-right:10px;">
+		<div style="font-family: Arial, sans-serif">
+		<div class="" style="font-size: 12px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; mso-line-height-alt: 18px; color: #393d47; line-height: 1.5;">
+		<p style="margin: 0; font-size: 12px; text-align: left; mso-line-height-alt: 25.5px; letter-spacing: normal;">
+			<span style="color:#ffffff;font-size:17px;"><span style="color:#b23ab6;">
+			<span style="color:#ffe700;">Punitario</span>:</span> {{ set_money($item->p_venta) }}<br/>
+			</span></p>
+		</div>
+		</div>
+		</td>
+		</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" class="button_block block-8" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+		<tr>
+		<td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:10px;text-align:left;">
+		<div align="left" class="alignment">
+		<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ url("./").'/'.$item->id }}" style="height:54px;width:192px;v-text-anchor:middle;" arcsize="25%" strokeweight="0.75pt" strokecolor="#ef233c" fillcolor="#ef233c"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="{{ url("./").'/'.$item->id }}" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ef233c;border-radius:13px;width:auto;border-top:1px solid transparent;font-weight:undefined;border-right:1px solid transparent;border-bottom:1px solid transparent;border-left:1px solid transparent;padding-top:10px;padding-bottom:10px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank"><span style="padding-left:30px;padding-right:30px;font-size:16px;display:inline-block;letter-spacing:normal;">
+			<span dir="ltr" style="word-break: break-word; line-height: 32px;">VER PRODUCTO</span></span></a>
+		<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+		</div>
+		</td>
+		</tr>
+		</table>
+		</td>
+		</tr>
+		</tbody>
+		</table>
+		</td>
+		</tr>
+		</tbody>
+		</table>
+	@endforeach
+
+{{-- * termino de los productos --}}
+
 <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-4" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #07071f;" width="100%">
 <tbody>
 <tr>
@@ -360,7 +380,7 @@
 <td class="pad" style="padding-bottom:5px;padding-left:40px;padding-right:40px;">
 <div style="font-family: sans-serif">
 <div class="" style="font-size: 14px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 16.8px; color: #b23ab6; line-height: 1.2;">
-<p style="margin: 0; font-size: 14px; text-align: left; mso-line-height-alt: 16.8px;"><span style="font-size:20px;"><span style="font-size:15px;"><span style="color:#ffe700;"><strong>NUMERO COMPROBANTE:</strong></span> </span><span style="color:#7de5e5;"><span style="font-size:15px;"><span style="color:#ffffff;">#4534</span></span><br/></span></span></p>
+<p style="margin: 0; font-size: 14px; text-align: left; mso-line-height-alt: 16.8px;"><span style="font-size:20px;"><span style="font-size:15px;"><span style="color:#ffe700;"><strong>NUMERO COMPROBANTE:</strong></span> </span><span style="color:#7de5e5;"><span style="font-size:15px;"><span style="color:#ffffff;"># {{ $id_compra }}</span></span><br/></span></span></p>
 </div>
 </div>
 </td>
@@ -389,7 +409,9 @@
 <div class="" style="font-size: 14px; font-family: Oswald, Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 21px; color: #b23ab6; line-height: 1.5;">
 <p style="margin: 0; font-size: 17px; mso-line-height-alt: 25.5px;"><span style="font-size:17px;color:#ffe700;">NETO</span></p>
 <p style="margin: 0; font-size: 17px; mso-line-height-alt: 25.5px;"><span style="font-size:17px;color:#ffe700;">IVA</span></p>
+@if($compra->delivery != 0)
 <p style="margin: 0; font-size: 17px; mso-line-height-alt: 25.5px;"><span style="font-size:17px;color:#ffe700;">DESPACHO</span></p>
+@endif
 <p style="margin: 0; font-size: 17px; mso-line-height-alt: 21px;"> </p>
 <p style="margin: 0; font-size: 17px; mso-line-height-alt: 25.5px;"><span style="font-size:17px;color:#ffe700;"><strong>Total</strong></span></p>
 </div>
@@ -404,11 +426,13 @@
 <td class="pad" style="padding-bottom:15px;padding-left:40px;padding-right:40px;padding-top:15px;">
 <div style="font-family: Arial, sans-serif">
 <div class="" style="font-size: 14px; font-family: Oswald, Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 21px; color: #ffffff; line-height: 1.5;">
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">val_neto</span></p>
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">val_iva</span></p>
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">val_despacho</span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ format_money($compra->neto) }}</span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ format_money($compra->iva) }}</span></p>
+@if($compra->delivery != 0)
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ format_money($compra->delivery) }}</span></p>
+@endif
 <p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 21px;"> </p>
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;"><strong>val_total</strong></span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;"><strong>{{ format_money($compra->total) }}</strong></span></p>
 </div>
 </div>
 </td>
@@ -416,6 +440,7 @@
 </table>
 </td>
 <td class="column column-3" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="33.333333333333336%">
+@if($compra->delivery != 0)
 <table border="0" cellpadding="0" cellspacing="0" class="text_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
 <tr>
 <td class="pad" style="padding-bottom:10px;padding-left:40px;padding-right:40px;padding-top:15px;">
@@ -427,23 +452,29 @@
 </td>
 </tr>
 </table>
+
 <table border="0" cellpadding="0" cellspacing="0" class="text_block block-3" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
 <tr>
 <td class="pad" style="padding-bottom:10px;padding-left:40px;padding-right:40px;padding-top:10px;">
 <div style="font-family: Arial, sans-serif">
 <div class="" style="font-size: 14px; font-family: Oswald, Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 21px; color: #ffffff; line-height: 1.5;">
-<p style="margin: 0; mso-line-height-alt: 21px;">Via Castelleone, 108, 26100 Cremona CR, Italia</p>
+<p style="margin: 0; mso-line-height-alt: 21px;">{{ $compra->direccion.', '.$direccion->ciudad.', '.$direccion->region }}</p>
 </div>
 </div>
 </td>
 </tr>
 </table>
+@endif
+
 <table border="0" cellpadding="0" cellspacing="0" class="text_block block-4" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
 <tr>
 <td class="pad" style="padding-bottom:15px;padding-left:40px;padding-right:40px;padding-top:10px;">
 <div style="font-family: Arial, sans-serif">
 <div class="" style="font-size: 14px; font-family: Oswald, Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 21px; color: #ffffff; line-height: 1.5;">
-<p style="margin: 0; mso-line-height-alt: 21px;">NOTA</p>
+<p style="margin: 0; mso-line-height-alt: 21px;">
+	NOTA:
+	{{ ' '.$compra->nota }}
+</p>
 </div>
 </div>
 </td>
@@ -499,8 +530,10 @@
 <div class="" style="font-size: 14px; font-family: Oswald, Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 21px; color: #b23ab6; line-height: 1.5;">
 <p style="margin: 0; font-size: 17px; mso-line-height-alt: 25.5px;"><span style="font-size:17px;color:#ffe700;">Tipo Tarjeta</span></p>
 <p style="margin: 0; font-size: 17px; mso-line-height-alt: 25.5px;"><span style="font-size:17px;color:#ffe700;">N Tarjeta</span></p>
+@if($transbank->first()->cuotas != 0)
 <p style="margin: 0; font-size: 17px; mso-line-height-alt: 25.5px;"><span style="font-size:17px;color:#ffe700;">Ctas</span></p>
 <p style="margin: 0; font-size: 17px; mso-line-height-alt: 25.5px;"><span style="font-size:17px;color:#ffe700;">Val. Cuotas</span></p>
+@endif
 </div>
 </div>
 </td>
@@ -513,10 +546,12 @@
 <td class="pad" style="padding-bottom:15px;padding-left:40px;padding-right:40px;padding-top:15px;">
 <div style="font-family: Arial, sans-serif">
 <div class="" style="font-size: 14px; font-family: Oswald, Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 21px; color: #ffffff; line-height: 1.5;">
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">tipo_tarjeta</span></p>
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">numero_tarjeta</span></p>
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">cant_ctas</span></p>
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">val_cuotas</span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ $transbank->first()->tipo_tarjeta }}</span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ $transbank->first()->n_tarjeta }}</span></p>
+@if($transbank->first()->cuotas != 0)
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ $transbank->first()->cuotas }}</span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ $transbank->first()->val_cuota  }}</span></p>
+@endif
 </div>
 </div>
 </td>
@@ -640,11 +675,11 @@
 <td class="pad" style="padding-bottom:15px;padding-left:40px;padding-right:40px;padding-top:15px;">
 <div style="font-family: Arial, sans-serif">
 <div class="" style="font-size: 14px; font-family: Oswald, Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 21px; color: #ffffff; line-height: 1.5;">
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">dato_nombre</span></p>
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">dato_rut</span></p>
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">dato_email</span></p>
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">dato_fono</span></p>
-<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">datocontacto</span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ strtoupper($compra->nombre) }}</span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ strtoupper($compra->rut) }}</span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ strtoupper($compra->email) }}</span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ ($compra->telefono) }}</span></p>
+<p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 25.5px;"><span style="font-size:17px;">{{ strtoupper($compra->contacto ) }}</span></p>
 <p style="margin: 0; font-size: 17px; text-align: left; mso-line-height-alt: 21px;"> </p>
 </div>
 </div>
@@ -704,7 +739,7 @@
 <tr>
 <td class="pad" style="padding-bottom:40px;padding-left:10px;padding-right:10px;padding-top:10px;text-align:center;">
 <div align="center" class="alignment">
-<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://example.com" style="height:54px;width:200px;v-text-anchor:middle;" arcsize="0%" strokeweight="0.75pt" strokecolor="#ef233c" fillcolor="#ef233c"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="http://example.com" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ef233c;border-radius:0px;width:auto;border-top:1px solid transparent;font-weight:undefined;border-right:1px solid transparent;border-bottom:1px solid transparent;border-left:1px solid transparent;padding-top:10px;padding-bottom:10px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank"><span style="padding-left:30px;padding-right:30px;font-size:16px;display:inline-block;letter-spacing:normal;"><span dir="ltr" style="word-break: break-word; line-height: 32px;">NEUMATRUCK.CL</span></span></a>
+<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ url('/') }}" style="height:54px;width:200px;v-text-anchor:middle;" arcsize="0%" strokeweight="0.75pt" strokecolor="#ef233c" fillcolor="#ef233c"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="{{ url('/') }}" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ef233c;border-radius:0px;width:auto;border-top:1px solid transparent;font-weight:undefined;border-right:1px solid transparent;border-bottom:1px solid transparent;border-left:1px solid transparent;padding-top:10px;padding-bottom:10px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank"><span style="padding-left:30px;padding-right:30px;font-size:16px;display:inline-block;letter-spacing:normal;"><span dir="ltr" style="word-break: break-word; line-height: 32px;">NEUMATRUCK.CL</span></span></a>
 <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
 </div>
 </td>
@@ -726,21 +761,15 @@
 <tbody>
 <tr>
 <td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 15px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
-<table border="0" cellpadding="0" cellspacing="0" class="image_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-<tr>
-<td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-<div align="center" class="alignment" style="line-height:10px"><a href="http://example.com" style="outline:none" tabindex="-1" target="_blank"><img alt="Arka Boutique Logo" src="images/5517d536-0ac6-4a25-a52d-19ae8cbabf79.png" style="display: block; height: auto; border: 0; width: 89px; max-width: 100%;" title="Arka Boutique Logo" width="89"/></a></div>
-</td>
-</tr>
-</table>
+
 <table border="0" cellpadding="0" cellspacing="0" class="social_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
 <td class="pad" style="padding-left:10px;padding-right:10px;padding-top:15px;text-align:center;">
 <div align="center" class="alignment">
 <table border="0" cellpadding="0" cellspacing="0" class="social-table" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block;" width="72px">
 <tr>
-<td style="padding:0 2px 0 2px;"><a href="https://www.facebook.com/" target="_blank"><img alt="Facebook" height="32" src="images/facebook2x.png" style="display: block; height: auto; border: 0;" title="facebook" width="32"/></a></td>
-<td style="padding:0 2px 0 2px;"><a href="https://www.instagram.com/" target="_blank"><img alt="Instagram" height="32" src="images/instagram2x.png" style="display: block; height: auto; border: 0;" title="instagram" width="32"/></a></td>
+<td style="padding:0 2px 0 2px;"><a href="{{ facebook() }}" target="_blank"><img alt="Facebook" height="32" src="{{ asset('assets/img/facebook.png') }}" style="display: block; height: auto; border: 0;" title="facebook" width="32"/></a></td>
+<td style="padding:0 2px 0 2px;"><a href="{{ instagram() }}" target="_blank"><img alt="Instagram" height="32" src="{{ asset('assets/img/facebook.png') }}" style="display: block; height: auto; border: 0;" title="instagram" width="32"/></a></td>
 </tr>
 </table>
 </div>
@@ -771,13 +800,7 @@
 <td class="alignment" style="vertical-align: middle; text-align: center;">
 <!--[if vml]><table align="left" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]-->
 <!--[if !vml]><!-->
-<table cellpadding="0" cellspacing="0" class="icons-inner" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block; margin-right: -4px; padding-left: 0px; padding-right: 0px;">
-<!--<![endif]-->
-<tr>
-<td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 6px;"><a href="https://www.designedwithbee.com/" style="text-decoration: none;" target="_blank"><img align="center" alt="Designed with BEE" class="icon" height="32" src="images/bee.png" style="display: block; height: auto; margin: 0 auto; border: 0;" width="34"/></a></td>
-<td style="font-family: Arial, Helvetica Neue, Helvetica, sans-serif; font-size: 15px; color: #9d9d9d; vertical-align: middle; letter-spacing: undefined; text-align: center;"><a href="https://www.designedwithbee.com/" style="color: #9d9d9d; text-decoration: none;" target="_blank">Designed with BEE</a></td>
-</tr>
-</table>
+
 </td>
 </tr>
 </table>

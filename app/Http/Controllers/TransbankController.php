@@ -25,8 +25,8 @@ class TransbankController extends Controller
     public function __construct()
     {
         if(state_production() == true){
-            $cc =  ConfiguracionData::select("dato")->where("resultado", "tbk_cc")->get()->first()->dato;
-            $api = ConfiguracionData::select("dato")->where("resultado", "tbk_api-key")->get()->first()->dato;
+            $cc =  ConfiguracionData::select("result")->where("data", "tbk_cc")->get()->first()->dato;
+            $api = ConfiguracionData::select("result")->where("data", "tbk_apip_key")->get()->first()->dato;
             WebpayPlus::configureForProduction($cc, $api);
         }else{
             WebpayPlus::configureForTesting();            
@@ -88,16 +88,19 @@ class TransbankController extends Controller
             Compras::where("id", $id_compra)->update(["id_tbk" => $id_order]);
             $email = Compras::select('email')->where("id", $id_compra)->get()->first()->email;
             // ? busca los productos en el carrito para poder agregarlos a COMPRAS_PRODUCTOS
-            $compras_productos = Carrito::where("email", $email)->get();
+            $compras_productos = Carrito::select("p.id", "carrito.cantidad", "p.codigo", "p.p_venta", "p.oferta")
+                                ->join("productos AS p", "p.id", "carrito.id_producto")
+                                ->where("carrito.email", $email)->get();
 
             foreach ($compras_productos AS $item) {
                 $state_oferta = 0;
-                $precio_original = Productos::select("p_venta")->where("id", $item->id_producto)->get()->first()->p_venta;
+                // $precio_original = Productos::select("p_venta")->where("id", $item->id_producto)->get()->first()->p_venta;
+                $precio_original = $compras_productos->first()->p_venta;
                 $precio_final = $precio_original;
                 if($item->oferta == true){
                     if($controller->state_oferta($item->id) == true){
                         $state_oferta = 1;
-                        $precio_final = $controller->value_oferta($item->id_producto);
+                        $precio_final = $controller->value_oferta($item->id);
                     }else{
                         $state_oferta = 0;
                         $precio_final = $precio_original;
@@ -109,7 +112,7 @@ class TransbankController extends Controller
 
                 ComprasProductos::insert([
                     "id_compra" => $id_compra,
-                    "id_producto" => $item->id_producto,
+                    "id_producto" => $item->id,
                     "cantidad" => $item->cantidad,
                     "p_original" => $precio_original,
                     "oferta" => $state_oferta,
@@ -126,8 +129,8 @@ class TransbankController extends Controller
             // ? enviar a los responsables
 
             // ? eliminar el carrito enviado
-
-            // return redirect("./pgo-tbk");
+            Carrito::where("email", $email)->delete();
+            return redirect("./pgo-tbk");
 
         }else{
             return redirect("./pgo-result");
@@ -140,7 +143,9 @@ class TransbankController extends Controller
 
  //  tarjeta de debit aprobadad
     // 4051884239937763
-
+// tarjeta de creidto
+//     4051885600446623
+// CVV 123
 
 // {
 //     "vci": "TSY",

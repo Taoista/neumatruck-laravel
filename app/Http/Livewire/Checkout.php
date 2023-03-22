@@ -7,6 +7,7 @@ use Cookie;
 use App\Models\Carrito;
 use App\Models\Ciudades;
 use App\Models\Compras;
+use App\Models\DeliveryFree;
 use App\Http\Controllers\ProductosController;
 
 class Checkout extends Component
@@ -37,6 +38,8 @@ class Checkout extends Component
     public $direccion;
     public $mensaje;
 
+    public $monto_minimo;
+
     public function  mount()
     {
 
@@ -57,8 +60,9 @@ class Checkout extends Component
 
         $this->email = strtolower(base64_decode(Cookie::get('nt_session')));
 
-       $this->calculate_total_pago();
+        $this->calculate_total_pago();
 
+        $this->monto_minimo = min_monto();
     }
 
     public function render()
@@ -79,7 +83,8 @@ class Checkout extends Component
     {
         $value = strtolower(base64_decode(Cookie::get('nt_session')));
 
-        $productos = Carrito::select("p.id", "p.codigo", "p.nombre", "carrito.cantidad", "p.img", "p.stock", "p.p_venta","p.oferta", "m.marca", "p.costo")
+        $productos = Carrito::select("p.id", "p.codigo", "p.nombre", "carrito.cantidad", "p.img", "p.stock", "p.p_venta",
+                                    "p.oferta", "m.marca", "p.costo", "p.peso")
                         ->join("productos AS p", "p.id", "carrito.id_producto")
                         ->join("marcas AS m", "m.id", "p.id_marca")
                         ->where("carrito.email", $value)->get();
@@ -120,10 +125,11 @@ class Checkout extends Component
 
     }
 
-
+    // * calcula el deivery y compara si contiene la cantidad a pagar
+    // * deve veriuficar si esta en la zona de despacho gratis 
+    // * si el monto es menor se debe pagar
     function add_despacho(){
         // ? toma los productos
-
         if($this->selected_region == 0){
             $this->dispatchBrowserEvent("error_region");
             return false;
@@ -137,14 +143,34 @@ class Checkout extends Component
         $productos = $this->get_productos();
         $costo = 0;
         foreach ($productos AS $item) {
-            $costo += $item->costo * $item->cantidad;
+            $costo += $item->peso * $item->cantidad;
         }
+        // dd($costo);
         // ? costo depsacho
         $id_ciudad = $this->id_ciudad;
 
         $costo_coidad = Ciudades::select("costo")->where("id", $id_ciudad)->get()->first()->costo;
+        // dd($costo_coidad);
+        $monto_minimo = $this->monto_minimo;
 
-        $this->val_despacho = $costo_coidad + $costo;
+        // ? verifica el monto para cobrar el despacho
+        // ? de lo contrario
+        if($monto_minimo > $this->neto){
+            $this->val_despacho = $costo_coidad * $costo;
+
+        }
+        // ? si el neto es mayor al minimo 
+        // ? debe verificar si esta en lista de exento no se paga
+        if($monto_minimo < $this->neto){
+            $state = DeliveryFree::where("id_ciudad", $id_ciudad)->get();
+            if(count($state) != 0){
+                $this->val_despacho = 0;
+            }else{
+                $this->val_despacho = $costo_coidad * $costo;
+            }
+        }
+        
+
         $this->calculate_total_pago();
     }
 
@@ -161,22 +187,34 @@ class Checkout extends Component
 
     function pgo_tbk()
     {
+        // ? cargare con livewire el loading pantalla
+        $this->dispatchBrowserEvent("lading_pantalla");
+        // ? controla el monto minimo
+        $monto_minimo = intval($this->monto_minimo);
 
+        // if($monto_minimo > $this->neto AND $this->selected_delivery == 1){
+        //     $this->dispatchBrowserEvent("monto_minimo" ,["lbl_monto_mostrar" => $monto_minimo]);
+        //     return false;
+        // }
+
+        // ? verifica datos vacios
         if (empty($this->rut_empresa) || empty($this->razon_social) || empty($this->email) || empty($this->fono) || empty($this->contacto)) {
-             dd("Algunas de las variables están vacías");
-             return false;
+            $this->dispatchBrowserEvent("empty_campos");
+            return false;
         } 
+        // ?estado del despaco
         if($this->selected_delivery == 2 AND ($this->selected_region == 0 OR $this->id_ciudad == 0)){
-            dd("falta la direccion");
+            $this->dispatchBrowserEvent("empty_direccion");
             return false;
         }
 
         if($this->selected_delivery == 2 AND $this->direccion == "" ){
-            dd("falta la direccion");
+            $this->dispatchBrowserEvent("empty_direccion");
             return false;
         }
 
-        $compras= new Compras;
+        
+        $compras = new Compras;
         $compras->id_plataforma = 1;
         $compras->rut = $this->rut_empresa;
         $compras->nombre = strtolower($this->razon_social);
@@ -184,8 +222,8 @@ class Checkout extends Component
         $compras->telefono = $this->fono;
         $compras->contacto = strtolower($this->contacto);
         $compras->tipo_delivery = $this->selected_delivery;
-        $compras->id_ciudad = $this->id_ciudad;
-        $compras->direccion = $this->direccion;
+        $compras->id_ciudad = $this->id_ciudad == null ? 0 : $this->id_ciudad;
+        $compras->direccion = $this->direccion == null ? 0 : $this->direccion;
         $compras->nota  = $this->mensaje;
         $compras->neto = $this->neto;
         $compras->iva = $this->iva;
@@ -194,9 +232,6 @@ class Checkout extends Component
         $compras->save();
 
         $this->dispatchBrowserEvent("loading_tbk", ["id_compra" => $compras->id]);
-
-        // dd("enviando compra tbk");
-
     }
 
 }
