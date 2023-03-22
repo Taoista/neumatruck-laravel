@@ -50,14 +50,16 @@ Route::get("/ficha/{id_producto}",[FichaController::class, "ficha"]);
 
 // * checkout
 Route::get("/checkout",[CheckoutController::class, "checkout"]);
+// * pgo error
+Route::get("/pgo-result", [CheckoutController::class, "pgo_result"]);
 
 // * redireccion del pago
-Route::get("/pgo-tbk",function(){
-   return "resultado correcto";
-});
-Route::get("/pgo-result",function(){
-   return "resutlado error en el pago";
-});
+Route::get("/pgo-tbk/{id_order}", [CheckoutController::class, "pgo_tbk"]);
+
+
+
+
+
 
 
 Route::get('/demo-demo', function () {

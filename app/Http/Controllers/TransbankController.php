@@ -9,6 +9,7 @@ use App\Models\Compras;
 use App\Models\Productos;
 use App\Models\Carrito;
 use App\Models\ComprasProductos;
+use App\Models\ConfiguracionEmail;
 
 use Transbank\Webpay\WebpayPlus;
 use Transbank\Webpay\WebpayPlus\Transaction;
@@ -20,8 +21,6 @@ use App\Http\Controllers\ProductosController;
 
 class TransbankController extends Controller
 {
-    
-
     public function __construct()
     {
         if(state_production() == true){
@@ -67,78 +66,93 @@ class TransbankController extends Controller
 
     public function confirmar_pago(Request $request)
     {
-        $confirmacion = (new Transaction)->commit($request->get("token_ws"));
 
-        if($confirmacion->isApproved()){
-            $controller = new ProductosController();
+        try {
+            $confirmacion = (new Transaction)->commit($request->get("token_ws"));
+
+            if($confirmacion->isApproved()){
+                $controller = new ProductosController();
 
 
-            $id_order = $confirmacion->buyOrder;
-            // $tbk = Transbank::where("id", $id_order)->first();
-            Transbank::where("id", $id_order)
-                        ->update([
-                            "responseCode" => $confirmacion->responseCode,
-                            "authorizationCode" => $confirmacion->authorizationCode,
-                            "paymentTypeCode" => $confirmacion->paymentTypeCode,
-                            "installmentsNumber" => $confirmacion->installmentsNumber,
-                            "installmentsAmount" => $confirmacion->installmentsAmount == null ? 0 : $confirmacion->installmentsAmount,
-                            "cardNumber" => $confirmacion->cardNumber,
-                        ]);
-            $id_compra = Transbank::select("id_compras")->where("id", $id_order)->get()->first()->id_compras;
-            Compras::where("id", $id_compra)->update(["id_tbk" => $id_order]);
-            $email = Compras::select('email')->where("id", $id_compra)->get()->first()->email;
-            // ? busca los productos en el carrito para poder agregarlos a COMPRAS_PRODUCTOS
-            $compras_productos = Carrito::select("p.id", "carrito.cantidad", "p.codigo", "p.p_venta", "p.oferta")
-                                ->join("productos AS p", "p.id", "carrito.id_producto")
-                                ->where("carrito.email", $email)->get();
+                $id_order = $confirmacion->buyOrder;
+                // $tbk = Transbank::where("id", $id_order)->first();
+                Transbank::where("id", $id_order)
+                            ->update([
+                                "responseCode" => $confirmacion->responseCode,
+                                "authorizationCode" => $confirmacion->authorizationCode,
+                                "paymentTypeCode" => $confirmacion->paymentTypeCode,
+                                "installmentsNumber" => $confirmacion->installmentsNumber,
+                                "installmentsAmount" => $confirmacion->installmentsAmount == null ? 0 : $confirmacion->installmentsAmount,
+                                "cardNumber" => $confirmacion->cardNumber,
+                            ]);
+                $id_compra = Transbank::select("id_compras")->where("id", $id_order)->get()->first()->id_compras;
+                Compras::where("id", $id_compra)->update(["id_tbk" => $id_order]);
+                $email = Compras::select('email')->where("id", $id_compra)->get()->first()->email;
+                // ? busca los productos en el carrito para poder agregarlos a COMPRAS_PRODUCTOS
+                $compras_productos = Carrito::select("p.id", "carrito.cantidad", "p.codigo", "p.p_venta", "p.oferta")
+                                    ->join("productos AS p", "p.id", "carrito.id_producto")
+                                    ->where("carrito.email", $email)->get();
 
-            foreach ($compras_productos AS $item) {
-                $state_oferta = 0;
-                // $precio_original = Productos::select("p_venta")->where("id", $item->id_producto)->get()->first()->p_venta;
-                $precio_original = $compras_productos->first()->p_venta;
-                $precio_final = $precio_original;
-                if($item->oferta == true){
-                    if($controller->state_oferta($item->id) == true){
-                        $state_oferta = 1;
-                        $precio_final = $controller->value_oferta($item->id);
+                foreach ($compras_productos AS $item) {
+                    $state_oferta = 0;
+                    // $precio_original = Productos::select("p_venta")->where("id", $item->id_producto)->get()->first()->p_venta;
+                    $precio_original = $compras_productos->first()->p_venta;
+                    $precio_final = $precio_original;
+                    if($item->oferta == true){
+                        if($controller->state_oferta($item->id) == true){
+                            $state_oferta = 1;
+                            $precio_final = $controller->value_oferta($item->id);
+                        }else{
+                            $state_oferta = 0;
+                            $precio_final = $precio_original;
+                        }
                     }else{
                         $state_oferta = 0;
                         $precio_final = $precio_original;
                     }
-                }else{
-                    $state_oferta = 0;
-                    $precio_final = $precio_original;
+
+                    ComprasProductos::insert([
+                        "id_compra" => $id_compra,
+                        "id_producto" => $item->id,
+                        "cantidad" => $item->cantidad,
+                        "p_original" => $precio_original,
+                        "oferta" => $state_oferta,
+                        "p_venta" => $precio_final
+                    ]);
                 }
 
-                ComprasProductos::insert([
-                    "id_compra" => $id_compra,
-                    "id_producto" => $item->id,
-                    "cantidad" => $item->cantidad,
-                    "p_original" => $precio_original,
-                    "oferta" => $state_oferta,
-                    "p_venta" => $precio_final
-                ]);
-            }
 
+                // ? se debe enviar el correo
+                $correo = new ComprobanteCompra($id_compra);
 
-            // ? se debe enviar el correo
-            $correo = new ComprobanteCompra($id_compra);
+                $emails_admin = $this->get_emails_admins();
 
+                Mail::to($email)->send($correo);
+                // ? enviar a los responsables
+                foreach($emails_admin AS $item){
+                    Mail::to($item->email)->send($correo);
+                }            
 
-            Mail::to($email)->send($correo);
-            // ? enviar a los responsables
-
-            // ? eliminar el carrito enviado
-            Carrito::where("email", $email)->delete();
-            return redirect("./pgo-tbk");
-
-        }else{
+                // ? eliminar el carrito enviado
+                Carrito::where("email", $email)->delete();
+                return redirect("./pgo-tbk".'/'.base64_encode($id_order));
+                }else{
+                    return redirect("./pgo-result");
+                    
+                }
+        } catch (\Throwable $th) {
             return redirect("./pgo-result");
-            
         }
 
+
     }
-   
+
+    
+    function get_emails_admins()
+    {
+        return ConfiguracionEmail::select("email")->where("estado", 1)->get();
+    }
+
 }
 
  //  tarjeta de debit aprobadad
