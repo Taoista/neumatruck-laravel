@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Cookie;
 use App\Models\Compras;
+use App\Models\Ciudades;
+use App\Models\ComprasProductos;
+use App\Models\Transbank;
 
 class CheckoutController extends Controller
 {
@@ -37,29 +40,56 @@ class CheckoutController extends Controller
     {
         $id_order = base64_decode($id_order);
         // * datos de comrpa
-        $data_compra = Compras::select("compras.fecha", "compras.estado", 
+        $data_compra = Compras::select("compras.id AS id_compra","compras.fecha", "compras.estado", 
                         "compras.rut", "compras.nombre", "compras.email", 
                         "compras.telefono", "compras.contacto", 
                         "compras.tipo_delivery", "compras.id_ciudad", "compras.direccion",
                         "compras.nota", "compras.neto", "compras.iva", "compras.delivery",
-                        "compras.total")
-                ->where("compras.id", $id_order)
+                        "compras.total", "tt.name AS tipo_tarjeta",
+                        "t.responseCode", "t.authorizationCode", 't.installmentsNumber', 
+                        't.installmentsAmount', 't.cardNumber')
+                ->join("transbank AS t", "t.id", "compras.id_tbk")
+                ->join("tipo_tarjeta AS tt", "t.paymentTypeCode", "tt.cod")
+                ->where("t.id", $id_order)
                 ->get();
 
-        $direccion = null;
 
+       
+        // TODO: ACTUVAR PARA ACTUALIZAR A 1
+        // ! ACTIVAR
+        Transbank::where("id", $id_order)->update(["estado" => 1]);
+
+        $direccion = null;
 
         // ? si no encuentra
         if(count($data_compra) == 0){
             return redirect("./");
         }
-        // ? si esta activo
-        if($data_compra->first()->id_ciudad != 0){
-            
+
+        // ? si el response code = el estado rechazado del pago
+        if($data_compra->first()->responseCode == "-1"){
+
+            return redirect("./");
         }
+
+        // ? contiene ciudad
+        $data_ciudad = null;
+       
+        if($data_compra->first()->id_ciudad != 0){
+            $data_ciudad = Ciudades::where("id", $data_compra->first()->id_ciudad)->get();
+        }
+
+       
         // ?toma dato de direccion
+        $id = $data_compra->first()->id_compra;
+        $productos = ComprasProductos::select("p.id", "p.codigo", "p.nombre", "p.img",
+                            "compras_productos.cantidad", "compras_productos.p_venta")
+                            ->join("productos AS p", "compras_productos.id_producto", "p.id")
+                            ->where("compras_productos.id_compra", $id)->get();
 
+        // url test => http://127.0.0.1:8000/pgo-tbk/Mzg=
+        // url test => http://127.0.0.1:8000/pgo-tbk/NDA=
 
-        return view("pgo-tbk");
+        return view("pgo-tbk", compact('data_compra', 'productos', 'data_ciudad'));
     }
 }

@@ -163,6 +163,7 @@ class Checkout extends Component
         // ? debe verificar si esta en lista de exento no se paga
         if($monto_minimo < $this->neto){
             $state = DeliveryFree::where("id_ciudad", $id_ciudad)->get();
+            
             if(count($state) != 0){
                 $this->val_despacho = 0;
             }else{
