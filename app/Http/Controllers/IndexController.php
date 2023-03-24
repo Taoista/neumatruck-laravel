@@ -20,7 +20,7 @@ class IndexController extends Controller{
     }
 
     function get_marcas(){
-        return Marcas::select("id")->where("nav", 1)->orderby("prioridad", "ASC")->get();
+        return Marcas::select("id2 AS id")->where("nav", 1)->orderby("prioridad", "ASC")->get();
     }
 
     function get_productos($id_tipo){

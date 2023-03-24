@@ -6,7 +6,7 @@
                 @foreach($list_brands AS $item)
                 <div class="input-checkbox">
                     <input type="checkbox" name="filtro_marca" value="{{ $item->id_marca }}" wire:model="imputs_brands">
-                    <label for="{{ $item->id_marca }}">{{ $item->marca }}</label>
+                    <label for="{{ $item->id_marca }}">{{ strtoupper($item->marca) }}</label>
                 </div>
                 @endforeach
             </div>

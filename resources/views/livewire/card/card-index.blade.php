@@ -1,10 +1,9 @@
 <div>
-    
     <div class="product slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 263px;">
         <div class="product-img"><a href="{{ url('./ficha').'/'.$item->id }}" tabindex="-1"><img src="{{ $item->img }}">
                 @if($item->oferta == true)
                     @if($controller->state_oferta($item->id) == true)
-                    <div class="product-label-oferta"><span class="new">OFERTAS </span></div>
+                    <div class="product-label-oferta"><span class="new">OFERTA </span></div>
                     @endif
                 @endif
                 <div class="product-label">

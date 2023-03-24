@@ -1,4 +1,4 @@
-<div class="product slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 263px;">
+{{-- <div class="product slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 263px;">
     <div class="product-img"><a href="ficha.php?idProducto=MzI0" tabindex="-1"><img src="https://www.neumatruck.cl/productos/112883.webp">
             <div class="product-label-oferta"></div>
             <div class="product-label"><span class="new">TRIANGLE</span>
@@ -18,4 +18,4 @@
         <button class="add-to-cart-btn agregacarro" tabindex="-1" wire:click="demo"><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button>
     </div>
 </div>
-
+ --}}

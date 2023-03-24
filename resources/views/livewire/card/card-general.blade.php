@@ -1,3 +1,4 @@
+
 <div class="col-md-4 col-xs-6" x-data="demo_demo()" x-init="pipo()">
     <div class="product"><a href="{{ url('./ficha').'/'.$item->id }}">
             <div class="product-img"><img src="{{ $item->img }}">
@@ -35,7 +36,7 @@
                                                                 font-size: 13px;">
                 <img style="width:20px" src="{{ asset('assets/img/loading.svg') }}" alt="">  </button></div>
         @else
-        <div class="add-to-cart"><button class="add-to-cart-btn2" rel="href_envio(">Ver</button></div>
+            <div class="add-to-cart"><button class="add-to-cart-btn2" @click="select_product('{{ $item->id }}')">Ver</button></div>
         @endif
     </div>
 </div>
@@ -93,6 +94,10 @@
             return {
                 pipo(){
                     // alert("demo alpinejs")
+                },
+                select_product(id_producto){
+                    const redirect = `${_Url}ficha/${id_producto}`
+                    window.location.href = redirect
                 }
             }
         }

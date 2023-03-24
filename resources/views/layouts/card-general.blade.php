@@ -1,4 +1,4 @@
-<div class="col-md-4 col-xs-6">
+{{-- <div class="col-md-4 col-xs-6">
     <div class="product"><a href="ficha.php?idProducto=NDY4">
             <div class="product-img"><img src="{{ $item->img }}">
                 @if($item->oferta == true)
@@ -25,9 +25,9 @@
                 </p><span>COD:{{ $item->codigo }}</span><br><span> Stock: {{ $item->stock }}</span>
         </div>
         @if($item->stock > 2)
-        <div class="add-to-cart"><button class="add-to-cart-btn agregacarro" rel="468"><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button></div>
+        <div class="add-to-cart"><button class="add-to-cart-btn agregacarro" ><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button></div>
         @else
-        <div class="add-to-cart"><button class="add-to-cart-btn2" rel="href_envio(">Ver</button></div>
+        <div class="add-to-cart"><button class="add-to-cart-btn2">Ver2</button></div>
         @endif
     </div>
-</div>
+</div> --}}

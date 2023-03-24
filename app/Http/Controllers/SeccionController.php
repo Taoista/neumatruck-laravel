@@ -15,7 +15,7 @@ class SeccionController extends Controller
         $id_seccion = base64_decode($id_seccion);
 
         $name = $this->get_name($id_seccion);
-
+        
         return view("seccion-select", compact('name', 'id_seccion'));
     }
 

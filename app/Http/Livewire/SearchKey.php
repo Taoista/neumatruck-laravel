@@ -5,8 +5,12 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Productos;
 use App\Http\Controllers\ProductosController;
+use Livewire\WithPagination;
 
 class SearchKey extends Component{
+
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
     public $key;
 
@@ -42,8 +46,8 @@ class SearchKey extends Component{
         $key = "%".str_replace(" ","",str_replace(str_split("/-.+-xX"), '', $this->key))."%";
         return Productos::select("productos.id","productos.codigo", "productos.nombre", "productos.img", 
                             "m.marca", "productos.p_sistema", "productos.p_venta", "productos.oferta", 
-                            "productos.stock")
-                            ->join("marcas AS m", "m.id", "productos.id_marca")
+                            "productos.id_marca","productos.stock")
+                            ->join("marcas AS m", "m.id2", "productos.id_marca")
                             ->where("productos.estado", 1)
                             ->where("productos.busqueda", "LIKE", $key)
                             ->when($this->list_brands, function($query){
@@ -57,13 +61,13 @@ class SearchKey extends Component{
                             ->when($this->filter_key > 1, function($query){
                                 $query->where("productos.nombre", "LIKE",'%'.$this->filter_key.'%');
                             })
-                            ->get();        
+                            ->paginate(12);     
     }
 
     public function get_brands(){
         $key = "%".str_replace(" ","",str_replace(str_split("/-.+-xX"), '', $this->key))."%";
         return Productos::select("productos.id_marca", "m.marca")->distinct("productos.id_marca")
-                            ->join("marcas AS m", "m.id", "productos.id_marca")
+                            ->join("marcas AS m", "m.id2", "productos.id_marca")
                             ->where("productos.estado", 1)
                             ->where("productos.busqueda", "LIKE", $key)
                             ->get();        

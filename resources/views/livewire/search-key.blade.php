@@ -6,7 +6,7 @@
                 @foreach($brands AS $item)
                 <div class="input-checkbox">
                     <input type="checkbox" name="filtro_marca" value="{{ $item->id_marca }}" wire:model="list_brands">
-                    <label for="{{ $item->id_marca }}">{{ $item->marca }}</label>
+                    <label for="{{ $item->id_marca }}">{{ strtoupper($item->marca) }}</label>
                 </div>
                 @endforeach
             </div>
@@ -26,12 +26,14 @@
     </div>
     <div id="store" class="col-md-9">
         <div class="row">
+            {{-- @livewire("card.card-general", ["id_producto" => 7, key(7)]) --}}
 
             @foreach ($productos as $item)
-                {{-- @include("layouts.card-general") --}}
+            {{-- {{ $item->id.' -> '.$item->marca.' -> '.$item->nombre.' -> '.$item->id_marca }} <br> --}}
                 @livewire("card.card-general", ["id_producto" => $item->id, key($item->id)])
             @endforeach
 
         </div>
+        {{ $productos->links() }}
     </div>
 </div>

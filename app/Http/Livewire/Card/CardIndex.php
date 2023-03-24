@@ -32,9 +32,10 @@ class CardIndex extends Component
 
     public function data_producto()
     {
-        $data = Productos::select("productos.id", "productos.codigo", "productos.nombre", "productos.p_sistema",
-                                "productos.p_venta", "m.marca", "productos.img", "productos.stock")
-                    ->join("marcas AS m", "productos.id_marca", "m.id")
+        $data = Productos::select("productos.id", "productos.codigo", "productos.nombre", 
+                                "productos.p_sistema", "productos.p_venta", "m.marca", 
+                                "productos.img", "productos.stock", "productos.oferta")
+                    ->join("marcas AS m", "productos.id_marca", "m.id2")
                     ->where("productos.id", $this->id_producto)->get()->first();
 
         return $data;
