@@ -8,7 +8,7 @@
                 @for ($i=0; $i < count($list_brands); $i++)
                 <div class="input-checkbox">
                     <input type="checkbox" name="filtro_marca" value="{{ $list_brands[$i]["id_marca"] }}" wire:model="imputs_brands">
-                    <label for="{{ $list_brands[$i]["id_marca"] }}">{{ $list_brands[$i]["marca"] }}</label>
+                    <label for="{{ $list_brands[$i]["id_marca"] }}">{{ strtoupper($list_brands[$i]["marca"]) }}</label>
                 </div>
                 @endfor
 
