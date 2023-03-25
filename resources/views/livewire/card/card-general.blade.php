@@ -26,7 +26,9 @@
                 </p><span>COD:{{ $item->codigo }}</span><br><span> Stock: {{ $item->stock }}</span>
         </div>
         @if($item->stock > 2)
-        <div class="add-to-cart" wire:click="show_modal('{{ $item->id }}')" wire:loading.remove><button  class="add-to-cart-btn agregacarro"><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button></div>
+        <div class="add-to-cart" wire:click="show_modal('{{ $item->id }}')" wire:loading.remove><button  class="add-to-cart-btn agregacarro">
+            <i class="fa fa-shopping-cart"></i>Agregar Al Carro 2</button>
+        </div>
         <div class="add-to-cart" wire:loading wire:target="show_modal">
             <button class="add-to-cart-btn agregacarro" style="background-color: #FFF;
                                                                 padding-left: 95px;
@@ -39,34 +41,36 @@
             <div class="add-to-cart"><button class="add-to-cart-btn2" @click="select_product('{{ $item->id }}')">Ver</button></div>
         @endif
     </div>
+
+    <div x-data="card_componente()" x-init="demo()" class="modal fade" id="mi_modal-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">×</span><span class="sr-only">Cerrar</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Agrega tu correo</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="padding:15px">
+                        <label for="" style="color:red; display:none; text-align:center" id="lbl-error">Debe agregar un email valido para continuar</label>
+                        <input @keydown.enter="add_card('{{ $item->id }}')" id="email-session-{{ $item->id }}" type="text" class="form-control" placeholder="Email"><br>
+                        <button @click="add_card('{{ $item->id }}')" type="button" class="btn btn-default center-block">Continuar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 
 @push("scripts")
 
-<div x-data="card_componente()" x-init="demo()" class="modal fade" id="mi_modal-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">×</span><span class="sr-only">Cerrar</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Agrega tu correo</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row" style="padding:15px">
-                    <label for="" style="color:red; display:none; text-align:center" id="lbl-error">Debe agregar un email valido para continuar</label>
-                    <input @keydown.enter="add_card('{{ $item->id }}')" id="email-session-{{ $item->id }}" type="text" class="form-control" placeholder="Email"><br>
-                    <button @click="add_card('{{ $item->id }}')" type="button" class="btn btn-default center-block">Continuar</button>
-                </div>
-            </div>
 
-        </div>
-    </div>
-</div>
 
 
     <script>
-
 
         document.addEventListener("livewire:load", function(){
 
@@ -76,7 +80,7 @@
                 id_modal = event.detail.id;
                 $('#mi_modal-'+id_modal).modal('show');
             });
-            
+
             window.addEventListener("save_producto", (e) => {
                 Swal.fire('Producto','Producto fue agregado correctamente','success')
             });
@@ -85,10 +89,10 @@
                 id_modal = event.detail.id;
                 $('#mi_modal-'+id_modal).modal('hide');
             });
-            
-            
+
+
         })
-        
+
 
         function demo_demo(){
             return {

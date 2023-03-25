@@ -361,10 +361,9 @@
                     <div class="footer">
                         <h3 class="footer-title">Categorías</h3>
                         <ul class="footer-links">
-                            <li><a class="section-selector" data-type="3">Agricola</a></li>
-                            <li><a class="section-selector" data-type="1">Camion y Bus</a></li>
-                            <li><a class="section-selector" data-type="2">Industrial</a></li>
-                            <li><a class="section-selector" data-type="4">OTR</a></li>
+                            @foreach (get_categoria_footer() as $item )
+                            <li><a href="{{ url('./categoria').'/'.base64_encode($item->id) }}" >{{ strtoupper($item->nombre) }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

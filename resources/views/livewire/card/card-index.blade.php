@@ -1,4 +1,4 @@
-<div>
+<div  x-data="demo_demo()" x-init="pipo()">
     <div class="product slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 263px;">
         <div class="product-img"><a href="{{ url('./ficha').'/'.$item->id }}" tabindex="-1"><img src="{{ $item->img }}">
                 @if($item->oferta == true)
@@ -40,9 +40,11 @@
     </div>
 
 
-   
+
+
 
 </div>
+
 
 
 @push("scripts")
@@ -80,7 +82,7 @@
                 id_modal = event.detail.id;
                 $('#mi_modal-'+id_modal).modal('show');
             });
-            
+
             window.addEventListener("save_producto", (e) => {
                 Swal.fire('Producto','Producto fue agregado correctamente','success')
             });
@@ -89,10 +91,23 @@
                 id_modal = event.detail.id;
                 $('#mi_modal-'+id_modal).modal('hide');
             });
-            
-            
+
+
         })
-        
+
+
+        function demo_demo(){
+            return {
+                pipo(){
+                    // alert("demo alpinejs")
+                },
+                select_product(id_producto){
+                    const redirect = `${_Url}ficha/${id_producto}`
+                    window.location.href = redirect
+                }
+            }
+        }
+
         function card_componente(){
             return {
                 demo(){

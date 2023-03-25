@@ -3,6 +3,7 @@ use App\Models\Configuracion;
 use App\Models\ConfiguracionDato;
 use App\Models\ConfiguracionPhono;
 use App\Models\MarcasFooter;
+use App\Models\CategoriaFotter;
 use App\Models\Tipo;
 
 // * toma el monotop minimo valor neto
@@ -22,6 +23,16 @@ function get_marcas_footer()
                         ->where("marcas_footer.estado", 1)
                         ->orderby("marcas_footer.orden", 'ASC')
                         ->get();
+}
+
+// * toma las categorias que se van a mostrar en el footer
+function get_categoria_footer()
+{
+    return CategoriaFotter::select("t.id", "t.nombre")
+            ->join("tipo AS t", "t.id", "categoria_footer.id_tipo")
+            ->where("categoria_footer.estado", 1)
+            ->orderby("categoria_footer.orden", 'ASC')
+            ->get();
 }
 
 // * toma las categorias
