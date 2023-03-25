@@ -3,21 +3,6 @@
 
 @section('content-general')
 
-    {{--  * CONENEDOR RRSS --}}
-    <div class="icon-bar text-center">
-        <a target="_blank" style="background-color:#3b5998;" href="https://www.facebook.com/neumatruck.cl/" class="facebook"><i
-                class="fa fa-facebook"></i></a>
-        <a target="_blank" style="background-color:blue;" href="tel:+56946649909" class="google"><i class="fa fa-phone"></i></a>
-        <a target="_blank" style="background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);"
-            href="https://www.facebook.com/neumatruck.cl/&quot;" class="youtube"><i class="fa fa-instagram"></i></a>
-        <a target="_blank" style="background-color:#4FCE5D;"
-            href="https://api.whatsapp.com/send?phone=+56964965790&amp;text=Estoy%20interesado%20en%20sus%20productos"
-            class="twitter"><i class="fa fa-whatsapp"></i></a>
-        <!-- <a href="mailto:contacto@neumatruck.cl" class="linkedin"><i class="fa fa-envelope-o"></i></a> -->
-    </div>
-
-
-
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -51,13 +36,7 @@
           <span class="glyphicon glyphicon-chevron-right"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>
-
-
-    <script>
-        w3.slideshow(".nature", 4000);
-    </script>
-
+    </div>
 
     <div class="section">
         <!-- container -->
@@ -119,11 +98,8 @@
 
                         </div>
                     </div>
-                    <!-- Products tab & slick -->
                 </div>
-                <!-- /row -->
             </div>
-            <!-- /container -->
         </div>
 
         <div class="section">

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 24, 2023 at 08:39 PM
+-- Generation Time: Mar 25, 2023 at 07:01 PM
 -- Server version: 5.7.33
--- PHP Version: 8.1.9
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -69,6 +69,31 @@ INSERT INTO `carrito` (`id`, `fecha`, `email`, `id_producto`, `cantidad`) VALUES
 (50, '2023-03-21 11:33:02', 'luis@demo.cl', 195, 1),
 (59, '2023-03-23 16:58:30', 'demo@demo.cl', 552, 1),
 (60, '2023-03-23 16:58:32', 'demo@demo.cl', 195, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categoria_footer`
+--
+
+CREATE TABLE `categoria_footer` (
+  `id` int(11) NOT NULL,
+  `estado` int(11) NOT NULL,
+  `orden` int(11) NOT NULL,
+  `id_tipo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categoria_footer`
+--
+
+INSERT INTO `categoria_footer` (`id`, `estado`, `orden`, `id_tipo`) VALUES
+(1, 1, 1, 6),
+(2, 1, 2, 3),
+(3, 1, 3, 5),
+(4, 1, 4, 1),
+(5, 1, 5, 2),
+(6, 1, 6, 4);
 
 -- --------------------------------------------------------
 
@@ -623,6 +648,30 @@ INSERT INTO `configuracion_data` (`id`, `data`, `result`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `configuracion_descuento`
+--
+
+CREATE TABLE `configuracion_descuento` (
+  `id` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `descuento` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `configuracion_descuento`
+--
+
+INSERT INTO `configuracion_descuento` (`id`, `id_categoria`, `descuento`) VALUES
+(1, 1, 30),
+(2, 2, 30),
+(3, 3, 30),
+(4, 4, 30),
+(5, 5, 30),
+(6, 6, 30);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `configuracion_email`
 --
 
@@ -814,260 +863,31 @@ CREATE TABLE `marcas` (
 --
 
 INSERT INTO `marcas` (`id`, `id2`, `estado`, `marca`, `nav`, `prioridad`) VALUES
-(1, 3, 0, 'castrol', 0, 0),
-(2, 4, 0, 'fierte', 0, 0),
-(3, 5, 0, 'gm', 0, 0),
-(4, 6, 0, 'liqui moly', 0, 0),
-(5, 7, 0, 'yigitaku', 0, 0),
-(6, 8, 0, 'pressure', 0, 0),
-(7, 9, 0, 'petromerica', 0, 0),
-(8, 10, 0, 'librelato', 0, 0),
-(9, 11, 0, 'voltex', 0, 0),
 (10, 12, 1, 'michelin', 1, 2),
 (11, 14, 1, 'samson', 1, 10),
 (12, 15, 1, 'sumitomo', 0, 0),
-(13, 16, 0, 'nexen tire', 0, 0),
-(14, 17, 0, 'teco', 0, 0),
-(15, 19, 0, 'sunshine', 0, 0),
 (16, 21, 1, 'goodride', 1, 4),
-(17, 22, 0, 'otras saldos', 0, 0),
-(18, 26, 0, 'ningbo daocheng', 0, 0),
-(19, 27, 0, 'tip top', 0, 0),
-(20, 29, 0, 'elf', 0, 0),
-(21, 31, 0, 'victory', 0, 0),
-(22, 32, 0, 'gulf', 0, 0),
-(23, 33, 0, 'mobil', 0, 0),
-(24, 34, 0, 'shell', 0, 0),
-(25, 35, 0, 'total', 0, 0),
 (26, 36, 1, 'galaxy', 1, 5),
 (27, 37, 1, 'ling long', 1, 6),
 (28, 38, 1, 'petlas', 0, 0),
 (29, 39, 1, 'triangle', 0, 0),
 (30, 41, 1, 'windforce', 1, 7),
-(31, 43, 0, 'emax', 0, 0),
-(32, 44, 0, 'weg', 0, 0),
-(33, 45, 0, 'sonar', 0, 0),
-(34, 47, 0, 'federal', 0, 0),
-(35, 48, 0, 'shlk', 0, 0),
-(36, 51, 0, 'uniwell', 0, 0),
-(37, 52, 0, 'dong ah', 0, 0),
-(38, 53, 0, 'sumitc', 0, 0),
-(39, 54, 0, 'otras', 0, 0),
 (40, 57, 1, 'pirelli', 1, 1),
-(41, 58, 0, 'chaoyang', 0, 0),
-(42, 64, 1, 'honour', 1, 0),
+(42, 64, 1, 'honour', 0, 0),
 (43, 67, 1, 'yellowsea', 0, 0),
 (44, 68, 1, 'goodyear', 0, 0),
-(45, 69, 0, 'yokohama', 0, 0),
-(46, 70, 0, 'lead-plomos', 0, 0),
-(47, 71, 0, 'contrapesos mex.', 0, 0),
-(48, 72, 0, 'varios automecanic', 0, 0),
-(49, 77, 0, 'zao', 0, 0),
-(50, 79, 0, 'unite', 0, 0),
-(51, 80, 0, 'bolaite', 0, 0),
-(52, 81, 0, 'cepsa', 0, 0),
-(53, 82, 0, 'wynn\'s', 0, 0),
-(54, 83, 0, 'llantas replica', 0, 0),
-(55, 84, 0, 'puli', 0, 0),
-(56, 85, 0, 'ankhei', 0, 0),
-(57, 86, 0, 'fabricas korea', 0, 0),
-(58, 87, 0, 'samsung brake', 0, 0),
-(59, 88, 0, 'twg', 0, 0),
-(60, 89, 0, 'repsol', 0, 0),
-(61, 90, 0, 'hyundai autos', 0, 0),
-(62, 91, 0, 'winjet', 0, 0),
-(63, 92, 0, 'oem', 0, 0),
-(64, 93, 0, 'onnuri', 0, 0),
-(65, 94, 0, 'ssangyong', 0, 0),
-(66, 95, 0, 'tcic', 0, 0),
-(67, 96, 0, 'dnps', 0, 0),
-(68, 97, 0, 'mando', 0, 0),
-(69, 98, 0, 'jico', 0, 0),
-(70, 99, 0, 'ngk', 0, 0),
-(71, 100, 0, 'samgong', 0, 0),
-(72, 101, 0, 'gates', 0, 0),
-(73, 102, 0, 'gmb', 0, 0),
-(74, 103, 0, 'gmp', 0, 0),
-(75, 104, 0, 'koreastar', 0, 0),
-(76, 105, 0, 'ctr', 0, 0),
-(77, 106, 0, 'ae', 0, 0),
-(78, 107, 0, 'seowoo', 0, 0),
-(79, 108, 0, 'inzi', 0, 0),
-(80, 109, 0, 'fyc (taiwan)', 0, 0),
-(81, 110, 0, 'shinhwa', 0, 0),
-(82, 111, 0, 'garrett', 0, 0),
-(83, 112, 0, 't-turbo[mitsubishi]', 0, 0),
-(84, 113, 0, 'pos', 0, 0),
-(85, 114, 0, 'kfm', 0, 0),
-(86, 115, 0, 'hannam', 0, 0),
-(87, 116, 0, 'kpr', 0, 0),
-(88, 117, 0, 'mobis', 0, 0),
-(89, 118, 0, 'crt', 0, 0),
-(90, 119, 0, 'sjc', 0, 0),
-(91, 120, 0, 'samyung', 0, 0),
-(92, 121, 0, 'super s', 0, 0),
-(93, 122, 0, 'miralautos', 0, 0),
-(94, 123, 0, 'ntk', 0, 0),
-(95, 124, 0, 'ningbo daocheng', 0, 0),
-(96, 125, 0, 'anjun', 0, 0),
-(97, 126, 0, 'hit-it', 0, 0),
-(98, 127, 0, 'road claw', 0, 0),
-(99, 128, 0, 'bf goodrich', 0, 0),
-(100, 129, 1, 'bridgestone', 1, 0),
+(100, 129, 1, 'bridgestone', 0, 0),
 (101, 130, 1, 'continental', 0, 0),
 (102, 131, 1, 'fesite', 1, 8),
-(103, 132, 0, 'chevron', 0, 0),
-(104, 133, 0, 'ac delco', 0, 0),
-(105, 134, 0, 'motul', 0, 0),
-(106, 135, 0, 'kia', 0, 0),
-(107, 136, 0, 'nissan', 0, 0),
-(108, 137, 0, 'mitsubishi', 0, 0),
-(109, 138, 0, 'kap', 0, 0),
-(110, 139, 0, 'chevrolet', 0, 0),
-(111, 140, 0, 'suzuki', 0, 0),
-(112, 141, 0, 'toyota', 0, 0),
-(113, 142, 0, 'seco', 0, 0),
-(114, 143, 0, 'tuff', 0, 0),
-(115, 144, 0, 'black rhino', 0, 0),
-(116, 145, 0, 'metal muscle', 0, 0),
-(117, 146, 0, 'worx', 0, 0),
-(118, 147, 0, 'llanta', 0, 0),
-(119, 148, 0, 'helo', 0, 0),
-(120, 149, 0, 'moto metal', 0, 0),
-(121, 150, 0, 'asanti', 0, 0),
-(122, 151, 0, 'vossen', 0, 0),
-(123, 152, 0, 'vertigo luxury', 0, 0),
-(124, 153, 0, 'ksturbo', 0, 0),
-(125, 154, 1, 'golden crown', 1, 0),
-(126, 155, 0, 'apk', 0, 0),
-(127, 156, 0, 'tik', 0, 0),
-(128, 157, 1, 'doupro', 1, 0),
-(129, 158, 0, 'moto', 0, 0),
-(130, 159, 0, 'sunny', 0, 0),
-(131, 160, 0, 'wanli', 0, 0),
+(125, 154, 1, 'golden crown', 0, 0),
+(128, 157, 1, 'doupro', 0, 0),
 (132, 161, 1, 'tianli', 0, 0),
-(133, 162, 0, 'jinyou', 0, 0),
-(134, 163, 0, 'samsung motor', 0, 0),
-(135, 164, 0, 'zenith', 0, 0),
-(136, 165, 0, 'hsc', 0, 0),
-(137, 166, 0, 'ina', 0, 0),
-(138, 167, 0, 'bosch', 0, 0),
-(139, 168, 0, 'dac', 0, 0),
-(140, 169, 0, 'wolver', 0, 0),
-(141, 170, 0, 'yangji', 0, 0),
-(142, 171, 0, 'hanon', 0, 0),
 (143, 172, 1, 'dunlop', 1, 3),
-(144, 173, 0, 'firemax', 0, 0),
-(145, 174, 0, 'cachland', 0, 0),
-(146, 175, 0, 'v8', 0, 0),
 (147, 176, 1, 'westlake', 0, 0),
-(148, 177, 0, 'winrun', 0, 0),
-(149, 178, 0, 'nitro', 0, 0),
-(150, 179, 0, 'gentry', 0, 0),
 (151, 180, 1, 'onyx', 1, 9),
-(152, 181, 0, 'no', 0, 0),
-(153, 182, 0, 'aptany', 0, 0),
-(154, 183, 1, 'tracmax', 1, 0),
-(155, 184, 0, 'korlube', 0, 0),
-(156, 185, 0, 'frideric', 0, 0),
-(157, 186, 0, 'keter', 0, 0),
-(158, 187, 0, 'vift', 0, 0),
+(154, 183, 1, 'tracmax', 0, 0),
 (159, 188, 1, 'amberstone', 0, 0),
-(160, 189, 0, 'anchee', 0, 0),
-(161, 190, 0, 'annaite', 0, 0),
-(162, 191, 0, 'jp one', 0, 0),
-(163, 193, 0, 'dana', 0, 0),
-(164, 194, 0, 'x-force', 0, 0),
-(165, 195, 0, 'probat', 0, 0),
-(166, 196, 0, 'lubrax', 0, 0),
-(167, 197, 0, 'chevrolet opel', 0, 0),
-(168, 198, 0, 'joyroad', 0, 0),
-(169, 199, 0, 'alfa romeo', 0, 0),
-(170, 200, 0, 'asia motors', 0, 0),
-(171, 201, 0, 'audi', 0, 0),
-(172, 202, 0, 'brillance', 0, 0),
-(173, 203, 0, 'byd', 0, 0),
-(174, 204, 0, 'changan', 0, 0),
-(175, 205, 0, 'chery', 0, 0),
-(176, 206, 0, 'citroen', 0, 0),
-(177, 207, 0, 'daewoo', 0, 0),
-(178, 208, 0, 'daihatsu', 0, 0),
-(179, 209, 0, 'dodge', 0, 0),
-(180, 210, 0, 'dong feng', 0, 0),
-(181, 211, 0, 'fiat', 0, 0),
-(182, 212, 0, 'ford', 0, 0),
-(183, 213, 0, 'foton', 0, 0),
-(184, 214, 0, 'geely', 0, 0),
-(185, 215, 0, 'great wall', 0, 0),
-(186, 216, 0, 'hafei', 0, 0),
-(187, 217, 0, 'honda', 0, 0),
-(188, 218, 0, 'jac motors', 0, 0),
-(189, 219, 0, 'lifan', 0, 0),
-(190, 220, 0, 'mahindra', 0, 0),
-(191, 221, 0, 'mazda', 0, 0),
-(192, 222, 0, 'mg', 0, 0),
-(193, 223, 0, 'peugeot', 0, 0),
-(194, 224, 0, 'renault', 0, 0),
-(195, 225, 0, 'skoda', 0, 0),
-(196, 226, 0, 'sma', 0, 0),
-(197, 227, 0, 'subaru', 0, 0),
-(198, 228, 0, 'volkswagen', 0, 0),
-(199, 229, 0, 'volvo', 0, 0),
-(200, 230, 0, 'zna', 0, 0),
-(201, 231, 0, 'zotye', 0, 0),
-(202, 232, 0, 'aerovan', 0, 0),
-(203, 233, 0, 'acura', 0, 0),
-(204, 234, 0, 'chrysler', 0, 0),
-(205, 235, 0, 'buick', 0, 0),
-(206, 236, 0, 'aston martin', 0, 0),
-(207, 237, 0, 'bmw', 0, 0),
-(208, 238, 0, 'international', 0, 0),
-(209, 239, 0, 'freightliner', 0, 0),
-(210, 240, 0, 'atlas', 0, 0),
-(211, 241, 0, 'allis chalmers', 0, 0),
-(212, 242, 0, 'caterpillar', 0, 0),
-(213, 243, 0, 'bamn', 0, 0),
-(214, 244, 1, 'otros', 1, 0),
-(215, 245, 0, 'BENTLEY', 0, 0),
-(216, 246, 0, 'bertone', 0, 0),
-(217, 247, 0, 'bugatti', 0, 0),
-(218, 248, 0, 'CADILLAC', 0, 0),
-(219, 249, 0, 'case', 0, 0),
-(220, 250, 0, 'CATERPILLAR', 0, 0),
-(221, 251, 0, 'DFSK', 0, 0),
-(222, 252, 0, 'HAIMA', 0, 0),
-(223, 253, 0, 'jeep', 0, 0),
-(224, 254, 0, 'lexus', 0, 0),
-(225, 255, 0, 'GENERADOR', 0, 0),
-(226, 256, 0, 'hino', 0, 0),
-(227, 257, 0, 'hitachi', 0, 0),
-(228, 258, 0, 'HYSTER', 0, 0),
-(229, 259, 0, 'ISUZU', 0, 0),
-(230, 260, 0, 'iveco', 0, 0),
-(231, 261, 0, 'jaguar', 0, 0),
-(232, 262, 0, 'JCB', 0, 0),
-(233, 263, 0, 'JHON DEERE', 0, 0),
-(234, 264, 0, 'JINBEI', 0, 0),
-(235, 265, 0, 'jmc', 0, 0),
-(236, 266, 0, 'kamaz', 0, 0),
-(237, 267, 0, 'KENWORK', 0, 0),
-(238, 268, 0, 'KOMATSU', 0, 0),
-(239, 269, 0, 'LAND ROVER', 0, 0),
-(240, 270, 0, 'LINCOLN', 0, 0),
-(241, 271, 0, 'LINDE', 0, 0),
-(242, 272, 0, 'mack', 0, 0),
-(243, 273, 0, 'MASSEY FERGUSON', 0, 0),
-(244, 274, 0, 'maxus', 0, 0),
-(245, 275, 0, 'MERCEDES BENZ', 0, 0),
-(246, 276, 0, 'NEW HOLLAND', 0, 0),
-(247, 277, 0, 'OLDSMOBILE', 0, 0),
-(248, 278, 0, 'pegoso', 0, 0),
-(249, 279, 0, 'pontiac', 0, 0),
-(250, 280, 0, 'PORSCHE', 0, 0),
-(251, 281, 0, 'seat', 0, 0),
-(252, 282, 0, 'tata', 0, 0),
-(253, 283, 0, 'zk', 0, 0),
-(254, 231, 0, 'HUNTER', 0, 0),
+(214, 244, 1, 'otros', 0, 0),
 (255, 284, 1, 'DEESTONE', 0, 0),
 (256, 285, 1, 'KORMORAN', 0, 0),
 (257, 287, 1, 'HANKOOK', 0, 0),
@@ -1087,6 +907,29 @@ INSERT INTO `marcas` (`id`, `id2`, `estado`, `marca`, `nav`, `prioridad`) VALUES
 (272, 300, 1, 'fanfaro', 0, 0),
 (273, 301, 1, 'olar', 0, 0),
 (274, 302, 1, 'firestone', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `marcas_footer`
+--
+
+CREATE TABLE `marcas_footer` (
+  `id` int(11) NOT NULL,
+  `estado` tinyint(4) NOT NULL,
+  `orden` int(11) NOT NULL,
+  `id_marca` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `marcas_footer`
+--
+
+INSERT INTO `marcas_footer` (`id`, `estado`, `orden`, `id_marca`) VALUES
+(1, 1, 2, 131),
+(2, 1, 3, 57),
+(3, 1, 1, 172),
+(4, 1, 4, 41);
 
 -- --------------------------------------------------------
 
@@ -2228,7 +2071,9 @@ INSERT INTO `newsletter` (`id`, `email`, `fecha`) VALUES
 (1148, 'jordenesm@gmail.com', '2023-02-18 17:53:17'),
 (1149, '', '2023-02-18 17:53:17'),
 (1150, 'demo@demo', '2023-02-18 17:54:25'),
-(1151, 'adda', '2023-03-22 16:54:55');
+(1151, 'adda', '2023-03-22 16:54:55'),
+(1152, 'pipo@pipo.cl', '2023-03-25 06:35:02'),
+(1153, 'pipo1@pipo.cl', '2023-03-25 06:37:16');
 
 -- --------------------------------------------------------
 
@@ -3531,6 +3376,12 @@ ALTER TABLE `carrito`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `categoria_footer`
+--
+ALTER TABLE `categoria_footer`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ciudades`
 --
 ALTER TABLE `ciudades`
@@ -3562,6 +3413,12 @@ ALTER TABLE `configuracion_data`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `configuracion_descuento`
+--
+ALTER TABLE `configuracion_descuento`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `configuracion_email`
 --
 ALTER TABLE `configuracion_email`
@@ -3585,6 +3442,12 @@ ALTER TABLE `delivery_free`
 ALTER TABLE `marcas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id2` (`id2`);
+
+--
+-- Indexes for table `marcas_footer`
+--
+ALTER TABLE `marcas_footer`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `newsletter`
@@ -3646,6 +3509,12 @@ ALTER TABLE `carrito`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
+-- AUTO_INCREMENT for table `categoria_footer`
+--
+ALTER TABLE `categoria_footer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `ciudades`
 --
 ALTER TABLE `ciudades`
@@ -3676,6 +3545,12 @@ ALTER TABLE `configuracion_data`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `configuracion_descuento`
+--
+ALTER TABLE `configuracion_descuento`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `configuracion_email`
 --
 ALTER TABLE `configuracion_email`
@@ -3700,10 +3575,16 @@ ALTER TABLE `marcas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=275;
 
 --
+-- AUTO_INCREMENT for table `marcas_footer`
+--
+ALTER TABLE `marcas_footer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1152;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1154;
 
 --
 -- AUTO_INCREMENT for table `ofertas`

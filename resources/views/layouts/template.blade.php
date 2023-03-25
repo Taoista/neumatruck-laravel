@@ -25,7 +25,7 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/nouislider.min.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css?ver=1.4') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/js/typeahead.css?ver=1.6') }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/2.0/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-159179503-1"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
@@ -33,124 +33,11 @@
     @yield('content-css')
 
     @livewireStyles
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-159179503-1');
-    </script>
-    {{-- *PIXEL --}}
-    <meta name="facebook-domain-verification" content="hmhiq76ah4inz05pdl0jgt08inex1h">
-
-    {{-- * HOTJA --}}
-    <script>
-        (function(h, o, t, j, a, r) {
-
-            h.hj = h.hj || function() {
-                (h.hj.q = h.hj.q || []).push(arguments)
-            };
-
-            h._hjSettings = {
-                hjid: 2147404,
-                hjsv: 6
-            };
-
-            a = o.getElementsByTagName('head')[0];
-
-            r = o.createElement('script');
-            r.async = 1;
-
-            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-
-            a.appendChild(r);
-
-        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-    </script>
-    <script async="" src="https://static.hotjar.com/c/hotjar-2147404.js?sv=6"></script>
-
-    <!-- End Facebook Pixel Code -->
-
-    <!-- Ivana la cabezona codigo segumiento formulario -->
-
-    <!-- Global site tag (gtag.js) - Google Ads: 720676427 -->
-
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-720676427"></script>
-
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'AW-720676427');
-    </script>
-
-    <!-- VERIFICACION FACEBOK PAGINA FACEBBOK -->
-
-    <meta name="facebook-domain-verify" content="hmhiq76ah4inz05pdl0jgt08inex1h">
-
-    <!-- /MAIN HEADER -->
-
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-W39SRJ6');
-    </script>
 
 
-    <!-- Facebook Pixel Code -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window,document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '4295041700542357');
-        fbq('track', 'PageView');
-        </script>
-    <noscript>
-        <img height="1" width="1"
-        src="https://www.facebook.com/tr?id=4295041700542357&ev=PageView
-        &noscript=1"/>
-    </noscript>
-
-    <noscript>
-        <img height="1" width="1"
-            src="https://www.facebook.com/tr?id=4295041700542357&ev=PageView&noscript=1" />
-    </noscript>
-
-    <meta http-equiv="origin-trial" content="A7bG5hJ4XpMV5a3V1wwAR0PalkFSxLOZeL9D/YBYdupYUIgUgGhfVJ1zBFOqGybb7gRhswfJ+AmO7S2rNK2IOwkAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
-    <script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/720676427/?random=1663081732749&amp;cv=9&amp;fst=1663081732749&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1032&amp;u_aw=1920&amp;u_cd=24&amp;u_his=4&amp;u_tz=-180&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2oa970&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fdebug.neumatruck.cl%2F&amp;tiba=NeumaTruck%20-%20Portada&amp;auid=1022070958.1661550426&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4">
-    </script>
 </head>
 
 <body>
-    <!-- GOOGLE TAG MANAGER -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W39SRJ6" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- TERMINO -->
 
     <header>
 
@@ -162,24 +49,15 @@
                     <li><a id="tel-max-firts" class="ul-telefonos" href="tel:{{ phone_main() }}"><i class="fa fa-phone"></i>{{ phone_main() }}</a></li>
                 </ul>
             </div>
-            <!-- flex -->
-            <div id="div-interno-header telefono-fijo" class="container" style="justify-content:center">
-                <ul>
-                    <li><a id="tel-text-fono-fijo" style="color:white;font-size:23px" class="ul-telefonos-fijo"
-                            href="tel:{{ phone_main() }}"><i class="fa fa-phone" style="color:#ffb03d"></i>{{ phone_main() }}</a>
-                    </li>
-                </ul>
-            </div>
+
             <div class="container" style="display:flex;justify-content:center">
                 <ul class="header-links pull-left">
-                    <!-- <li><a id="mail-min" href="contacto.php"><i class="fa fa-envelope-o"></i> contacto@neumatruck.cl</a></li> -->
                     <li><a id="mail-min" href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
                     <li><a id="horario-min" href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li>
                 </ul>
             </div>
         </div>
-        <!-- /TOP HEADER -->
-        <!-- MAIN HEADER -->
+
         <div id="header">
             <!-- container -->
             <div class="container">
@@ -402,40 +280,20 @@
         </div>
 
         <div id="bottom-footer" class="section">
-
             <div class="container">
-
-                <!-- row -->
-
                 <div class="row">
-
                     <div class="col-md-4 text-center">
-
                         <ul class="footer-payments">
-
-                            <!-- LOGO -->
-
                             <div class="col-md-3">
-
                                 <div class="header-logo">
-
                                     <a href="assets/" class="logo">
-
                                         <img src="{{ asset('assets/img/logo.png') }}" alt="Neumatruck"
                                             style="width:300px;">
-
                                     </a>
-
                                     <br class="visible-xs"><br class="visible-xs"><br class="visible-xs">
-
                                 </div>
-
                             </div>
-
-                            <!-- /LOGO -->
-
                         </ul>
-
                     </div>
                     <div class="col-md-4 text-center">
 

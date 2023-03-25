@@ -1,50 +1,47 @@
-<div  x-data="demo_demo()" x-init="pipo()">
-    <div class="product slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 263px;">
-        <div class="product-img"><a href="{{ url('./ficha').'/'.$item->id }}" tabindex="-1"><img src="{{ $item->img }}">
+<div>
+    <div  x-data="demo_demo()" x-init="pipo()">
+        <div class="product slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 263px;">
+            <div class="product-img"><a href="{{ url('./ficha').'/'.$item->id }}" tabindex="-1"><img src="{{ $item->img }}">
+                    @if($item->oferta == true)
+                        @if($controller->state_oferta($item->id) == true)
+                        <div class="product-label-oferta"><span class="new">OFERTA </span></div>
+                        @endif
+                    @endif
+                    <div class="product-label">
+                        <span class="new">{{ strtoupper($item->marca) }}</span>
+                    </div>
+                </div>
+            </a>
+            <div class="product-body"><br>
+                <div class="product-label"></div>
+                <h3 class="product-name"><a href="{{ url('./ficha').'/'.$item->id }}">{{ $item->nombre }}</a></h3>
                 @if($item->oferta == true)
                     @if($controller->state_oferta($item->id) == true)
-                    <div class="product-label-oferta"><span class="new">OFERTA </span></div>
+                    <h4 class="product-price" style="color:red">OFERTA {{ "$ ".format_money(set_total($controller->value_oferta($item->id))) }}</h4>
                     @endif
+                @else
+                    <h4 class="product-price">{{ "$ ".format_money(set_total($item->p_venta)) }}</h4>
                 @endif
-                <div class="product-label">
-                    <span class="new">{{ strtoupper($item->marca) }}</span>
-                </div>
+                <p style="color:red;margin-top:0px;margin-bottom:0px">Precio Lista <del>578.000</del>
+                    </p><span>COD:{{ $item->codigo }}</span><br><span> Stock: {{ $item->stock }}</span>
             </div>
-        </a>
-        <div class="product-body"><br>
-            <div class="product-label"></div>
-            <h3 class="product-name"><a href="{{ url('./ficha').'/'.$item->id }}">{{ $item->nombre }}</a></h3>
-            @if($item->oferta == true)
-                @if($controller->state_oferta($item->id) == true)
-                <h4 class="product-price" style="color:red">OFERTA {{ "$ ".format_money(set_total($controller->value_oferta($item->id))) }}</h4>
-                @endif
+            @if($item->stock > 2)
+            <div class="add-to-cart" wire:click="show_modal('{{ $item->id }}')" wire:loading.remove><button  class="add-to-cart-btn agregacarro"><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button></div>
+            <div class="add-to-cart" wire:loading wire:target="show_modal">
+                <button class="add-to-cart-btn agregacarro" style="background-color: #FFF;
+                                                                    padding-left: 95px;
+                                                                    padding-right: 95px;
+                                                                    color: #FFB03D;
+                                                                    border-color: #FFB03D;
+                                                                    font-size: 13px;">
+                    <img style="width:20px" src="{{ asset('assets/img/loading.svg') }}" alt="">  </button></div>
             @else
-                <h4 class="product-price">{{ "$ ".format_money(set_total($item->p_venta)) }}</h4>
+            <div class="add-to-cart"><button class="add-to-cart-btn2" rel="href_envio(">Ver</button></div>
             @endif
-            <p style="color:red;margin-top:0px;margin-bottom:0px">Precio Lista <del>578.000</del>
-                </p><span>COD:{{ $item->codigo }}</span><br><span> Stock: {{ $item->stock }}</span>
         </div>
-        @if($item->stock > 2)
-        <div class="add-to-cart" wire:click="show_modal('{{ $item->id }}')" wire:loading.remove><button  class="add-to-cart-btn agregacarro"><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button></div>
-        <div class="add-to-cart" wire:loading wire:target="show_modal">
-            <button class="add-to-cart-btn agregacarro" style="background-color: #FFF;
-                                                                padding-left: 95px;
-                                                                padding-right: 95px;
-                                                                color: #FFB03D;
-                                                                border-color: #FFB03D;
-                                                                font-size: 13px;">
-                <img style="width:20px" src="{{ asset('assets/img/loading.svg') }}" alt="">  </button></div>
-        @else
-        <div class="add-to-cart"><button class="add-to-cart-btn2" rel="href_envio(">Ver</button></div>
-        @endif
     </div>
 
-
-
-
-
 </div>
-
 
 
 @push("scripts")
