@@ -17,7 +17,6 @@ class FichaController extends Controller
             $data = $this->get_data_producto($id_producto);
 
             $controller = new ProductosController;
-            // dd($data);
             return view("ficha", compact('data', 'controller'));
 
         } catch (\Throwable $th) {
@@ -36,7 +35,7 @@ class FichaController extends Controller
                                 "a.aplicacion")
                 ->join("tipo AS t", "t.id", "productos.id_tipo")
                 ->join("aplicaciones AS a", "a.id_nex", "productos.aplicacion")
-                ->join("marcas AS m", "m.id", "productos.id_marca")
+                ->join("marcas AS m", "m.id2", "productos.id_marca")
                 ->where("productos.id", $id)->get()->first();
     }
 

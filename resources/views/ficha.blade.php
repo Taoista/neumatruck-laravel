@@ -1,6 +1,9 @@
 @extends('layouts.template')
 
 @section('content-general')
+
+
+
     <div id="breadcrumb" class="section">
         <div class="container">
             <div class="row">
@@ -94,7 +97,7 @@
                                          @endif
                                         <br><br>
                                     </div>
-            
+
                                     <hr>
                                     <ul class="product-links">
                                         <li>Compartir:</li>
@@ -104,13 +107,13 @@
                                     </ul>
                                 </div>
                             </div>
-            
+
                             <div class="col-md-12">
                                 <div id="product-tab">
                                     <ul class="tab-nav">
                                         <li class="active"><a data-toggle="tab" href="#tab1">Información</a></li>
                                     </ul>
-            
+
                                     <div class="tab-content">
                                         <div id="tab1" class="tab-pane fade in active">
                                             <div class="row">
@@ -126,8 +129,8 @@
                                                             <th class="fuentenormal">{{ $data->medidas }}</th>
                                                         </tr>
                                                         <tr>
-            
-            
+
+
                                                         </tr>
                                                         </tbody>
                                                     </table>
