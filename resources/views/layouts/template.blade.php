@@ -166,7 +166,7 @@
             <div id="div-interno-header telefono-fijo" class="container" style="justify-content:center">
                 <ul>
                     <li><a id="tel-text-fono-fijo" style="color:white;font-size:23px" class="ul-telefonos-fijo"
-                            href="tel:+56946649909"><i class="fa fa-phone" style="color:#ffb03d"></i>{{ phone_main() }}</a>
+                            href="tel:{{ phone_main() }}"><i class="fa fa-phone" style="color:#ffb03d"></i>{{ phone_main() }}</a>
                     </li>
                 </ul>
             </div>

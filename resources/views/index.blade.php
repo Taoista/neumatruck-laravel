@@ -17,7 +17,7 @@
     </div>
 
 
- 
+
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -26,22 +26,22 @@
           <li data-target="#myCarousel" data-slide-to="1"></li>
           <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
-      
+
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
             <img src="{{ asset('assets/img/banner/ban2.webp') }}" alt="Los Angeles">
           </div>
-      
+
           <div class="item">
             <img src="{{ asset('assets/img/banner/ban2.webp') }}" alt="Chicago">
           </div>
-      
+
           <div class="item">
             <img src="{{ asset('assets/img/banner/ban2.webp') }}" alt="New York">
           </div>
         </div>
-      
+
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left"></span>
@@ -52,7 +52,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-  
+
 
     <script>
         w3.slideshow(".nature", 4000);
@@ -74,15 +74,15 @@
                 <!-- /section title -->
                 <div class="col-md-12">
                     <section class="customer-logos slider">
-                        
+
                         @foreach($marcas as $item)
                         <div class="slide" style="width: 120px; margin:0 7px;">
-                            <a href="" class=""> 
-                                <img style="width:100%;height:auto;" src="{{ asset('assets/img/').'/'.$item->id.'.svg' }}" alt=""> 
+                            <a href="{{ url("./category-brand").'/'.$item->id }}" class="">
+                                <img style="width:100%;height:auto;" src="{{ asset('assets/img').'/'.$item->id.'.svg' }}" alt="">
                             </a>
                         </div>
                         @endforeach
-                   
+
                     </section>
                     <br>
                     <hr class="amarillo">
@@ -92,7 +92,7 @@
         </div>
         <!-- /container -->
     </div>
-  
+
 
     <div>
         <div class="section index-section">
@@ -107,16 +107,16 @@
                             <hr class="amarillo">
                         </div>
                     </div>
-    
+
                     <div class="col-md-12">
                         <div class="row">
-                            
+
                             <section class="responsive">
                                 @foreach($camion_bus AS $item)
                                     @livewire("card.card-index", ["id_producto" => $item->id, key($item->id)])
                                 @endforeach
                             </section>
-                             
+
                         </div>
                     </div>
                     <!-- Products tab & slick -->
@@ -125,7 +125,7 @@
             </div>
             <!-- /container -->
         </div>
-    
+
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -147,7 +147,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -241,7 +241,7 @@ $('.responsive').slick({
 
   ]
 });
-			
+
 
     </script>
 @endsection

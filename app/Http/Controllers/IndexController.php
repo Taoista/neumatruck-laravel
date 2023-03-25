@@ -7,7 +7,7 @@ use App\Models\Marcas;
 use App\Models\Productos;
 
 class IndexController extends Controller{
-    
+
     function index(){
 
         $marcas = $this->get_marcas();
