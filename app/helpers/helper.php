@@ -2,6 +2,7 @@
 use App\Models\Configuracion;
 use App\Models\ConfiguracionDato;
 use App\Models\ConfiguracionPhono;
+use App\Models\MarcasFooter;
 use App\Models\Tipo;
 
 // * toma el monotop minimo valor neto
@@ -10,6 +11,17 @@ function min_monto()
     return ConfiguracionDato::select("result")
                             ->where("data", "monto-minimo")
                             ->get()->first()->result;
+}
+
+
+// * toma las marcas del footer
+function get_marcas_footer()
+{
+    return MarcasFooter::select("marcas_footer.id_marca", "m.marca")
+                        ->join("marcas AS m", "m.id2", "marcas_footer.id_marca")
+                        ->where("marcas_footer.estado", 1)
+                        ->orderby("marcas_footer.orden", 'ASC')
+                        ->get();
 }
 
 // * toma las categorias
@@ -72,7 +84,7 @@ function get_total_carrito()
     return 100;
 }
 
-// * estado del software 
+// * estado del software
 function state_production(){
     $data = Configuracion::select("resultado")->where("tipo", "production")->get()->first()->resultado;
     return $data == 1? true : false;

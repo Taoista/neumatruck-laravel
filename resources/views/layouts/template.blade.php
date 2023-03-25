@@ -127,11 +127,11 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window,document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '4295041700542357'); 
+        fbq('init', '4295041700542357');
         fbq('track', 'PageView');
         </script>
     <noscript>
-        <img height="1" width="1" 
+        <img height="1" width="1"
         src="https://www.facebook.com/tr?id=4295041700542357&ev=PageView
         &noscript=1"/>
     </noscript>
@@ -270,9 +270,9 @@
                 </style>
                 <!-- NAVEGADOR TOBLE -->
                 <div class="col-md-3 clearfix">
- 
+
                     @livewire("icon-carrito-responsive")
-                  
+
                 </div>
                 <nav>
                     <!-- container -->
@@ -373,10 +373,9 @@
                     <div class="footer">
                         <h3 class="footer-title">Marcas</h3>
                         <ul class="footer-links">
-                            <li><a href="marcas.php?marca=Pirelli&amp;idm=9">Pirelli</a></li>
-                            <li><a href="marcas.php?marca=Dunlop&amp;idm=20">Dunlop</a></li>
-                            <li><a href="marcas.php?marca=Fesite&amp;idm=16">Fesite</a></li>
-                            <li><a href="marcas.php?marca=Windforce&amp;idm=8">Windforce</a></li>
+                            @foreach (get_marcas_footer() as $item )
+                            <li><a href="{{ url("./category-brand").'/'.$item->id_marca }}">{{ strtoupper($item->marca) }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -478,7 +477,7 @@
     <script src="{{ asset('assets/js/search.js') }}"></script>
     <script src="{{ asset('assets/js/selector.js') }}"></script>
 
-    
+
 
     {{-- <script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "90872474c6e22cee5d486a671662c849675c91e4c2dc01163e9240e46248b799", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script> --}}
     @stack("scripts")

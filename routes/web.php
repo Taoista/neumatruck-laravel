@@ -10,6 +10,7 @@ use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\FichaController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\TransbankController;
+use App\Http\Controllers\SectionBrandsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +56,8 @@ Route::get("/pgo-result", [CheckoutController::class, "pgo_result"]);
 
 // * redireccion del pago
 Route::get("/pgo-tbk/{id_order}", [CheckoutController::class, "pgo_tbk"]);
-
+// * filtra la seleccion con la marca (recuerda que es la marca del segundo id)
+Route::get("/category-brand/{id_marca}",[SectionBrandsController::class, "category_brand"]);
 
 
 
