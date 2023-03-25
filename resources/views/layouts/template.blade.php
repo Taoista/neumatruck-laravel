@@ -350,8 +350,8 @@
                             Stock sujeto a cambios sin previo aviso
                         </p>
                         <ul class="footer-links">
-                            <li><a href="despacho.php"><i class="fa fa-truck"></i> Politicas de Despacho</a></li>
-                            <li><a href="devolucion.php"><i class="fa fa-truck"></i> Politicas de Devolución</a>
+                            <li><a href="{{ url('/politicas-despacho') }}"><i class="fa fa-truck"></i> Politicas de Despacho</a></li>
+                            <li><a href="{{ url('/politicas-devolucion') }}"><i class="fa fa-truck"></i> Politicas de Devolución</a>
                             </li>
                         </ul>
                     </div>

@@ -11,6 +11,7 @@ use App\Http\Controllers\FichaController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\TransbankController;
 use App\Http\Controllers\SectionBrandsController;
+use App\Http\Controllers\GeneralesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,6 @@ Route::get("/contacto",[ContactoController::class, "contacto"]);
 Route::get("/carrito",[CarritoController::class, "carrito"]);
 
 // * ficha del producto
-
 Route::get("/ficha/{id_producto}",[FichaController::class, "ficha"]);
 
 // * checkout
@@ -58,6 +58,10 @@ Route::get("/pgo-result", [CheckoutController::class, "pgo_result"]);
 Route::get("/pgo-tbk/{id_order}", [CheckoutController::class, "pgo_tbk"]);
 // * filtra la seleccion con la marca (recuerda que es la marca del segundo id)
 Route::get("/category-brand/{id_marca}",[SectionBrandsController::class, "category_brand"]);
+// * politicas de despacho
+Route::get("/politicas-despacho",[GeneralesController::class, "politicas_despacho"]);
+// * politicas de devolucion
+Route::get("/politicas-devolucion",[GeneralesController::class, "politicas_devolucion"]);
 
 
 
