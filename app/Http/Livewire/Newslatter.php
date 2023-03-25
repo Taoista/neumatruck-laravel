@@ -32,6 +32,7 @@ class Newslatter extends Component
             $newslatter->email = $email;
             $newslatter->save();
         }
+        $this->email_newslatter = '';
         $this->dispatchBrowserEvent("email_inserted");
 
 
