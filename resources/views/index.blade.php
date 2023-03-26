@@ -10,20 +10,39 @@
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
           <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+          <li data-target="#myCarousel" data-slide-to="5"></li>
+          <li data-target="#myCarousel" data-slide-to="6"></li>
+          <li data-target="#myCarousel" data-slide-to="7"></li>
+          <li data-target="#myCarousel" data-slide-to="8"></li>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
-            <img src="{{ asset('assets/img/banner/ban2.webp') }}" alt="Los Angeles">
+            <img src="{{ asset('assets/img/banner/ban1.webp') }}" alt="Los Angeles">
           </div>
-
           <div class="item">
             <img src="{{ asset('assets/img/banner/ban2.webp') }}" alt="Chicago">
           </div>
-
           <div class="item">
-            <img src="{{ asset('assets/img/banner/ban2.webp') }}" alt="New York">
+            <img src="{{ asset('assets/img/banner/ban3.webp') }}" alt="New York">
+          </div>
+          <div class="item">
+            <img src="{{ asset('assets/img/banner/ban4.webp') }}" alt="Los Angeles">
+          </div>
+          <div class="item">
+            <img src="{{ asset('assets/img/banner/ban5.webp') }}" alt="Chicago">
+          </div>
+          <div class="item">
+            <img src="{{ asset('assets/img/banner/ban6.webp') }}" alt="New York">
+          </div>
+          <div class="item">
+            <img src="{{ asset('assets/img/banner/ban7.webp') }}" alt="New York">
+          </div>
+          <div class="item">
+            <img src="{{ asset('assets/img/banner/ban8.webp') }}" alt="New York">
           </div>
         </div>
 

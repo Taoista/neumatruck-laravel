@@ -24,11 +24,12 @@ class TransbankController extends Controller
     public function __construct()
     {
         if(state_production() == true){
-            $cc =  ConfiguracionData::select("result")->where("data", "tbk_cc")->get()->first()->dato;
-            $api = ConfiguracionData::select("result")->where("data", "tbk_apip_key")->get()->first()->dato;
+            $cc =  ConfiguracionData::select("result")->where("data", "tbk_cc")->get()->first()->result;
+            $api = ConfiguracionData::select("result")->where("data", "tbk_apip_key")->get()->first()->result;
+
             WebpayPlus::configureForProduction($cc, $api);
         }else{
-            WebpayPlus::configureForTesting();            
+            WebpayPlus::configureForTesting();
         }
     }
 
@@ -122,23 +123,26 @@ class TransbankController extends Controller
                 }
 
 
-                // ? se debe enviar el correo
-                $correo = new ComprobanteCompra($id_compra);
+                    // ? se debe enviar el correo
+                    $correo = new ComprobanteCompra($id_compra);
 
-                $emails_admin = $this->get_emails_admins();
+                    $emails_admin = $this->get_emails_admins();
 
-                Mail::to($email)->send($correo);
-                // ? enviar a los responsables
-                foreach($emails_admin AS $item){
-                    Mail::to($item->email)->send($correo);
-                }            
+                    Mail::to($email)->send($correo);
 
-                // ? eliminar el carrito enviado
-                Carrito::where("email", $email)->delete();
-                return redirect("./pgo-tbk".'/'.base64_encode($id_order));
+
+
+                    // ? enviar a los responsables
+                    foreach($emails_admin AS $item){
+                        Mail::to($item->email)->send($correo);
+                    }
+
+                    // ? eliminar el carrito enviado
+                    Carrito::where("email", $email)->delete();
+                    return redirect("./pgo-tbk".'/'.base64_encode($id_order));
                 }else{
                     return redirect("./pgo-result");
-                    
+
                 }
         } catch (\Throwable $th) {
             return redirect("./pgo-result");
@@ -147,7 +151,7 @@ class TransbankController extends Controller
 
     }
 
-    
+
     function get_emails_admins()
     {
         return ConfiguracionEmail::select("email")->where("estado", 1)->get();
