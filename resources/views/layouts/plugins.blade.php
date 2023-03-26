@@ -62,6 +62,4 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=762785945213012&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<script>
-    alert("hola")
-</script>
+
