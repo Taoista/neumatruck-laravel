@@ -120,7 +120,6 @@ return [
     | will not be safe. Please do this before deploying an application!
     |
     */
-    'php' => '7.4',
 
     'key' => env('APP_KEY'),
 
