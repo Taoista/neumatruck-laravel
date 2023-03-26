@@ -12,23 +12,23 @@
                         <div class="form-group">
                             <input class="input" type="text" name="rut_empresa" wire:model="rut_empresa" placeholder="Rut" maxlength="12" pattern="\d{3,8}-[\d|kK]{1}" required="">
                         </div>
-    
+
                         <div class="form-group">
                             <input class="input" type="text" name="razon_social" wire:model="razon_social" placeholder="Nombre" required="">
                         </div>
-    
+
                         <div class="form-group">
-                            <input class="input" type="email" name="email" wire:model="email" placeholder="Email" required="">
+                            <input class="input" type="email" name="email" wire:model="email" placeholder="Email" disabled>
                         </div>
-    
+
                         <div class="form-group">
                             <input class="input" type="text" name="fono" wire:model="fono" placeholder="Fono" required="">
                         </div>
-    
+
                         <div class="form-group">
                             <input class="input" type="text" name="contacto" wire:model="contacto" placeholder="Nombre Contacto" required="">
                         </div>
-    
+
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="exampleRadios" wire:model="selected_delivery" value="1" wire:click="chanche_delivery">
                             <label class="form-check-label" for="exampleRadios1">
@@ -41,7 +41,7 @@
                               Despacho
                             </label>
                           </div>
-    
+
                         <div class="form-group">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1" @disabled($delivery_disabeled == true) wire:model="selected_region">
@@ -49,11 +49,11 @@
                                   @foreach ($regiones AS $item )
                                       <option value="{{ $item->id_region }}">{{ strtoupper($item->region) }}</option>
                                   @endforeach
-                                 
+
                                 </select>
                             </div>
                         </div>
-    
+
                         <div class="form-group">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1" @disabled($city_disabeled == true) wire:model="id_ciudad">
@@ -74,21 +74,21 @@
                                 <button type="button" class="btn btn-secondary" wire:loading wire:target="add_despacho">
                                 <img style="width: 20px" src="{{ asset('assets/img/loading.svg') }}" alt=""">Cargando</button>
                         </div>
-                       
+
                         @endif
                     </div>
-    
+
                     <div class="order-notes">
                         <textarea class="input" name="mensaje" wire:model="mensaje" placeholder="Mensaje"></textarea>
                     </div>
-    
+
                 </div>
-    
+
                 <div class="col-md-5 order-details">
                     <div class="section-title text-center">
                         <h3 class="title">Resumen</h3>
                     </div>
-    
+
                     <div class="order-summary">
                         <div class="order-col">
                             <div><strong>PRODUCTOS</strong></div>
@@ -109,15 +109,15 @@
                                 @endif
                             </div>
                             @endforeach
-    
+
                         </div>
-    
+
                         <hr>
                         <div class="order-col">
                             <div style="padding: 0 0;"><strong>Subtotal</strong></div>
                             <div style="padding: 0 0;"><strong class="" style="font-size: 15px"> {{ '$ '.format_money($neto) }}</strong></div>
                         </div>
-    
+
                         <div class="order-col">
                             <div style="padding: 0 0;"><strong>Iva</strong></div>
                             <div style="padding: 0 0;"><strong class="" style="font-size: 15px"> {{ '$ '.format_money($iva) }}</strong></div>
@@ -133,7 +133,7 @@
                             <div style="padding: 0 0;"><strong class="order-total"> {{ "$ ".format_money($total_pago) }}</strong></div>
                         </div>
                     </div>
-    
+
                     <button class="primary-btn btn-block order-submit btsubmit" wire:click="pgo_tbk" wire:loading.remove>Realizar Pago</button><br>
                     <button class="primary-btn btn-block" wire:loading  wire:target="pgo_tbk" style="color:black" ><img style='width:20px' src="{{ asset('assets/img/loading-black.svg') }}" alt="">Cargando...</button><br>
                     <div class="text-center">
@@ -143,9 +143,9 @@
                         <p>* Despacho a otras regiones consultar con verdedor Para más información revisar <a href="despacho.php" style="color:#ffb03d;font-weight: bold;">Política de Despacho</a>.</p>
                     </div>
                 </div>
-    
+
                 <div class="col-md-12">
-    
+
                 </div>
             {{-- </form> --}}
         </div>
@@ -186,8 +186,8 @@
                     focusConfirm: false,
                     showConfirmButton:false,
                     })
-                $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)'); 
-                $(".swal2-title").css("color","white"); 
+                $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)');
+                $(".swal2-title").css("color","white");
             });
 
             window.addEventListener("empty_direccion", (e) => {
@@ -234,7 +234,7 @@
                 })
             });
 
-           
+
 
 
         })

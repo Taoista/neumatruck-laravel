@@ -40,13 +40,13 @@ class CheckoutController extends Controller
     {
         $id_order = base64_decode($id_order);
         // * datos de comrpa
-        $data_compra = Compras::select("compras.id AS id_compra","compras.fecha", "compras.estado", 
-                        "compras.rut", "compras.nombre", "compras.email", 
-                        "compras.telefono", "compras.contacto", 
+        $data_compra = Compras::select("compras.id AS id_compra","compras.fecha", "compras.estado",
+                        "compras.rut", "compras.nombre", "compras.email",
+                        "compras.telefono", "compras.contacto",
                         "compras.tipo_delivery", "compras.id_ciudad", "compras.direccion",
                         "compras.nota", "compras.neto", "compras.iva", "compras.delivery",
                         "compras.total", "tt.name AS tipo_tarjeta",
-                        "t.responseCode", "t.authorizationCode", 't.installmentsNumber', 
+                        "t.responseCode", "t.authorizationCode", 't.installmentsNumber',
                         't.installmentsAmount', 't.cardNumber')
                 ->join("transbank AS t", "t.id", "compras.id_tbk")
                 ->join("tipo_tarjeta AS tt", "t.paymentTypeCode", "tt.cod")
@@ -54,10 +54,10 @@ class CheckoutController extends Controller
                 ->get();
 
 
-       
+
         // TODO: ACTUVAR PARA ACTUALIZAR A 1
         // ! ACTIVAR
-        Transbank::where("id", $id_order)->update(["estado" => 1]);
+        Compras::where("id_tbk", $id_order)->update(["estado" => 1]);
 
         $direccion = null;
 
@@ -74,12 +74,12 @@ class CheckoutController extends Controller
 
         // ? contiene ciudad
         $data_ciudad = null;
-       
+
         if($data_compra->first()->id_ciudad != 0){
             $data_ciudad = Ciudades::where("id", $data_compra->first()->id_ciudad)->get();
         }
 
-       
+
         // ?toma dato de direccion
         $id = $data_compra->first()->id_compra;
         $productos = ComprasProductos::select("p.id", "p.codigo", "p.nombre", "p.img",

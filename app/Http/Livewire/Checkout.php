@@ -21,9 +21,9 @@ class Checkout extends Component
 
     public $selected_region;
 
-    
+
     public $id_ciudad;
-    
+
     public $neto;
     public $iva;
     public $val_despacho;
@@ -51,7 +51,7 @@ class Checkout extends Component
         $this->selected_region = 0;
 
         $this->val_despacho = 0;
-        
+
         $controller = new ProductosController();
 
         $this->neto = $controller->get_sub_total();
@@ -86,11 +86,11 @@ class Checkout extends Component
         $productos = Carrito::select("p.id", "p.codigo", "p.nombre", "carrito.cantidad", "p.img", "p.stock", "p.p_venta",
                                     "p.oferta", "m.marca", "p.costo", "p.peso")
                         ->join("productos AS p", "p.id", "carrito.id_producto")
-                        ->join("marcas AS m", "m.id", "p.id_marca")
+                        ->join("marcas AS m", "m.id2", "p.id_marca")
                         ->where("carrito.email", $value)->get();
           // * carlos productos en la cantidad
 
-       
+
         return $productos;
     }
 
@@ -113,7 +113,7 @@ class Checkout extends Component
 
     function get_city_from_region()
     {
-        
+
         if($this->selected_region == 0){
             $this->city_disabeled = true;
             return collect();
@@ -126,7 +126,7 @@ class Checkout extends Component
     }
 
     // * calcula el deivery y compara si contiene la cantidad a pagar
-    // * deve veriuficar si esta en la zona de despacho gratis 
+    // * deve veriuficar si esta en la zona de despacho gratis
     // * si el monto es menor se debe pagar
     function add_despacho(){
         // ? toma los productos
@@ -159,18 +159,18 @@ class Checkout extends Component
             $this->val_despacho = $costo_coidad * $costo;
 
         }
-        // ? si el neto es mayor al minimo 
+        // ? si el neto es mayor al minimo
         // ? debe verificar si esta en lista de exento no se paga
         if($monto_minimo < $this->neto){
             $state = DeliveryFree::where("id_ciudad", $id_ciudad)->get();
-            
+
             if(count($state) != 0){
                 $this->val_despacho = 0;
             }else{
                 $this->val_despacho = $costo_coidad * $costo;
             }
         }
-        
+
 
         $this->calculate_total_pago();
     }
@@ -202,7 +202,7 @@ class Checkout extends Component
         if (empty($this->rut_empresa) || empty($this->razon_social) || empty($this->email) || empty($this->fono) || empty($this->contacto)) {
             $this->dispatchBrowserEvent("empty_campos");
             return false;
-        } 
+        }
         // ?estado del despaco
         if($this->selected_delivery == 2 AND ($this->selected_region == 0 OR $this->id_ciudad == 0)){
             $this->dispatchBrowserEvent("empty_direccion");
@@ -214,7 +214,7 @@ class Checkout extends Component
             return false;
         }
 
-        
+
         $compras = new Compras;
         $compras->id_plataforma = 1;
         $compras->rut = $this->rut_empresa;

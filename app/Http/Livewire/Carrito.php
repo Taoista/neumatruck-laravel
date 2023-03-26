@@ -42,7 +42,7 @@ class Carrito extends Component
 
         $productos = Cart::select("p.id", "p.codigo", "p.nombre", "carrito.cantidad", "p.img", "p.stock", "p.p_venta","p.oferta", "m.marca")
                         ->join("productos AS p", "p.id", "carrito.id_producto")
-                        ->join("marcas AS m", "m.id", "p.id_marca")
+                        ->join("marcas AS m", "m.id2", "p.id_marca")
                         ->where("carrito.email", $value)->get();
           // * carlos productos en la cantidad
 
