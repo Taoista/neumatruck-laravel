@@ -34,6 +34,7 @@
 
     @livewireStyles
 
+    @include("layouts.plugins")
 
 </head>
 
