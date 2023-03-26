@@ -24,9 +24,7 @@ class Categoria extends Component
 
     public function render()
     {
-
         $productos = $this->get_productos();
-
         $list_brands = $this->get_brands();
         $list_sizes = $this->get_sizes();
 
@@ -36,19 +34,19 @@ class Categoria extends Component
     public function get_productos()
     {
         return Productos::select("productos.id","productos.codigo", "productos.nombre",
-                                    "productos.img", "m.marca", "productos.p_sistema",
+                                    "productos.img", "m.marca", "productos.p_sistema", "productos.id_marca",
                                     "productos.p_venta", "productos.oferta", "productos.stock")
         ->join("marcas AS m", "m.id2", "productos.id_marca")
         ->where("productos.estado", 1)
-        ->where("productos.id_tipo", $this->id_categoria )
-        ->when(count($this->imputs_brands) != 0, function($query){
-            $this->imputs_brands = array_filter($this->imputs_brands);
-            $query->whereIn("productos.id_marca", array_filter($this->imputs_brands));
-        })
-        ->when(count($this->imputs_sizes) != 0, function($query){
-            $this->imputs_sizes = array_filter($this->imputs_sizes);
-            $query->whereIn("productos.medidas", array_filter($this->imputs_sizes));
-        })
+        ->where("productos.id_tipo", 5)
+        // ->when(count($this->imputs_brands) != 0, function($query){
+        //     $this->imputs_brands = array_filter($this->imputs_brands);
+        //     $query->whereIn("productos.id_marca", array_filter($this->imputs_brands));
+        // })
+        // ->when(count($this->imputs_sizes) != 0, function($query){
+        //     $this->imputs_sizes = array_filter($this->imputs_sizes);
+        //     $query->whereIn("productos.medidas", array_filter($this->imputs_sizes));
+        // })
 
         ->paginate(12);
     }
