@@ -28,4 +28,6 @@ Route::get("/get_data_producto/{codigo}",[ApiController::class, "get_data_produc
 Route::post("/iniciar_compra",[TransbankController::class, "iniciar_compra"]);
 Route::get("/confirmar_pago",[TransbankController::class, "confirmar_pago"]);
 
+// * actualziacion de los productos
+Route::post('/update_productos',[ApiController::class, "update_productos"]);
 

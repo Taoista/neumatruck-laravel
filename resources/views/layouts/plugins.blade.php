@@ -62,4 +62,5 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=762785945213012&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-
+{{-- * chatbot --}}
+<script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "90872474c6e22cee5d486a671662c849675c91e4c2dc01163e9240e46248b799", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
