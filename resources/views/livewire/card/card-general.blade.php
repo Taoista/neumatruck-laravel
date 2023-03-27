@@ -22,7 +22,7 @@
             @else
                 <h4 class="product-price">{{ "$ ".format_money(set_total($item->p_venta)) }}</h4>
             @endif
-            <p style="color:red;margin-top:0px;margin-bottom:0px">Precio Lista <del>578.000</del>
+            <p style="color:red;margin-top:0px;margin-bottom:0px">Precio Lista <del>{{ "$ ".format_money(set_total($item->p_sistema)) }}</del>
                 </p><span>COD:{{ $item->codigo }}</span><br><span> Stock: {{ $item->stock }}</span>
         </div>
         @if($item->stock > 2)
