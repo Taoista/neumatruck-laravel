@@ -1,18 +1,15 @@
-<!-- antiguo tokenb e08b4e8 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-720676427">
-
-</script>
-
-<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159179503-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
-
-	gtag('config', 'AW-720676427');
-
+	gtag('config', 'UA-159179503-1');
 </script>
-
-
-{{-- * HOTJA --}}
+<!-- FACEBOOK VERIFICADOR DOMINIO PIXEL -->
+<!-- <meta name="facebook-domain-verification" content="hmhiq76ah4inz05pdl0jgt08inex1h" /> -->
+<!-- Facebook Pixel Code -->
+<!-- End Facebook Pixel Code -->
+<!-- esto es el hotja -->
 <script>
 
     (function(h,o,t,j,a,r){
@@ -32,20 +29,37 @@
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 
 </script>
+<!-- End Facebook Pixel Code -->
+<!-- Ivana la cabezona codigo segumiento formulario -->
+<!-- Global site tag (gtag.js) - Google Ads: 720676427 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-720676427">
 
-{{-- *  VERIFICACION FACEBOK PAGINA FACEBBOK  --}}
+</script>
+
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}
+
+	gtag('js', new Date());
+
+	gtag('config', 'AW-720676427');
+
+</script>
+
+<!-- VERIFICACION FACEBOK PAGINA FACEBBOK -->
 
 <meta name = "facebook-domain-verify" content = "hmhiq76ah4inz05pdl0jgt08inex1h" />
 
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+		<!-- /MAIN HEADER -->
+
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-W39SRJ6');</script>
 
 
-
-{{-- * PIXEL --}}
+<!-- * INSTALACION DE PINXEL 2023-02-07 -->
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -62,5 +76,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=762785945213012&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
+
 {{-- * chatbot --}}
 <script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "90872474c6e22cee5d486a671662c849675c91e4c2dc01163e9240e46248b799", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
