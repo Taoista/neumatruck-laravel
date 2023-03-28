@@ -36,6 +36,25 @@ class ApiController extends Controller
 
     }
 
+    function get_all_product()
+    {
+        $min_stock = Configuracion::select("resultado")->where("tipo", "minimo_stock")->get()->first()->resultado;
+
+        $data = DB::table('productos')
+                ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
+                ->selectRaw('productos.*, IF(o.p_oferta IS NULL, productos.p_venta, 0) as p_venta')
+                ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta')
+                ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta2, o.controll')
+                ->leftJoin('ofertas_controll AS oc', 'oc.id', '=', 'o.controll')
+                ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.desde) as desde')
+                ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.hasta) as hasta')
+                ->addSelect(DB::raw($min_stock.' as limit_stock'))
+                ->where("productos.estado", 1)
+                ->get();
+        
+        return $data;
+    }
+
 
     function get_data_producto($codigo)
     {

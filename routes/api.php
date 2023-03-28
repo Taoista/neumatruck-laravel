@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post("/send_contact",[ContactoController::class, "send_contact"]);
 Route::get("/get_product/{key}",[ApiController::class, "get_product"]);
+Route::get("/get_all_product",[ApiController::class, "get_all_product"]);
 Route::get("/get_data_producto/{codigo}",[ApiController::class, "get_data_producto"]);
 
 Route::post("/iniciar_compra",[TransbankController::class, "iniciar_compra"]);
