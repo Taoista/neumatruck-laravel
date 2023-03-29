@@ -21,6 +21,8 @@ class ApiController extends Controller
 
         $data = DB::table('productos')
                 ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
+                ->leftJoin('marcas AS m', 'm.id2', '=', 'productos.id_marca')
+                ->selectRaw('productos.*, IF(m.marca IS NULL, NULL,  m.marca) as marca')
                 ->selectRaw('productos.*, IF(o.p_oferta IS NULL, productos.p_venta, 0) as p_venta')
                 ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta')
                 ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta2, o.controll')
@@ -42,6 +44,8 @@ class ApiController extends Controller
 
         $data = DB::table('productos')
                 ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
+                ->leftJoin('marcas AS m', 'm.id2', '=', 'productos.id_marca')
+                ->selectRaw('productos.*, IF(m.marca IS NULL, NULL,  m.marca) as marca')
                 ->selectRaw('productos.*, IF(o.p_oferta IS NULL, productos.p_venta, 0) as p_venta')
                 ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta')
                 ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta2, o.controll')
@@ -88,42 +92,44 @@ class ApiController extends Controller
         // ? => estado
         // ? => stock
         // ? => p_venta
-        $productos = $request->data;
-        $productos = json_decode($productos, true);
-
+        // $productos = $request->data;
+        // $productos = json_decode($productos, true);
+        // return $productos;
+        return "demo retornardo";
         // ? toma el tipo para el descuento
 
         DB::beginTransaction();
 
         try {
             for ($i=0; $i < count($productos) ; $i++) { 
-                $codigo = $productos[$i]["codigo"];
-                $estado = $productos[$i]["estado"];
-                $stock = $productos[$i]["stock"];
-                $p_sistema = $productos[$i]["p_venta"];
+            //     $codigo = $productos[$i]["codigo"];
+            //     $estado = $productos[$i]["estado"];
+            //     $stock = $productos[$i]["stock"];
+            //     $p_sistema = $productos[$i]["p_venta"];
     
-                $data = Productos::select("productos.id","productos.id_tipo", "cd.descuento")
-                                ->join("configuracion_descuento AS cd", "cd.id_categoria", "productos.id_tipo")
-                                ->where("productos.codigo", $codigo)
-                                ->get();
+            //     $data = Productos::select("productos.id","productos.id_tipo", "cd.descuento")
+            //                     ->join("configuracion_descuento AS cd", "cd.id_categoria", "productos.id_tipo")
+            //                     ->where("productos.codigo", $codigo)
+            //                     ->get();
     
     
-                // ? existe
-                if(count($data) > 0){
-                    // ? calculo
-                    $descuento = round($p_sistema * "0.".$data->first()->descuento); 
-                    $p_venta = $p_sistema - $descuento;
-                    Productos::where("id", $data->first()->id)->update([
-                        "estado" => $estado,
-                        "stock" => $stock,
-                        "p_sistema" => $p_sistema,
-                        "p_venta" => $p_venta
-                    ]);
-                }
+            //     // ? existe
+            //     if(count($data) > 0){
+            //         // ? calculo
+            //         $descuento = round($p_sistema * "0.".$data->first()->descuento); 
+            //         $p_venta = $p_sistema - $descuento;
+            //         Productos::where("id", $data->first()->id)->update([
+            //             "estado" => $estado,
+            //             "stock" => $stock,
+            //             "p_sistema" => $p_sistema,
+            //             "p_venta" => $p_venta
+            //         ]);
+            //     }
                 
+            return $productos[$i]["codigo"];
             }
             DB::commit();
-            return "ok";
+            // return "ok";
         } catch (\Throwable $th) {
             DB::rollBack();
             return "error rollback";
