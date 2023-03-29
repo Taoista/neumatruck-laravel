@@ -110,8 +110,9 @@ class ApiController extends Controller
             $data = Productos::select("id", "id_tipo")->where("codigo",$codigo)->get();
 
             $descuento = ConfiguracionDescuento::select("descuento")->where("id_categoria", $data->first()->id_tipo)->get()->first();
-
-            $val_descuento = $p_venta - (intval($p_venta) * floatval("0.".$descuento));
+            // return $descuento;
+            $val_descuento = $p_venta - round(intval($p_venta) * floatval("0.".$descuento->descuento));
+            // $val_descuento = $descuento;
             // $val_descuento = 100;
 
             Productos::where("id", $data->first()->id)->update([
