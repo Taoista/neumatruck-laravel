@@ -126,7 +126,7 @@ class ApiController extends Controller
 
           
 
-        return "creo quie temrino";
+        return "ok";
 
     }
 
