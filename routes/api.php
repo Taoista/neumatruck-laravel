@@ -31,6 +31,9 @@ Route::get("/confirmar_pago",[TransbankController::class, "confirmar_pago"]);
 
 // * toma los banner de web
 Route::get("/get_banners", [ApiController::class,"get_banners"]);
+// * toma el banner segun su id
+Route::get("/get_banner/{id_banner}", [ApiController::class,"get_banner"]);
+
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);

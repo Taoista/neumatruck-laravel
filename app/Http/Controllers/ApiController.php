@@ -137,4 +137,9 @@ class ApiController extends Controller
         return Banners::get();
     }
 
+    function get_banner($id_banner)
+    {
+        return Banners::where("id", $id_banner)->get();
+    }
+
 }
