@@ -20,10 +20,16 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-          <div class="item active">
-            <img src="{{ asset('assets/img/banner/ban1.webp') }}" alt="Los Angeles">
-          </div>
-          <div class="item">
+            @foreach ($banners as $item )
+            <div class="item {{ $item->activo == 1 ? 'active' : '' }}">
+                @if($item->redireccion == "#")
+                    <img src="{{ asset($item->img) }}" alt="{{ $item->title }}">
+                @else
+                    <a href="{{ url($item->redireccion) }}"><img src="{{ asset($item->img) }}" alt="{{ $item->title }}"></a>
+                @endif
+            </div>
+            @endforeach
+          {{-- <div class="item">
             <img src="{{ asset('assets/img/banner/ban2.webp') }}" alt="Chicago">
           </div>
           <div class="item">
@@ -43,7 +49,7 @@
           </div>
           <div class="item">
             <img src="{{ asset('assets/img/banner/ban8.webp') }}" alt="New York">
-          </div>
+          </div> --}}
         </div>
 
         <!-- Left and right controls -->

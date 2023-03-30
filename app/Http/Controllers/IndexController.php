@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Marcas;
 use App\Models\Productos;
+use App\Models\Banners;
 
 class IndexController extends Controller{
 
@@ -16,7 +17,9 @@ class IndexController extends Controller{
         $agricola = $this->get_productos(3);
         $otr = $this->get_productos(4);
 
-        return view("index", compact("marcas", "camion_bus", "agricola", "otr"));
+        $banners = $this->get_banners();
+
+        return view("index", compact("marcas", "camion_bus", "agricola", "otr", "banners"));
     }
 
     function get_marcas(){
@@ -25,6 +28,11 @@ class IndexController extends Controller{
 
     function get_productos($id_tipo){
         return Productos::where("estado", 1)->where("id_tipo", $id_tipo)->orderby("top", "DESC")->take(8)->get();
+    }
+
+    function get_banners()
+    {  
+        return Banners::where("estado", 1)->orderby("orden", "desc")->get();
     }
 
 

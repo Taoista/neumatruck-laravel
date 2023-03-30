@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Productos;
 use App\Models\Configuracion;
+use App\Models\Banners;
 use App\Models\ConfiguracionDescuento;
 use Illuminate\Support\Facades\DB;
 
@@ -128,6 +129,12 @@ class ApiController extends Controller
 
         return "ok";
 
+    }
+
+
+    function get_banners()
+    {
+        return Banners::get();
     }
 
 }
