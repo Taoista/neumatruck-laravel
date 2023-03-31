@@ -141,7 +141,7 @@
 <td class="pad" style="padding-bottom:35px;padding-left:35px;padding-right:35px;padding-top:10px;">
 <div style="font-family: Arial, sans-serif">
 <div class="" style="font-size: 12px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; mso-line-height-alt: 18px; color: #393d47; line-height: 1.5;">
-<p style="margin: 0; font-size: 12px; text-align: center; mso-line-height-alt: 25.5px; letter-spacing: normal;"><span style="color:#ffffff;font-size:17px;">N {{ $id_compra }} - {{ $fecha }}</span></p>
+<p style="margin: 0; font-size: 12px; text-align: center; mso-line-height-alt: 25.5px; letter-spacing: normal;"><span style="color:#ffffff;font-size:17px;">N {{ $transbank->first()->id_tbk }} - {{ $fecha }}</span></p>
 </div>
 </div>
 </td>
@@ -380,7 +380,7 @@
 <td class="pad" style="padding-bottom:5px;padding-left:40px;padding-right:40px;">
 <div style="font-family: sans-serif">
 <div class="" style="font-size: 14px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 16.8px; color: #b23ab6; line-height: 1.2;">
-<p style="margin: 0; font-size: 14px; text-align: left; mso-line-height-alt: 16.8px;"><span style="font-size:20px;"><span style="font-size:15px;"><span style="color:#ffe700;"><strong>NUMERO COMPROBANTE:</strong></span> </span><span style="color:#7de5e5;"><span style="font-size:15px;"><span style="color:#ffffff;"># {{ $id_compra }}</span></span><br/></span></span></p>
+<p style="margin: 0; font-size: 14px; text-align: left; mso-line-height-alt: 16.8px;"><span style="font-size:20px;"><span style="font-size:15px;"><span style="color:#ffe700;"><strong>NUMERO COMPROBANTE:</strong></span> </span><span style="color:#7de5e5;"><span style="font-size:15px;"><span style="color:#ffffff;"># {{  $transbank->first()->id_tbk }}</span></span><br/></span></span></p>
 </div>
 </div>
 </td>

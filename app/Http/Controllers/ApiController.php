@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Productos;
 use App\Models\Configuracion;
 use App\Models\Banners;
+use App\Models\Enlaces;
 use App\Models\ConfiguracionDescuento;
 use Illuminate\Support\Facades\DB;
 
@@ -140,6 +141,11 @@ class ApiController extends Controller
     function get_banner($id_banner)
     {
         return Banners::where("id", $id_banner)->get();
+    }
+
+    function get_urls()
+    {
+        return Enlaces::where("estado", 1)->get();
     }
 
 }

@@ -78,7 +78,7 @@ class ComprobanteCompra extends Mailable
 
     function data_pago()
     {
-        return Transbank::select("tt.name AS tipo_tarjeta", "transbank.installmentsNumber AS cuotas", 
+        return Transbank::select("transbank.id as id_tbk","tt.name AS tipo_tarjeta", "transbank.installmentsNumber AS cuotas", 
                                 "transbank.installmentsAmount AS val_cuota", "transbank.cardNumber AS n_tarjeta")
                     ->join("tipo_tarjeta AS tt", "tt.cod", "transbank.paymentTypeCode")
                     ->where("transbank.id_compras", $this->id_compra)->get();
