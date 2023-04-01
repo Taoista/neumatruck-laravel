@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
-    
+
 
     function get_product($key)
     {
@@ -35,7 +35,7 @@ class ApiController extends Controller
                 ->where("productos.busqueda",  "like", $key)
                 ->where("productos.estado", 1)
                 ->get();
-        
+
         return $data;
 
     }
@@ -57,7 +57,7 @@ class ApiController extends Controller
                 ->addSelect(DB::raw($min_stock.' as limit_stock'))
                 ->where("productos.estado", 1)
                 ->get();
-        
+
         return $data;
     }
 
@@ -78,7 +78,7 @@ class ApiController extends Controller
                 ->addSelect(DB::raw($min_stock.' as limit_stock'))
                 ->where("productos.codigo", $codigo)
                 ->get();
-        
+
         return $data;
     }
 
@@ -89,7 +89,7 @@ class ApiController extends Controller
         // $productos = $request->productos;
         // ? tomar el tipo del producto y verificar el tipo de descuento
         // ? actualizar el contenido de los productos
-        // ? los datos que contienen son 
+        // ? los datos que contienen son
         // ? => codigo
         // ? => estado
         // ? => stock
@@ -103,7 +103,7 @@ class ApiController extends Controller
         // $descuento = ConfiguracionDescuento::get();
 
 
-        for ($i=0; $i <count($productos) ; $i++) { 
+        for ($i=0; $i <count($productos) ; $i++) {
             $codigo = $productos[$i]["codigo"];
             $estado = $productos[$i]["estado"];
             $stock = $productos[$i]["stock"];
@@ -126,7 +126,7 @@ class ApiController extends Controller
         }
 
 
-          
+
 
         return "ok";
 
@@ -146,6 +146,30 @@ class ApiController extends Controller
     function get_urls()
     {
         return Enlaces::where("estado", 1)->get();
+    }
+
+
+    // * toma los productos sergun categoria
+    function get_products_category($id_tipo)
+    {
+        $min_stock = Configuracion::select("resultado")->where("tipo", "minimo_stock")->get()->first()->resultado;
+
+        $data = DB::table('productos')
+                ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
+                ->leftJoin('marcas AS m', 'm.id2', '=', 'productos.id_marca')
+                ->selectRaw('productos.*, IF(m.marca IS NULL, NULL,  m.marca) as marca')
+                ->selectRaw('productos.*, IF(o.p_oferta IS NULL, productos.p_venta, 0) as p_venta')
+                ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta')
+                ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta2, o.controll')
+                ->leftJoin('ofertas_controll AS oc', 'oc.id', '=', 'o.controll')
+                ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.desde) as desde')
+                ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.hasta) as hasta')
+                ->addSelect(DB::raw($min_stock.' as limit_stock'))
+                ->where("productos.id_tipo",  $id_tipo)
+                ->where("productos.estado", 1)
+                ->get();
+
+        return $data;
     }
 
 }
