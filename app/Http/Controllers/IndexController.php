@@ -32,7 +32,7 @@ class IndexController extends Controller{
 
     function get_banners()
     {  
-        return Banners::where("estado", 1)->orderby("orden", "desc")->get();
+        return Banners::where("estado", 1)->orderby("orden", "asc")->get();
     }
 
 
