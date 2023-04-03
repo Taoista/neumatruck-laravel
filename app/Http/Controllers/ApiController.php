@@ -148,4 +148,16 @@ class ApiController extends Controller
         return Enlaces::where("estado", 1)->get();
     }
 
+    // * actualiza un banner
+    function update_banner(Request $request)
+    {
+        $id_banner = $request->id_banner;
+        $estado = $request->estado;
+        $id_ruta = $request->ruta;
+
+        
+
+    }
+
+
 }

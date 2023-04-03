@@ -35,6 +35,8 @@ Route::get("/get_banners", [ApiController::class,"get_banners"]);
 Route::get("/get_banner/{id_banner}", [ApiController::class,"get_banner"]);
 // * toma las url de la web para insertarlas
 Route::get("/get_urls",[ApiController::class, "get_urls"]);
+// * actualiza el banner neumatruck
+Route::post("/update_banner",[ApiController::class, "update_banner"]);
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);
