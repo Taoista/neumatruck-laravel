@@ -21,7 +21,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             @foreach ($banners as $item )
-            <div class="item {{ $item->activo == 1 ? 'active' : '' }}">
+            <div class="item {{ $item->orden == 1 ? 'active' : '' }}">
                 @if($item->redireccion == "#")
                     <img src="{{ asset($item->img) }}" alt="{{ $item->title }}">
                 @else

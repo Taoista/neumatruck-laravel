@@ -175,11 +175,13 @@ class ApiController extends Controller
         // * actualiza un banner
         function update_banner(Request $request)
         {
-            $id_banner = $request->id_banner;
-            $estado = $request->estado;
+            $id_banner = intval($request->id_banner);
+            $estado = $request->estado == true ? 1 : 0;
             $id_ruta = $request->ruta;
-    
             
+
+
+            return $estado;
     
         }
     
