@@ -229,6 +229,19 @@ class ApiController extends Controller
             return $banner->id;
         }
 
+        // * actualizacion del orden de los banners
+        function update_order_banner(Request $request)
+        {
+            $data = $request->data;
+            for ($i=0; $i < count($data) ; $i++) { 
+                $id = $data[$i]["id"];
+                $orden = $data[$i]["orden"];
+                Banners::where("id", $id)->update(["orden" => $orden]);
+            }
+
+            return "ok";
+        }
+
 }
 
 
