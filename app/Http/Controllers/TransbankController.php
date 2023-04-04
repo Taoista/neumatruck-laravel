@@ -134,7 +134,7 @@ class TransbankController extends Controller
 
                     // ? enviar a los responsables
                     foreach($emails_admin AS $item){
-                        Mail::to($item->email)->send($correo);
+                        Mail::bcc($item->email)->send($correo);
                         sleep(3);
                     }
 
