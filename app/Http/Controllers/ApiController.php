@@ -242,6 +242,13 @@ class ApiController extends Controller
             return "ok";
         }
 
+        // * toma la configuracion 
+        function get_configuracion()
+        {
+            return Configuracion::get();
+        }
+
+
 }
 
 

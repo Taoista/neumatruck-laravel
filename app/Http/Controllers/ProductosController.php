@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Configuracion;
+use App\Models\ConfiguracionData;
 use App\Models\Ofertas;
 use App\Models\Carrito;
 use App\Models\OfertasControll AS OC;
@@ -12,7 +13,7 @@ use Cookie;
 class ProductosController extends Controller{
 
     function limit_stock(){
-        return Configuracion::select("resultado")->where("tipo", "minimo_stock")->get()->first()->resultado;
+        return ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
     }
 
     // * MAIN del controll oferta

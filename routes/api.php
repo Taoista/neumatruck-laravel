@@ -44,7 +44,8 @@ Route::post("/update_banner",[ApiController::class, "update_banner"]);
 Route::post("/insert_banner",[ApiController::class, "insert_banner"]);
 // * actualiza el orden de los banners
 Route::post("/update_order_banner",[ApiController::class, "update_order_banner"]);
-
+// * toma la configuracion de la aplicacion
+Route::get("/get_configuracion", [ApiController::class, "get_configuracion"]);
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);
