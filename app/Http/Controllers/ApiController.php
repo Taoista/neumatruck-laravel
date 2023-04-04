@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Productos;
 use App\Models\Configuracion;
+use App\Models\ConfiguracionEmail;
 use App\Models\Banners;
 use App\Models\Enlaces;
 use App\Models\ConfiguracionDescuento;
@@ -248,6 +249,51 @@ class ApiController extends Controller
             return Configuracion::get();
         }
 
+        // * update configuracion
+        function update_configuracion(Request $request)
+        {
+            $demo = $request->data;
+            $array = json_decode($demo, true);
+
+            $configuracion = Configuracion::get();
+
+            foreach ($configuracion as $item) {
+                $id = $item->id;
+                Configuracion::where("id", $id)->update(["resultado" => $array[$id]]);
+            }
+            
+            return "ok";
+        }
+
+        // * toma la configuracion de descuento
+        function get_configuracion_descuento()
+        {
+            $data = ConfiguracionDescuento::select("configuracion_descuento.id", "configuracion_descuento.descuento", "t.nombre")
+                                            ->join("tipo AS t", "t.id", "configuracion_descuento.id_categoria")
+                                            ->get();
+            return $data;
+        }
+
+        // * update los descuento
+        function update_desuento(Request $request)
+        {
+            $demo = $request->data;
+            $array = json_decode($demo, true);
+
+            $descuento = ConfiguracionDescuento::get();
+            foreach ($descuento as $item) {
+                $id = $item->id;
+                ConfiguracionDescuento::where("id", $id)->update(["descuento" => $array[$id]]);
+            }
+
+            return "ok";
+
+        }
+
+        function get_email_compra()
+        {
+            return ConfiguracionEmail::get();
+        }
 
 }
 

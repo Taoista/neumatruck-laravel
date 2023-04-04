@@ -84,7 +84,7 @@ function oferta_secundaria()
 
 function min_stock()
 {
-    $data = Configuracion::where("tipo", "minimo_stock")->get()->first()->resultado;
+    $data = ConfiguracionDato::where("data", "minimo-stock")->get()->first()->result;
     return $data;
 }
 

@@ -46,6 +46,16 @@ Route::post("/insert_banner",[ApiController::class, "insert_banner"]);
 Route::post("/update_order_banner",[ApiController::class, "update_order_banner"]);
 // * toma la configuracion de la aplicacion
 Route::get("/get_configuracion", [ApiController::class, "get_configuracion"]);
+// * update configuracion
+Route::post("/update_configuracion", [ApiController::class, "update_configuracion"]);
+// * toma la confguracion de descuento
+Route::get("/get_configuracion_descuento", [ApiController::class, "get_configuracion_descuento"]);
+// * update descuento 
+Route::post("/update_desuento", [ApiController::class, "update_desuento"]);
+// * toma los datos de emial copia de correo compra
+Route::get("/get_email_compra", [ApiController::class, "get_email_compra"]);
+
+
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);
