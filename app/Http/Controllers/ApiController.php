@@ -8,8 +8,10 @@ use App\Models\Configuracion;
 use App\Models\ConfiguracionData;
 use App\Models\ConfiguracionEmail;
 use App\Models\ConfiguracionPhono;
+use App\Models\Transbank;
 use App\Models\Banners;
 use App\Models\Enlaces;
+use App\Models\Compras;
 use App\Models\ConfiguracionDescuento;
 use Illuminate\Support\Facades\DB;
 
@@ -368,6 +370,52 @@ class ApiController extends Controller
             $new_phone->save();
 
             return "ok";
+        }
+
+        // * toma los datos de compra
+        function get_data_compras()
+        {
+            $data = DB::table('transbank AS t')
+                ->selectRaw('t.id, t.fecha, t.authorizationCode AS cod_autorizacion, tp.name AS tipo_pago, t.installmentsNumber AS cuotas, 
+                            installmentsAmount AS cuotas_total, t.cardNumber AS n_tarjeta, t.total, c.email, c.nombre')
+                ->join("tipo_tarjeta AS tp", "t.paymentTypeCode", "=", "tp.cod")
+                ->join("compras AS c", "c.id", "=", "t.id_compras")
+                ->where("t.responseCode", "0")
+                ->orderby("t.id", "desc")
+                ->get();
+
+            return datatables()->of($data)->toJson();;
+        }
+
+        // * toma los datos de compra del comprobante
+        function get_data_comprobante($id_comprobante)
+        {
+            $data = Transbank::select("transbank.id", "transbank.fecha", "transbank.authorizationCode AS cod_autorizacion", "tp.name AS tipo_pago",
+                                    "transbank.installmentsNumber AS cuotas", "transbank.cardNumber AS n_tarjeta", "transbank.total", "c.email", "c.nombre",
+                                    "c.rut", "c.telefono", "c.contacto", "c.tipo_delivery", "c.id_ciudad", "ciudades.ciudad", "c.direccion", "c.nota",
+                                    "c.neto", "c.iva", "c.delivery", "c.total AS total_pago", "ciudades.region")
+                    ->join("compras AS c", "transbank.id_compras", "=", "c.id")
+                    ->join("tipo_tarjeta AS tp", "transbank.paymentTypeCode", "=", "tp.cod")
+                    ->leftJoin("ciudades", function($join){
+                        $join->on("c.id_ciudad", "=", "ciudades.id")
+                            ->where("c.id_ciudad", "!=", 0);
+                    })
+                    // ->select("transbank.*", "c.*", "tp.*", "ciudades.ciudad as nombre_ciudad")
+                    ->where("transbank.id", $id_comprobante)
+                    ->get();
+            return $data;
+        }
+
+        // * toma los productos comprados
+        function get_productos_comprados($id_comprobante)
+        {
+            $data = Compras::select("p.codigo", "p.nombre", "cp.cantidad", "p_original", "cp.oferta", "cp.p_venta", "p.img")
+                        ->where("compras.id_tbk", $id_comprobante)
+                        ->join("compras_productos AS cp", "cp.id_compra", "=", "compras.id")
+                        ->join("productos AS p", "p.id", "=", "cp.id_producto")
+                        ->get();
+
+            return $data;
         }
 
        

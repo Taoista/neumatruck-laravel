@@ -68,6 +68,13 @@ Route::post("/update_phone",[ApiController::class, "update_phone"]);
 Route::post("/delete_phone_footer",[ApiController::class, "delete_phone_footer"]);
 // * inser nuevo telefono para el footer
 Route::post("/insert_phone_footer",[ApiController::class, "insert_phone_footer"]);
+// * toma las compras realizadas 
+Route::get("/get-data-compras",[ApiController::class, "get_data_compras"]);
+// * toma el dato del comprobante
+Route::get("/get_data_comprobante/{id_comprobante}",[ApiController::class, "get_data_comprobante"]);
+// * toma los productos comprados
+Route::get("/get_productos_comprados/{id_comprobante}",[ApiController::class, "get_productos_comprados"]);
+
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);
