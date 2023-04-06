@@ -66,6 +66,8 @@ Route::get("/get_telefono_footer",[ApiController::class, "get_telefono_footer"])
 Route::post("/update_phone",[ApiController::class, "update_phone"]);
 // * elimina un telefono del footer
 Route::post("/delete_phone_footer",[ApiController::class, "delete_phone_footer"]);
+// * inser nuevo telefono para el footer
+Route::post("/insert_phone_footer",[ApiController::class, "insert_phone_footer"]);
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);

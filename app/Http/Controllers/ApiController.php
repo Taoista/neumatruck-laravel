@@ -358,7 +358,19 @@ class ApiController extends Controller
             return "ok";
         }
 
+        function insert_phone_footer(Request $request)
+        {
+            $phone = $request->phone;
 
+            $new_phone = new ConfiguracionPhono();
+            $new_phone->orden = ConfiguracionPhono::max("orden") + 1;
+            $new_phone->telefono = $phone;
+            $new_phone->save();
+
+            return "ok";
+        }
+
+       
 }
 
 
