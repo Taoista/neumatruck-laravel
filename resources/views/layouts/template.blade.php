@@ -40,7 +40,7 @@
 </head>
 
 <body>
-    <a href="https://wa.me/{{ phone_main() }}" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+    <a href="https://wa.me/{{ get_whatsapp() }}" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 
     <div class="icon-bar text-center">
         <a target="_blank" style="background-color:#3b5998;" href="{{ facebook() }}" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -328,7 +328,7 @@
     </footer>
 
     @livewire("popup")
-  
+
     <!-- /FOOTER modal -->
 
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>

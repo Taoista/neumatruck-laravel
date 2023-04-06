@@ -50,12 +50,22 @@ Route::get("/get_configuracion", [ApiController::class, "get_configuracion"]);
 Route::post("/update_configuracion", [ApiController::class, "update_configuracion"]);
 // * toma la confguracion de descuento
 Route::get("/get_configuracion_descuento", [ApiController::class, "get_configuracion_descuento"]);
-// * update descuento 
+// * update descuento
 Route::post("/update_desuento", [ApiController::class, "update_desuento"]);
 // * toma los datos de emial copia de correo compra
 Route::get("/get_email_compra", [ApiController::class, "get_email_compra"]);
-
-
+// * eleimina un email
+Route::post("/delete_email_comprobante", [ApiController::class, "delete_email_comprobante"]);
+// * inserta nuevo eleemneto de email para los comporbantes
+Route::post("/insert_new_email_comprobante", [ApiController::class, "insert_new_email_comprobante"]);
+// * cambiar estado del email
+Route::post("/change_state_email_comprobante", [ApiController::class, "change_state_email_comprobante"]);
+// * telefono footer
+Route::get("/get_telefono_footer",[ApiController::class, "get_telefono_footer"]);
+// * actulizacion del telefono
+Route::post("/update_phone",[ApiController::class, "update_phone"]);
+// * elimina un telefono del footer
+Route::post("/delete_phone_footer",[ApiController::class, "delete_phone_footer"]);
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);

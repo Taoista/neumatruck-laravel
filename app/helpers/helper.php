@@ -6,6 +6,15 @@ use App\Models\MarcasFooter;
 use App\Models\CategoriaFotter;
 use App\Models\Tipo;
 
+// * wahhsap
+function  get_whatsapp()
+{
+    return ConfiguracionDato::select("result")
+                            ->where("data", "wp")
+                            ->get()->first()->result;
+}
+
+
 // * toma el monotop minimo valor neto
 function min_monto()
 {

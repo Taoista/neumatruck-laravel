@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Productos;
 use App\Models\Configuracion;
+use App\Models\ConfiguracionData;
 use App\Models\ConfiguracionEmail;
+use App\Models\ConfiguracionPhono;
 use App\Models\Banners;
 use App\Models\Enlaces;
 use App\Models\ConfiguracionDescuento;
@@ -20,7 +22,7 @@ class ApiController extends Controller
     {
         $key = '%'.$key.'%';
 
-        $min_stock = Configuracion::select("resultado")->where("tipo", "minimo_stock")->get()->first()->resultado;
+        $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
 
         $data = DB::table('productos')
                 ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
@@ -43,7 +45,7 @@ class ApiController extends Controller
 
     function get_all_product()
     {
-        $min_stock = Configuracion::select("resultado")->where("tipo", "minimo_stock")->get()->first()->resultado;
+        $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
 
         $data = DB::table('productos')
                 ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
@@ -66,7 +68,7 @@ class ApiController extends Controller
     function get_data_producto($codigo)
     {
 
-        $min_stock = Configuracion::select("resultado")->where("tipo", "minimo_stock")->get()->first()->resultado;
+        $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
 
         $data = DB::table('productos')
                 ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
@@ -153,7 +155,7 @@ class ApiController extends Controller
     // * toma los productos sergun categoria
     function get_products_category($id_tipo)
     {
-        $min_stock = Configuracion::select("resultado")->where("tipo", "minimo_stock")->get()->first()->resultado;
+        $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
 
         $data = DB::table('productos')
                 ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
@@ -185,20 +187,20 @@ class ApiController extends Controller
                 if(count($path) > 0){
                     $ruta = $path->first()->enlace;
                 }
-    
+
                 Banners::where("id", $id_banner)->update([
                     "estado" => $estado,
                     "redireccion" => $ruta
                 ]);
-    
+
                 return "ok";
             } catch (\Throwable $th) {
                 return "error";
             }
-           
-    
+
+
         }
-    
+
         // * crea nuevo banner
         function insert_banner(Request $request)
         {
@@ -234,7 +236,7 @@ class ApiController extends Controller
         function update_order_banner(Request $request)
         {
             $data = $request->data;
-            for ($i=0; $i < count($data) ; $i++) { 
+            for ($i=0; $i < count($data) ; $i++) {
                 $id = $data[$i]["id"];
                 $orden = $data[$i]["orden"];
                 Banners::where("id", $id)->update(["orden" => $orden]);
@@ -243,7 +245,7 @@ class ApiController extends Controller
             return "ok";
         }
 
-        // * toma la configuracion 
+        // * toma la configuracion
         function get_configuracion()
         {
             return Configuracion::get();
@@ -261,7 +263,7 @@ class ApiController extends Controller
                 $id = $item->id;
                 Configuracion::where("id", $id)->update(["resultado" => $array[$id]]);
             }
-            
+
             return "ok";
         }
 
@@ -294,6 +296,68 @@ class ApiController extends Controller
         {
             return ConfiguracionEmail::get();
         }
+
+        // * elimina un emiail como comprobante
+        function delete_email_comprobante(Request $request)
+        {
+            $id_email = $request->id_email;
+
+            ConfiguracionEmail::where("id", $id_email)->delete();
+
+            return "ok";
+        }
+
+        function insert_new_email_comprobante(Request $request)
+        {
+            $email = strtolower($request->email);
+            $estado = $request->estado == "" ? 0 : 1;
+
+            $conf = new ConfiguracionEmail();
+            $conf->email = $email;
+            $conf->estado = $estado;
+            $conf->save();
+
+            return "ok";
+        }
+
+        // * actualiza del email de comprobantes
+
+        function change_state_email_comprobante(Request $request)
+        {
+            $id_email = $request->id_email;
+            $estado = $request->estado == true ? 1 : 0;
+
+            ConfiguracionEmail::where("id", $id_email)->update(["estado" => $estado]);
+
+            return "ok";
+        }
+
+        // * telefonos del footer
+        function get_telefono_footer()
+        {
+            return ConfiguracionPhono::get();
+        }
+
+        // * actualizacion dl telefono
+        function update_phone(Request $reqeust)
+        {
+            $id_phone = $reqeust->id_phone;
+            $phone = $reqeust->phone;
+
+            ConfiguracionPhono::where("id", $id_phone)->update(["telefono" => $phone]);
+
+            return "ok";
+        }
+
+        // * elimina un telefono del footer
+        function delete_phone_footer(Request $reqeust){
+            $id_phone = $reqeust->id_phone;
+
+            ConfiguracionPhono::where("id", $id_phone)->delete();
+
+            return "ok";
+        }
+
 
 }
 
