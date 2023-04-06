@@ -418,6 +418,21 @@ class ApiController extends Controller
             return $data;
         }
 
+        // * toma los productos en oferta
+        function get_ofert_productos()
+        {
+            $data = Productos::select("productos.id","productos.codigo", "productos.nombre", "productos.p_venta", "productos.p_venta","o.p_oferta",
+                                    "productos.oferta AS estado_oferta","o.controll", "ofertas_controll.desde", "ofertas_controll.hasta")
+                    ->join("ofertas AS o", "productos.id", "o.id_producto")
+                    ->leftJoin("ofertas_controll", function($join){
+                        $join->on("o.controll", "ofertas_controll.id")
+                            ->where("o.controll", "!=", 0);
+                    })
+                    ->where("productos.oferta", 1)->get();
+            return $data;
+        }
+        
+
        
 }
 

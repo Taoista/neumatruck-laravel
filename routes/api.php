@@ -74,7 +74,8 @@ Route::get("/get-data-compras",[ApiController::class, "get_data_compras"]);
 Route::get("/get_data_comprobante/{id_comprobante}",[ApiController::class, "get_data_comprobante"]);
 // * toma los productos comprados
 Route::get("/get_productos_comprados/{id_comprobante}",[ApiController::class, "get_productos_comprados"]);
-
+// * toma los productos que estan en oferta
+Route::get("/get_ofert_productos",[ApiController::class, "get_ofert_productos"]);
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);
