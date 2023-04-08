@@ -17,7 +17,9 @@
             <h3 class="product-name"><a href="{{ url('./ficha').'/'.$item->id }}">{{ $item->nombre }}</a></h3>
             @if($item->oferta == true)
                 @if($controller->state_oferta($item->id) == true)
-                <h4 class="product-price" style="color:red">OFERTA {{ "$ ".format_money(set_total($controller->value_oferta($item->id))) }} C/IVA</h4>
+                    <h4 class="product-price" style="color:red">OFERTA {{ "$ ".format_money(set_total($controller->value_oferta($item->id))) }} C/IVA</h4>
+                @else
+                    <h4 class="product-price">{{ "$ ".format_money(set_total($item->p_venta)) }} C/IVA</h4>
                 @endif
             @else
                 <h4 class="product-price">{{ "$ ".format_money(set_total($item->p_venta)) }} C/IVA</h4>

@@ -78,7 +78,8 @@ Route::get("/get_productos_comprados/{id_comprobante}",[ApiController::class, "g
 Route::get("/get_ofert_productos",[ApiController::class, "get_ofert_productos"]);
 // * toma los tipos de ofertas
 Route::get("/get_tipo_ofertas",[ApiController::class, "get_tipo_ofertas"]);
-
+// * actualiza el estado de una oferta
+Route::post("/update_state_ofertas", [ApiController::class, "update_state_ofertas"]);
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);

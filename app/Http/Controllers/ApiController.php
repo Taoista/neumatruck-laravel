@@ -13,6 +13,7 @@ use App\Models\Banners;
 use App\Models\Enlaces;
 use App\Models\Compras;
 use App\Models\OfertasTipo;
+use App\Models\Ofertas;
 use App\Models\ConfiguracionDescuento;
 use Illuminate\Support\Facades\DB;
 
@@ -443,6 +444,33 @@ class ApiController extends Controller
             return $data;
         }
 
+        // * actualiza el estado de una oferta
+        function update_state_ofertas(Request $request)
+        {
+            // ? si esta desactivado debe desactivarlo en la basde del producto
+            // ? tambien debe verificar si el estado de oferta contiene controll
+            $id_producto = $request->id_producto;
+            $estado = $request->estado == "1"? true : false;
+            $id_tipo_oferta = $request->id_tipo_oferta;
+            $p_oferta = $request->p_oferta;
+
+            $controll = OfertasTipo::select("control")->where("id", $id_tipo_oferta)->get()->first()->control;
+
+            Ofertas::where("id_producto", $id_producto)
+                        ->update([
+                            "id_tipo_oferta" => $id_tipo_oferta,
+                            "estado" => $estado,
+                            "controll" => $controll,
+                            "p_oferta" => $p_oferta
+                        ]);
+
+            Productos::where("id", $id_producto)->update(["oferta" => $estado]);
+
+            return response()->json([
+                "success" => true,
+                "data" => "ok"
+            ]);
+        }
 
 }
 

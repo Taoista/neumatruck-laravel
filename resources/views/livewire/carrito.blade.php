@@ -42,9 +42,10 @@
             @if($item->oferta == true)
                 @if($controller->state_oferta($item->id) == true)
                 <span class="precio pull-right" ><strong style="font-size:15px">{{ set_money($controller->value_oferta($item->id)  * $item->cantidad) }}</strong></span><br>
+                @else
+                <span class="precio pull-right" ><strong style="font-size:15px">{{ set_money($item->p_venta * $item->cantidad) }}</strong></span><br>
                 @endif
             @else
-                {{-- <span class="precio pull-right" ><strong style="font-size:15px">{{ format_money($item->p_venta * $item->cantidad) }}</strong></span><br> --}}
                 <span class="precio pull-right" ><strong style="font-size:15px">{{ set_money($item->p_venta * $item->cantidad) }}</strong></span><br>
             @endif
         </div>
@@ -82,7 +83,7 @@ $('.input-number-decrement').click(function() {
   var $input = $(this).parents('.input-number-group').find('.input-number');
   var val = parseInt($input.val(), 10);
 //   val = val == 1 ? 1 ? val;
-    var nuevo = val == 1 ? 1 : val - 1; 
+    var nuevo = val == 1 ? 1 : val - 1;
   $input.val(nuevo);
 })
 
@@ -100,8 +101,8 @@ function element_component(){
                 focusConfirm: false,
                 showConfirmButton:false,
             })
-            $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)'); 
-            $(".swal2-title").css("color","white"); 
+            $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)');
+            $(".swal2-title").css("color","white");
         },
         change_cantidad(){
             Swal.fire({
@@ -112,8 +113,8 @@ function element_component(){
                 focusConfirm: false,
                 showConfirmButton:false,
             })
-            $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)'); 
-            $(".swal2-title").css("color","white"); 
+            $(".swal2-modal").css('background-color', 'rgba(0, 0, 0, 0.0)');
+            $(".swal2-title").css("color","white");
         }
     }
 }
@@ -132,7 +133,7 @@ document.addEventListener("livewire:load", function(){
         Swal.close()
     })
 
-    
+
 
 });
 
