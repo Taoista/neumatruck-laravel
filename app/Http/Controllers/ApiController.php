@@ -12,6 +12,7 @@ use App\Models\Transbank;
 use App\Models\Banners;
 use App\Models\Enlaces;
 use App\Models\Compras;
+use App\Models\OfertasTipo;
 use App\Models\ConfiguracionDescuento;
 use Illuminate\Support\Facades\DB;
 
@@ -376,7 +377,7 @@ class ApiController extends Controller
         function get_data_compras()
         {
             $data = DB::table('transbank AS t')
-                ->selectRaw('t.id, t.fecha, t.authorizationCode AS cod_autorizacion, tp.name AS tipo_pago, t.installmentsNumber AS cuotas, 
+                ->selectRaw('t.id, t.fecha, t.authorizationCode AS cod_autorizacion, tp.name AS tipo_pago, t.installmentsNumber AS cuotas,
                             installmentsAmount AS cuotas_total, t.cardNumber AS n_tarjeta, t.total, c.email, c.nombre')
                 ->join("tipo_tarjeta AS tp", "t.paymentTypeCode", "=", "tp.cod")
                 ->join("compras AS c", "c.id", "=", "t.id_compras")
@@ -421,19 +422,28 @@ class ApiController extends Controller
         // * toma los productos en oferta
         function get_ofert_productos()
         {
-            $data = Productos::select("productos.id","productos.codigo", "productos.nombre", "productos.p_venta", "productos.p_venta","o.p_oferta",
-                                    "productos.oferta AS estado_oferta","o.controll", "ofertas_controll.desde", "ofertas_controll.hasta")
+            $data = Productos::select("o.id AS id_oferta","productos.id AS id_producto","productos.codigo", "productos.nombre", "productos.p_venta", "productos.p_venta","o.p_oferta",
+                                    "productos.oferta AS estado_oferta","o.controll", "ofertas_controll.desde", "ofertas_controll.hasta", "ot.id AS id_tipo_oferta",
+                                    "ot.nombre AS nombre_oferta")
                     ->join("ofertas AS o", "productos.id", "o.id_producto")
                     ->leftJoin("ofertas_controll", function($join){
                         $join->on("o.controll", "ofertas_controll.id")
                             ->where("o.controll", "!=", 0);
                     })
-                    ->where("productos.oferta", 1)->get();
+                    ->join("ofertas_tipo AS ot", "ot.id", "o.id_tipo_oferta")
+                    // ->where("productos.oferta", 1)
+                    ->get();
             return $data;
         }
-        
 
-       
+        // * toma el tipo de oferta
+        function get_tipo_ofertas()
+        {
+            $data = OfertasTipo::get();
+            return $data;
+        }
+
+
 }
 
 
