@@ -4,7 +4,7 @@
             <div class="product-img"><img src="{{ $item->img }}">
                 @if($item->oferta == true)
                     @if($controller->state_oferta($item->id) == true)
-                    <div class="product-label-oferta"><span class="new">OFERTAS </span></div>
+                    <div class="product-label-oferta"><span class="new">{{ $controller->get_title_oferta($item->id) }} </span></div>
                     @endif
                 @endif
                 <div class="product-label">

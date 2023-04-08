@@ -4,7 +4,7 @@
             <div class="product-img"><a href="{{ url('./ficha').'/'.$item->id }}" tabindex="-1"><img src="{{ $item->img }}">
                     @if($item->oferta == true)
                         @if($controller->state_oferta($item->id) == true)
-                        <div class="product-label-oferta"><span class="new">OFERTA </span></div>
+                        <div class="product-label-oferta"><span class="new">{{ $controller->get_title_oferta($item->id) }}  </span></div>
                         @endif
                     @endif
                     <div class="product-label">

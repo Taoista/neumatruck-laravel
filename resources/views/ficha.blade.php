@@ -54,7 +54,7 @@
 
                                         @if($data->oferta == true)
                                             @if($controller->state_oferta($data->id) == true)
-                                                <h5 class=" lbl-ferta">OFERTA</h5>
+                                                <h5 class=" lbl-ferta">{{ $controller->get_title_oferta($data->id) }} </h5>
                                             @endif
                                         @endif
                                         <ul class="product-links" style="margin-top: 20px;">

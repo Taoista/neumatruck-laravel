@@ -23,7 +23,7 @@ class ProductosController extends Controller{
             $data = Ofertas::select("estado","controll")
                             ->where("id_producto", $id_producto)
                             ->get();
-         
+
             if(count($data) > 0){
                 if($data->first()->estado == true){
                     if($data->first()->controll == true){
@@ -72,6 +72,19 @@ class ProductosController extends Controller{
         return Ofertas::select("p_oferta")->where("id_producto", $id_producto)->first()->p_oferta;
     }
 
+    // * retorla el nombre de la oferta
+    public function get_title_oferta($id_productos)
+    {
+        try {
+            $data = Ofertas::select("ot.nombre AS titulo_oferta")
+                    ->join("ofertas_tipo AS ot", "ofertas.id_tipo_oferta", "ot.id")
+                    ->where("ofertas.id_producto", $id_productos)->get();
+            return strtoupper($data->first()->titulo_oferta);
+        } catch (\Throwable $th) {
+            return "";
+        }
+    }
+
 
     // * function que toma el neto del carrito
 
@@ -97,7 +110,7 @@ class ProductosController extends Controller{
                 $total += $item->p_venta * $item->cantidad;
             }
         }
-        return $total;        
+        return $total;
     }
 
 
