@@ -80,6 +80,13 @@ Route::get("/get_ofert_productos",[ApiController::class, "get_ofert_productos"])
 Route::get("/get_tipo_ofertas",[ApiController::class, "get_tipo_ofertas"]);
 // * actualiza el estado de una oferta
 Route::post("/update_state_ofertas", [ApiController::class, "update_state_ofertas"]);
+// * borrar una oferta producto
+Route::post("/delete_oferta_producto", [ApiController::class, "delete_oferta_producto"]);
+// * inserta nueva oferta producto
+Route::post("/insert_new_oferta_producto", [ApiController::class, "insert_new_oferta_producto"]);
+// * eleimian todas las ofertas
+Route::post("delete_all_ofertas", [ApiController::class, "delete_all_ofertas"]);
+
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);

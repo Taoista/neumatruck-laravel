@@ -472,6 +472,69 @@ class ApiController extends Controller
             ]);
         }
 
+        function delete_oferta_producto(Request $request){
+            $id_producto = $request->id_producto;
+
+            Ofertas::where("id_producto", $id_producto)->delete();
+
+            Productos::where("id", $id_producto)->update(["oferta" => 0]);
+
+            return response()->json([
+                "success" => true,
+                "data" => "ok"
+            ]);
+        }
+
+        // * inserta nueva oferta producto
+        function insert_new_oferta_producto(Request $request)
+        {
+            $id_producto = $request->id_producto;
+            $p_oferta = $request->p_oferta;
+            $id_tipo_oferta = $request->id_tipo_oferta;
+
+
+
+            $data = OfertasTipo::select("control")->where("id", $id_tipo_oferta)->get();
+            $control = 0;
+            if(count($data) > 0){
+                $control = $data->first()->control;
+            }
+
+
+            $oferta = new Ofertas();
+            $oferta->id_tipo_oferta = $id_tipo_oferta;
+            $oferta->estado = 1;
+            $oferta->id_producto = $id_producto;
+            $oferta->controll = $control;
+            $oferta->p_oferta = $p_oferta;
+            $oferta->save();
+
+            Productos::where("id", $id_producto)->update(["oferta" => 1]);
+
+            return response()->json([
+                "success" => true,
+                "data" => "ok"
+            ]);
+
+        }
+
+        function delete_all_ofertas()
+        {
+
+            $productos = Ofertas::get();
+
+            foreach ($productos AS $item){
+                Productos::where("id", $item->id_producto)->update(["oferta" => 0]);
+            }
+
+            Ofertas::truncate();
+
+            return response()->json([
+                "success" => true,
+                "data" => "ok"
+            ]);
+        }
+
 }
 
 
