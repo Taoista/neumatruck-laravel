@@ -160,8 +160,16 @@ class ApiController extends Controller
     // ? id_tipo => categoria del producto
     // ? order => precios menor mayor etc
     // ? filtro => marca -> medida
-    function get_products_category($id_tipo,$order, $filtro)
+    function get_products_category($id_tipo, $order, $filtro)
     {
+        // ? order
+        // ? 1 Precio menor a mayor
+        // ? 2 precio Mayor a menor
+        // ? filtro
+        // ? 1 marca
+        // ? 2 medida
+        // ! este debe recivir solo un datos o es order o es filtro
+        $order = $order;
         $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
 
         $data = DB::table('productos')
@@ -176,6 +184,23 @@ class ApiController extends Controller
                 ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.hasta) as hasta')
                 ->addSelect(DB::raw($min_stock.' as limit_stock'))
                 ->where("productos.id_tipo",  $id_tipo)
+                ->when($order != 0, function($query) use ($order){
+                    if($order == 1){
+                        $query->orderby("productos.p_venta", "ASC");
+                        if($filtro == 1){
+                            $query->orderby("marca", "ASC");
+                        }
+                    }elseif($order == 2){
+                        $query->orderby("productos.p_venta", "DESC");
+                    }
+                })
+                ->when($filtro != 0, function($query) use ($filtro){
+                    if($filtro == 1){
+                        $query->orderby("m.marca", "ASC");
+                    }elseif ($filtro == 2) {
+                        $query->orderby("m.marca", "DESC");
+                    }
+                })
                 ->where("productos.estado", 1)
                 ->get();
 
