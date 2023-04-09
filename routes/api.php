@@ -29,8 +29,7 @@ Route::get("/get_data_producto/{codigo}",[ApiController::class, "get_data_produc
 Route::post("/iniciar_compra",[TransbankController::class, "iniciar_compra"]);
 Route::get("/confirmar_pago",[TransbankController::class, "confirmar_pago"]);
 
-// * toma los productos segun categoria
-Route::get("/get_products_category/{id_tipo}", [ApiController::class, "get_products_category"]);
+
 
 // * toma los banner de web
 Route::get("/get_banners", [ApiController::class,"get_banners"]);

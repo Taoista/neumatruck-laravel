@@ -157,7 +157,10 @@ class ApiController extends Controller
 
 
     // * toma los productos sergun categoria
-    function get_products_category($id_tipo)
+    // ? id_tipo => categoria del producto
+    // ? order => precios menor mayor etc
+    // ? filtro => marca -> medida
+    function get_products_category($id_tipo,$order, $filtro)
     {
         $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
 
