@@ -187,7 +187,7 @@ class ApiController extends Controller
                 ->when($order != 0, function($query) use ($order){
                     if($order == 1){
                         $query->orderby("productos.p_venta", "ASC");
-                        if($filtro == 1){
+                        if($order == 1){
                             $query->orderby("marca", "ASC");
                         }
                     }elseif($order == 2){
@@ -203,6 +203,11 @@ class ApiController extends Controller
                 })
                 ->where("productos.estado", 1)
                 ->get();
+
+        $response = [];
+
+
+
 
         return $data;
     }
