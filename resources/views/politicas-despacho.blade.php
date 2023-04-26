@@ -16,20 +16,27 @@
 
     <div class="section">
 
+
         <div class="container">
-
             <div class="row">
-
                 <div class="col-md-12">
                     <h2 class="titulo">Despacho y Entrega de Productos</h2>
-                    <hr class="amarillo">
                 </div>
+            </div>
+        </div>
 
-                <div class="row">
-                    <p> El despacho y la entrega de los productos adquiridos en <strong style="font-size: 15px;"> www.neumatruck.cl </strong> podrán
-                        ser efectuados a través de alguna de
-                        las siguientes modalidades, de acuerdo con la disponibilidad de stock informada para cada producto:
-                    </p>
+        <div class="container">
+            <div class="row">
+                <hr class="amarillo">
+
+
+                    <div>
+                        <p>
+                            El despacho y la entrega de los productos adquiridos en <strong style="font-size: 15px;"> www.neumatruck.cl </strong> podrán
+                            ser efectuados a través de alguna de
+                            las siguientes modalidades, de acuerdo con la disponibilidad de stock informada para cada producto:
+                        </p>
+                    </div>
 
                     <div class="col-md-12">
                         <div id="product-tab">
@@ -363,7 +370,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
             </div>
         </div>

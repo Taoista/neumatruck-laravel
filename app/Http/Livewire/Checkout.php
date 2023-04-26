@@ -42,7 +42,7 @@ class Checkout extends Component
 
     public function  mount()
     {
-
+        // dd("estoy en el checkout");
         $this->selected_delivery = 1;
 
         $this->delivery_disabeled = true;
@@ -108,7 +108,10 @@ class Checkout extends Component
     }
 
     function get_regiones(){
-        return Ciudades::select("id_region", "region")->distinct("region")->get();
+        return Ciudades::select("id_region", "region")
+                        ->distinct("region")
+                        ->where("estado", 1)
+                        ->get();
     }
 
     function get_city_from_region()
@@ -120,7 +123,10 @@ class Checkout extends Component
 
         }else{
             $this->city_disabeled = false;
-            return Ciudades::select("id", "ciudad")->where("id_region", $this->selected_region)->get();
+            return Ciudades::select("id", "ciudad")
+                            ->where("id_region", $this->selected_region)
+                            ->where("estado", 1)
+                            ->get();
         }
 
     }
