@@ -85,6 +85,8 @@ Route::post("/delete_oferta_producto", [ApiController::class, "delete_oferta_pro
 Route::post("/insert_new_oferta_producto", [ApiController::class, "insert_new_oferta_producto"]);
 // * eleimian todas las ofertas
 Route::post("delete_all_ofertas", [ApiController::class, "delete_all_ofertas"]);
+// * get tipos
+Route::get("get_tipo", [ApiController::class, "get_tipo"]);
 
 
 // * actualziacion de los productos

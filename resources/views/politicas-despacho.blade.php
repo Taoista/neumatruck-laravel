@@ -34,7 +34,7 @@
                     <div class="col-md-12">
                         <div id="product-tab">
                             <ul class="tab-nav">
-                                <li class="active"><a data-toggle="tab" href="#tab1">Despacho Gratis de La Serena a Los Ángeles</a></li>
+                                <li class="active"><a data-toggle="tab" href="#tab1">Despacho Gratis desde $150.000 de La Serena a Los Ángeles</a></li>
                                 <li><a data-toggle="tab" href="#tab2">Despacho Otras Regiones y Provincias por Pagar</a></li>
                             </ul>
                             <div class="tab-content">

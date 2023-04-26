@@ -14,6 +14,7 @@ use App\Models\Enlaces;
 use App\Models\Compras;
 use App\Models\OfertasTipo;
 use App\Models\Ofertas;
+use App\Models\Tipo;
 use App\Models\ConfiguracionDescuento;
 use Illuminate\Support\Facades\DB;
 
@@ -566,6 +567,11 @@ class ApiController extends Controller
                 "success" => true,
                 "data" => "ok"
             ]);
+        }
+
+        function get_tipo()
+        {
+            return Tipo::get();
         }
 
 }
