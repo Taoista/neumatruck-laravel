@@ -9,6 +9,7 @@ use App\Models\Ciudades;
 use App\Models\Compras;
 use App\Models\DeliveryFree;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ConfiguracionDeliveryController;
 
 class Checkout extends Component
 {
@@ -146,19 +147,21 @@ class Checkout extends Component
             return false;
         }
 
-        $productos = $this->get_productos();
-        $costo = 0;
-        foreach ($productos AS $item) {
-            $costo += $item->peso * $item->cantidad;
-        }
-        // dd($costo);
+        // $productos = $this->get_productos();
+        // $costo = 0;
+        // foreach ($productos AS $item) {
+        //     $costo += $item->peso * $item->cantidad;
+        // }
+
+        $delivery = new ConfiguracionDeliveryController($this->id_ciudad);
+        dd($delivery->total_delivery());
+
         // ? costo depsacho
         $id_ciudad = $this->id_ciudad;
 
         $costo_coidad = Ciudades::select("costo")->where("id", $id_ciudad)->get()->first()->costo;
-        // dd($costo_coidad);
+        dd($costo_coidad);
         $monto_minimo = $this->monto_minimo;
-
         // ? verifica el monto para cobrar el despacho
         // ? de lo contrario
         if($monto_minimo > $this->neto){
