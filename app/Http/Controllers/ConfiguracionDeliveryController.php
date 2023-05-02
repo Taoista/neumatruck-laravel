@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Cookie;
 use App\Models\DeliveryFree;
 use App\Models\Carrito;
+use App\Models\DeliveryCosto;
+use App\Models\ConfiguracionData;
 
 class ConfiguracionDeliveryController extends Controller
 {
@@ -30,8 +32,28 @@ class ConfiguracionDeliveryController extends Controller
         // ? el peso 
         $peso = $this->get_kilos_items();
 
+        // return $peso;
 
-        return $peso;
+        $id_ciudad = $this->id_ciudad;
+
+        $costos =  DeliveryCosto::select("delivery_costo.tarifa", "dp.proveedor")
+                    ->join("delivery_proveedor AS dp", "dp.id", "delivery_costo.id_proveedor")
+                    ->where("id_ciudad", $id_ciudad)->get();
+
+        $list_cost = array();
+
+        foreach ($costos AS $item){
+            array_push($list_cost, array($item->tarifa));
+        }
+
+        $costo_final = strval(min($list_cost)[0]);
+
+        // ? toma el % de configuracion
+        $add_percent = ConfiguracionData::select("result")->where("data", "add-delivery")->get()->first()->result;
+
+        $val_delivery = set_total(intval($costo_final + round($costo_final * ('0.'.$add_percent))));
+
+        return $val_delivery;
 
     }
 

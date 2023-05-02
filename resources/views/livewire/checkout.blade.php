@@ -72,7 +72,7 @@
                         <div class="form-group">
                                 <button type="button" class="btn btn-info" wire:click="add_despacho" wire:loading.remove>Calcular Despacho</button>
                                 <button type="button" class="btn btn-secondary" wire:loading wire:target="add_despacho">
-                                <img style="width: 20px" src="{{ asset('assets/img/loading.svg') }}" alt=""">Cargando</button>
+                                <img style="width: 20px" src="{{ asset('assets/img/loading.svg') }}" alt="">Cargando</button>
                         </div>
 
                         @endif

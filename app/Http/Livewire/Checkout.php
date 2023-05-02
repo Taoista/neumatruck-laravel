@@ -7,6 +7,7 @@ use Cookie;
 use App\Models\Carrito;
 use App\Models\Ciudades;
 use App\Models\Compras;
+use App\Models\DeliveryCosto;
 use App\Models\DeliveryFree;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ConfiguracionDeliveryController;
@@ -109,10 +110,16 @@ class Checkout extends Component
     }
 
     function get_regiones(){
-        return Ciudades::select("id_region", "region")
-                        ->distinct("region")
-                        ->where("estado", 1)
-                        ->get();
+        $regiones = DeliveryCosto::select("c.id_region", "c.region")
+                    ->distinct("c.id_region")
+                    ->join("ciudades AS c", "c.id", "delivery_costo.id_ciudad")
+                    ->where("delivery_costo.estado", 1)
+                    // ->where("")
+                    ->orderBy("c.region", "ASC")
+                    ->get();
+
+        return $regiones;
+
     }
 
     function get_city_from_region()
@@ -124,10 +131,20 @@ class Checkout extends Component
 
         }else{
             $this->city_disabeled = false;
-            return Ciudades::select("id", "ciudad")
-                            ->where("id_region", $this->selected_region)
-                            ->where("estado", 1)
-                            ->get();
+            // return Ciudades::select("id", "ciudad")
+            //                 ->where("id_region", $this->selected_region)
+            //                 ->where("estado", 1)
+            //                 ->get();
+
+            return DeliveryCosto::select("c.id", "c.ciudad")
+                        ->distinct("c.id")
+                        ->join("ciudades AS c", "c.id", "delivery_costo.id_ciudad")
+                        ->join("delivery_proveedor AS dp", "delivery_costo.id_proveedor", "dp.id")
+                        ->where("delivery_costo.estado", 1)
+                        ->where("dp.estado", 1)
+                        ->where("c.id_region", $this->selected_region)
+                        ->get();
+
         }
 
     }
@@ -154,18 +171,19 @@ class Checkout extends Component
         // }
 
         $delivery = new ConfiguracionDeliveryController($this->id_ciudad);
-        dd($delivery->total_delivery());
+        $costo_delivery = $delivery->total_delivery();
+        // dd($delivery->total_delivery());
 
         // ? costo depsacho
         $id_ciudad = $this->id_ciudad;
 
-        $costo_coidad = Ciudades::select("costo")->where("id", $id_ciudad)->get()->first()->costo;
-        dd($costo_coidad);
+        // $costo_coidad = Ciudades::select("costo")->where("id", $id_ciudad)->get()->first()->costo;
+        // dd($costo_coidad);
         $monto_minimo = $this->monto_minimo;
         // ? verifica el monto para cobrar el despacho
         // ? de lo contrario
         if($monto_minimo > $this->neto){
-            $this->val_despacho = $costo_coidad * $costo;
+            $this->val_despacho = $costo_delivery;
 
         }
         // ? si el neto es mayor al minimo
@@ -176,7 +194,7 @@ class Checkout extends Component
             if(count($state) != 0){
                 $this->val_despacho = 0;
             }else{
-                $this->val_despacho = $costo_coidad * $costo;
+                $this->val_despacho = $costo_delivery;
             }
         }
 
