@@ -138,7 +138,7 @@
                     <button class="primary-btn btn-block" wire:loading  wire:target="pgo_tbk" style="color:black" ><img style='width:20px' src="{{ asset('assets/img/loading-black.svg') }}" alt="">Cargando...</button><br>
                     <div class="text-center">
                         <p style="color:#ffb03d;"><i class="fa fa-truck"></i></p>
-                        <p>* Despacho gratis en toda RM sobre 150.000.-</p>
+                        {{-- <p>* Despacho gratis en toda RM sobre 150.000.-</p> --}}
                         <hr>
                         <p>* Despacho a otras regiones consultar con verdedor Para más información revisar <a href="despacho.php" style="color:#ffb03d;font-weight: bold;">Política de Despacho</a>.</p>
                     </div>
