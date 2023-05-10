@@ -35,6 +35,7 @@
                               Retiro Local
                             </label>
                           </div>
+
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="exampleRadios" wire:model="selected_delivery" value="2" wire:click="chanche_delivery">
                             <label class="form-check-label" for="exampleRadios2">
@@ -49,7 +50,6 @@
                                   @foreach ($regiones AS $item )
                                       <option value="{{ $item->id_region }}">{{ strtoupper($item->region) }}</option>
                                   @endforeach
-
                                 </select>
                             </div>
                         </div>
@@ -68,6 +68,7 @@
                         <div class="form-group">
                             <input class="input" type="text" name="direccion" wire:model="direccion" placeholder="Dirección de despacho"  @disabled($delivery_disabeled == true)>
                         </div>
+
                         @if($delivery_disabeled == false)
                         <div class="form-group">
                                 <button type="button" class="btn btn-info" wire:click="add_despacho" wire:loading.remove>Calcular Despacho</button>

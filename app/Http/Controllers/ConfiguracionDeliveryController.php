@@ -31,7 +31,6 @@ class ConfiguracionDeliveryController extends Controller
         }
         // ? el peso 
         $peso = $this->get_kilos_items();
-
         // return $peso;
 
         $id_ciudad = $this->id_ciudad;
@@ -45,15 +44,19 @@ class ConfiguracionDeliveryController extends Controller
         foreach ($costos AS $item){
             array_push($list_cost, array($item->tarifa));
         }
+        $costo_final = strval(min($list_cost)[0]) * $peso;
 
-        $costo_final = strval(min($list_cost)[0]);
+        // dd($peso);
 
+        $demo_demo = min($list_cost)[0];
+        // dd($costo_final);
         // ? toma el % de configuracion
         $add_percent = ConfiguracionData::select("result")->where("data", "add-delivery")->get()->first()->result;
 
         $val_delivery = set_total(intval($costo_final + round($costo_final * ('0.'.$add_percent))));
-
+        
         return $val_delivery;
+        // return $peso;
 
     }
 
@@ -83,7 +86,7 @@ class ConfiguracionDeliveryController extends Controller
         $productos = $this->get_productos();
         $costo = 0;
         foreach ($productos AS $item) {
-            $costo += $item->costo * $item->cantidad;
+            $costo += $item->peso * $item->cantidad;
         }
         return $costo;
     }
@@ -93,11 +96,11 @@ class ConfiguracionDeliveryController extends Controller
     public function get_productos()
     {
         $value = $this->email;
-
-        $data = Carrito::select("p.costo", "carrito.cantidad")
+        // dd($value);
+        $data = Carrito::select("p.peso", "carrito.cantidad")
                         ->join("productos AS p", "p.id", "carrito.id_producto")
                         ->where("carrito.email", $value)->get();
-
+        // dd($data);
         return $data;
     }
 

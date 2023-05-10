@@ -172,7 +172,7 @@ class Checkout extends Component
 
         $delivery = new ConfiguracionDeliveryController($this->id_ciudad);
         $costo_delivery = $delivery->total_delivery();
-        // dd($delivery->total_delivery());
+        // dd($costo_delivery);
 
         // ? costo depsacho
         $id_ciudad = $this->id_ciudad;
