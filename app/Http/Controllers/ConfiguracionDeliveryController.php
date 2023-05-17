@@ -32,7 +32,7 @@ class ConfiguracionDeliveryController extends Controller
         // ? el peso 
         $peso = $this->get_kilos_items();
         // return $peso;
-
+        // dd($peso);
         $id_ciudad = $this->id_ciudad;
 
         $costos =  DeliveryCosto::select("delivery_costo.tarifa", "dp.proveedor")
@@ -40,21 +40,23 @@ class ConfiguracionDeliveryController extends Controller
                     ->where("id_ciudad", $id_ciudad)->get();
 
         $list_cost = array();
-
         foreach ($costos AS $item){
             array_push($list_cost, array($item->tarifa));
         }
-        $costo_final = strval(min($list_cost)[0]) * $peso;
 
+
+        $costo_final = strval(min($list_cost)[0]) * $peso;
+        // dd($costo_final);
         // dd($peso);
+        // dd(min($list_cost)[0]);
 
         $demo_demo = min($list_cost)[0];
         // dd($costo_final);
         // ? toma el % de configuracion
         $add_percent = ConfiguracionData::select("result")->where("data", "add-delivery")->get()->first()->result;
-
+        // dd($add_percent);
         $val_delivery = set_total(intval($costo_final + round($costo_final * ('0.'.$add_percent))));
-        
+        $val_delivery = $val_delivery * "1.19";
         return $val_delivery;
         // return $peso;
 
