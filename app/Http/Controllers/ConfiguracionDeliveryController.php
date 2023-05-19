@@ -14,17 +14,19 @@ class ConfiguracionDeliveryController extends Controller
     
     public $id_ciudad; // ? es el id de la ciudad
     public $email;
+    public $neto;
 
-
-    function __construct($id_ciudad)
+    function __construct($id_ciudad, $neto)
     {
         $this->id_ciudad = $id_ciudad;
+        $this->neto = $neto;
         $this->email = strtolower(base64_decode(Cookie::get('nt_session')));
     }
 
 
     function total_delivery()
     {
+
         // ? exist deliveri free city
         if($this->state_city() == true){
             return 0;
@@ -33,11 +35,16 @@ class ConfiguracionDeliveryController extends Controller
         $peso = $this->get_kilos_items();
         // return $peso;
         // dd($peso);
+        // dd($peso);
+
         $id_ciudad = $this->id_ciudad;
+        // dd($id_ciudad);
 
         $costos =  DeliveryCosto::select("delivery_costo.tarifa", "dp.proveedor")
                     ->join("delivery_proveedor AS dp", "dp.id", "delivery_costo.id_proveedor")
                     ->where("id_ciudad", $id_ciudad)->get();
+
+        // dd($costos);
 
         $list_cost = array();
         foreach ($costos AS $item){
@@ -69,12 +76,17 @@ class ConfiguracionDeliveryController extends Controller
     function state_city()
     {
         $data = DeliveryFree::where("id_ciudad", $this->id_ciudad)->get();
-        // return $data;
-        if(count($data) == 0){
+        
+        $neto = $this->neto;
+
+        // dd($this->id_ciudad);
+        // dd($neto);
+
+        if(count($data) == 0 AND $neto < min_monto()){
             return false;
         }
 
-        if(count($data) > 0){
+        if(count($data) > 0 AND $neto > min_monto()){
             if($data->first()->estado == true){
                 return true;
             }

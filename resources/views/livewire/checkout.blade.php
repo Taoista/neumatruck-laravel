@@ -36,14 +36,14 @@
                             </label>
                           </div>
 
-                          <div class="form-check">
+                          {{-- <div class="form-check">
                             <input class="form-check-input" type="radio" name="exampleRadios" wire:model="selected_delivery" value="2" wire:click="chanche_delivery">
                             <label class="form-check-label" for="exampleRadios2">
                               Despacho
                             </label>
-                          </div>
+                          </div> --}}
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1" @disabled($delivery_disabeled == true) wire:model="selected_region">
                                   <option value="0" selected>Region</option>
@@ -63,11 +63,11 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <input class="input" type="text" name="direccion" wire:model="direccion" placeholder="Dirección de despacho"  @disabled($delivery_disabeled == true)>
-                        </div>
+                        </div> --}}
 
                         @if($delivery_disabeled == false)
                         <div class="form-group">

@@ -164,19 +164,14 @@ class Checkout extends Component
             return false;
         }
 
-        // $productos = $this->get_productos();
-        // $costo = 0;
-        // foreach ($productos AS $item) {
-        //     $costo += $item->peso * $item->cantidad;
-        // }
 
-        $delivery = new ConfiguracionDeliveryController($this->id_ciudad);
+        $delivery = new ConfiguracionDeliveryController($this->id_ciudad, $this->neto);
         $costo_delivery = $delivery->total_delivery();
         // dd($costo_delivery);
 
         // ? costo depsacho
         $id_ciudad = $this->id_ciudad;
-
+        // dd($id_ciudad);
         // $costo_coidad = Ciudades::select("costo")->where("id", $id_ciudad)->get()->first()->costo;
         // dd($costo_coidad);
         $monto_minimo = $this->monto_minimo;
@@ -184,7 +179,7 @@ class Checkout extends Component
         // ? de lo contrario
         if($monto_minimo > $this->neto){
             $this->val_despacho = $costo_delivery;
-
+            // dd($this->val_despacho);
         }
         // ? si el neto es mayor al minimo
         // ? debe verificar si esta en lista de exento no se paga
