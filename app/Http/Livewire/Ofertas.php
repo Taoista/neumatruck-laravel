@@ -74,7 +74,6 @@ class Ofertas extends Component
                 }
             }
         }
-
         return $lista_final;
     }
 

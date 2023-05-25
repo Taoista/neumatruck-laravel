@@ -11,6 +11,7 @@ class FichaController extends Controller
 {
     function ficha($id_producto)
     {
+
         try {
             // dd($id_producto);
 

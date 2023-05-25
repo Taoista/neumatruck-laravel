@@ -181,7 +181,7 @@
                                     <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas</a></li>
                                     @endif
                                     @if(oferta_secundaria() == true)
-                                    <li><a href="{{ url("./ofertas-especial") }}" style="color: #FFB03D;">ofertas2</a></li>
+                                    <li class="neonText"><a href="{{ url("./ofertas-especial") }}" style="">{{ get_title_of_secundaria() }}</a></li>
                                     @endif
                                     <li><a href="{{ url("./carrito") }}">Carrito</a></li>
                                 </ul>
@@ -206,7 +206,7 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav nav-justified navbar-nav">
                                 @if(oferta_secundaria() == true)
-                                    <li><a href="{{ url("./ofertas-especial") }}" style="color: #FFB03D;">ofertas2</a></li>
+                                    <li class="neonText"><a href="{{ url("./ofertas-especial") }}">{{ get_title_of_secundaria() }}</a></li>
                                 @endif
                                 @if(oferta_primaria() == true)
                                 <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas </a></li>

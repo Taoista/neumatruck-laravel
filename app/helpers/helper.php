@@ -5,6 +5,7 @@ use App\Models\ConfiguracionPhono;
 use App\Models\MarcasFooter;
 use App\Models\CategoriaFotter;
 use App\Models\Tipo;
+use App\Models\OfertasTipo;
 
 // * wahhsap
 function  get_whatsapp()
@@ -88,6 +89,13 @@ function oferta_primaria()
 function oferta_secundaria()
 {
     $data = Configuracion::where("tipo", "oferta-hot")->get()->first()->resultado;
+    return $data;
+}
+
+// * title oferta
+function get_title_of_secundaria()
+{
+    $data = OfertasTipo::where("id", 2)->get()->first()->nombre;
     return $data;
 }
 

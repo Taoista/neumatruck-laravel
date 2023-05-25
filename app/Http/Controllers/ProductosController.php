@@ -15,9 +15,9 @@ class ProductosController extends Controller{
     function limit_stock(){
         return ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
     }
-
     // * MAIN del controll oferta
     function state_oferta($id_producto){
+
         // ? VERFIICA SI ESTA ACTIVO LAS OFERTAS
         if($this->activate_oferta() == 1){
             $data = Ofertas::select("estado","controll")
@@ -48,18 +48,32 @@ class ProductosController extends Controller{
 
 
     function controll_time(){
-        $desde = OC::first()->desde;
-        $hasta = OC::first()->hasta;
-        if($desde < now()){
-            if($hasta > now()){
+        // $desde = OC::first()->desde;
+        // $hasta = OC::first()->hasta;
+        // if($desde < now()){
+        //     if($hasta > now()){
+        //         return true;
+        //     }else{
+        //         return false;
+        //     }
+        // }else{
+        //     return false;
+        // }
+        $inicio = OC::first()->desde;
+        $termino = OC::first()->hasta;
+        if($inicio < now()){
+            if($termino > now()){
                 return true;
             }else{
                 return false;
             }
-            return true;
         }else{
             return false;
         }
+
+        return false;
+
+
     }
 
     //  * oferta activa ""primarria

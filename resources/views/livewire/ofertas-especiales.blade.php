@@ -4,13 +4,12 @@
             <h3 class="aside-title">Marcas</h3>
             <div class="checkbox-filter">
 
-
-                {{-- @for ($i=0; $i < count($list_brands); $i++)
+                @for ($i=0; $i < count($list_brands); $i++)
                 <div class="input-checkbox">
-                    <input type="checkbox" name="filtro_marca" value="{{ $list_brands[$i]["id_marca"] }}" wire:model="imputs_brands">
+                    <input type="checkbox" name="filtro_marca" wire:model="selectedBrands" value="{{ $list_brands[$i]['id_marca'] }}">
                     <label for="{{ $list_brands[$i]["id_marca"] }}">{{ strtoupper($list_brands[$i]["marca"]) }}</label>
                 </div>
-                @endfor --}}
+                @endfor
 
             </div>
             <h3 class="aside-title">Medidas</h3>
@@ -18,13 +17,12 @@
             <button>X</button>
             <div class="checkbox-filter">
                 <br>
-
-                {{-- @for ($i=0; $i < count($list_sizes); $i++)
+                @for ($i=0; $i < count($list_sizes); $i++)
                 <div class="input-checkbox">
-                    <input type="checkbox" name="filtro_marca" value="{{ $list_sizes[$i] }}" wire:model="imputs_sizes">
+                    <input type="checkbox" name="filtro_marca" wire:model="selectSize" value="{{ $list_sizes[$i] }}">
                     <label for="{{ $list_sizes[$i] }}">{{ $list_sizes[$i] }}</label>
                 </div>
-                @endfor --}}
+                @endfor
             </div>
         </div>
     </div>
