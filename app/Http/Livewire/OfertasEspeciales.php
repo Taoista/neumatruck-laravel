@@ -68,6 +68,7 @@ class OfertasEspeciales extends Component
                     ->where("id_tipo_oferta", 2)
                     ->join("productos AS p", "p.id", "ofertas.id_producto")
                     ->join("marcas AS m", "m.id2", "p.id_marca")
+                    ->where("p.estado", 1)
                     ->get();
 
         foreach ($ofertas AS $item) {
@@ -90,6 +91,7 @@ class OfertasEspeciales extends Component
                     ->where("ofertas.estado", 1)
                     ->where("id_tipo_oferta", 2)
                     ->join("productos AS p", "p.id", "ofertas.id_producto")
+                    ->where("p.estado", 1)
                     ->get();
 
         foreach ($ofertas AS $item) {

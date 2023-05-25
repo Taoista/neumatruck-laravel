@@ -123,10 +123,14 @@
                                                         <tr>
                                                             <th>Aro</th>
                                                             <th class="fuentenormal"></th>
+                                                            <th>Descripción</th>
                                                         </tr>
                                                         <tr>
                                                             <th>Medida</th>
                                                             <th class="fuentenormal">{{ $data->medidas }}</th>
+                                                            <th>
+                                                                {{ $descripcion }}
+                                                            </th>
                                                         </tr>
                                                         <tr>
 
