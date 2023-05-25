@@ -180,6 +180,9 @@
                                     @if(oferta_primaria() == true)
                                     <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas</a></li>
                                     @endif
+                                    @if(oferta_secundaria() == true)
+                                    <li><a href="{{ url("./ofertas-especial") }}" style="color: #FFB03D;">ofertas2</a></li>
+                                    @endif
                                     <li><a href="{{ url("./carrito") }}">Carrito</a></li>
                                 </ul>
                                 <!-- /NAV -->
@@ -202,6 +205,9 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav nav-justified navbar-nav">
+                                @if(oferta_secundaria() == true)
+                                    <li><a href="{{ url("./ofertas-especial") }}" style="color: #FFB03D;">ofertas2</a></li>
+                                @endif
                                 @if(oferta_primaria() == true)
                                 <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas </a></li>
                                 @endif

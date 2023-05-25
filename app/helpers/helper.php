@@ -87,7 +87,7 @@ function oferta_primaria()
 
 function oferta_secundaria()
 {
-    $data = Configuracion::where("tipo", "ofertas")->get()->first()->resultado;
+    $data = Configuracion::where("tipo", "oferta-hot")->get()->first()->resultado;
     return $data;
 }
 

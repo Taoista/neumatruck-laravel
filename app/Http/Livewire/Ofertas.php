@@ -48,6 +48,7 @@ class Ofertas extends Component
                                 $query->whereIn("productos.medidas", array_filter($this->imputs_sizes));
                             })
                             ->join("ofertas AS o", "o.id_producto", "productos.id")
+                            ->where("o.id_tipo_oferta", 1)
                             ->where("o.estado", 1)
                             ->get();
     }
@@ -60,6 +61,7 @@ class Ofertas extends Component
         $lista_final = [];
         $ofertas = Of::select("ofertas.id_producto", "ofertas.controll", "p.id_marca", "m.marca")
                     ->where("ofertas.estado", 1)
+                    ->where("id_tipo_oferta", 1)
                     ->join("productos AS p", "p.id", "ofertas.id_producto")
                     ->join("marcas AS m", "m.id2", "p.id_marca")
                     ->get();
@@ -83,6 +85,7 @@ class Ofertas extends Component
 
         $ofertas = Of::select("ofertas.id_producto", "ofertas.controll", "p.medidas")
                     ->where("ofertas.estado", 1)
+                    ->where("id_tipo_oferta", 1)
                     ->join("productos AS p", "p.id", "ofertas.id_producto")
                     ->get();
 
