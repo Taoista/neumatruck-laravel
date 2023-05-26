@@ -48,28 +48,78 @@ class ApiController extends Controller
 
     }
 
-    function get_all_product()
-    {
-        $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
+    // function get_all_product()
+    // {
+    //     $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
 
-        $data = DB::table('productos')
-                ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
-                ->leftJoin('marcas AS m', 'm.id2', '=', 'productos.id_marca')
-                ->leftJoin('tipo AS t', 'productos.id_tipo', '=', 't.id')
-                ->selectRaw('productos.*, IF(m.marca IS NULL, NULL,  m.marca) as marca')
-                ->selectRaw('productos.*, IF(o.p_oferta IS NULL, productos.p_venta, 0) as p_venta')
-                ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta')
-                ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta2, o.controll')
-                ->leftJoin('ofertas_controll AS oc', 'oc.id', '=', 'o.controll')
-                ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.desde) as desde')
-                ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.hasta) as hasta')
-                ->selectRaw('productos.*, t.nombre AS tipo')
-                ->addSelect(DB::raw($min_stock.' as limit_stock'))
-                ->where("productos.estado", 1)
-                ->get();
+    //     $data = DB::table('productos')
+    //             ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
+    //             ->leftJoin('marcas AS m', 'm.id2', '=', 'productos.id_marca')
+    //             ->leftJoin('tipo AS t', 'productos.id_tipo', '=', 't.id')
+    //             ->selectRaw('productos.*, IF(m.marca IS NULL, NULL,  m.marca) as marca')
+    //             ->selectRaw('productos.*, IF(o.p_oferta IS NULL, productos.p_venta, 0) as p_venta')
+    //             ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta')
+    //             ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta2, o.controll')
+    //             ->leftJoin('ofertas_controll AS oc', 'oc.id', '=', 'o.controll')
+    //             ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.desde) as desde')
+    //             ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.hasta) as hasta')
+    //             ->selectRaw('productos.*, t.nombre AS tipo')
+    //             ->addSelect(DB::raw($min_stock.' as limit_stock'))
+    //             ->where("productos.estado", 1)
+    //             ->get();
+
+    //     return $data;
+    // }
+
+    function get_all_product()
+{
+    $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
+
+    $data = DB::table('productos')
+        ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
+        ->leftJoin('marcas AS m', 'm.id2', '=', 'productos.id_marca')
+        ->leftJoin('tipo AS t', 'productos.id_tipo', '=', 't.id')
+        ->selectRaw('productos.*, IF(m.marca IS NULL, NULL,  m.marca) as marca')
+        ->selectRaw('productos.*, IF(o.p_oferta IS NULL, productos.p_venta, 0) as p_venta')
+        ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta')
+        ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta2, o.controll')
+        ->leftJoin('ofertas_controll AS oc', 'oc.id', '=', 'o.controll')
+        ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.desde) as desde')
+        ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.hasta) as hasta')
+        ->selectRaw('productos.*, t.nombre AS tipo')
+        ->addSelect(DB::raw($min_stock.' as limit_stock'))
+        ->where("productos.estado", 1)
+        ->get();
+
+        foreach ($data as $producto) {
+            switch ($producto->id_tipo) {
+                // ? camion y bus
+                case 1:
+                    $producto->caracteristica = 'neumático';
+                    break;
+                // ? industrial
+                case 2:
+                    $producto->caracteristica = 'neumático';
+                    break;
+                // ? otro
+                case 3:
+                    $producto->caracteristica = 'neumático ';
+                    break;
+                // ? bateria
+                case 4:
+                    $producto->caracteristica = 'bateria';
+                    break;
+                // ? aceite
+                case 4:
+                    $producto->caracteristica = 'aceite';
+                    break;
+            }
+        }
 
         return $data;
-    }
+}
+
+
 
 
     function get_data_producto($codigo)
