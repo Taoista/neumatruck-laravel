@@ -101,16 +101,20 @@ class ApiController extends Controller
                 case 2:
                     $producto->caracteristica = 'neumático';
                     break;
-                // ? otro
+                // ? agricola
                 case 3:
-                    $producto->caracteristica = 'neumático ';
+                    $producto->caracteristica = 'neumático';
+                    break;
+                // ? agricola
+                case 4:
+                    $producto->caracteristica = 'neumático';
                     break;
                 // ? bateria
-                case 4:
+                case 5:
                     $producto->caracteristica = 'bateria';
                     break;
                 // ? aceite
-                case 4:
+                case 5:
                     $producto->caracteristica = 'aceite';
                     break;
             }
