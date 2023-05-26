@@ -57,6 +57,31 @@ class OfertasController extends Controller
         return redirect("./");
     }
 
+    function ofertas_especial_date()
+    {
+        if(oferta_especial() == true){
+
+            $data = OfertasTipo::select("control")->where("id", 3)->get();
+            // ? contiene controll
+            // dd($this->get_state_only_date());
+            if($data->first()->control == 1){
+
+                if($this->get_state_only_date() == true){
+                    return view("oferta-especial-date");
+                }
+                return redirect("./");
+            }
+
+            if($data->first()->control == 0){
+                return view("oferta-especial-date");
+            }
+            return redirect("./");
+        }
+
+        return redirect("./");
+    }
+
+
     // * controla la fecha
     function get_state_only_date()
     {

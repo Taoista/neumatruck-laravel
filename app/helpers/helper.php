@@ -79,23 +79,36 @@ function set_money($val){
     $data = round($val * $iva);
     return  "$ ".number_format($data, 0, ",", ".");
 }
-
+// * es la oferta primaria
 function oferta_primaria()
 {
     $data = Configuracion::where("tipo", "of")->get()->first()->resultado;
     return $data;
 }
-
+//* oferta espacial 
 function oferta_secundaria()
 {
     $data = Configuracion::where("tipo", "oferta-hot")->get()->first()->resultado;
     return $data;
 }
+// * oferta fecha especial
+function oferta_especial()
+{
+    $data = Configuracion::where("tipo", "oferta-especial")->get()->first()->resultado;
+    return $data;
+}
+
 
 // * title oferta
 function get_title_of_secundaria()
 {
     $data = OfertasTipo::where("id", 2)->get()->first()->nombre;
+    return $data;
+}
+
+function get_title_of_especial()
+{
+    $data = OfertasTipo::where("id", 3)->get()->first()->nombre;
     return $data;
 }
 

@@ -183,6 +183,9 @@
                                     @if(oferta_secundaria() == true)
                                     <li class="neonText"><a href="{{ url("./ofertas-especial") }}" style="">{{ get_title_of_secundaria() }}</a></li>
                                     @endif
+                                    @if(oferta_especial() == true)
+                                    <li class="neonText2"><a href="{{ url("./ofertas-espcial-date") }}">{{ get_title_of_especial() }}</a></li>
+                                    @endif
                                     <li><a href="{{ url("./carrito") }}">Carrito</a></li>
                                 </ul>
                                 <!-- /NAV -->
@@ -205,6 +208,9 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav nav-justified navbar-nav">
+                                @if(oferta_especial() == true)
+                                    <li class="neonText2"><a href="{{ url("./ofertas-espcial-date") }}">{{ get_title_of_especial() }}</a></li>
+                                @endif
                                 @if(oferta_secundaria() == true)
                                     <li class="neonText"><a href="{{ url("./ofertas-especial") }}">{{ get_title_of_secundaria() }}</a></li>
                                 @endif

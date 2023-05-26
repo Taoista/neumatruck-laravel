@@ -54,7 +54,7 @@ pagination > .active > a, .pagination > .active > a:focus, .pagination > .active
   .whatsapp-icon {
     margin-top:13px;
   }
-
+  /* * neon oferta especial */
   .neonText {
     color: #fff;
     text-shadow:
@@ -91,6 +91,48 @@ pagination > .active > a, .pagination > .active > a:focus, .pagination > .active
 }
 
 @keyframes parpadeo {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+  /* * neon oferta dia */
+  .neonText2 {
+    color: #fff;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #00ffff,
+      0 0 82px #00ffff,
+      0 0 92px #00ffff,
+      0 0 102px #00ffff,
+      0 0 151px #00ffff;
+      animation-name: parpadeo2;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    
+      -webkit-animation-name:parpadeo2;
+      -webkit-animation-duration: 3s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+  }
+
+  
+@-moz-keyframes parpadeo2{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes parpadeo2 {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+}
+
+@keyframes parpadeo2 {  
   0% { opacity: 1.0; }
    50% { opacity: 0.0; }
   100% { opacity: 1.0; }
