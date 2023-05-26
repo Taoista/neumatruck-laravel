@@ -3,22 +3,19 @@
 
 @section('content-general')
 
-
+    {{-- * controlador de los banenr --}}
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
-          <li data-target="#myCarousel" data-slide-to="4"></li>
-          <li data-target="#myCarousel" data-slide-to="5"></li>
-          <li data-target="#myCarousel" data-slide-to="6"></li>
-          <li data-target="#myCarousel" data-slide-to="7"></li>
-          <li data-target="#myCarousel" data-slide-to="8"></li>
+        @foreach ($banners as $key => $item )
+            @if($key == 0)
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            @else
+            <li data-target="#myCarousel" data-slide-to="{{ $key }}"></li>
+            @endif
+        @endforeach
         </ol>
-
-        <!-- Wrapper for slides -->
+        {{-- * banners --}}
         <div class="carousel-inner">
 
             @foreach ($banners as $key => $item )
@@ -31,27 +28,7 @@
                 @endif
             </div>
             @endforeach
-          {{-- <div class="item">
-            <img src="{{ asset('assets/img/banner/ban2.webp') }}" alt="Chicago">
-          </div>
-          <div class="item">
-            <img src="{{ asset('assets/img/banner/ban3.webp') }}" alt="New York">
-          </div>
-          <div class="item">
-            <img src="{{ asset('assets/img/banner/ban4.webp') }}" alt="Los Angeles">
-          </div>
-          <div class="item">
-            <img src="{{ asset('assets/img/banner/ban5.webp') }}" alt="Chicago">
-          </div>
-          <div class="item">
-            <img src="{{ asset('assets/img/banner/ban6.webp') }}" alt="New York">
-          </div>
-          <div class="item">
-            <img src="{{ asset('assets/img/banner/ban7.webp') }}" alt="New York">
-          </div>
-          <div class="item">
-            <img src="{{ asset('assets/img/banner/ban8.webp') }}" alt="New York">
-          </div> --}}
+     
         </div>
 
         <!-- Left and right controls -->
