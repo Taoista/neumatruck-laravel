@@ -68,6 +68,7 @@ Route::get("/politicas-despacho",[GeneralesController::class, "politicas_despach
 // * politicas de devolucion
 Route::get("/politicas-devolucion",[GeneralesController::class, "politicas_devolucion"]);
 
+Route::get("/checkout_2",[CheckoutController::class, "checkout_2"]);
 
 
 

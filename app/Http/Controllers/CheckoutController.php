@@ -27,6 +27,23 @@ class CheckoutController extends Controller
 
         return view("checkout");
     }
+    // * demo
+    function checkout_2()
+    {
+        $value = Cookie::get('nt_session');
+        if($value == null){
+            return redirect('/');
+        }
+
+        $email = base64_decode($value);
+        // ? refresca las ession
+        $time = 60 * 1;
+        $data = base64_encode($email);
+        Cookie::queue("nt_session", $data, $time);
+
+
+        return view("checkout_2");
+    }
 
 
     // * pago con error
