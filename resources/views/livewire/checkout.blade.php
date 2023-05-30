@@ -135,7 +135,7 @@
                         </div>
                     </div>
 
-                    {{-- <button class="primary-btn btn-block order-submit btsubmit" wire:click="pgo_tbk" wire:loading.remove>Realizar Pago</button><br> --}}
+                    <button class="primary-btn btn-block order-submit btsubmit" wire:click="pgo_tbk" wire:loading.remove>Realizar Pago</button><br>
                     <button class="primary-btn btn-block" wire:loading  wire:target="pgo_tbk" style="color:black" ><img style='width:20px' src="{{ asset('assets/img/loading-black.svg') }}" alt="">Cargando...</button><br>
                     <div class="text-center">
                         <p style="color:#ffb03d;"><i class="fa fa-truck"></i></p>
