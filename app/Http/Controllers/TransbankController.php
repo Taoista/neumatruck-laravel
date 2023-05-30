@@ -93,16 +93,18 @@ class TransbankController extends Controller
                 $compras_productos = Carrito::select("p.id", "carrito.cantidad", "p.codigo", "p.p_venta", "p.oferta")
                                     ->join("productos AS p", "p.id", "carrito.id_producto")
                                     ->where("carrito.email", $email)->get();
-
+                // ? inserta los productos comprados
                 foreach ($compras_productos AS $item) {
                     $state_oferta = 0;
                     // $precio_original = Productos::select("p_venta")->where("id", $item->id_producto)->get()->first()->p_venta;
                     $precio_original = $compras_productos->first()->p_venta;
                     $precio_final = $precio_original;
+                    $title_oferta = "no";
                     if($item->oferta == true){
                         if($controller->state_oferta($item->id) == true){
                             $state_oferta = 1;
                             $precio_final = $controller->value_oferta($item->id);
+                            $title_oferta = strtolower($controller->get_title_oferta($item->id));
                         }else{
                             $state_oferta = 0;
                             $precio_final = $precio_original;
@@ -118,6 +120,7 @@ class TransbankController extends Controller
                         "cantidad" => $item->cantidad,
                         "p_original" => $precio_original,
                         "oferta" => $state_oferta,
+                        "title_oferta" => $title_oferta,
                         "p_venta" => $precio_final
                     ]);
                 }

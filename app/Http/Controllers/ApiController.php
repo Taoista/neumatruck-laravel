@@ -467,16 +467,21 @@ class ApiController extends Controller
         // * toma los datos de compra
         function get_data_compras()
         {
-            $data = DB::table('transbank AS t')
-                ->selectRaw('t.id, t.fecha, t.authorizationCode AS cod_autorizacion, tp.name AS tipo_pago, t.installmentsNumber AS cuotas,
-                            installmentsAmount AS cuotas_total, t.cardNumber AS n_tarjeta, t.total, c.email, c.nombre')
-                ->join("tipo_tarjeta AS tp", "t.paymentTypeCode", "=", "tp.cod")
-                ->join("compras AS c", "c.id", "=", "t.id_compras")
-                ->where("t.responseCode", "0")
-                ->orderby("t.id", "desc")
-                ->get();
+            // "c.fecha", "t.responseCode", "c.id_plataforma","c.nombre", "c.email", "t.total"
+            // $data = DB::table('transbank AS t')
+            //     ->selectRaw("t.id", "t.fecha")
+            //     // ->join("tipo_tarjeta AS tp", "t.paymentTypeCode", "=", "tp.cod")
+            //     ->join("compras AS c", "c.id", "=", "t.id_compras")
+            //     ->orderby("t.id", "desc")
+            //     ->get();
 
-            return datatables()->of($data)->toJson();;
+
+            $tbk =  Transbank::select("transbank.id", "transbank.fecha", "transbank.responseCode", "transbank.total", "c.id_plataforma", "c.nombre", "c.email")
+                    ->join("compras AS c", "c.id", "transbank.id_compras")
+                    ->orderby('transbank.id', "DESC")
+                    ->get();
+
+            return datatables()->of($tbk)->toJson();
         }
 
         // * toma los datos de compra del comprobante
