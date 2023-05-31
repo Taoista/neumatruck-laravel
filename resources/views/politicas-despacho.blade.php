@@ -274,73 +274,11 @@
                                             <br>
                                             <br>
                                             <p>
-                                                ● Para la VII y VIII Región el despacho gratuito será realizado por la empresa de transportes Pacarí en un plazo de 48 a 96 horas hábiles. Incluyendo los siguientes ramales:<br>
-                                                SEPTIMA REGION -
-                                                LOCALIDAD -
-                                                TALCA -
-                                                CURICO -
-                                                SAN RAFAEL -
-                                                LINARES -
-                                                CONSTITUCION -
-                                                CAUQUENES -
-                                                SAN JAVIER -
-                                                PARRAL -
-                                                HUALAÑE -
-                                                MAULE -
-                                                VILLA ALEGRE -
-                                                LICANTEN -
-                                                EMPEDRADO -
-                                                TENO -
-                                                MOLINA -
-                                                LONGAVI -
-                                                YERBAS BUENAS -
-                                                SAN CLEMENTE -
-                                                SAGRADA FAMILIA -
-                                                CHANCO -
-                                                CUREPTO -
-                                                ROMERAL -
-                                                RETIRO -
-                                                RIO CLARO -
-                                                REMULCAO -
-                                                PUTU -
-                                                CUMPEO -
-                                                OCTAVA REGION -
-                                                LOCALIDAD -
-                                                LOS ANGELES -
-                                                CHILLAN -
-                                                CONCEPCION -
-                                                CORONEL -
-                                                SAN CARLOS -
-                                                CABRERO -
-                                                CAÑETE -
-                                                HUALPEN -
-                                                SAN NICOLAS -
-                                                TIRUA -
-                                                TALCAHUANO -
-                                                LEBU -
-                                                LOTA ALTO -
-                                                COLLIPULLI -
-                                                QUIRIHUE -
-                                                QUILLON -
-                                                LAJA -
-                                                HUEPIL -
-                                                HUALQUI -
-                                                NACIMIENTO -
-                                                CHILLAN VIEJO -
-                                                PENCO -
-                                                TOME -
-                                                CURANILAHUE -
-                                                PATA GALLINA -
-                                                BULNES -
-                                                STA JUANA -
-                                                TUCAPEL -
-                                                COIHUECO -
-                                                SAN IGNACIO -
-                                                YUNGAY -
-                                                NEGRETE -
-                                                MINICO -
-                                                ARAUCO -
-                                                QUILLECO. <br>
+                                                <strong>SEPTIMA REGION</strong>
+                                                 - LOCALIDAD - TALCA - CURICO - SAN RAFAEL - LINARES - CONSTITUCION - CAUQUENES - SAN JAVIER - PARRAL - HUALAÑE - MAULE - VILLA ALEGRE - TENO - MOLINA - LONGAVI - YERBAS BUENAS - SAN CLEMENTE - SAGRADA FAMILIA -  CUREPTO – ROMERAL- RETIRO - RIO CLARO – LICANTEN-COLBUN-  
+
+                                                 <br>
+                                                <strong>OCTAVA REGION</strong> - LOCALIDAD - LOS ANGELES - CHILLAN - CONCEPCION - CORONEL - SAN CARLOS - CABRERO - HUALPEN -  LOTA ALTO - QUIRIHUE - QUILLON - LAJA - HUEPIL - HUALQUI - NACIMIENTO  - TOME -  BULNES - STA JUANA - TUCAPEL - YUNGAY – LIRQUEN-TOME-COELEMU-FLORIDA- YUMBEL-CHIGUAYANTE.
                                                 La recepción del producto debe realizarse por una persona mayor de edad, quien deberá firmar y escribir su nombre y Rut para acreditar la recepción del producto.
                                                 En caso de que el producto sea recibido por un tercero distinto del titular de la orden de compra (familiares, asesora del hogar, conserjes, mayordomo, etc.), este tercero deberá firmar
                                             </p>
