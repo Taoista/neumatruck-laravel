@@ -139,7 +139,7 @@ class TransbankController extends Controller
                     foreach($emails_admin AS $item){
                         $correo = new ComprobanteCompra($id_compra);
                         Mail::bcc($item->email)->send($correo);
-                        sleep(3);
+                        // sleep(3);
                     }
 
                     // ? eliminar el carrito enviado
