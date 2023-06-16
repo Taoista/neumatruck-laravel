@@ -167,7 +167,7 @@
                     <!-- container -->
                     <div class="container">
                         <!-- responsive-nav -->
-                        <div class="container">
+                        <div class="container"> 
                             <!-- responsive-nav -->
                             <div id="responsive-nav">
                                 <!-- NAV -->
