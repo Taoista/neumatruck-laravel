@@ -1,5 +1,9 @@
 @extends('layouts.template')
 
+@section('finish-section-google')
+    <script> gtag('event', 'conversion', {'send_to': 'AW-10981964957/aAnJCJDaoLoYEJ35zfQo'}); </script> 
+@endsection
+
 @section('content-general')
     <div id="breadcrumb" class="section">
         <div class="container">
