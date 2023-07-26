@@ -71,6 +71,13 @@ class ApiController extends Controller
     //     return $data;
     // }
 
+    function get_all_producto_codigo()
+    {
+        $data = Productos::get();
+        return $data;
+    }
+
+
     function get_all_product()
 {
     $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
@@ -165,34 +172,35 @@ class ApiController extends Controller
         // ? toma el tipo para el descuento
 
         // $descuento = ConfiguracionDescuento::get();
-
-
-        for ($i=0; $i <count($productos) ; $i++) {
-            $codigo = $productos[$i]["codigo"];
-            $estado = $productos[$i]["estado"];
-            $stock = $productos[$i]["stock"];
-            $p_venta = $productos[$i]["p_venta"];
-
-            $data = Productos::select("id", "id_tipo")->where("codigo",$codigo)->get();
-
-            $descuento = ConfiguracionDescuento::select("descuento")->where("id_categoria", $data->first()->id_tipo)->get()->first();
-            // return $descuento;
-            $val_descuento = $p_venta - round(intval($p_venta) * floatval("0.".$descuento->descuento));
-            // $val_descuento = $descuento;
-            // $val_descuento = 100;
-
-            Productos::where("id", $data->first()->id)->update([
-                "estado" => $estado,
-                "stock" => $stock,
-                "p_sistema" => $p_venta,
-                "p_venta" => $val_descuento
-            ]);
+        DB::beginTransaction();
+        try {
+            for ($i=0; $i <count($productos) ; $i++) {
+                $codigo = $productos[$i]["codigo"];
+                $estado = $productos[$i]["estado"];
+                $stock = $productos[$i]["stock"];
+                $p_venta = $productos[$i]["p_venta"];
+    
+                $data = Productos::select("id", "id_tipo")->where("codigo",$codigo)->get();
+    
+                $descuento = ConfiguracionDescuento::select("descuento")->where("id_categoria", $data->first()->id_tipo)->get()->first();
+                // return $descuento;
+                $val_descuento = $p_venta - round(intval($p_venta) * floatval("0.".$descuento->descuento));
+                // $val_descuento = $descuento;
+    
+                Productos::where("id", $data->first()->id)->where("oferta", 0)->update([
+                    "estado" => $estado,
+                    "stock" => $stock,
+                    "p_sistema" => $p_venta,
+                    "p_venta" => $val_descuento
+                ]);
+            }
+            DB::commit();
+            return "ok";
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return "error";
+            //throw $th;
         }
-
-
-
-
-        return "ok";
 
     }
 
