@@ -180,19 +180,33 @@ class ApiController extends Controller
                 $stock = $productos[$i]["stock"];
                 $p_venta = $productos[$i]["p_venta"];
     
-                $data = Productos::select("id", "id_tipo")->where("codigo",$codigo)->get();
+                $data = Productos::select("id", "id_tipo", "oferta")->where("codigo",$codigo)->get();
     
                 $descuento = ConfiguracionDescuento::select("descuento")->where("id_categoria", $data->first()->id_tipo)->get()->first();
                 // return $descuento;
                 $val_descuento = $p_venta - round(intval($p_venta) * floatval("0.".$descuento->descuento));
                 // $val_descuento = $descuento;
     
-                Productos::where("id", $data->first()->id)->where("oferta", 0)->update([
+                $productos = Productos::where("id", $data->first()->id);
+
+                $productos->update([
                     "estado" => $estado,
                     "stock" => $stock,
                     "p_sistema" => $p_venta,
                     "p_venta" => $val_descuento
-                ]);
+                ])->when($data->first()->oferta === 1, function ($query) {
+                    return $query->update([
+                        "estado" => $estado,
+                        "stock" => $stock,
+                    ]);
+                });
+
+                // Productos::where("id", $data->first()->id)->where("oferta", 0)->update([
+                //     "estado" => $estado,
+                //     "stock" => $stock,
+                //     "p_sistema" => $p_venta,
+                //     "p_venta" => $val_descuento
+                // ]);
             }
             DB::commit();
             return "ok";
