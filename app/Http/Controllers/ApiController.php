@@ -187,9 +187,9 @@ class ApiController extends Controller
                 $val_descuento = $p_venta - round(intval($p_venta) * floatval("0.".$descuento->descuento));
                 // $val_descuento = $descuento;
     
-                $productos = Productos::where("id", $data->first()->id);
+                $prod = Productos::where("id", $data->first()->id);
 
-                $productos->update([
+                $prod->update([
                     "estado" => $estado,
                     "stock" => $stock,
                     "p_sistema" => $p_venta,
