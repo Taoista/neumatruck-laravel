@@ -41,6 +41,7 @@
     </script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-10981964957'); 
     </script> 
 
+
     @yield('finish-section-google')
 
 </head>

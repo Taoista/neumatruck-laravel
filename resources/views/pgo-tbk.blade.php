@@ -1,10 +1,16 @@
 @extends('layouts.template')
 
 @section('finish-section-google')
-    <script> gtag('event', 'conversion', {'send_to': 'AW-10981964957/aAnJCJDaoLoYEJ35zfQo'}); </script> 
+    {{-- ! oye esto se tiene que verificar en un tiempo con el jairo --}}
+    {{-- <script> gtag('event', 'conversion', {'send_to': 'AW-10981964957/aAnJCJDaoLoYEJ35zfQo'}); </script>  --}}
 @endsection
 
 @section('content-general')
+    {{-- ! verificar con el jairo --}}
+        <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4R3JGZ2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+    
     <div id="breadcrumb" class="section">
         <div class="container">
             <div class="row">
