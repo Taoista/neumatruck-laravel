@@ -653,6 +653,31 @@ class ApiController extends Controller
             return Tipo::get();
         }
 
+        // * toma los productos filtrando la familia y la cantidad
+        // * retorna productos segun la cantidad ingresad y la familia o tipo 
+        function get_products_tipe($id_tipo, $cantidad)
+        {
+            $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
+
+            $productos = DB::table('productos')
+                    ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
+                    ->selectRaw('productos.*, IF(o.p_oferta IS NULL, productos.p_venta, 0) as p_venta')
+                    ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta')
+                    ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta2, o.controll')
+                    ->leftJoin('ofertas_controll AS oc', 'oc.id', '=', 'o.controll')
+                    ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.desde) as desde')
+                    ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.hasta) as hasta')
+                    ->addSelect(DB::raw($min_stock.' as limit_stock'))
+                    ->where("productos.estado", 1)
+                    ->where("productos.id_tipo", $id_tipo)
+                    ->inRandomOrder()
+                    ->take($cantidad)
+                    ->get();
+
+            return $productos;
+
+        }
+
 }
 
 
