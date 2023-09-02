@@ -663,6 +663,7 @@ class ApiController extends Controller
 
             $productos = DB::table('productos')
                     ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
+                    ->join('marcas AS m', 'm.id2', '=', 'productos.id_marca')
                     ->selectRaw('productos.*, IF(o.p_oferta IS NULL, productos.p_venta, 0) as p_venta')
                     ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta')
                     ->selectRaw('productos.*, IF(o.p_oferta IS NULL, 0, o.p_oferta) as p_oferta2, o.controll')
@@ -670,6 +671,7 @@ class ApiController extends Controller
                     ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.desde) as desde')
                     ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.hasta) as hasta')
                     ->addSelect(DB::raw($min_stock.' as limit_stock'))
+                    ->addSelect("m.marca")
                     ->where("productos.estado", 1)
                     ->where("productos.id_tipo", $id_tipo)
                     ->inRandomOrder()
