@@ -15,6 +15,7 @@ use App\Models\Compras;
 use App\Models\OfertasTipo;
 use App\Models\Ofertas;
 use App\Models\Tipo;
+use App\Models\Aplicaciones;
 use App\Models\ConfiguracionDescuento;
 use Illuminate\Support\Facades\DB;
 
@@ -654,7 +655,9 @@ class ApiController extends Controller
 
         function get_tipo()
         {
-            return Tipo::get();
+            return Tipo::select("tipo.id", "tipo.nombre", "cd.descuento")
+                        ->join("configuracion_descuento AS cd", "tipo.id", "cd.id_categoria")
+                        ->get();
         }
 
         // * toma los productos filtrando la familia y la cantidad
@@ -685,6 +688,68 @@ class ApiController extends Controller
             return $productos;
 
         }
+
+
+        // * crate new producto
+        function create_product(Request $request)
+        {
+            $codigo = strtoupper($request->codigo);
+            $estado = $request->estado == "1" ? true : false;
+            $nombre = strtoupper($request->nombre);
+            $stock = $request->stock;
+            $id_marca = $request->id_marca;
+            $id_tipo = $request->id_tipo;
+            $id_bodega = $request->id_bodega;
+            $medidas = $request->medidas;
+            $aro = $request->aro;
+            $aplicacion = $request->aplicacion;
+            $p_sistema = $request->p_sistema;
+            $p_venta = $request->p_venta;
+            $img = $request->img;
+            $oferta = 0;
+            $costo = $request->costo;
+            $top = $request->top;
+            $peso = $request->peso;
+
+            $busqueda = "no_no";
+
+
+            // ? se debe generar la busqueda para poder girar al buscador
+
+            $preoducto = new Productos;
+            $preoducto->codigo = $codigo;
+            $preoducto->estado = $estado;
+            $preoducto->nombre = $nombre;
+            $preoducto->busqueda = $busqueda;
+            $preoducto->stock = $stock;
+            $preoducto->id_marca = $id_marca;
+            $preoducto->id_tipo = $id_tipo;
+            $preoducto->id_bodega = $id_bodega;
+            $preoducto->medidas = $medidas;
+            $preoducto->aro = $aro;
+            $preoducto->aplicacion = $aplicacion;
+            $preoducto->p_sistema = $p_sistema;
+            $preoducto->p_venta = $p_venta;
+            $preoducto->img = $img;
+            $preoducto->oferta = $oferta;
+            $preoducto->costo = $costo;
+            $preoducto->top = $top;
+            $preoducto->peso = $peso;
+            $preoducto->save();
+
+            $busqueda = create_filter($codigo); 
+            Productos::where("codigo", $codigo)->update(["busqueda" => $busqueda]);
+
+            return "ok";
+        }
+
+
+        function get_aplicaciones()
+        {
+            $aplicaciones = Aplicaciones::get();
+            return $aplicaciones;
+        }
+
 
 }
 

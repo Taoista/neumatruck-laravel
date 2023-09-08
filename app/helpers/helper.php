@@ -6,6 +6,7 @@ use App\Models\MarcasFooter;
 use App\Models\CategoriaFotter;
 use App\Models\Tipo;
 use App\Models\OfertasTipo;
+use App\Models\Productos;
 
 // * wahhsap
 function  get_whatsapp()
@@ -143,7 +144,25 @@ function instagram()
     return ConfiguracionDato::select("result")->where("data", "instagram")->get()->first()->result;
 }
 
+function create_filter($codigo)
+{
+    $data = Productos::select("productos.codigo", "productos.nombre", "productos.medidas", "productos.aro",
+                            "m.marca AS marca", "t.nombre AS tipo")
+                        ->join("marcas AS m", "m.id2", "productos.id_marca")
+                        ->join("tipo AS t", "t.id", "productos.id_tipo")
+                        ->join("aplicaciones AS a", "a.id_nex", "productos.aplicacion")
+                        ->where("productos.codigo", $codigo)
+                        ->get()
+                        ->first();
 
+    $key = $data->codigo.$data->nombre.$data->medidas.$data->aro.$data->marca.$data->tipo;
+
+
+    $value = str_replace(" ","",str_replace(str_split("/-.+-xX"), '', $key));
+
+    return $value;
+
+}
 
 
 ?>

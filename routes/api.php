@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// * crear producto 
+Route::post("/create_product",[ApiController::class,"create_product"]);
 
 
 Route::post("/send_contact",[ContactoController::class, "send_contact"]);
@@ -32,7 +34,8 @@ Route::get("/get_data_producto/{codigo}",[ApiController::class, "get_data_produc
 Route::post("/iniciar_compra",[TransbankController::class, "iniciar_compra"]);
 Route::get("/confirmar_pago",[TransbankController::class, "confirmar_pago"]);
 
-
+// * toma las aplicaciones
+Route::get("/get-aplicaciones", [ApiController::class, "get_aplicaciones"]);
 
 // * toma los banner de web
 Route::get("/get_banners", [ApiController::class,"get_banners"]);
