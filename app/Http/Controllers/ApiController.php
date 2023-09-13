@@ -698,6 +698,7 @@ class ApiController extends Controller
             $nombre = strtoupper($request->nombre);
             $stock = $request->stock;
             $id_marca = $request->id_marca;
+            $marca = $request->marca;
             $id_tipo = $request->id_tipo;
             $id_bodega = $request->id_bodega;
             $medidas = $request->medidas;
@@ -736,8 +737,8 @@ class ApiController extends Controller
             $preoducto->top = $top;
             $preoducto->peso = $peso;
             $preoducto->save();
+            $busqueda = create_filter($codigo, $id_marca, $marca); 
 
-            $busqueda = create_filter($codigo); 
             Productos::where("codigo", $codigo)->update(["busqueda" => $busqueda]);
 
             return "ok";
