@@ -52,7 +52,7 @@ class ApiNeumatruckController extends Controller
                     Banners::where("id", $id_banner)->update([
                         "estado" => $estado,
                         "redireccion" => $ruta,
-                        "img" => $name
+                        "img" => 'assets/img/banner/'.$name
                     ]);
                 }
 
