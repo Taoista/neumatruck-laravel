@@ -37,18 +37,14 @@ Route::get("/confirmar_pago",[TransbankController::class, "confirmar_pago"]);
 // * toma las aplicaciones
 Route::get("/get-aplicaciones", [ApiController::class, "get_aplicaciones"]);
 
-// * toma los banner de web
-Route::get("/get_banners", [ApiController::class,"get_banners"]);
 // * toma el banner segun su id
 Route::get("/get_banner/{id_banner}", [ApiController::class,"get_banner"]);
 // * toma las url de la web para insertarlas
 Route::get("/get_urls",[ApiController::class, "get_urls"]);
-// * actualiza el banner neumatruck
-Route::post("/update_banner",[ApiController::class, "update_banner"]);
+
 // * crea nuevo banner
 Route::post("/insert_banner",[ApiController::class, "insert_banner"]);
-// * actualiza el orden de los banners
-Route::post("/update_order_banner",[ApiController::class, "update_order_banner"]);
+
 // * toma la configuracion de la aplicacion
 Route::get("/get_configuracion", [ApiController::class, "get_configuracion"]);
 // * update configuracion

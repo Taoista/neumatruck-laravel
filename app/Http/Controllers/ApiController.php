@@ -237,10 +237,7 @@ class ApiController extends Controller
     }
 
 
-    function get_banners()
-    {
-        return Banners::get();
-    }
+    
 
     function get_banner($id_banner)
     {
@@ -309,31 +306,6 @@ class ApiController extends Controller
         return $data;
     }
 
-        // * actualiza un banner
-        function update_banner(Request $request)
-        {
-            $id_banner = intval($request->id_banner);
-            $estado = $request->estado == true ? 1 : 0;
-            $id_ruta = $request->ruta;
-            try {
-                $path = Enlaces::select("enlace")->where("id", $id_ruta)->get();
-                $ruta = "#";
-                if(count($path) > 0){
-                    $ruta = $path->first()->enlace;
-                }
-
-                Banners::where("id", $id_banner)->update([
-                    "estado" => $estado,
-                    "redireccion" => $ruta
-                ]);
-
-                return "ok";
-            } catch (\Throwable $th) {
-                return "error";
-            }
-
-
-        }
 
         // * crea nuevo banner
         function insert_banner(Request $request)
@@ -366,18 +338,7 @@ class ApiController extends Controller
             return $banner->id;
         }
 
-        // * actualizacion del orden de los banners
-        function update_order_banner(Request $request)
-        {
-            $data = $request->data;
-            for ($i=0; $i < count($data) ; $i++) {
-                $id = $data[$i]["id"];
-                $orden = $data[$i]["orden"];
-                Banners::where("id", $id)->update(["orden" => $orden]);
-            }
-
-            return "ok";
-        }
+       
 
         // * toma la configuracion
         function get_configuracion()
