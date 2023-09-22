@@ -18,3 +18,5 @@ Route::post("/update_banner",[ApiNeumatruckController::class, "update_banner"]);
 
 // * crea nuevo banner
 Route::post("/insert_banner",[ApiNeumatruckController::class, "insert_banner"]);
+
+Route::post("/delete_banner", [ApiNeumatruckController::class, "delete_banner"]);

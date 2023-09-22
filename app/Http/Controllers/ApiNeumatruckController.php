@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Banners;
 use App\Models\Enlaces;
+use Illuminate\Support\Facades\Storage;
+
+
 
 
 class ApiNeumatruckController extends Controller
@@ -101,6 +104,16 @@ class ApiNeumatruckController extends Controller
             }
 
          
+        }
+
+        function delete_banner(Request $request)
+        {
+            $id_banner = $request->id_banner;
+            $img_name = Banners::select("img")->where("id", $id_banner)->get()->first()->img;
+            $file_path = 'assets/img/banner/'.$img_name;
+            Banners::where("id", $id_banner)->delete();
+            return $file_path;
+
         }
 
 
