@@ -19,14 +19,15 @@
         <div class="carousel-inner">
 
             @foreach ($banners as $key => $item )
-            
-            <div class="item {{ $key == 0 ? 'active' : '' }}">
-                @if($item->redireccion == "#")
-                    <img src="{{ asset($item->img) }}" alt="{{ $item->title }}">
+                @if($item->enlace == "#")
+                    <div class="item {{ $key == 0 ? 'active' : '' }}">
+                        <a><img src="{{ asset($item->img) }}" alt="{{ $item->title }}"></a>
+                    </div>
                 @else
-                    <a href="{{ url($item->redireccion) }}"><img src="{{ asset($item->img) }}" alt="{{ $item->title }}"></a>
+                    <div class="item {{ $key == 0 ? 'active' : '' }}">
+                        <a href="{{ url($item->enlace) }}"><img src="{{ asset($item->img) }}" alt="{{ $item->title }}"></a>
+                    </div>
                 @endif
-            </div>
             @endforeach
      
         </div>
