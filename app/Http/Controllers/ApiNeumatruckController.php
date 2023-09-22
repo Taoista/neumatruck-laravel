@@ -24,7 +24,13 @@ class ApiNeumatruckController extends Controller
 
     function get_banners()
     {
-        return Banners::orderby("orden", "asc")->get();
+        $banners = Banners::select("banners.activo", "banners.img", "banners.title", "redireccion" ,
+                                "banners.redireccion AS id_enlace","e.enlace", "e.texto AS title_enlace")
+                    ->join("enlaces AS e", "e.id", "banners.redireccion")
+                    ->orderby("banners.orden", "asc")
+                    ->get();
+
+        return $banners;
     }
 
 
