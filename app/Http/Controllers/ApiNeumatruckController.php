@@ -24,7 +24,7 @@ class ApiNeumatruckController extends Controller
 
     function get_banners()
     {
-        $banners = Banners::select("banners.activo", "banners.img", "banners.title", "redireccion" ,
+        $banners = Banners::select("banners.id", "banners.estado","banners.activo", "banners.img", "banners.title", "redireccion" ,
                                 "banners.redireccion AS id_enlace","e.enlace", "e.texto AS title_enlace")
                     ->join("enlaces AS e", "e.id", "banners.redireccion")
                     ->orderby("banners.orden", "asc")
@@ -40,25 +40,28 @@ class ApiNeumatruckController extends Controller
         {
             $id_banner = intval($request->id_banner);
             $estado = $request->estado == true ? 1 : 0;
-            $id_ruta = $request->ruta;
+            $id_enlace = $request->id_enlace;
             $name = $request->name;
+            $title_imagen = $request->title_imagen;
             try {
-                $path = Enlaces::select("enlace")->where("id", $id_ruta)->get();
-                $ruta = "#";
-                if(count($path) > 0){
-                    $ruta = $path->first()->enlace;
-                }
+                // $path = Enlaces::select("enlace")->where("id", $id_ruta)->get();
+                // $ruta = "#";
+                // if(count($path) > 0){
+                //     $ruta = $path->first()->enlace;
+                // }
 
                 if($name == ""){
                     Banners::where("id", $id_banner)->update([
                         "estado" => $estado,
-                        "redireccion" => $ruta
+                        "redireccion" => $id_enlace,
+                        "title" => $title_imagen
                     ]);
                 }else{
                     Banners::where("id", $id_banner)->update([
                         "estado" => $estado,
-                        "redireccion" => $ruta,
-                        "img" => 'assets/img/banner/'.$name
+                        "redireccion" => $id_enlace,
+                        "img" => 'assets/img/banner/'.$name,
+                        "title" => $title_imagen
                     ]);
                 }
 
