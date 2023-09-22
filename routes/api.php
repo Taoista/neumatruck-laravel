@@ -42,8 +42,7 @@ Route::get("/get_banner/{id_banner}", [ApiController::class,"get_banner"]);
 // * toma las url de la web para insertarlas
 Route::get("/get_urls",[ApiController::class, "get_urls"]);
 
-// * crea nuevo banner
-Route::post("/insert_banner",[ApiController::class, "insert_banner"]);
+
 
 // * toma la configuracion de la aplicacion
 Route::get("/get_configuracion", [ApiController::class, "get_configuracion"]);

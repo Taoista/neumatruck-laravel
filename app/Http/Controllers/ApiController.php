@@ -307,36 +307,7 @@ class ApiController extends Controller
     }
 
 
-        // * crea nuevo banner
-        function insert_banner(Request $request)
-        {
-
-            // * bsucar el orden
-            $orden = Banners::max("orden");
-
-            $estado = $request->estado == true ? 1 : 0;
-            $id_ruta = $request->ruta;
-            $path = Enlaces::select("enlace")->where("id", $id_ruta)->get();
-            $ruta = "#";
-            if(count($path) > 0){
-                $ruta = $path->first()->enlace;
-            }
-
-            $banner = New Banners();
-            $banner->orden = $orden + 1;
-            $banner->estado = $estado;
-            $banner->activo = 0;
-            $banner->img = "none";
-            $banner->title = "asd";
-            $banner->redireccion = $ruta;
-            $banner->save();
-
-            $title = "assets/img/banner/ban".strval($banner->id).".webp";
-
-            Banners::where("id", $banner->id)->update(["img" => $title]);
-
-            return $banner->id;
-        }
+  
 
        
 

@@ -72,4 +72,36 @@ class ApiNeumatruckController extends Controller
             }
         }
 
+
+        // * crea nuevo banner
+        function insert_banner(Request $request)
+        {
+            $estado = $request->estado;
+            $activo = $request->activo;
+            $img = $request->img;
+            $title = $request->title == "" ? "#" : $request->title;
+            $redireccion = $request->redireccion;
+
+            // ? bsucar el orden
+            $orden = Banners::max("orden") + 1;
+
+            try {
+                $banner = new Banners();
+                $banner->orden = $orden;
+                $banner->estado = $estado;
+                $banner->activo = $activo;
+                $banner->img = "assets/img/banner/".$img;
+                $banner->title = $title;
+                $banner->redireccion = $redireccion;
+                $banner->save();
+
+                return "ok";
+            } catch (\Throwable $th) {
+                return $th;
+            }
+
+         
+        }
+
+
 }
