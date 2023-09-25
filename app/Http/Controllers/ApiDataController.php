@@ -21,9 +21,10 @@ class ApiDataController extends Controller
             $startDate = $year . '-' . $month . '-' . str_pad($day, 2, '0', STR_PAD_LEFT);
             $endDate = $startDate . ' 23:59:59';
 
-            $total = Transbank::whereBetween("fecha", [$startDate, $endDate])
-                        ->where("responseCode", "0")
-                        ->sum('total'); // Asumo que 'amount' es el campo que contiene el monto. Cambia según tu estructura.
+            $total = Transbank::whereBetween("transbank.fecha", [$startDate, $endDate])
+                        ->join("compras AS c", "c.id_tbk", "transbank.id")
+                        ->where("transbank.responseCode", "0")
+                        ->sum('c.neto'); // Asumo que 'amount' es el campo que contiene el monto. Cambia según tu estructura.
 
             $results[] = [
                 "day" => $day,
