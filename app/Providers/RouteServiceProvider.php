@@ -36,6 +36,9 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api_neumatruck.php'));
+            Route::middleware('api')
+                ->prefix('api')
+                ->group(base_path('routes/api_data.php'));
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
