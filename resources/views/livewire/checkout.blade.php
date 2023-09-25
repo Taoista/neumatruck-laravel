@@ -4,6 +4,10 @@
             <div class="row">
             {{-- <form class="checkout" > --}}
                 <div class="col-md-7">
+                    @if(state_production() == false)
+                    <button wire:click="full_data">Llenar datos</button>
+                    @endif
+
                     <div class="billing-details">
                         <div class="section-title">+
                             <img src="" alt="">

@@ -96,6 +96,16 @@ class Checkout extends Component
         return $productos;
     }
 
+    // * solo funciona en desarrollo
+    function full_data()
+    {
+        $this->rut_empresa ="16803933-6";
+        $this->razon_social ="laravel rs";
+        $this->fono = "968300554";
+        $this->contacto = "laravel contacto";
+        $this->mensaje = "msg from laravel";
+    }
+
     function chanche_delivery()
     {
         if($this->selected_delivery == "1"){

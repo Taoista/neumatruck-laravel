@@ -49,7 +49,9 @@ class ComprobanteCompra extends Mailable
 
         $transbank = $this->data_pago();
 
-        return $this->view('email.comprobante_compra', 
+        // return $this->view('email.comprobante_compra', 
+        //         compact("productos", "fecha", "compra", "direccion", "transbank"));
+        return $this->view('email.comprobante_comprav2', 
                 compact("productos", "fecha", "compra", "direccion", "transbank"));
     }
 

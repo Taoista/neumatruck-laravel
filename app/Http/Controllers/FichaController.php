@@ -32,6 +32,24 @@ class FichaController extends Controller
 
     }
 
+    function producto($codigo)
+    {
+        try {
+            $data = $this->get_data_producto_codigo($codigo);
+            $controller = new ProductosController;
+            $descripcion = $this->get_descripcion_codigo($codigo);
+
+
+            return view("ficha", compact('data', 'controller', 'descripcion'));
+
+
+        } catch (\Throwable $th) {
+            return redirect('/');
+        }
+
+    }
+
+
     function get_data_producto($id)
     {
         return Productos::select("productos.id", "productos.codigo", "productos.estado", "productos.nombre", "productos.stock", "t.nombre AS tipo",
@@ -42,6 +60,18 @@ class FichaController extends Controller
                 ->join("aplicaciones AS a", "a.id_nex", "productos.aplicacion")
                 ->join("marcas AS m", "m.id2", "productos.id_marca")
                 ->where("productos.id", $id)->get()->first();
+    }
+
+    function get_data_producto_codigo($codigo)
+    {
+        return Productos::select("productos.id", "productos.codigo", "productos.estado", "productos.nombre", "productos.stock", "t.nombre AS tipo",
+                                "productos.medidas", "productos.medidas", "productos.p_venta", "productos.oferta", "productos.img", "productos.medidas",
+                                "productos.aplicacion AS id_aplicacion", "m.marca",
+                                "a.aplicacion")
+                ->join("tipo AS t", "t.id", "productos.id_tipo")
+                ->join("aplicaciones AS a", "a.id_nex", "productos.aplicacion")
+                ->join("marcas AS m", "m.id2", "productos.id_marca")
+                ->where("productos.codigo", $codigo)->get()->first();
     }
 
     function get_descripcion($id_producto)
@@ -55,7 +85,20 @@ class FichaController extends Controller
 
         return false;
 
-
     }
+
+    function get_descripcion_codigo($codigo)
+    {
+        $data = Detalle::select("detalle.descripcion")
+                    ->join("productos AS p", "p.id", "detalle.id_producto")
+                    ->where("p.codigo", $codigo)->get();
+
+        if(count($data) >0){
+            return $data->first()->descripcion;
+        }
+
+        return false;
+    }
+    
 
 }

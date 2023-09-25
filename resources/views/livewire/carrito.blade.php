@@ -7,12 +7,13 @@
             <div class="col-md-3 col-xs-4">
                 <figure class="snip1205">
                     <img src="{{ $item->img }}" alt="{{ $item->nombre }}" class="img-responsive img-thumbnail">
-                    <a href="{{ url("./ficha").'/'.$item->id }}"></a>
+                    <a href="{{ url("./producto").'/'.$item->codigo }}"></a>
                 </figure>
             </div>
 
             <div class="col-md-9 col-xs-8">
-                <p class="tit-prod2"> <a href="{{ url("./ficha").'/'.$item->id }}">{{ $item->nombre }}
+                <p class="tit-prod2"> <a href="{{ url("./producto").'/'.$item->codigo }}">{{ $item->nombre }}
+                {{-- <p class="tit-prod2"> <a href="{{ url("./ficha").'/'.$item->id }}">{{ $item->nombre }} --}}
                     @if($item->oferta == true)
                         @if($controller->state_oferta($item->id) == true)
                         <span style="color:red">OFERTA</span>

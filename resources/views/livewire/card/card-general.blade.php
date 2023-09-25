@@ -1,6 +1,7 @@
 
 <div class="col-md-4 col-xs-6" x-data="demo_demo()" x-init="pipo()">
-    <div class="product"><a href="{{ url('./ficha').'/'.$item->id }}">
+    {{-- <div class="product"><a href="{{ url('./ficha').'/'.$item->id }}"> --}}
+    <div class="product"><a href="{{ url('./producto').'/'.$item->codigo }}">
             <div class="product-img"><img src="{{ $item->img }}">
                 @if($item->oferta == true)
                     @if($controller->state_oferta($item->id) == true)
@@ -14,7 +15,8 @@
         </a>
         <div class="product-body"><br>
             <div class="product-label"></div>
-            <h3 class="product-name"><a href="{{ url('./ficha').'/'.$item->id }}">{{ $item->nombre }}</a></h3>
+            {{-- <h3 class="product-name"><a href="{{ url('./ficha').'/'.$item->id }}">{{ $item->nombre }}</a></h3> --}}
+            <h3 class="product-name"><a href="{{ url('./producto').'/'.$item->codigo }}">{{ $item->nombre }}</a></h3>
             @if($item->oferta == true)
                 @if($controller->state_oferta($item->id) == true)
                     <h4 class="product-price" style="color:red">OFERTA {{ "$ ".format_money(set_total($controller->value_oferta($item->id))) }} C/IVA</h4>
@@ -40,7 +42,7 @@
                                                                 font-size: 13px;">
                 <img style="width:20px" src="{{ asset('assets/img/loading.svg') }}" alt="">  </button></div>
         @else
-            <div class="add-to-cart"><button class="add-to-cart-btn2" @click="select_product('{{ $item->id }}')">Ver</button></div>
+            <div class="add-to-cart"><button class="add-to-cart-btn2" @click="select_product('{{ $item->codigo }}')">Ver</button></div>
         @endif
     </div>
 
@@ -101,8 +103,8 @@
                 pipo(){
                     // alert("demo alpinejs")
                 },
-                select_product(id_producto){
-                    const redirect = `${_Url}ficha/${id_producto}`
+                select_product(codigo){
+                    const redirect = `${_Url}producto/${codigo}`
                     window.location.href = redirect
                 }
             }
