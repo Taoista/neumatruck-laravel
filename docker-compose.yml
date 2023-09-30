@@ -40,7 +40,7 @@ services:
     container_name: webserver-neumatruck
     restart: unless-stopped
     ports:
-      - "8006:8080"
+      - "8003:8080"
     volumes:
       - ./:/var/www
       - .docker/nginx:/etc/nginx/conf.d
