@@ -4,11 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transbank;
+use App\Models\Compras;
 
 
 class ApiDataController extends Controller
 {
     
+
+    function get_data_cliente($codigo)
+    {
+        $codigo = "%".preg_replace('/\s+/', '', $codigo)."%";
+
+        $cliente = Compras::where("rut", "like", $codigo)->get()->take(1);
+        return $cliente;
+    }
+
+
+
     // * Retorna las ventas en formato json
     function get_monthly_sales($month, $year)
     {
