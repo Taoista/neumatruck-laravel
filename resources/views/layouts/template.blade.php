@@ -70,8 +70,10 @@
             <div class="container" style="display:flex;justify-content:center">
                 <ul class="header-links pull-left">
                     <li><a id="mail-min" href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
-                    <li><a id="horario-min" href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li>
-                    <li><a id="horario-min" href="javascript:void(0);"><i class="fa fa-clock-o"></i>Retiro en tienda: 11:00 a 17:00 hrs</a></li>
+                    {{-- <li><a id="horario-min" href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li> --}}
+                    <li><a id="horario-min" href="javascript:void(0);">
+                        <i class="fa fa-clock-o"></i>Retiro en tienda de lunes a viernes: 11:00 a 17:00 hrs</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -296,8 +298,8 @@
                                 <li><a href="tel:{{ $item->telefono }}"><i class="fa fa-phone"></i>{{ $item->telefono }}</a></li>
                                 @endforeach
                                 <li><a href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
-                                <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li>
-                                <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Retiro en tienda: 11:00 a 17:00 hrs</a></li>
+                                {{-- <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li> --}}
+                                <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Retiro en tienda de Lunes a Viernes: 11:00 a 17:00 hrs</a></li>
                             </ul>
                         </ul>
                     </div>
