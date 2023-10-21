@@ -172,6 +172,7 @@ class ApiController extends Controller
                 ->addSelect("a.aplicacion AS titulo_oferta")
                 ->addSelect("ot.nombre AS titulo_oferta")
                 ->addSelect("t.nombre AS tipo")
+                ->addSelect("a.aplicacion AS aplicacion_text")
                 ->addSelect(DB::raw($min_stock.' as limit_stock'))
                 ->where("productos.codigo", $codigo)
                 ->get();
