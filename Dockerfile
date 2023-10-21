@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.1-fpm
 
 WORKDIR /var/www/html
 
@@ -25,6 +25,8 @@ COPY . /var/www/html
 
 RUN composer install
 
-EXPOSE 80
+EXPOSE 8003
 
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8003"]
+# CMD ["php", "artisan", "serve", "--host=0.0.0.0","--port=8003"]
+CMD ["php", "artisan", "serve", "--port=8003"]
+# CMD [ "php-fpm" ]
