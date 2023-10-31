@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\ApiNeumatruckController;
 use App\Http\Controllers\TransbankController;
 
 /*
@@ -90,8 +91,16 @@ Route::post("/insert_new_oferta_producto", [ApiController::class, "insert_new_of
 Route::post("delete_all_ofertas", [ApiController::class, "delete_all_ofertas"]);
 // * get tipos
 Route::get("get_tipo", [ApiController::class, "get_tipo"]);
-
+// * elemina una oferta y los productos asociados a esta oferta
+Route::post("/delete_oferta",[ApiController::class, "delete_oferta"]);
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);
-
+// * captura el control de la fecha
+Route::get("/get_date_controll", [ApiController::class, "get_date_controll"]);
+// * actualiza la fehca desde hata
+Route::post("/update_fecha_controll", [ApiController::class, "update_fecha_controll"]);
+// * actualiza la oferta nombre, control
+Route::post("/update_oferta_state", [ApiController::class, "update_oferta_state"]);
+// * camnia el main de la sofertas
+Route::post("/update_main_oferta", [ApiController::class, "update_main_oferta"]);

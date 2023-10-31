@@ -81,36 +81,49 @@ function set_money($val){
     $data = round($val * $iva);
     return  "$ ".number_format($data, 0, ",", ".");
 }
-// * es la oferta primaria
+// * es la oferta PRIMARIA
 function oferta_primaria()
 {
     $data = Configuracion::where("tipo", "of")->get()->first()->resultado;
     return $data;
 }
+
+function  get_title_oferta_ptimaria()
+{
+    try {
+        $data = OfertasTipo::select("nombre")->where("main", 1)->get()->first()->nombre;
+        return $data;
+    } catch (\Throwable $th) {
+        return null;
+    }
+
+    
+}
+
 //* oferta espacial 
-function oferta_secundaria()
-{
-    $data = Configuracion::where("tipo", "oferta-hot")->get()->first()->resultado;
-    return $data;
-}
+// function oferta_secundaria()
+// {
+//     $data = Configuracion::where("tipo", "oferta-hot")->get()->first()->resultado;
+//     return $data;
+// }
 // * oferta fecha especial
-function oferta_especial()
-{
-    $data = Configuracion::where("tipo", "oferta-especial")->get()->first()->resultado;
-    return $data;
-}
+// function oferta_especial()
+// {
+//     $data = Configuracion::where("tipo", "oferta-especial")->get()->first()->resultado;
+//     return $data;
+// }
 
 
 // * title oferta
 function get_title_of_secundaria()
 {
-    $data = OfertasTipo::where("id", 2)->get()->first()->nombre;
+    $data = OfertasTipo::where("id", 5)->get()->first()->nombre;
     return $data;
 }
 
 function get_title_of_especial()
 {
-    $data = OfertasTipo::where("id", 3)->get()->first()->nombre;
+    $data = OfertasTipo::where("id", 4)->get()->first()->nombre;
     return $data;
 }
 

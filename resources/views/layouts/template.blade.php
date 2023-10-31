@@ -188,14 +188,14 @@
                                     @endforeach
                                     <li><a href="{{ url("./contacto") }}">Contacto</a></li>
                                     @if(oferta_primaria() == true)
-                                    <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas</a></li>
+                                    <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">{{ get_title_oferta_ptimaria() }}</a></li>
                                     @endif
-                                    @if(oferta_secundaria() == true)
+                                    {{-- @if(oferta_secundaria() == true)
                                     <li class="neonText"><a href="{{ url("./ofertas-especial") }}" style="">{{ get_title_of_secundaria() }}</a></li>
-                                    @endif
-                                    @if(oferta_especial() == true)
+                                    @endif --}}
+                                    {{-- @if(oferta_especial() == true)
                                     <li class="neonText2"><a href="{{ url("./ofertas-espcial-date") }}">{{ get_title_of_especial() }}</a></li>
-                                    @endif
+                                    @endif --}}
                                     <li><a href="{{ url("./carrito") }}">Carrito</a></li>
                                 </ul>
                                 <!-- /NAV -->
@@ -218,14 +218,14 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav nav-justified navbar-nav">
-                                @if(oferta_especial() == true)
+                                {{-- @if(oferta_especial() == true)
                                     <li class="neonText2"><a href="{{ url("./ofertas-espcial-date") }}">{{ get_title_of_especial() }}</a></li>
-                                @endif
-                                @if(oferta_secundaria() == true)
+                                @endif --}}
+                                {{-- @if(oferta_secundaria() == true)
                                     <li class="neonText"><a href="{{ url("./ofertas-especial") }}">{{ get_title_of_secundaria() }}</a></li>
-                                @endif
+                                @endif --}}
                                 @if(oferta_primaria() == true)
-                                <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">ofertas </a></li>
+                                <li><a href="{{ url("./ofertas") }}" style="color: #FFB03D;">{{ get_title_oferta_ptimaria() }} </a></li>
                                 @endif
                                 @foreach (get_categorias() as $item)
                                 <li><a class="section-selector" data-type="{{ $item->id }}" href="#">{{ $item->nombre }}</a></li>

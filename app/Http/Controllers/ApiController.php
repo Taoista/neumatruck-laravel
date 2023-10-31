@@ -16,6 +16,8 @@ use App\Models\OfertasTipo;
 use App\Models\Ofertas;
 use App\Models\Tipo;
 use App\Models\Aplicaciones;
+use App\Models\OfertasControll;
+
 use App\Models\ConfiguracionDescuento;
 use Illuminate\Support\Facades\DB;
 
@@ -705,6 +707,82 @@ class ApiController extends Controller
             return $aplicaciones;
         }
 
+        // * elemina una oferta y los productos asociados a esta oferta
+        function delete_oferta(Request $request)
+        {
+            try {
+                $id_oferta = $request->id_oferta;
+    
+                $productos = Ofertas::select("id_producto")->where("id_tipo_oferta", $id_oferta)->get();
+                // return $productos;
+                foreach ($productos AS $item) {
+                    Productos::where("id", $item->id_producto)->update(["oferta" => 0]);                
+                }
+    
+                Ofertas::where("id_tipo_oferta", $id_oferta)->delete();
+
+                OfertasTipo::where("id", $id_oferta)->delete();
+                return "ok";
+            } catch (\Throwable $th) {
+                return $th;
+            }
+        }
+
+        function get_date_controll()
+        {
+            try {
+                $data = OfertasControll::select("desde", "hasta")->get();
+                return $data;
+            } catch (\Throwable $th) {
+                return $th;
+            }
+        }
+
+        function update_fecha_controll(Request $request)
+        {
+            $tipo = $request->tipo;
+            $fecha = $request->fecha;
+
+            $fechaCarbon = \Carbon\Carbon::createFromFormat('d-m-Y H:i:s', $fecha);
+            $fecha = $fechaCarbon->format('Y-m-d H:i:s');
+
+            try {
+                if($tipo == 1){
+                    OfertasControll::where("id",1)->update(["desde" => $fecha]);
+                }else{
+                    OfertasControll::where("id",1)->update(["hasta" => $fecha]);
+                }
+                return "ok";
+            } catch (\Throwable $th) {
+                //throw $th;
+                return $th;
+            }
+        }
+
+        function update_oferta_state(Request $request)
+        {
+
+            $id_oferta = $request->id_oferta;
+            $control = $request->control;
+            $lbl_oferta = $request->lbl_oferta;
+
+            try {
+                OfertasTipo::where("id", $id_oferta)->update([
+                    "control" => $control,
+                    "nombre" => $lbl_oferta
+                ]);
+                return "ok";
+            } catch (\Throwable $th) {
+                return $th;
+            }
+        }
+
+        function update_main_oferta(Request $request)
+        {
+            $id = $request->id_oferta;
+            OfertasTipo::query()->update(['main' => 0]);
+            OfertasTipo::where("id", $id)->update(["main" => 1]);
+        }
 
 }
 
