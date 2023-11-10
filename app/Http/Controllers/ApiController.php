@@ -446,17 +446,13 @@ class ApiController extends Controller
         // * toma los datos de compra
         function get_data_compras()
         {
-            // "c.fecha", "t.responseCode", "c.id_plataforma","c.nombre", "c.email", "t.total"
-            // $data = DB::table('transbank AS t')
-            //     ->selectRaw("t.id", "t.fecha")
-            //     // ->join("tipo_tarjeta AS tp", "t.paymentTypeCode", "=", "tp.cod")
-            //     ->join("compras AS c", "c.id", "=", "t.id_compras")
-            //     ->orderby("t.id", "desc")
-            //     ->get();
 
-
-            $tbk =  Transbank::select("transbank.id", "transbank.fecha", "transbank.responseCode", "transbank.total", "c.id_plataforma", "c.nombre", "c.email")
+            $tbk =  Transbank::select("transbank.id", "transbank.fecha", "transbank.responseCode", "transbank.total", 
+                                    "c.id_plataforma", "p.nombre AS plataforma","c.nombre", "c.email", "c.rut", "c.id_usuario",
+                                    "c.id_erp", "ce.nombre AS estado_compra")
                     ->join("compras AS c", "c.id", "transbank.id_compras")
+                    ->join("plataforma AS p", "p.id", "c.id_plataforma")
+                    ->join("compras_estado AS ce", "ce.id", "c.estado_compra")
                     ->orderby('transbank.id', "DESC")
                     ->get();
 

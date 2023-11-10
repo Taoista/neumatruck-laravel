@@ -80,6 +80,7 @@ class TransbankController extends Controller
                 Transbank::where("id", $id_order)
                             ->update([
                                 "responseCode" => $confirmacion->responseCode,
+                                
                                 "authorizationCode" => $confirmacion->authorizationCode,
                                 "paymentTypeCode" => $confirmacion->paymentTypeCode,
                                 "installmentsNumber" => $confirmacion->installmentsNumber,
@@ -87,7 +88,11 @@ class TransbankController extends Controller
                                 "cardNumber" => $confirmacion->cardNumber,
                             ]);
                 $id_compra = Transbank::select("id_compras")->where("id", $id_order)->get()->first()->id_compras;
-                Compras::where("id", $id_compra)->update(["id_tbk" => $id_order]);
+                Compras::where("id", $id_compra)
+                        ->update([
+                            "id_tbk" => $id_order,
+                            "estado_compra" => 2
+                        ]);
                 $email = Compras::select('email')->where("id", $id_compra)->get()->first()->email;
                 // ? busca los productos en el carrito para poder agregarlos a COMPRAS_PRODUCTOS
                 $compras_productos = Carrito::select("p.id", "carrito.cantidad", "p.codigo", "p.p_venta", "p.oferta")
