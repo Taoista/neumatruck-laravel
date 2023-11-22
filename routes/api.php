@@ -71,6 +71,8 @@ Route::post("/delete_phone_footer",[ApiController::class, "delete_phone_footer"]
 Route::post("/insert_phone_footer",[ApiController::class, "insert_phone_footer"]);
 // * toma las compras realizadas
 Route::get("/get-data-compras",[ApiController::class, "get_data_compras"]);
+// * get data compras range date vendedor pm
+Route::get("/get-data-compras-date/{inicio}/{termino}/{id_vendedor}",[ApiController::class, "get_data_compras_date"]);
 // * toma el dato del comprobante
 Route::get("/get_data_comprobante/{id_comprobante}",[ApiController::class, "get_data_comprobante"]);
 // * toma los productos comprados

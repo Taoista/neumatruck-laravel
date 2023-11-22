@@ -459,6 +459,26 @@ class ApiController extends Controller
             return datatables()->of($tbk)->toJson();
         }
 
+        function get_data_compras_date($inicio, $termino, $id_vendedor)
+        {
+
+            $start = $inicio.' 00:00:00';
+            $end = $termino.' 23:59:59';
+
+
+            $compras =  Compras::select("compras.id", "compras.fecha", "compras.id_tbk", "compras.nombre", "compras.email", 
+                                "compras.estado","cde.detalle AS detalle_estado","compras.id_tbk AS tipo_compra",
+                                "compras.telefono", "compras.contacto", "compras.total")
+                        ->where("compras.fecha",">=",$start)->where("fecha", "<=", $end)
+                        ->where("compras.estado", ">", 0)
+                        ->join("carrito_detalle_estado AS cde", "cde.id", "compras.estado")
+                        ->orderBy('id',"ASC")
+                        ->get();
+
+            // return datatables()->of($compras)->toJson();
+            return $compras;
+        }
+
         // * toma los datos de compra del comprobante
         function get_data_comprobante($id_comprobante)
         {
