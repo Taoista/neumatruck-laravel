@@ -61,11 +61,11 @@ pagination > .active > a, .pagination > .active > a:focus, .pagination > .active
       0 0 7px #fff,
       0 0 10px #fff,
       0 0 21px #fff,
-      0 0 42px #bc13fe,
-      0 0 82px #bc13fe,
-      0 0 92px #bc13fe,
-      0 0 102px #bc13fe,
-      0 0 151px #bc13fe;
+      0 0 42px #ffb03d,
+      0 0 82px #ffb03d,
+      0 0 92px #ffb03d,
+      0 0 102px #ffb03d,
+      0 0 151px #ffb03d;
       animation-name: parpadeo;
       animation-duration: 1s;
       animation-timing-function: linear;
