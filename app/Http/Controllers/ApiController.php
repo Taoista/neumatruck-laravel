@@ -467,8 +467,9 @@ class ApiController extends Controller
 
 
             $compras =  Compras::select("compras.id", "compras.fecha", "compras.id_tbk", "compras.nombre", "compras.email", 
-                                "compras.estado","cde.detalle AS detalle_estado","compras.id_tbk AS tipo_compra",
-                                "compras.telefono", "compras.contacto", "compras.total")
+                                "compras.estado","cde.detalle AS detalle_estado","compras.id_tbk AS tipo_compra","compras.rut",
+                                "compras.nombre", "compras.total",
+                                "compras.telefono", "compras.contacto")
                         ->where("compras.fecha",">=",$start)->where("fecha", "<=", $end)
                         ->where("compras.estado", ">", 0)
                         ->join("carrito_detalle_estado AS cde", "cde.id", "compras.estado")
