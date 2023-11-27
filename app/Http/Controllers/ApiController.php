@@ -103,7 +103,11 @@ class ApiController extends Controller
     $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
 
     $data = DB::table('productos')
-        ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
+        ->leftJoin('ofertas AS o', function($join) {
+            $join->on('productos.id', '=', 'o.id_producto')
+                ->where('o.estado', '=', 1);
+        })
+        // ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
         ->leftJoin('marcas AS m', 'm.id2', '=', 'productos.id_marca')
         ->leftJoin('tipo AS t', 'productos.id_tipo', '=', 't.id')
         ->selectRaw('productos.*, IF(m.marca IS NULL, NULL,  m.marca) as marca')
@@ -159,7 +163,10 @@ class ApiController extends Controller
         $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
 
         $data = DB::table('productos')
-                ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
+                ->leftJoin('ofertas AS o', function($join) {
+                    $join->on('productos.id', '=', 'o.id_producto')
+                        ->where('o.estado', '=', 1);
+                })
                 ->join('marcas AS m', 'm.id2', '=', 'productos.id_marca')
                 ->join("aplicaciones AS a", "a.id_nex", "productos.aplicacion")
                 ->join("tipo AS t", "t.id", "productos.id_tipo")
@@ -178,6 +185,8 @@ class ApiController extends Controller
                 ->addSelect(DB::raw($min_stock.' as limit_stock'))
                 ->where("productos.codigo", $codigo)
                 ->get();
+
+       
 
         return $data;
     }
