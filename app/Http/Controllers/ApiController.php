@@ -481,6 +481,7 @@ class ApiController extends Controller
                                 "compras.telefono", "compras.contacto")
                         ->where("compras.fecha",">=",$start)->where("fecha", "<=", $end)
                         ->where("compras.estado", ">", 0)
+                        ->where("compras.id_tbk", "!=", 0)
                         ->join("carrito_detalle_estado AS cde", "cde.id", "compras.estado")
                         ->orderBy('id',"ASC")
                         ->get();
@@ -493,7 +494,7 @@ class ApiController extends Controller
         function get_data_comprobante($id_comprobante)
         {
             $data = Transbank::select("transbank.id", "transbank.fecha", "transbank.authorizationCode AS cod_autorizacion", "tp.name AS tipo_pago",
-                                    "transbank.installmentsNumber AS cuotas", "transbank.cardNumber AS n_tarjeta", "transbank.total", "c.email", "c.nombre",
+                                    "transbank.installmentsNumber AS cuotas", "transbank.installmentsAmount AS val_cuotas","transbank.cardNumber AS n_tarjeta", "transbank.total", "c.email", "c.nombre",
                                     "c.rut", "c.telefono", "c.contacto", "c.tipo_delivery", "c.id_ciudad", "ciudades.ciudad", "c.direccion", "c.nota",
                                     "c.neto", "c.iva", "c.delivery", "c.total AS total_pago", "ciudades.region")
                     ->join("compras AS c", "transbank.id_compras", "=", "c.id")
