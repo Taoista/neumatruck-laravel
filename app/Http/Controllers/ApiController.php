@@ -496,9 +496,11 @@ class ApiController extends Controller
             $data = Transbank::select("transbank.id", "transbank.fecha", "transbank.authorizationCode AS cod_autorizacion", "tp.name AS tipo_pago",
                                     "transbank.installmentsNumber AS cuotas", "transbank.installmentsAmount AS val_cuotas","transbank.cardNumber AS n_tarjeta", "transbank.total", "c.email", "c.nombre",
                                     "c.rut", "c.telefono", "c.contacto", "c.tipo_delivery", "c.id_ciudad", "ciudades.ciudad", "c.direccion", "c.nota",
-                                    "c.neto", "c.iva", "c.delivery", "c.total AS total_pago", "ciudades.region")
+                                    "c.neto", "c.iva", "c.delivery", "c.total AS total_pago", "ciudades.region", "c.estado_compra","ce.nombre AS estado_compra_lbl",
+                                    "c.id_erp")
                     ->join("compras AS c", "transbank.id_compras", "=", "c.id")
                     ->join("tipo_tarjeta AS tp", "transbank.paymentTypeCode", "=", "tp.cod")
+                    ->join("compras_estado AS ce", "ce.id", "c.estado_compra")
                     ->leftJoin("ciudades", function($join){
                         $join->on("c.id_ciudad", "=", "ciudades.id")
                             ->where("c.id_ciudad", "!=", 0);
@@ -507,6 +509,26 @@ class ApiController extends Controller
                     ->where("transbank.id", $id_comprobante)
                     ->get();
             return $data;
+        }
+
+        function update_erp_codigo(Request $request)
+        {
+            try {
+                $codigo = $request->id_erp;
+                $id_registro = $request->id_registro;
+
+                Compras::where("id_tbk", $id_registro)->update(["id_erp" => $codigo]);
+
+                return "ok";
+
+            } catch (\Throwable $th) {
+                
+                return $th;
+
+            }
+
+            
+
         }
 
         // * toma los productos comprados

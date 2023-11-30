@@ -77,6 +77,8 @@ Route::get("/get-data-compras-date/{inicio}/{termino}/{id_vendedor}",[ApiControl
 Route::get("/get_data_comprobante/{id_comprobante}",[ApiController::class, "get_data_comprobante"]);
 // * toma los productos comprados
 Route::get("/get_productos_comprados/{id_comprobante}",[ApiController::class, "get_productos_comprados"]);
+// * update codigo erp
+Route::post("/update_erp_codigo",[ApiController::class, "update_erp_codigo"]);
 // * toma los productos que estan en oferta
 Route::get("/get_ofert_productos",[ApiController::class, "get_ofert_productos"]);
 // * toma los tipos de ofertas
