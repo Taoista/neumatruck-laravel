@@ -85,6 +85,10 @@ Route::get("/get_ofert_productos",[ApiController::class, "get_ofert_productos"])
 Route::get("/get_tipo_ofertas",[ApiController::class, "get_tipo_ofertas"]);
 // * toma los productos segun familia y cantidad
 Route::get("/get_products_tipe/{id_tipo}/{cantidad}",[ApiController::class, "get_products_tipe"]);
+// * toma los productos segun tipo o familia
+Route::get("/get_products_tipe_all/{id_tipo}",[ApiController::class, "get_products_tipe_all"]);
+
+
 // * actualiza el estado de una oferta
 Route::post("/update_state_ofertas", [ApiController::class, "update_state_ofertas"]);
 // * borrar una oferta producto
@@ -97,6 +101,7 @@ Route::post("delete_all_ofertas", [ApiController::class, "delete_all_ofertas"]);
 Route::get("get_tipo", [ApiController::class, "get_tipo"]);
 // * elemina una oferta y los productos asociados a esta oferta
 Route::post("/delete_oferta",[ApiController::class, "delete_oferta"]);
+
 
 // * actualziacion de los productos
 Route::post('/update_productos',[ApiController::class, "update_productos"]);
