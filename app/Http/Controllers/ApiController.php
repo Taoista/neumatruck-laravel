@@ -714,7 +714,6 @@ class ApiController extends Controller
                     ->where("productos.estado", 1)
                     ->where("productos.id_tipo", $id_tipo)
                     ->inRandomOrder()
-                    ->take($cantidad)
                     ->get();
 
             return $productos;
