@@ -7,6 +7,7 @@ use App\Models\Productos;
 use App\Models\Carrito;
 use App\Http\Controllers\ProductosController;
 use Cookie;
+use App\Http\Controllers\ServiceProductosController;
 
 class CardGeneral extends Component
 {
@@ -34,6 +35,14 @@ class CardGeneral extends Component
                     ->where("productos.id", $this->id_producto)->get()->first();
 
         return $data;
+    }
+
+    function add_producto($id, $cantidad = 1)
+    {
+
+        $controll = new ServiceProductosController($id, 1);
+        $data = $controll->addProduct();
+        $this->dispatchBrowserEvent("save_producto");
     }
 
     function show_modal($id, $cantidad = 1)

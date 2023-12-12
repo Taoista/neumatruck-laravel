@@ -18,11 +18,10 @@ class CheckoutController extends Controller
             return redirect('/');
         }
 
-        $email = base64_decode($value);
+        // $email = base64_decode($value);
         // ? refresca las ession
-        $time = 60 * 1;
-        $data = base64_encode($email);
-        Cookie::queue("nt_session", $data, $time);
+        $time = 60 * 3;
+        Cookie::queue("nt_session", $value, $time);
 
 
         return view("checkout");
@@ -35,11 +34,10 @@ class CheckoutController extends Controller
             return redirect('/');
         }
 
-        $email = base64_decode($value);
+
         // ? refresca las ession
         $time = 60 * 1;
-        $data = base64_encode($email);
-        Cookie::queue("nt_session", $data, $time);
+        Cookie::queue("nt_session", $value, $time);
 
 
         return view("checkout_2");

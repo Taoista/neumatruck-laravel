@@ -22,7 +22,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input class="input" type="email" name="email" wire:model="email" placeholder="Email" disabled>
+                            <input class="input" type="email" name="email" wire:model="email" placeholder="Email">
                         </div>
 
                         <div class="form-group">

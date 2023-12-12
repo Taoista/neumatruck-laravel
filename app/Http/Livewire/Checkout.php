@@ -60,7 +60,7 @@ class Checkout extends Component
 
         $this->iva = $this->neto * 0.19;
 
-        $this->email = strtolower(base64_decode(Cookie::get('nt_session')));
+        // $this->email = Cookie::get('nt_session');
 
         $this->calculate_total_pago();
 
@@ -83,7 +83,7 @@ class Checkout extends Component
 
     public function get_productos()
     {
-        $value = strtolower(base64_decode(Cookie::get('nt_session')));
+        $value = Cookie::get('nt_session');
 
         $productos = Carrito::select("p.id", "p.codigo", "p.nombre", "carrito.cantidad", "p.img", "p.stock", "p.p_venta",
                                     "p.oferta", "m.marca", "p.costo", "p.peso")
@@ -249,6 +249,7 @@ class Checkout extends Component
 
         $compras = new Compras;
         $compras->id_plataforma = 1;
+        $compras->token = Cookie::get('nt_session'); //? esto loa gregue el final par apoder regresar al token sin emsil
         $compras->rut = $this->rut_empresa;
         $compras->nombre = strtolower($this->razon_social);
         $compras->email = strtolower($this->email);

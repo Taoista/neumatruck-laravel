@@ -104,7 +104,8 @@ class ProductosController extends Controller{
 
     public function get_sub_total()
     {
-        $value = strtolower(base64_decode(Cookie::get('nt_session')));
+        // $value = strtolower(base64_decode(Cookie::get('nt_session')));
+        $value = Cookie::get('nt_session');
 
         $productos = Carrito::select("p.id", "carrito.cantidad", "p.p_venta","p.oferta")
                         ->join("productos AS p", "p.id", "carrito.id_producto")

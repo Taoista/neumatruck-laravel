@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Productos;
 use App\Models\Carrito;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ServiceProductosController;
 use Cookie;
 
 class CardIndex extends Component
@@ -41,6 +42,17 @@ class CardIndex extends Component
         return $data;
     }
 
+
+    function add_producto($id, $cantidad = 1)
+    {
+
+        $controll = new ServiceProductosController($id, 1);
+        $data = $controll->addProduct();
+        // dd($data);
+        $this->dispatchBrowserEvent("save_producto");
+    }
+
+    // * antes de agregar el producto muestra el modal
     function show_modal($id, $cantidad = 1)
     {
         $value = Cookie::get('nt_session');
@@ -65,6 +77,7 @@ class CardIndex extends Component
             $carrito->id_producto = $id;
             $carrito->cantidad = $cantidad;
             $carrito->save();
+            // ?muestra el modal
             $this->dispatchBrowserEvent("close_modal", ["id"=>$id]);
             $this->dispatchBrowserEvent("save_producto");
             return false;

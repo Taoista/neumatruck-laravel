@@ -38,7 +38,8 @@ class Carrito extends Component
 
     public function get_productos()
     {
-        $value = strtolower(base64_decode(Cookie::get('nt_session')));
+        // $value = strtolower(base64_decode(Cookie::get('nt_session')));
+        $value = Cookie::get('nt_session');
 
         $productos = Cart::select("p.id", "p.codigo", "p.nombre", "carrito.cantidad", "p.img", "p.stock", "p.p_venta","p.oferta", "m.marca")
                         ->join("productos AS p", "p.id", "carrito.id_producto")
@@ -55,7 +56,9 @@ class Carrito extends Component
     // * eleeimina un elemento del carrito
     function delete_item($id_producto)
     {
-        $value = base64_decode(Cookie::get('nt_session'));
+        // $value = base64_decode(Cookie::get('nt_session'));
+
+        $value = Cookie::get('nt_session');
 
         Cart::where("email", $value)->where("id_producto", $id_producto)->delete();
 
@@ -66,7 +69,8 @@ class Carrito extends Component
 
     function add_item($id_producto)
     {
-        $value = base64_decode(Cookie::get('nt_session'));
+        // $value = base64_decode(Cookie::get('nt_session'));
+        $value = Cookie::get('nt_session');
         // * cantidad para actualizar
         $cantidad = $this->list_cantidad[$id_producto] + 1;
 
@@ -90,7 +94,8 @@ class Carrito extends Component
 
     function rest_item($id_producto)
     {
-        $value = base64_decode(Cookie::get('nt_session'));
+        // $value = base64_decode(Cookie::get('nt_session'));
+        $value = Cookie::get('nt_session');
         // * cantidad para actualizar
         $cantidad = $this->list_cantidad[$id_producto] - 1;
         $stock = Productos::select('stock')->where("id", $id_producto)->get()->first()->stock;

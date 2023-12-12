@@ -29,8 +29,8 @@
                     </p><span>COD:{{ $item->codigo }}</span><br><span> Stock: {{ $item->stock }}</span>
             </div>
             @if($item->stock > 2)
-            <div class="add-to-cart" wire:click="show_modal('{{ $item->id }}')" wire:loading.remove><button  class="add-to-cart-btn agregacarro"><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button></div>
-            <div class="add-to-cart" wire:loading wire:target="show_modal">
+            <div class="add-to-cart" wire:click="add_producto('{{ $item->id }}')" wire:loading.remove><button  class="add-to-cart-btn agregacarro"><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button></div>
+            <div class="add-to-cart" wire:loading wire:target="add_producto">
                 <button class="add-to-cart-btn agregacarro" style="background-color: #FFF;
                                                                     padding-left: 95px;
                                                                     padding-right: 95px;

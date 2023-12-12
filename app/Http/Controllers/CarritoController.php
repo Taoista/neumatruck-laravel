@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Cookie;
 
 
-
 class CarritoController extends Controller
 {
     
@@ -17,11 +16,12 @@ class CarritoController extends Controller
             return redirect('/');
         }
 
-        $email = base64_decode($value);
+        // $email = base64_decode($value);
+        // $email = $value;
         // ? refresca las ession
-        $time = 60 * 1;
-        $data = base64_encode($email);
-        Cookie::queue("nt_session", $data, $time);
+        $time = 60 * 3;
+        // $data = base64_encode($email);
+        Cookie::queue("nt_session", $value, $time);
 
         return view("carrito");
     }

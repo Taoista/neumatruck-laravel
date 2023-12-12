@@ -74,7 +74,6 @@ class TransbankController extends Controller
             if($confirmacion->isApproved()){
                 $controller = new ProductosController();
 
-
                 $id_order = $confirmacion->buyOrder;
                 // $tbk = Transbank::where("id", $id_order)->first();
                 Transbank::where("id", $id_order)
@@ -93,11 +92,11 @@ class TransbankController extends Controller
                             "id_tbk" => $id_order,
                             "estado_compra" => 2
                         ]);
-                $email = Compras::select('email')->where("id", $id_compra)->get()->first()->email;
+                $email = Compras::select('email', 'token')->where("id", $id_compra)->first();
                 // ? busca los productos en el carrito para poder agregarlos a COMPRAS_PRODUCTOS
                 $compras_productos = Carrito::select("p.id", "carrito.cantidad", "p.codigo", "p.p_venta", "p.oferta")
                                     ->join("productos AS p", "p.id", "carrito.id_producto")
-                                    ->where("carrito.email", $email)->get();
+                                    ->where("carrito.email", $email->token)->get();
                 // ? inserta los productos comprados
                 foreach ($compras_productos AS $item) {
                     $state_oferta = 0;
@@ -133,22 +132,22 @@ class TransbankController extends Controller
 
                     // ? se debe enviar el correo
                     $correo = new ComprobanteCompra($id_compra);
-
+                    Mail::to($email->email)->send($correo);
+                    
+                    
                     $emails_admin = $this->get_emails_admins();
 
-                    Mail::to($email)->send($correo);
-
-
-
-                    // ? enviar a los responsables
-                    foreach($emails_admin AS $item){
-                        $correo = new ComprobanteCompra($id_compra);
-                        Mail::bcc($item->email)->send($correo);
-                        // sleep(3);
+                    try {
+                        // ? enviar a los responsables
+                        foreach($emails_admin AS $item){
+                            $correo = new ComprobanteCompra($id_compra);
+                            Mail::to($item->email)->send($correo);
+                        }
+                    } catch (\Throwable $th) {
+                        //throw $th;
                     }
-
                     // ? eliminar el carrito enviado
-                    Carrito::where("email", $email)->delete();
+                    Carrito::where("email", $email->token)->delete();
                     return redirect("./pgo-tbk".'/'.base64_encode($id_order));
                 }else{
                     return redirect("./pgo-result");

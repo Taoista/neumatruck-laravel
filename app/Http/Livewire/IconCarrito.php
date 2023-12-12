@@ -27,7 +27,8 @@ class IconCarrito extends Component
 
     function get_total()
     {
-        $value = base64_decode(Cookie::get('nt_session'));
+        // $value = base64_decode(Cookie::get('nt_session'));
+        $value = Cookie::get('nt_session');
 
         $total = 0;
 

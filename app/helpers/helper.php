@@ -8,6 +8,15 @@ use App\Models\Tipo;
 use App\Models\OfertasTipo;
 use App\Models\Productos;
 use App\Models\Marcas;
+use Illuminate\Support\Str;
+
+
+function generate_toke()
+{
+    $token = Str::random(50);
+    return $token;
+}
+
 
 // * wahhsap
 function  get_whatsapp()
