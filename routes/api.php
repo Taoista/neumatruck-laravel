@@ -113,3 +113,5 @@ Route::post("/update_fecha_controll", [ApiController::class, "update_fecha_contr
 Route::post("/update_oferta_state", [ApiController::class, "update_oferta_state"]);
 // * camnia el main de la sofertas
 Route::post("/update_main_oferta", [ApiController::class, "update_main_oferta"]);
+// * registro de login
+// Route::post("");
