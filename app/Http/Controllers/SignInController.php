@@ -21,6 +21,8 @@ class SignInController extends Controller
         $password = trim($request->password);
         $nombre = $request->name;
         $pass = $request->tipo_rss == 0 ? $this->generatePassword($request->password): null; // ? => si es de facebook o gmail no tiene password
+        $img = $request->img_url;
+
 
         $register = new LoginUser();
         $register->id_plataforma = $id_plataforma;
@@ -28,6 +30,7 @@ class SignInController extends Controller
         $register->estado = $estado;
         $register->email = $email;
         $register->nombre = $nombre;
+        $register->img = $img;
         $register->password = $pass;
         $register->save();
         return $register;
