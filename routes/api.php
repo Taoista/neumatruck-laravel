@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ApiNeumatruckController;
 use App\Http\Controllers\TransbankController;
+use App\Http\Controllers\SignInController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,4 +115,4 @@ Route::post("/update_oferta_state", [ApiController::class, "update_oferta_state"
 // * camnia el main de la sofertas
 Route::post("/update_main_oferta", [ApiController::class, "update_main_oferta"]);
 // * registro de login
-// Route::post("");
+Route::post("/create-sign-in",[SignInController::class,"create_sign_in"]);
