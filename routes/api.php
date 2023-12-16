@@ -117,3 +117,5 @@ Route::post("/update_main_oferta", [ApiController::class, "update_main_oferta"])
 // * registro de login
 Route::post("/create-sign-in",[SignInController::class,"create_sign_in"]);
 Route::get("/activate-register/{id_registro}",[SignInController::class,"activate_register"]);
+// * verifica si el usuario esta registrado e inicia session
+Route::post("/start-session-login",[SignInController::class,"start_session_login"]);

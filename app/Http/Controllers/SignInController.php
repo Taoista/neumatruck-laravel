@@ -24,7 +24,8 @@ class SignInController extends Controller
         $password = trim($request->password);
         $nombre = strtolower($request->name);
         $pass = $request->tipo_rss == 0 ? $this->generatePassword($request->password): null; // ? => si es de facebook o gmail no tiene password
-        $img = $id_rss == 0 ? urlImg() : $request->img_url;
+        // $img = $id_rss == 0 ? urlImg() : $request->img_url;
+        $img = $request->img_url;
 
         $existingUser = LoginUser::where('email', $email)->first();
         $fechaActual = Carbon::now();
@@ -78,6 +79,36 @@ class SignInController extends Controller
             return redirect('https://neuamtruck.cl');
         }
         return redirect('https://neumatruck.cl');
+    }
+
+
+    function start_session_login(Request $request)
+    {
+        $user = strtolower($request->user);
+        $pass = trim($request->pass);
+        try {
+            $data = LoginUser::select("id", "nombre", "estado", "img", "password")->where("email", $user)->get();
+            if($data->count() >0){
+                if($data->first()->estado == 1){
+                    if(password_verify($pass, $data->first()->password)){
+                        $data = [
+                                'id_user' => $data->first()->id,
+                                'nombre' => $data->first()->nombre,
+                                'img' => $data->first()->img
+                            ];
+                            return response()->json($data);
+                        }else{
+                            return "error-password";
+                        }
+                }else{
+                    return "not-activate";
+                }
+            }else{
+                return "error-not-user";
+            }
+        } catch (\Throwable $th) {
+            return "error";
+        }
     }
 
 
