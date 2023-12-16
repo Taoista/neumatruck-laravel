@@ -17,6 +17,11 @@ function generate_toke()
     return $token;
 }
 
+function urlImg()
+{
+    $url = "assets/img/neumatruck-logo.png";
+    return $url;
+}
 
 // * wahhsap
 function  get_whatsapp()
