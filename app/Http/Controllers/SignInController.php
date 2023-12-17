@@ -92,19 +92,37 @@ class SignInController extends Controller
                 if($data->first()->estado == 1){
                     if(password_verify($pass, $data->first()->password)){
                         $data = [
-                                'id_user' => $data->first()->id,
-                                'nombre' => $data->first()->nombre,
-                                'img' => $data->first()->img
+                                'response'=>'success',
+                                'data' => [
+                                    'id_user' => $data->first()->id,
+                                    'nombre' => $data->first()->nombre,
+                                    'img' => $data->first()->img
+                                ]                           
                             ];
                             return response()->json($data);
                         }else{
-                            return "error-password";
+                            return response()->json(
+                                [
+                                    'response' => "error-password",
+                                    'data' => []
+                                ]
+                            );
                         }
                 }else{
-                    return "not-activate";
+                    return response()->json(
+                        [
+                            'response' => "not-activate",
+                            'data' => []
+                        ]
+                    );
                 }
             }else{
-                return "error-not-user";
+                return reponse()->json(
+                    [
+                        'response' => "error-not-user",
+                        'data' => null
+                    ]
+                );
             }
         } catch (\Throwable $th) {
             return "error";
