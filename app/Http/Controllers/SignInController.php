@@ -42,11 +42,13 @@ class SignInController extends Controller
             $register->password = $pass;
             $register->save();
             // ? se debe enviar el correo y el correo debe verificar si esta pasado lso 5 minutos
-
-            $id_registro = base64_encode($register->id);
-
-            $correo = new MailActivateRegister($id_registro);
-            Mail::to($email)->send($correo);
+            // ? y solo si perteneces a el registro normal
+            if($id_rss == 0){
+                $id_registro = base64_encode($register->id);
+    
+                $correo = new MailActivateRegister($id_registro);
+                Mail::to($email)->send($correo);
+            }
 
             echo "ok";
         } else {
