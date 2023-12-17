@@ -5,8 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use App\Models\LoginUser;
 
@@ -14,9 +12,9 @@ class MailActivateRegister extends Mailable
 {
     use Queueable, SerializesModels;
 
-
     public $id_registro;
     public $email;
+
     /**
      * Create a new message instance.
      *
@@ -29,27 +27,14 @@ class MailActivateRegister extends Mailable
     }
 
     /**
-     * Get the message envelope.
+     * Build the message.
      *
-     * @return \Illuminate\Mail\Mailables\Envelope
+     * @return $this
      */
-    public function envelope()
+    public function build()
     {
-        return new Envelope(
-            subject: 'Mail Activacion Registro',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
-    public function content()
-    {
-        return new Content(
-            view: 'email.activate_register',
-        );
+        return $this->subject('Mail Activacion Registro')
+                    ->view('email.activate_register');
     }
 
     /**
@@ -62,10 +47,14 @@ class MailActivateRegister extends Mailable
         return [];
     }
 
-    function get_data()
+    /**
+     * Get the data for the email.
+     *
+     * @return string
+     */
+    protected function get_data()
     {
         $email = LoginUser::select('email')->where("id", $this->id_registro)->first()->email;
         return $email; 
     }
-
 }

@@ -18,7 +18,7 @@ class SignInController extends Controller
     {
 
         $id_plataforma = $request->id_plataforma; // ? 1 -> web 2-> mobil
-        $id_rss = $request->tipo_rss; // ? 1-> google 2-> facebook 0->nomarl registro con email
+        $id_rss = $request->tipo_rss; // ? 1-> google 2-> facebook 0-> nomarl 
         $estado = $id_rss == 0 ? 0 : 1;
         $email = strtolower($request->email);
         $password = trim($request->password);
