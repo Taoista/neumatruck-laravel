@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Productos;
 use App\Models\Carrito;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ServiceProductosController;
 use Cookie;
 
 class ButtonAdd extends Component
@@ -32,7 +33,16 @@ class ButtonAdd extends Component
         return $data;
     }
 
-    
+    function add_producto($id, $cantidad = 1)
+    {
+
+        $controll = new ServiceProductosController($id, 1);
+        $data = $controll->addProduct();
+        // dd($data);
+        $this->dispatchBrowserEvent("save_producto");
+    }
+
+
     function show_modal($id, $cantidad = 1)
     {
         $value = Cookie::get('nt_session');

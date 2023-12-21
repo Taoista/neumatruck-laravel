@@ -1,6 +1,7 @@
 <div x-data="demo_demo()" x-init="pipo()">
-    <button class="add-to-cart-btn " wire:click="show_modal('{{ $item->id }}')" wire:loading.remove><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button>
-    <div class="add-to-cart" wire:loading wire:target="show_modal">
+    {{-- <button class="add-to-cart-btn " wire:click="show_modal('{{ $item->id }}')" wire:loading.remove><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button> --}}
+    <button class="add-to-cart-btn " wire:click="add_producto('{{ $item->id }}')" wire:loading.remove><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button>
+    <div class="add-to-cart" wire:loading wire:target="add_producto">
         <button class="add-to-cart-btn agregacarro" style="background-color: #FFF;
                                                             padding-left: 95px;
                                                             padding-right: 95px;
@@ -25,6 +26,7 @@
                 <div class="row" style="padding:15px">
                     <label for="" style="color:red; display:none; text-align:center" id="lbl-error">Debe agregar un email valido para continuar</label>
                     <input @keydown.enter="add_card('{{ $item->id }}')" id="email-session-{{ $item->id }}" type="text" class="form-control" placeholder="Email"><br>
+                    {{-- <input @keydown.enter="add_producto('{{ $item->id }}')" id="email-session-{{ $item->id }}" type="text" class="form-control" placeholder="Email"><br> --}}
                     <button @click="add_card('{{ $item->id }}')" type="button" class="btn btn-default center-block">Continuar</button>
                 </div>
             </div>
