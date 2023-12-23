@@ -14,9 +14,19 @@ class SignInController extends Controller
 {
 
     // * crea una nueva cuenta para login
+    /**
+     * funcion que registra un usauario o lo logea, en caso de registro normal manda un email para su activacion
+     *
+     * @param integer $id_plataforma pallataforma web o mobil
+     * @param integer $id_rss si se registro en google o facebook normal
+     * @param string $email Descripción del segundo parámetro.
+     * @param string $password Descripción del segundo parámetro.
+     * @param string $nombre Descripción del segundo parámetro.
+     * @param string $pass Descripción del segundo parámetro.
+     * @return string img del valor de retorno.
+     */
     function create_sign_in(Request $request)
     {
-
         $id_plataforma = $request->id_plataforma; // ? 1 -> web 2-> mobil
         $id_rss = $request->tipo_rss; // ? 1-> google 2-> facebook 0-> nomarl 
         $estado = $id_rss == 0 ? 0 : 1;
@@ -30,7 +40,6 @@ class SignInController extends Controller
         $existingUser = LoginUser::where('email', $email)->first();
         $fechaActual = Carbon::now();
        
-
 
         if (!$existingUser) {
             // El usuario no existe, puedes crear uno nuevo
@@ -51,7 +60,6 @@ class SignInController extends Controller
                 $correo = new MailActivateRegister($id_registro);
                 Mail::to($email)->send($correo);
             }
-             // ? si inicia con una SSRR
             if($id_rss != 0){
                 $data = [
                     'response'=>'success',
@@ -63,9 +71,23 @@ class SignInController extends Controller
                 ];
                 return response()->json($data);
             }
-            echo "ok";
+            return $data = [
+                'response'=>'sending',
+                'data' => null                          
+            ];
         } else {
-            echo "existe";
+            // ? si inicia con una SSRR
+            if($id_rss != 0){
+                $data = [
+                    'response'=>'success',
+                    'data' => [
+                        'id_user' => $existingUser->id,
+                        'nombre' => $existingUser->nombre,
+                        'img' => $existingUser->img
+                    ]                           
+                ];
+                return response()->json($data);
+            }
         }
     }
 
