@@ -40,7 +40,7 @@ class SignInController extends Controller
         $existingUser = LoginUser::where('email', $email)->first();
         $fechaActual = Carbon::now();
        
-
+        // ? si no existe el usuario
         if (!$existingUser) {
             // El usuario no existe, puedes crear uno nuevo
             $register = new LoginUser();
@@ -60,6 +60,7 @@ class SignInController extends Controller
                 $correo = new MailActivateRegister($id_registro);
                 Mail::to($email)->send($correo);
             }
+            // ? si es usuario de redes sociales
             if($id_rss != 0){
                 $data = [
                     'response'=>'success',
@@ -76,6 +77,14 @@ class SignInController extends Controller
                 'data' => null                          
             ];
         } else {
+            // ? el usuario existe, pero no tiene password
+            if($id_rss == 0){
+                $data = [
+                    'response'=>'existe',
+                    'data' => null                          
+                ];
+                return response()->json($data);
+            }
             // ? si inicia con una SSRR
             if($id_rss != 0){
                 $data = [
