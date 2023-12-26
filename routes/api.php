@@ -7,6 +7,7 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ApiNeumatruckController;
 use App\Http\Controllers\TransbankController;
 use App\Http\Controllers\SignInController;
+use App\Http\Controllers\MobilConfigController;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,3 +120,10 @@ Route::post("/create-sign-in",[SignInController::class,"create_sign_in"]);
 Route::get("/activate-register/{id_registro}",[SignInController::class,"activate_register"]);
 // * verifica si el usuario esta registrado e inicia session
 Route::post("/start-session-login",[SignInController::class,"start_session_login"]);
+
+
+// * 
+// * data solo para mobil
+// * 
+// * 
+Route::get("/get-banner-mobil",[MobilConfigController::class, "get_banner_mobil"]);
