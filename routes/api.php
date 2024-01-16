@@ -122,8 +122,9 @@ Route::get("/activate-register/{id_registro}",[SignInController::class,"activate
 Route::post("/start-session-login",[SignInController::class,"start_session_login"]);
 
 
+
 // * 
 // * data solo para mobil
 // * 
 // * 
-Route::get("/get-banner-mobil",[MobilConfigController::class, "get_banner_mobil"]);
+Route::get("/get-banner-mobil",[PoliticasController::class, "get_banner_mobil"]);

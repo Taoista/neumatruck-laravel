@@ -12,6 +12,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\TransbankController;
 use App\Http\Controllers\SectionBrandsController;
 use App\Http\Controllers\GeneralesController;
+use App\Http\Controllers\PoliticasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,7 +74,8 @@ Route::get("/politicas-devolucion",[GeneralesController::class, "politicas_devol
 
 Route::get("/checkout_2",[CheckoutController::class, "checkout_2"]);
 
-
+// * app privacidad
+Route::get("/app/politias-privacidad",[PoliticasController::class,"politicas_privacidad"]);
 
 
 
