@@ -497,7 +497,7 @@ class ApiController extends Controller
                                     "transbank.installmentsNumber AS cuotas", "transbank.installmentsAmount AS val_cuotas","transbank.cardNumber AS n_tarjeta", "transbank.total", "c.email", "c.nombre",
                                     "c.rut", "c.telefono", "c.contacto", "c.tipo_delivery", "c.id_ciudad", "ciudades.ciudad", "c.direccion", "c.nota",
                                     "c.neto", "c.iva", "c.delivery", "c.total AS total_pago", "ciudades.region", "c.estado_compra","ce.nombre AS estado_compra_lbl",
-                                    "c.id_erp")
+                                    "c.id_erp", "c.n_factura")
                     ->join("compras AS c", "transbank.id_compras", "=", "c.id")
                     ->join("tipo_tarjeta AS tp", "transbank.paymentTypeCode", "=", "tp.cod")
                     ->join("compras_estado AS ce", "ce.id", "c.estado_compra")
@@ -526,9 +526,23 @@ class ApiController extends Controller
                 return $th;
 
             }
+        }
 
-            
+        function update_n_factura(Request $request)
+        {
+            try {
+                $n_factura = $request->n_factura;
+                $id_registro = $request->id_registro;
 
+                Compras::where("id_tbk", $id_registro)->update(["n_factura" => $n_factura]);
+
+                return "ok";
+
+            } catch (\Throwable $th) {
+                
+                return $th;
+
+            }
         }
 
         // * toma los productos comprados

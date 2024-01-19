@@ -81,6 +81,8 @@ Route::get("/get_data_comprobante/{id_comprobante}",[ApiController::class, "get_
 Route::get("/get_productos_comprados/{id_comprobante}",[ApiController::class, "get_productos_comprados"]);
 // * update codigo erp
 Route::post("/update_erp_codigo",[ApiController::class, "update_erp_codigo"]);
+// * update numero factura
+Route::post("/update_n_factura",[ApiController::class, "update_n_factura"]);
 // * toma los productos que estan en oferta
 Route::get("/get_ofert_productos",[ApiController::class, "get_ofert_productos"]);
 // * toma los tipos de ofertas
