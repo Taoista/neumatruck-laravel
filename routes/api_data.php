@@ -7,4 +7,6 @@ use Illuminate\Support\Facades\Route;
 // * toma las ventas totales del mes
 Route::get("/get_monthly_sales/{month}/{year}",[ApiDataController::class, "get_monthly_sales"]);
 // * toma los datos del cliente
-Route::get("get_data_cliente/{codigo}",[ApiDataController::class, "get_data_cliente"]);
+Route::get("/get_data_cliente/{codigo}",[ApiDataController::class, "get_data_cliente"]);
+// * Obtiene el total de ventas para un mes y año específicos.
+Route::get("/get-venta-totales/{month}/{year}",[ApiDataController::class, "get_venta_totales"]);

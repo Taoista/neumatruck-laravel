@@ -45,8 +45,26 @@ class ApiDataController extends Controller
         }
 
         return response()->json($results);
-
     }
 
+    /* *
+     * Obtiene el total de ventas para un mes y año específicos.
+     *
+     * @param int $month El mes para el que se desea obtener el total de ventas (formato numérico).
+     * @param int $year El año para el que se desea obtener el total de ventas (formato numérico).
+     * @return \Illuminate\Support\Collection La suma de la columna "neto" para las compras que cumplen con los criterios de fecha y el ID de ERP no es cero.
+     */
+    function get_venta_totales($month, $year)
+    {
+        // Formatea la fecha para la comparación en la base de datos.
+        $fecha = $year . '-' . str_pad($month, 2, '0', STR_PAD_LEFT) . '%';
+
+        // Obtiene la suma de la columna "neto" para las compras que cumplen con los criterios.
+        $totalVentas = Compras::where('fecha', 'like', $fecha)
+            ->where('id_tbk', '!=', 0)
+            ->sum('neto');
+
+        return $totalVentas;
+    }
 
 }
