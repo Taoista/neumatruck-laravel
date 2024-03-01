@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Marcas;
 use App\Models\Productos;
 use App\Models\Banners;
+use Illuminate\Support\Facades\Log;
+
 
 class IndexController extends Controller{
 
@@ -18,6 +20,11 @@ class IndexController extends Controller{
         $otr = $this->get_productos(4);
 
         $banners = $this->get_banners();
+
+        $nombre_pagina = 'Index'; // Puedes ajustar esto según tu aplicación
+
+        // Registramos el evento de visita a la página
+        Log::info('Visita a la página: ' . $nombre_pagina);
 
         return view("index", compact("marcas", "camion_bus", "agricola", "otr", "banners"));
     }
