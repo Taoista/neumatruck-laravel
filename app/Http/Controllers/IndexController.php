@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 class IndexController extends Controller{
 
-    function index(){
+    function index(Request $request){
 
         $marcas = $this->get_marcas();
 
@@ -25,6 +25,15 @@ class IndexController extends Controller{
 
         // Registramos el evento de visita a la página
         Log::info('Visita a la página: ' . $nombre_pagina);
+
+        $referer = $request->header('referer');
+
+        // Obtenemos el nombre de la página actual
+        $nombre_pagina = 'Index'; // Puedes ajustar esto según tu aplicación
+
+        // Registramos el evento de visita a la página junto con la URL de referencia
+        Log::info('Visita a la página: ' . $nombre_pagina . ', Referer: ' . $referer);
+
 
         return view("index", compact("marcas", "camion_bus", "agricola", "otr", "banners"));
     }
