@@ -873,6 +873,35 @@ class ApiController extends Controller
             OfertasTipo::where("id", $id)->update(["main" => 1]);
         }
 
+
+
+        function update_sku(Request $request)
+        {
+            try {
+                $codigo = $request->codigo;
+                $descripcion = strtoupper($request->name);
+                $stock = $request->stock;
+                $img = $request->img;
+                // ? actualiza el producto
+                Productos::where("codigo", $codigo)->update([
+                    "nombre" => $descripcion,
+                    "stock" => $stock,
+                    "img" => $img
+                ]);
+
+                $value = create_filter($codigo,0,"");
+                // ? acualiza la busqueda
+                Productos::where("codigo", $codigo)->update([
+                    "busqueda" => $value
+                ]);
+
+                return response()->json(['message' => 'success','data'=> "ok"], 200);
+            } catch (\Throwable $th) {
+                return response()->json(['message' => 'error','data'=> $th], 200);
+            }
+            
+        }
+
 }
 
 

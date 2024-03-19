@@ -174,16 +174,16 @@ function instagram()
 
 function create_filter($codigo, $id_marca, $marca_name)
 {
-    $data_marca = Marcas::where("id2", $id_marca)->get();
-    if(count($data_marca) == 0){
-        $marca = new Marcas;
-        $marca->id2 = $id_marca;
-        $marca->estado = 1;
-        $marca->marca = strtoupper($marca_name);
-        $marca->nav = 0;
-        $marca->prioridad = 0;
-        $marca->save();
-    }
+    // $data_marca = Marcas::where("id2", $id_marca)->get();
+    // if(count($data_marca) == 0){
+    //     $marca = new Marcas;
+    //     $marca->id2 = $id_marca;
+    //     $marca->estado = 1;
+    //     $marca->marca = strtoupper($marca_name);
+    //     $marca->nav = 0;
+    //     $marca->prioridad = 0;
+    //     $marca->save();
+    // }
 
     $data = Productos::select("productos.codigo", "productos.nombre", "productos.medidas", "productos.aro",
                             "m.marca AS marca", "t.nombre AS tipo")
