@@ -882,11 +882,13 @@ class ApiController extends Controller
                 $descripcion = strtoupper($request->name);
                 $stock = $request->stock;
                 $img = $request->img;
+                $stado = $request->estado;
                 // ? actualiza el producto
                 Productos::where("codigo", $codigo)->update([
                     "nombre" => $descripcion,
                     "stock" => $stock,
-                    "img" => $img
+                    "img" => $img,
+                    "estado" => $stado
                 ]);
 
                 $value = create_filter($codigo,0,"");
