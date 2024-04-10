@@ -135,7 +135,7 @@ class ApiNeumatruckController extends Controller
         {
             try {
                 $id =  $request->id;
-                $data = trim($request->phone);
+                $data = '+569'.trim($request->phone);
     
                 ConfiguracionDato::where("id", $id)->update(['result' => $data]);
                 return response()->json(["response" => "success", "data" => []]);
