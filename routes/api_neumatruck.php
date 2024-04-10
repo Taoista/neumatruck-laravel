@@ -20,3 +20,9 @@ Route::post("/update_banner",[ApiNeumatruckController::class, "update_banner"]);
 Route::post("/insert_banner",[ApiNeumatruckController::class, "insert_banner"]);
 
 Route::post("/delete_banner", [ApiNeumatruckController::class, "delete_banner"]);
+
+Route::post("/create-new-brand",[ApiNeumatruckController::class, "create_new_brand"]);
+// * toma el numero de wahtasapp
+Route::get("/get-phone-wsp",[ApiNeumatruckController::class, "get_phone_wsp"]);
+// * actualiza el numero de wahtasapp
+Route::post("/update-phone-wsp",[ApiNeumatruckController::class, "update_phone_wsp"]);

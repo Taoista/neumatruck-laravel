@@ -904,6 +904,34 @@ class ApiController extends Controller
             
         }
 
+
+        function create_new_brand(Request $request)
+        {
+            
+            $id2 = $request->id2;
+            $estado = 1;
+            $marca = $request->marca;
+            $nav = 0;
+            $prioridad = 0;
+
+            try {
+
+                $register = new Marcas();
+                $register->id2 = $id2;
+                $register->estado = $estado;
+                $register->marca = $marca;
+                $register->nav = $nav;
+                $register->prioridad = $prioridad;
+                $register->save();
+
+                return response()->json(['message' => 'error','data'=> $register], 200);
+            } catch (\Throwable $th) {
+                return response()->json(['message' => 'error','data'=> $th], 200);
+            }
+
+
+        }
+
 }
 
 

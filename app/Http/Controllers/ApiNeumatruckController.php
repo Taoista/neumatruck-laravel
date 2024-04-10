@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Banners;
 use App\Models\Enlaces;
+use App\Models\ConfiguracionDato;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -114,6 +115,33 @@ class ApiNeumatruckController extends Controller
             Banners::where("id", $id_banner)->delete();
             return $file_path;
 
+        }
+
+        function get_phone_wsp()
+        {
+            try {
+                $data = ConfiguracionDato::where("data", "wp")->get();
+
+                            // response()->json(['message'=> 'ok', 'data'=> $banner]);
+                return response()->json(["response" => "success", "data" => $data]);
+            } catch (\Throwable $th) {
+                return response()->json(["response" => "error", "data" => $th]);
+                
+            }
+        }
+
+
+        function update_phone_wsp(Request $request)
+        {
+            try {
+                $id =  $request->id;
+                $data = trim($request->phone);
+    
+                ConfiguracionDato::where("id", $id)->update(['result' => $data]);
+                return response()->json(["response" => "success", "data" => []]);
+            } catch (\Throwable $th) {
+                return response()->json(["response" => "error", "data" => $th]);
+            }
         }
 
 
