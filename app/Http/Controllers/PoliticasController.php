@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use MOIREI\GoogleMerchantApi\Facades\ProductApi;
+use MOIREI\GoogleMerchantApi\Facades\OrderApi;
+
 
 class PoliticasController extends Controller
 {
@@ -12,6 +15,11 @@ class PoliticasController extends Controller
 
         return view('politicas-privacidad');
 
+    }
+
+    function demo()
+    {
+        dd("hola");
     }
 
 }

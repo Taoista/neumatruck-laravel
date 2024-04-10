@@ -79,8 +79,6 @@ Route::get("/app/politias-privacidad",[PoliticasController::class,"politicas_pri
 
 
 
-Route::get('/demo-demo', function () {
-   return "pepe2";
- });
+Route::get('/demo-demo', [PoliticasController::class,"demo"]);
 
 
