@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc14614e154b99ee7ca4e5d33eb9dd0c",
+    "content-hash": "ffc0ef1abe0ef3ed005b72d56a649310",
     "packages": [
         {
             "name": "brick/math",
@@ -2135,6 +2135,69 @@
                 }
             ],
             "time": "2023-08-11T04:02:34+00:00"
+        },
+        {
+            "name": "moirei/laravel-google-merchant-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/augustusnaz/laravel-google-merchant-api.git",
+                "reference": "0155c448806a1d676427312db0a94a953e1d9d10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/augustusnaz/laravel-google-merchant-api/zipball/0155c448806a1d676427312db0a94a953e1d9d10",
+                "reference": "0155c448806a1d676427312db0a94a953e1d9d10",
+                "shasum": ""
+            },
+            "require": {
+                "google/apiclient": "^2.4",
+                "guzzlehttp/guzzle": "~5.3|^6.5|^7.0",
+                "illuminate/cache": "~5.0|^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "~5.0|^6.0|^7.0|^8.0|^9.0",
+                "php": "^7.2|^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MOIREI\\GoogleMerchantApi\\GoogleMerchantApiServiceProvider"
+                    ],
+                    "aliases": {
+                        "ProductsApi": "MOIREI\\GoogleMerchantApi\\Facades\\ProductsApi"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MOIREI\\GoogleMerchantApi\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Augustus Okoye",
+                    "email": "augustusokoye@moirei.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Google Merchant Products API for Google Shopping.",
+            "homepage": "https://github.com/augustusnaz/laravel-google-merchant-api",
+            "keywords": [
+                "Google Merchant API",
+                "Google Shopping API",
+                "laravel",
+                "moirei.com"
+            ],
+            "support": {
+                "issues": "https://github.com/augustusnaz/laravel-google-merchant-api/issues",
+                "source": "https://github.com/augustusnaz/laravel-google-merchant-api/tree/master"
+            },
+            "time": "2022-12-27T08:00:30+00:00"
         },
         {
             "name": "monolog/monolog",
