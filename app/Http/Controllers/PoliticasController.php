@@ -20,6 +20,7 @@ class PoliticasController extends Controller
     function demo()
     {
         dd("hola");
+        dd("emo");
     }
 
 }
