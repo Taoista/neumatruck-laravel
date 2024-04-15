@@ -225,27 +225,12 @@
                                     <li class="neonText"><a href="{{ url("./ofertas-especial") }}">{{ get_title_of_secundaria() }}</a></li>
                                 @endif --}}
                                 @if(oferta_primaria() == true)
-                                {{-- <li><a class="neonText" href="{{ url("./ofertas") }}" style="color: #FFB03D;">{{ get_title_oferta_ptimaria() }} </a></li> --}}
-                                <li><a style="color: #fff;
-                                    text-shadow:
-                                        0 0 7px #fff,
-                                        0 0 10px #fff,
-                                        0 0 21px #fff,
-                                        0 0 42px #ffb03d,
-                                        0 0 82px #ffb03d,
-                                        0 0 92px #ffb03d,
-                                        0 0 102px #ffb03d,
-                                        0 0 151px #ffb03d;
-                                    animation-name: parpadeo;
-                                    animation-duration: 1s;
-                                    animation-timing-function: linear;
-                                    animation-iteration-count: infinite;
-                            
-                                    -webkit-animation-name: parpadeo;
-                                    -webkit-animation-duration: 3s;
-                                    -webkit-animation-timing-function: linear;
-                                    -webkit-animation-iteration-count: infinite;
-                                    color: white;" href="{{ url("./ofertas") }}">{{ get_title_oferta_ptimaria() }} </a></li>
+                                    {{-- <li><a class="neonText" href="{{ url("./ofertas") }}" style="color: #FFB03D;">{{ get_title_oferta_ptimaria() }} </a></li> --}}
+                                    {{-- get_ofertas --}}
+                                    @foreach (get_ofertas() as $item)
+                                        <li><a style="{{ $item->css }}" href="{{ url("./ofertas") }}">{{ strtoupper($item->nombre) }} </a>
+                                        </li>
+                                    @endforeach
                                 @endif
                                 @foreach (get_categorias() as $item)
                                 <li><a class="section-selector" data-type="{{ $item->id }}" href="#">{{ $item->nombre }}</a></li>

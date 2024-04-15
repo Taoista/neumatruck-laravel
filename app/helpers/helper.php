@@ -95,10 +95,19 @@ function set_money($val){
     $data = round($val * $iva);
     return  "$ ".number_format($data, 0, ",", ".");
 }
-// * es la oferta PRIMARIA
+
+// * controla todas las ofertas
 function oferta_primaria()
 {
     $data = Configuracion::where("tipo", "of")->get()->first()->resultado;
+    return $data;
+}
+
+
+function get_ofertas()
+{
+    // ? control es el estado
+    $data = OfertasTipo::where("control", 1)->get();
     return $data;
 }
 
