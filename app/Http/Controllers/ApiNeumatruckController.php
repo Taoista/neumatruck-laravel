@@ -47,27 +47,41 @@ class ApiNeumatruckController extends Controller
             $id_enlace = $request->id_enlace;
             $name = $request->name;
             $title_imagen = $request->title_imagen;
+            $codigo_new = $request->codigo_new;
             try {
                 // $path = Enlaces::select("enlace")->where("id", $id_ruta)->get();
                 // $ruta = "#";
                 // if(count($path) > 0){
                 //     $ruta = $path->first()->enlace;
                 // }
-
-                if($name == ""){
-                    Banners::where("id", $id_banner)->update([
-                        "estado" => $estado,
-                        "redireccion" => $id_enlace,
-                        "title" => $title_imagen
-                    ]);
-                }else{
+                if($id_enlace == 11){
                     Banners::where("id", $id_banner)->update([
                         "estado" => $estado,
                         "redireccion" => $id_enlace,
                         "img" => 'assets/img/banner/'.$name,
                         "title" => $title_imagen
                     ]);
+                    Enlaces::where("id", $id_enlace)->update([
+                        'enlace' => './producto/'.$codigo_new
+                    ]);
+                }else{
+                    if($name == ""){
+                        Banners::where("id", $id_banner)->update([
+                            "estado" => $estado,
+                            "redireccion" => $id_enlace,
+                            "title" => $title_imagen
+                        ]);
+                    }else{
+                        Banners::where("id", $id_banner)->update([
+                            "estado" => $estado,
+                            "redireccion" => $id_enlace,
+                            "img" => 'assets/img/banner/'.$name,
+                            "title" => $title_imagen
+                        ]);
+                    }
                 }
+
+
 
 
                 return "ok";

@@ -257,7 +257,12 @@ class ApiController extends Controller
 
     function get_banner($id_banner)
     {
-        return Banners::where("id", $id_banner)->get();
+        return Banners::select("banners.id", "banners.orden", "banners.estado", 
+                "banners.activo", "banners.img", "banners.title", 
+                "banners.redireccion", "e.enlace")
+            ->join("enlaces AS e", "e.id", "banners.redireccion")
+            ->where("banners.id", $id_banner)
+            ->get();
     }
 
     function get_urls()
