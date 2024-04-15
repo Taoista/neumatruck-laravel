@@ -872,11 +872,15 @@ class ApiController extends Controller
             $id_oferta = $request->id_oferta;
             $control = $request->control;
             $lbl_oferta = $request->lbl_oferta;
+            $list_color = $request->list_color;
 
             try {
                 OfertasTipo::where("id", $id_oferta)->update([
                     "control" => $control,
-                    "nombre" => $lbl_oferta
+                    "nombre" => $lbl_oferta,
+                    "color_1" => $list_color[0]['color'],
+                    "color_2" => $list_color[1]['color'],
+                    "color_3" => $list_color[2]['color']
                 ]);
                 return "ok";
             } catch (\Throwable $th) {
