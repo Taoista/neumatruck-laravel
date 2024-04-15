@@ -228,7 +228,7 @@
                                     {{-- <li><a class="neonText" href="{{ url("./ofertas") }}" style="color: #FFB03D;">{{ get_title_oferta_ptimaria() }} </a></li> --}}
                                     {{-- get_ofertas --}}
                                     @foreach (get_ofertas() as $item)
-                                        <li><a style="{{ $item->css }}" href="{{ url("./ofertas") }}">{{ strtoupper($item->nombre) }} </a>
+                                        <li><a style="{{ model_css($item->color_1, $item->color_2, $item->color_3) }}" href="{{ url("./ofertas") }}">{{ strtoupper($item->nombre) }} </a>
                                         </li>
                                     @endforeach
                                 @endif

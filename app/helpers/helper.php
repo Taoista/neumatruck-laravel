@@ -103,6 +103,31 @@ function oferta_primaria()
     return $data;
 }
 
+function model_css($color_1, $color_2, $color_3)
+{
+    $text = "
+    color: ".$color_1.";                                             
+    text-shadow:0 0 7px ".$color_2.",
+                0 0 10px ".$color_2.",
+                0 0 21px ".$color_2.",
+                0 0 42px ".$color_3.",
+                0 0 82px ".$color_3.",
+                0 0 92px ".$color_3.",
+                0 0 102px ".$color_3.",
+                0 0 151px ".$color_3.";
+                animation-name: parpadeo;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                -webkit-animation-name: parpadeo;
+                -webkit-animation-duration: 3s;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-iteration-count: infinite;
+                color: ".$color_1.";
+    ";
+    return $text;
+}
+
 
 function get_ofertas()
 {
