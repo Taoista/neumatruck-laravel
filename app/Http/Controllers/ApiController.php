@@ -15,6 +15,7 @@ use App\Models\Compras;
 use App\Models\OfertasTipo;
 use App\Models\Ofertas;
 use App\Models\Tipo;
+use App\Models\Marcas;
 use App\Models\Aplicaciones;
 use App\Models\OfertasControll;
 
@@ -764,6 +765,18 @@ class ApiController extends Controller
 
             $busqueda = "no_no";
 
+
+            // ? agrega la marca si no existe
+            $search_brand =  Marcas::where("id2", $id_marca)->first();
+            if(!$search_brand){
+                $newBrand = new Marcas();
+                $newBrand->id2 = $id_marca;
+                $newBrand->estado = 1;
+                $newBrand->marca = strtoupper($marca);
+                $newBrand->nav = 0;
+                $newBrand->prioridad = 0;
+                $newBrand->save();
+            }
 
             // ? se debe generar la busqueda para poder girar al buscador
 
