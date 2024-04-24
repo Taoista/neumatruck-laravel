@@ -95,4 +95,25 @@ class ApiDataController extends Controller
 
     }
 
+
+
+    function update_seccion(Request $request)
+    {
+        $id_seccion = $request->id_seccion;
+        $estado = $request->estado;
+        $name = $request->name;
+
+        SeccionTipo::where("id", $id_seccion)->update([
+            'estado' => $estado,
+            'nombre' => $name
+        ]);
+    }
+
+    function delete_seccion(Request $request)
+    {
+        $id_seccion = $request->id_seccion;
+        SeccionTipo::where("id", $id_seccion)->delete();
+        SeccionTipoProductos::where("id_tipo_seccion", $id_seccion)->delete();
+    }
+
 }

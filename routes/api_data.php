@@ -12,3 +12,6 @@ Route::get("/get_data_cliente/{codigo}",[ApiDataController::class, "get_data_cli
 Route::get("/get-venta-totales/{month}/{year}",[ApiDataController::class, "get_venta_totales"]);
 // * toma las secciones
 Route::get("/get-seccions",[ApiDataController::class, "get_seccions"]);
+// * actualiza estado y nombre
+Route::post("/update-seccions",[ApiDataController::class, "update_seccion"]);
+Route::post("/delete-seccions",[ApiDataController::class, "delete_seccion"]);
