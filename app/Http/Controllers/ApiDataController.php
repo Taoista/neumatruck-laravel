@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Transbank;
 use App\Models\Compras;
+use App\Models\SeccionTipo;
+use App\Models\SeccionTipoProductos;
 
 
 class ApiDataController extends Controller
@@ -65,6 +67,32 @@ class ApiDataController extends Controller
             ->sum('neto');
 
         return $totalVentas;
+    }
+
+    // toma las secciones
+    function get_seccions()
+    {
+        
+        try {
+            $elements = SeccionTipo::select('seccion_tipo.id AS id_seccion', 'seccion_tipo.estado', 'seccion_tipo.nombre')
+                    ->get();
+
+            $productos = SeccionTipoProductos::select("seccion_tipo_productos.id AS id_seccion_producto", "seccion_tipo_productos.id_tipo_seccion",
+                                            "st.nombre AS title_tipo",
+                                            "p.id AS id_producto", "p.codigo", "p.nombre")
+                                        ->join("productos AS p", "p.id", "seccion_tipo_productos.id_producto")
+                                        ->join("seccion_tipo AS st", "st.id", "seccion_tipo_productos.id_tipo_seccion")
+                                        ->get();
+            $data = [
+                'secciones' => $elements,
+                'productos' => $productos
+            ];
+
+            return response()->json(["response" => "success", "data" => $data]);
+        } catch (\Throwable $th) {
+            return response()->json(["response" => "error", "data" => $th]);
+        }
+
     }
 
 }
