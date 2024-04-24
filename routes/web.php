@@ -43,6 +43,8 @@ Route::get("/ofertas",[OfertasController::class, "ofertas"]);
 Route::get("/ofertas-especial",[OfertasController::class, "ofertas_especial"]);
 // * oferta fecha especial
 Route::get("/ofertas-espcial-date",[OfertasController::class, "ofertas_especial_date"]);
+// * seccion especial
+Route::get("/seccion-selected/{id_tipo}",[SeccionController::class, "seccion_selected"]);
 
 
 //  * Contacto
