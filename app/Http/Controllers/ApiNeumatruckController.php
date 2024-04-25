@@ -111,19 +111,31 @@ class ApiNeumatruckController extends Controller
             $img = $request->img;
             $title = $request->title == "" ? "#" : $request->title;
             $redireccion = $request->redireccion;
-
+            $id_seccion = $request->id_seccion;
             // ? bsucar el orden
             $orden = Banners::max("orden") + 1;
 
             try {
-                $banner = new Banners();
-                $banner->orden = $orden;
-                $banner->estado = $estado;
-                $banner->activo = $activo;
-                $banner->img = "assets/img/banner/".$img;
-                $banner->title = $title;
-                $banner->redireccion = $redireccion;
-                $banner->save();
+                if($id_enlace == 12){
+                    Banners::where("id", $id_banner)->update([
+                        "estado" => $estado,
+                        "redireccion" => $id_enlace,
+                        "img" => 'assets/img/banner/'.$img,
+                        "title" => $title
+                    ]);
+                    Enlaces::where("id", $id_enlace)->update([
+                        'enlace' => './seccion-selected/'.base64_encode($id_seccion)
+                    ]);
+                }else{
+                    $banner = new Banners();
+                    $banner->orden = $orden;
+                    $banner->estado = $estado;
+                    $banner->activo = $activo;
+                    $banner->img = "assets/img/banner/".$img;
+                    $banner->title = $title;
+                    $banner->redireccion = $redireccion;
+                    $banner->save();
+                }
 
                 return "ok";
             } catch (\Throwable $th) {
