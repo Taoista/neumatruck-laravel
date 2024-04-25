@@ -117,12 +117,22 @@ class ApiNeumatruckController extends Controller
 
             try {
                 if($redireccion == 12){
-                    Banners::where("id", $id_banner)->update([
-                        "estado" => $estado,
-                        "redireccion" => $redireccion,
-                        "img" => 'assets/img/banner/'.$img,
-                        "title" => $title
-                    ]);
+                    // Banners::where("id", $id_banner)->update([
+                    //     "estado" => $estado,
+                    //     "redireccion" => $redireccion,
+                    //     "img" => 'assets/img/banner/'.$img,
+                    //     "title" => $title
+                    // ]);
+                    $banner = new Banners();
+                    $banner->orden = $orden;
+                    $banner->estado = $estado;
+                    $banner->activo = $activo;
+                    $banner->img = "assets/img/banner/".$img;
+                    $banner->title = $title;
+                    $banner->redireccion = $redireccion;
+                    $banner->save();
+
+
                     Enlaces::where("id", $redireccion)->update([
                         'enlace' => './seccion-selected/'.base64_encode($id_seccion)
                     ]);
