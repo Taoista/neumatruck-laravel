@@ -107,6 +107,7 @@ class ApiDataController extends Controller
             'estado' => $estado,
             'nombre' => $name
         ]);
+        return 'ok';
     }
 
     function delete_seccion(Request $request)
@@ -114,6 +115,50 @@ class ApiDataController extends Controller
         $id_seccion = $request->id_seccion;
         SeccionTipo::where("id", $id_seccion)->delete();
         SeccionTipoProductos::where("id_tipo_seccion", $id_seccion)->delete();
+    }
+
+
+    function delete_producto_seccion(Request $request)
+    {
+        $id_seccion = $request->id_seccion_producto;
+        SeccionTipoProductos::where("id", $id_seccion)->delete();
+        return "ok";
+    }
+
+    function create_seccion(Request $request)
+    {
+        $name = $request->name;
+        
+        try {
+            $registro = new SeccionTipo();
+            $registro->estado = 1;
+            $registro->nombre = $name;
+            $registro->save();
+            return response()->json(["response" => "success", "data" => $registro]);
+        } catch (\Throwable $th) {
+            return response()->json(["response" => "error", "data" => $th]);
+        }
+
+        
+    }
+
+
+    function create_producto_section(Request $request)
+    {
+        try {
+            $id_section = $request->id_section;
+            $id_producto = $request->id_producto;
+            //code...
+            $registro = new SeccionTipoProductos();
+            $registro->id_tipo_seccion = $id_section;
+            $registro->id_producto = $id_producto;
+            $registro->save();
+            return response()->json(["response" => "success", "data" => $registro]);
+        } catch (\Throwable $th) {
+            return response()->json(["response" => "error", "data" => $th]);
+
+        }
+
     }
 
 }

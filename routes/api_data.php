@@ -14,4 +14,9 @@ Route::get("/get-venta-totales/{month}/{year}",[ApiDataController::class, "get_v
 Route::get("/get-seccions",[ApiDataController::class, "get_seccions"]);
 // * actualiza estado y nombre
 Route::post("/update-seccions",[ApiDataController::class, "update_seccion"]);
+Route::post("/create-seccions",[ApiDataController::class, "create_seccion"]);
+Route::post("/create-producto-section",[ApiDataController::class, "create_producto_section"]);
 Route::post("/delete-seccions",[ApiDataController::class, "delete_seccion"]);
+Route::post("/delete-producto-seccion",[ApiDataController::class, "delete_producto_seccion"]);
+
+
