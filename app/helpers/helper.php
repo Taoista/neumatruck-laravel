@@ -132,7 +132,7 @@ function model_css($color_1, $color_2, $color_3)
 function get_ofertas()
 {
     // ? control es el estado
-    $data = OfertasTipo::where("control", 1)->get();
+    $data = OfertasTipo::where("main", 1)->get();
     return $data;
 }
 

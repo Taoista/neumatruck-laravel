@@ -891,8 +891,11 @@ class ApiController extends Controller
         function update_main_oferta(Request $request)
         {
             $id = $request->id_oferta;
-            OfertasTipo::query()->update(['main' => 0]);
-            OfertasTipo::where("id", $id)->update(["main" => 1]);
+            $currentMain = OfertasTipo::where("id", $id)->value("main");
+            // Invertir el valor de 'main'
+            $newMain = $currentMain == 0 ? 1 : 0;
+            // Actualizar 'main' con el nuevo valor
+            OfertasTipo::where("id", $id)->update(["main" => $newMain]);
         }
 
 
