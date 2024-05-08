@@ -40,14 +40,14 @@
                             </label>
                           </div>
 
-                          {{-- <div class="form-check">
+                          <div class="form-check">
                             <input class="form-check-input" type="radio" name="exampleRadios" wire:model="selected_delivery" value="2" wire:click="chanche_delivery">
                             <label class="form-check-label" for="exampleRadios2">
                               Despacho
                             </label>
-                          </div> --}}
+                          </div>
 
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <div class="form-group">
                                 <select class="form-control" id="exampleFormControlSelect1" @disabled($delivery_disabeled == true) wire:model="selected_region">
                                   <option value="0" selected>Region</option>
@@ -67,19 +67,22 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div> --}}
+                        </div>
 
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <input class="input" type="text" name="direccion" wire:model="direccion" placeholder="Dirección de despacho"  @disabled($delivery_disabeled == true)>
-                        </div> --}}
-
-                        @if($delivery_disabeled == false)
+                        </div>
+                        {{-- * boton para calcular el envio --}}
+                        {{-- @if($delivery_disabeled == false)
                         <div class="form-group">
                                 <button type="button" class="btn btn-info" wire:click="add_despacho" wire:loading.remove>Calcular Despacho</button>
                                 <button type="button" class="btn btn-secondary" wire:loading wire:target="add_despacho">
                                 <img style="width: 20px" src="{{ asset('assets/img/loading.svg') }}" alt="">Cargando</button>
                         </div>
 
+                        @endif --}}
+                        @if($selected_delivery == "2")
+                        <strong style="color: #ffb03d; font-size:15px">Verificar costo de envio con el vendedor</strong>
                         @endif
                     </div>
 
@@ -145,7 +148,8 @@
                         <p style="color:#ffb03d;"><i class="fa fa-truck"></i></p>
                         {{-- <p>* Despacho gratis en toda RM sobre 150.000.-</p> --}}
                         <hr>
-                        <p>* Despacho a otras regiones consultar con verdedor Para más información revisar <a href="despacho.php" style="color:#ffb03d;font-weight: bold;">Política de Despacho</a>.</p>
+                        <p>* Despacho a otras regiones consultar con verdedor Para más información revisar <a href="#" style="color:#ffb03d;font-weight: bold;">Política de Despacho</a>.</p>
+
                     </div>
                 </div>
 

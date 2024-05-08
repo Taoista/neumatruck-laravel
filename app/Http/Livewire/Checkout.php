@@ -104,6 +104,10 @@ class Checkout extends Component
         $this->fono = "968300554";
         $this->contacto = "laravel contacto";
         $this->mensaje = "msg from laravel";
+        $this->email = "demo@demo.cl";
+        $this->selected_region = 3;
+        $this->id_ciudad = 14;
+        $this->direccion = "direccion demo laravel";
     }
 
     function chanche_delivery()
@@ -112,6 +116,9 @@ class Checkout extends Component
             $this->delivery_disabeled = true;
             $this->val_despacho = 0;
             $this->calculate_total_pago();
+            $this->selected_region = 0;
+            $this->id_ciudad = 0;
+            $this->direccion = "";
             return false;
         }else{
             $this->delivery_disabeled = false;

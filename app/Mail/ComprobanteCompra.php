@@ -45,6 +45,8 @@ class ComprobanteCompra extends Mailable
         $compra = $this->data_compras();
         // dd($this->id_compra);
 
+        $id_ciudad = $compra->id_ciudad;
+
         $direccion = $this->get_city($compra->id_ciudad);
 
         $transbank = $this->data_pago();
@@ -52,7 +54,7 @@ class ComprobanteCompra extends Mailable
         // return $this->view('email.comprobante_compra', 
         //         compact("productos", "fecha", "compra", "direccion", "transbank"));
         return $this->view('email.comprobante_comprav2', 
-                compact("productos", "fecha", "compra", "direccion", "transbank"));
+                compact("productos", "fecha", "compra", "direccion", "transbank", "id_ciudad"));
     }
 
     function data_compra()

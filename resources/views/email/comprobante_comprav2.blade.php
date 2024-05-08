@@ -501,6 +501,11 @@
     {{ ($compra->telefono) }}</p><br/>
     NOTA:
     {{ ' '.$compra->nota }} </p>
+    @if($id_ciudad != 0)
+    Region: {{ $direccion->region }}<br>
+    Ciudad: {{ $direccion->ciudad }}<br>
+    Direccion {{ $compra->direccion }}
+    @endif
 </div>
 </td>
 </tr>
