@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Banners;
 use App\Models\Enlaces;
+use App\Models\Marcas;
 use App\Models\ConfiguracionDato;
+use App\Models\Productos;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -192,5 +194,59 @@ class ApiNeumatruckController extends Controller
             }
         }
 
+
+        function get_all_brands()
+        {
+            try {
+                $marcas = Marcas::get();
+                return response()->json(["response" => "success", "data" => $marcas]);
+            } catch (\Throwable $th) {
+                return response()->json(["error" => "success", "data" => $th]);
+
+            }
+        }
+
+
+        function update_product(Request $request)
+        {
+            
+            try {
+                $codigo = $request->codigo;
+                $nombre = $request->nombre;
+                $id_marca = $request->id_marca;
+                $marca = $request->marca;
+                $id_tipo = $request->id_tipo;
+                $tipo = $request->tipo;
+                $id_aplicacion = $request->id_aplicacion;
+                $aplicacion_text = $request->aplicacion_text;
+                $medida = $request->medida;
+                $aro = $request->aro;
+                $stock = $request->stock;
+                $estado = $request->estado == "1" ? true : false;
+                $p_venta = $request->p_venta;
+                // BATERIA. 200AH VOLTEX 210H52R CCA 1200 (- +)
+                // return $estado;
+                Productos::where("codigo", $codigo)->update([
+                    "estado" => $estado,
+                    "nombre" => $nombre,
+                    "stock" => $stock,
+                    "id_marca" => $id_marca,
+                    "id_tipo" => $id_tipo,
+                    "medidas" => $medida,
+                    "aro" => $aro,
+                    "aplicacion" => $id_aplicacion,
+                    "p_venta" => $p_venta,
+                ]);
+
+                $key = create_filter($codigo, $id_marca, $marca);
+
+                Productos::where("codigo", $codigo)->update([
+                    "busqueda" => $key,
+                ]);
+                return response()->json(["response" => "success", "data" => "ok"]);
+            } catch (\Throwable $th) {
+                return response()->json(["response" => "error", "data" => $th]);
+            }
+        }
 
 }

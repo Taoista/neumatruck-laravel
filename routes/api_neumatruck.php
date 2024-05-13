@@ -26,3 +26,9 @@ Route::post("/create-new-brand",[ApiNeumatruckController::class, "create_new_bra
 Route::get("/get-phone-wsp",[ApiNeumatruckController::class, "get_phone_wsp"]);
 // * actualiza el numero de wahtasapp
 Route::post("/update-phone-wsp",[ApiNeumatruckController::class, "update_phone_wsp"]);
+// * toma las marcas
+Route::get("/get-all-brands",[ApiNeumatruckController::class, "get_all_brands"]);
+// * actualizacion del producto
+Route::post("/update-product",[ApiNeumatruckController::class, "update_product"]);
+
+
