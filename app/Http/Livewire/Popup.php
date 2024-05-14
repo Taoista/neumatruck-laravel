@@ -2,12 +2,24 @@
 
 namespace App\Http\Livewire;
 use App\Models\Configuracion;
+use App\Models\PopupRedireccion;
+use App\Models\Enlaces;
 use Cookie;
 
 use Livewire\Component;
 
 class Popup extends Component
 {
+
+    public $img;
+    public $path;
+
+    public function mount()
+    {
+        $this->img = "assets/img/pop-up.jpg";
+        $this->path = $this->redireccion();
+    }
+
     public function render()
     {
 
@@ -33,6 +45,21 @@ class Popup extends Component
             }
         }else{
             return false;
+        }
+    }
+
+
+    function redireccion()
+    {
+        try {
+            $url = "#";
+            $data = PopupRedireccion::select("id_redireccion")->where("id", 1)->first()->id_redireccion;
+            if($data != "#"){
+                return Enlaces::select("enlace")->where("id", $data)->first()->enlace;
+            }
+            return $url;
+        } catch (\Throwable $th) {
+            return "#";
         }
     }
 

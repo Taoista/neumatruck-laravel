@@ -370,7 +370,8 @@
     <script>
         var _Url = "{{ url('/') }}/";
         let validador_email = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/
-        $("#exampleModal").modal("show");
+        // $("#exampleModal").modal("show");
+        $('#exampleModalCenter').modal("show");
     </script>
     <script src="{{ asset('assets/js/search.js') }}"></script>
     <script src="{{ asset('assets/js/selector.js') }}"></script>
