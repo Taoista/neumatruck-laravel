@@ -15,7 +15,7 @@
               </button>
             </div> --}}
             <div class="modal-body">
-                <a href="{{ $path }}"><img style="width: 100%" src="{{ asset($img) }}" alt=""></a>
+                <a href="{{ asset($path) }}"><img style="width: 100%" src="{{ asset($img) }}" alt=""></a>
             </div>
             {{-- <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

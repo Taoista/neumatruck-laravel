@@ -18,6 +18,7 @@ use App\Models\Tipo;
 use App\Models\Marcas;
 use App\Models\Aplicaciones;
 use App\Models\OfertasControll;
+use App\Models\PopupRedireccion;
 
 use App\Models\ConfiguracionDescuento;
 use Illuminate\Support\Facades\DB;
@@ -956,6 +957,55 @@ class ApiController extends Controller
 
 
         }
+
+
+        function get_data_pop_up()
+        {
+            try {
+                $data = PopupRedireccion::select("id", "id_redireccion")
+                        ->where("id", 1)->first();
+                return response()->json(['message' => 'success','data'=> $data]);
+            } catch (\Throwable $th) {
+                return response()->json(['message' => 'error','data'=> $th]);
+            }
+
+        }
+
+        // * actualiza el banner
+        function update_pop_up(Request $request)
+        {
+            $id_enlace = $request->id_enlace;
+            $codigo = $request->codigo_producto;
+            $id_seccion = $request->id_section;
+            // PopupRedireccion
+            PopupRedireccion::where("id",1)->update(['id_redireccion' => $id_enlace]);
+            // ? ENLACE DE PRODUCTO
+            if($id_enlace == 1){
+                Enlaces::where("id", $id_enlace)->update(["enlace" => "#"]);
+                return  response()->json(['message' => 'success','data'=> "ok"]);
+            }
+
+            // ? ENLACE DE PRODUCTO
+            if($id_enlace == 11){
+                Enlaces::where("id", $id_enlace)->update([
+                    "enlace" => "./producto/".$codigo
+                ]);
+                return  response()->json(['message' => 'success','data'=> "ok"]);
+            }
+
+            // ? la seccion
+            if($id_enlace == 12){
+                Enlaces::where("id", $id_enlace)->update([
+                    "enlace" => "./seccion-selected/".base64_encode($id_seccion)
+                ]);
+                return  response()->json(['message' => 'success','data'=> "ok"]);
+            }
+
+            // ? actualizacion normal
+            // Enlaces::where("id", $id_enlace)->update(["enlace" => "./categoria/".base64_encode($id_enlace)]);
+            return  response()->json(['message' => 'success','data'=> "ok"]);
+        }
+
 
 }
 

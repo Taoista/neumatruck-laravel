@@ -124,7 +124,12 @@ Route::get("/activate-register/{id_registro}",[SignInController::class,"activate
 Route::post("/start-session-login",[SignInController::class,"start_session_login"]);
 // * actualiza datos de producto segun codigo
 Route::post("/update-sku",[ApiController::class,"update_sku"]);
-
+// * toma los datos del pop-up
+Route::get("/get-data-pop-up", [ApiController::class,"get_data_pop_up"]);
+// * update data pop-up
+Route::post("/update-sku",[ApiController::class,"update_sku"]);
+// * update productos 
+Route::post("/update-pop-up",[ApiController::class,"update_pop_up"]);
 
 
 // * 
