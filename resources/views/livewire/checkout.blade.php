@@ -149,7 +149,7 @@
                         <p style="color:#ffb03d;"><i class="fa fa-truck"></i></p>
                         {{-- <p>* Despacho gratis en toda RM sobre 150.000.-</p> --}}
                         <hr>
-                        <p> ● Despacho a otras regiones consultar con verdedor Para más información revisar <a href="{{ url('./politicas-despacho') }}" style="color:#ffb03d;font-weight: bold;">Política de Despacho</a>.</p>
+                        {{-- <p> ● Despacho a otras regiones consultar con verdedor Para más información revisar <a href="{{ url('./politicas-despacho') }}" style="color:#ffb03d;font-weight: bold;">Política de Despacho</a>.</p> --}}
                         <p> ● Retiro Clientes Monto Mínimo <strong  style="color:#ffb03d; font-size:15px">$ 100.000 neto</strong> </p>
                         <p> ● Despacho RM monto mínimo  <strong style="color:#ffb03d; font-size:15px">$ 150.000 neto</strong> </p>
                         <p> ● Despacho Regiones monto mínimo <strong  style="color:#ffb03d; font-size:15px">$ 200.000 neto</strong> </p>
