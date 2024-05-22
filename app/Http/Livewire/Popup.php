@@ -38,7 +38,7 @@ class Popup extends Component
             if($value == null){
                 // ? refresca las ession
                 $time = 60 * 3;
-                // Cookie::queue("nt-popup", "state", $time);
+                Cookie::queue("nt-popup", "state", $time);
                 return true;
             }else{
                 return false;

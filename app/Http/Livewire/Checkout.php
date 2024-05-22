@@ -11,6 +11,7 @@ use App\Models\DeliveryCosto;
 use App\Models\DeliveryFree;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ConfiguracionDeliveryController;
+use App\Http\Controllers\PreciosController;
 
 class Checkout extends Component
 {
@@ -42,9 +43,14 @@ class Checkout extends Component
 
     public $monto_minimo;
 
+    // public $state_pay;
+
     public function  mount()
     {
         // dd("estoy en el checkout");
+
+        
+
         $this->selected_delivery = 1;
 
         $this->delivery_disabeled = true;
@@ -65,6 +71,9 @@ class Checkout extends Component
         $this->calculate_total_pago();
 
         $this->monto_minimo = min_monto();
+
+        // $this->state_pay = false;
+        // $this->state_final_pay();
     }
 
     public function render()
@@ -94,6 +103,28 @@ class Checkout extends Component
 
 
         return $productos;
+    }
+
+
+    function state_final_pay()
+    {
+        $neto = $this->neto;
+        // dd($neto);
+        $controller = new PreciosController($neto);
+
+        $state = $controller->state();
+
+        $monto_minimo = $controller->monto_minimo;
+        // ? monto minimo
+        if($state == false){
+
+            $this->dispatchBrowserEvent("error_monto_minimo", 
+                ['monto_minimo' => '$ '.format_money($monto_minimo)]);
+            return false;
+        }
+        // return false;
+
+        $this->pgo_tbk();
     }
 
     // * solo funciona en desarrollo

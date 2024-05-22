@@ -249,4 +249,27 @@ class ApiNeumatruckController extends Controller
             }
         }
 
+
+        function create_new_brand(Request $request)
+        {
+            try {
+                $id2 = $request->id2;
+                $marca = trim($request->marca);
+    
+                $search = Marcas::where("marca", $marca)->first();
+                if(!$search){
+                    $registro = new Marcas();
+                    $registro->id2 = $id2;
+                    $registro->estado = 1;
+                    $registro->marca = strtolower($marca);
+                    $registro->nav = 0;
+                    $registro->prioridad = 0;
+                    $registro->save();
+                }
+                return response()->json(["response" => "success", "data" => $registro]);
+            } catch (\Throwable $th) {
+                return response()->json(["response" => "error", "data" => $th]);
+            }
+        }
+
 }

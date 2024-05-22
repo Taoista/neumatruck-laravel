@@ -141,20 +141,24 @@
                             <div style="padding: 0 0;"><strong class="order-total"> {{ "$ ".format_money($total_pago) }}</strong></div>
                         </div>
                     </div>
-
-                    <button class="primary-btn btn-block order-submit btsubmit" wire:click="pgo_tbk" wire:loading.remove>Realizar Pago</button><br>
-                    <button class="primary-btn btn-block" wire:loading  wire:target="pgo_tbk" style="color:black" ><img style='width:20px' src="{{ asset('assets/img/loading-black.svg') }}" alt="">Cargando...</button><br>
+                    {{-- @if($state_pay == true) --}}
+                    <button class="primary-btn btn-block order-submit btsubmit" wire:click="state_final_pay" wire:loading.remove>Pagar</button><br>
+                    {{-- @endif --}}
+                    <button class="primary-btn btn-block" wire:loading  wire:target="state_final_pay" style="color:black" ><img style='width:20px' src="{{ asset('assets/img/loading-black.svg') }}" alt="">Cargando...</button><br>
                     <div class="text-center">
                         <p style="color:#ffb03d;"><i class="fa fa-truck"></i></p>
                         {{-- <p>* Despacho gratis en toda RM sobre 150.000.-</p> --}}
                         <hr>
-                        <p>* Despacho a otras regiones consultar con verdedor Para más información revisar <a href="#" style="color:#ffb03d;font-weight: bold;">Política de Despacho</a>.</p>
+                        <p> ● Despacho a otras regiones consultar con verdedor Para más información revisar <a href="{{ url('./politicas-despacho') }}" style="color:#ffb03d;font-weight: bold;">Política de Despacho</a>.</p>
+                        <p> ● Retiro Clientes Monto Mínimo <strong  style="color:#ffb03d; font-size:15px">$ 100.000 neto</strong> </p>
+                        <p> ● Despacho RM monto mínimo  <strong style="color:#ffb03d; font-size:15px">$ 150.000 neto</strong> </p>
+                        <p> ● Despacho Regiones monto mínimo <strong  style="color:#ffb03d; font-size:15px">$ 200.000 neto</strong> </p>
+                        <p> ● * Para más información revisar <a href="{{ url('./politicas-despacho') }}" style="color:#ffb03d;font-weight: bold;">Política de Despacho</a>.  </p>
 
                     </div>
                 </div>
 
                 <div class="col-md-12">
-
                 </div>
             {{-- </form> --}}
         </div>
@@ -212,6 +216,12 @@
                 Swal.fire('Monto Minimo',`Para realizar este pedido debe seleccionar forma de despacho`,'error')
             });
 
+            window.addEventListener("error_monto_minimo", (e) => {
+                const  monto_minimo = event.detail.monto_minimo
+                Swal.fire('Monto Minimo',`el monto minimo debe de ser ${monto_minimo} neto`,'error')
+            });
+
+            
 
             window.addEventListener("loading_tbk", (e) => {
                 const  id_compra = event.detail.id_compra
