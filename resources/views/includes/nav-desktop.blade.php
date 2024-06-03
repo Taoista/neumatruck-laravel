@@ -12,12 +12,14 @@ style="border-color: transparent; background-color:transparent; border-top: 1px 
         <ul class="nav nav-justified navbar-nav">
             {{-- ? ofertas primaria debe controlar si se muestra o nos --}}
             @if(oferta_primaria() == true)
-                @foreach (get_ofertas() as $item)
+              
+
+                @for ($i = 0; $i < count(get_ofertas()); $i++)
                     <li>
-                        {{-- <a style="{{ model_css($item->color_1, $item->color_2, $item->color_3) }}" href="{{ url("./ofertas") }}">{{ strtoupper($item->nombre) }} </a> --}}
-                        <a style="{{ model_css($item->color_1, $item->color_2, $item->color_3) }}" href="{{ url("./ofertas-seccion").'/'.base64_encode($item->id).'/'.str_replace(' ', '-', $item->nombre); }}">{{ strtoupper($item->nombre) }} </a>
+                        <a style="{{ model_css(get_ofertas()[$i]['color_1'], get_ofertas()[$i]['color_2'], get_ofertas()[$i]['color_3']) }}" href="{{ url("./ofertas-seccion").'/'.base64_encode(get_ofertas()[$i]['id']).'/'.str_replace(' ', '-', get_ofertas()[$i]['nombre']); }}">{{ strtoupper(get_ofertas()[$i]['nombre']) }} </a>
                     </li>
-                @endforeach
+                @endfor
+
             @endif
             @foreach (get_categorias() as $item)
             <li><a class="section-selector" data-type="{{ $item->id }}" href="#">{{ $item->nombre }}</a></li>

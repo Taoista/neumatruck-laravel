@@ -9,6 +9,7 @@ use App\Models\OfertasTipo;
 use App\Models\Productos;
 use App\Models\Marcas;
 use Illuminate\Support\Str;
+use App\Http\Controllers\ProductosController;
 
 
 function generate_toke()
@@ -131,9 +132,40 @@ function model_css($color_1, $color_2, $color_3)
 // * muestras las ofertas si estan en main es que se puede ver en el nav
 function get_ofertas()
 {
+    $list = [];
     // ? control es el estado
-    $data = OfertasTipo::where("main", 1)->get();
-    return $data;
+    $data = OfertasTipo::select("id", "main", "control", "nombre", "color_1", "color_2", "color_3")
+            ->where("main", 1)->get();
+    // dd($data);
+    foreach ($data as $item) {
+        if($item->control == 1){
+            $controller = new ProductosController;
+            $date_controller = $controller->controll_time();
+
+            if($date_controller == true){
+                array_push($list, [
+                    "id" => $item->id,
+                    "main" => $item->main,
+                    "control" => $item->control,
+                    "nombre" => $item->nombre,
+                    "color_1" => $item->color_1,
+                    "color_2" => $item->color_2,
+                    "color_3" => $item->color_3
+                ]);
+            }
+        }else{
+            array_push($list, [
+                "id" => $item->id,
+                "main" => $item->main,
+                "control" => $item->control,
+                "nombre" => $item->nombre,
+                "color_1" => $item->color_1,
+                "color_2" => $item->color_2,
+                "color_3" => $item->color_3
+            ]);
+        }
+    }
+    return $list;
 }
 
 function  get_title_oferta_ptimaria()
