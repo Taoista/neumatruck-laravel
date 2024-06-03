@@ -17,7 +17,7 @@ class OfertasController extends Controller
         if($of == 1){
             return view("ofertas");
         }else{
-            return redirect("./");
+            return redirect()->route('home');
         }
 
     }
@@ -27,6 +27,25 @@ class OfertasController extends Controller
         $data = Configuracion::where("tipo", "of")->get()->first()->resultado;
         return $data;
     }
+
+    function ofertas_seccion($id_oferta, $name)
+    {
+        try {
+            $id_oferta = base64_decode($id_oferta);
+            
+            $data = OfertasTipo::select('nombre')->where("id", $id_oferta)->first();
+            // dd($data);
+            $nombre = strtoupper($data->nombre);
+            // dd($nombre);
+            return view("ofertas-seccion", compact('id_oferta', 'nombre'));
+
+        } catch (\Throwable $th) {
+
+            // return Redirect::to('./');
+            return redirect()->route('home');
+        }
+    }
+
 
     // * toma la oferta ID 2 ya que esta es la que contiene la oferta HOT o Especial
 
@@ -45,16 +64,16 @@ class OfertasController extends Controller
                 if($this->get_state_only_date() == true){
                     return view("oferta-especial");
                 }
-                return redirect("./");
+                return redirect()->route('home');
             }
 
             if($data->first()->control == 0){
                 return view("oferta-especial");
             }
-            return redirect("./");
+            return redirect()->route('home');
         }
 
-        return redirect("./");
+        return redirect()->route('home');
     }
 
     function ofertas_especial_date()
@@ -69,16 +88,16 @@ class OfertasController extends Controller
                 if($this->get_state_only_date() == true){
                     return view("oferta-especial-date");
                 }
-                return redirect("./");
+                return redirect()->route('home');
             }
 
             if($data->first()->control == 0){
                 return view("oferta-especial-date");
             }
-            return redirect("./");
+            return redirect()->route('home');
         }
 
-        return redirect("./");
+        return redirect()->route('home');
     }
 
 

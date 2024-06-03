@@ -31,7 +31,7 @@ Route::get('/clear-cache', function () {
     echo Artisan::call('route:clear');
  });
 
-Route::get("/",[IndexController::class, "index"]);
+Route::get("/",[IndexController::class, "index"])->name('home');;
 Route::get("/busqueda/{key}",[SearchController::class, "busqueda"]);
 
 // * SECCIONES
@@ -45,6 +45,10 @@ Route::get("/ofertas-especial",[OfertasController::class, "ofertas_especial"]);
 Route::get("/ofertas-espcial-date",[OfertasController::class, "ofertas_especial_date"]);
 // * seccion especial
 Route::get("/seccion-selected/{id_tipo}",[SeccionController::class, "seccion_selected"]);
+// * selecciona las ofertas tipo 
+Route::get("/ofertas-seccion/{id_oferta}/{name}",[OfertasController::class, "ofertas_seccion"]);
+
+
 
 
 //  * Contacto

@@ -128,7 +128,7 @@ function model_css($color_1, $color_2, $color_3)
     return $text;
 }
 
-
+// * muestras las ofertas si estan en main es que se puede ver en el nav
 function get_ofertas()
 {
     // ? control es el estado

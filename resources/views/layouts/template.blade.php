@@ -172,76 +172,10 @@
                     @livewire("icon-carrito-responsive")
 
                 </div>
-                <nav>
-                    <!-- container -->
-                    <div class="container">
-                        <!-- responsive-nav -->
-                        <div class="container"> 
-                            <!-- responsive-nav -->
-                            <div id="responsive-nav">
-                                <!-- NAV -->
-                                <ul class="main-nav nav navbar-nav">
-                                    <li class="active"><a href="{{ url('/') }}">Inicio</a></li>
-                                    @foreach (get_categorias() as $item)
-                                    <li><a class="section-selector" data-type="{{ $item->id }}">{{ $item->nombre }}</a></li>
-                                    <li class="divider-vertical"></li>
-                                    @endforeach
-                                    <li><a href="{{ url("./contacto") }}">Contacto</a></li>
-                                    @if(oferta_primaria() == true)
-                                    <li><a  href="{{ url("./ofertas") }}" style="color: #FFB03D;">{{ get_title_oferta_ptimaria() }}</a></li>
-                                    @endif
-                                    {{-- @if(oferta_secundaria() == true) --}}
-                                    {{-- <li class="neonText"><a href="{{ url("./ofertas-especial") }}" style="">{{ get_title_of_secundaria() }}</a></li> --}}
-                                    {{-- @endif --}}
-                                    {{-- @if(oferta_especial() == true)
-                                    <li class="neonText2"><a href="{{ url("./ofertas-espcial-date") }}">{{ get_title_of_especial() }}</a></li>
-                                    @endif --}}
-                                    <li><a href="{{ url("./carrito") }}">Carrito</a></li>
-                                </ul>
-                                <!-- /NAV -->
-                            </div>
-                            <!-- /responsive-nav -->
-                        </div>
-                        <!-- /responsive-nav -->
-                    </div>
-                    <!-- /container -->
-                </nav>
-                <nav class="navbar navbar-default"
-                    style="border-color: transparent; background-color:transparent; border-top: 1px solid #fff; ">
-                    <div class="container-fluid">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav nav-justified navbar-nav">
-                                {{-- @if(oferta_especial() == true)
-                                    <li class="neonText2"><a href="{{ url("./ofertas-espcial-date") }}">{{ get_title_of_especial() }}</a></li>
-                                @endif --}}
-                                {{-- @if(oferta_secundaria() == true)
-                                    <li class="neonText"><a href="{{ url("./ofertas-especial") }}">{{ get_title_of_secundaria() }}</a></li>
-                                @endif --}}
-                                @if(oferta_primaria() == true)
-                                    {{-- <li><a class="neonText" href="{{ url("./ofertas") }}" style="color: #FFB03D;">{{ get_title_oferta_ptimaria() }} </a></li> --}}
-                                    {{-- get_ofertas --}}
-                                    @foreach (get_ofertas() as $item)
-                                        <li><a style="{{ model_css($item->color_1, $item->color_2, $item->color_3) }}" href="{{ url("./ofertas") }}">{{ strtoupper($item->nombre) }} </a>
-                                        </li>
-                                    @endforeach
-                                @endif
-                                @foreach (get_categorias() as $item)
-                                <li><a class="section-selector" data-type="{{ $item->id }}" href="#">{{ $item->nombre }}</a></li>
-                                <li class="divider-vertical"></li>
-                                @endforeach
-                                <li><a href="{{ url("./contacto") }}">Contacto</a></li>
-                            </ul>
-                        </div><!-- /.navbar-collapse -->
-                    </div><!-- /.container-fluid -->
-                </nav>
-                <!-- row -->
+                
+                @include('includes.nav-responsive')
+
+                @include('includes.nav-desktop')
             </div>
             <!-- container -->
         </div>

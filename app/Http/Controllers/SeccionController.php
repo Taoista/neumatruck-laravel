@@ -49,6 +49,10 @@ class SeccionController extends Controller
         }
     }
 
+
+
+
+
     function getTitleTipo($id_tipo)
     {
         $title = SeccionTipo::where("id", $id_tipo)->first()->nombre;
