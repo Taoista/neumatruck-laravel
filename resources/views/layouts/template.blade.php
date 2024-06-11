@@ -233,7 +233,7 @@
                         <h3 class="footer-title">Contacto</h3>
                         <ul class="footer-links">
                             <ul class="footer-links">
-                                <li><a href="assets/contacto.php"><i class="fa fa-map-marker"></i>Santa Margarita 0448 - Santiago</a></li>
+                                <li><a href="assets/contacto.php"><i class="fa fa-map-marker"></i>Santa Margarita 0448 - San bernardo - Rm</a></li>
                                 @foreach (get_phones() as $item )
                                 <li><a href="tel:{{ $item->telefono }}"><i class="fa fa-phone"></i>{{ $item->telefono }}</a></li>
                                 @endforeach
