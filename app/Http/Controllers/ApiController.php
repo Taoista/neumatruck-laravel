@@ -1006,6 +1006,19 @@ class ApiController extends Controller
             return  response()->json(['message' => 'success','data'=> "ok"]);
         }
 
+        function get_id2_marca($id2_marca)
+        {
+            try {
+
+                $data = Marcas::where("id2", $id2_marca)->get();
+
+                return  response()->json(['message' => 'success','data'=> $data]);
+            } catch (\Throwable $th) {
+                return response()->json(['message' => 'error','data'=> $th]);
+            }
+        }
+
+
 
 }
 

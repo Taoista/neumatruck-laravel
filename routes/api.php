@@ -44,7 +44,8 @@ Route::get("/get-aplicaciones", [ApiController::class, "get_aplicaciones"]);
 Route::get("/get_banner/{id_banner}", [ApiController::class,"get_banner"]);
 // * toma las url de la web para insertarlas
 Route::get("/get_urls",[ApiController::class, "get_urls"]);
-
+// * get data marca con el id2
+Route::get("/get-id2-marca/{id2_marca}",[ApiController::class ,"get_id2_marca"]);
 
 
 // * toma la configuracion de la aplicacion
