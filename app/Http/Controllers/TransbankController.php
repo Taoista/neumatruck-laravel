@@ -101,7 +101,7 @@ class TransbankController extends Controller
                 foreach ($compras_productos AS $item) {
                     $state_oferta = 0;
                     // $precio_original = Productos::select("p_venta")->where("id", $item->id_producto)->get()->first()->p_venta;
-                    $precio_original = $compras_productos->first()->p_venta;
+                    $precio_original = $item->p_venta;
                     $precio_final = $precio_original;
                     $title_oferta = "no";
                     if($item->oferta == true){
