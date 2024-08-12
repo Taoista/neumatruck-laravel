@@ -292,7 +292,7 @@
 
     @livewire("popup")
 
-    <!-- /FOOTER modal -->
+    
 
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
@@ -309,8 +309,6 @@
     </script>
     <script src="{{ asset('assets/js/search.js') }}"></script>
     <script src="{{ asset('assets/js/selector.js') }}"></script>
-
-
 
     {{-- <script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "90872474c6e22cee5d486a671662c849675c91e4c2dc01163e9240e46248b799", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script> --}}
     @stack("scripts")
