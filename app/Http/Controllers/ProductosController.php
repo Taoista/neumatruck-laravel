@@ -7,6 +7,7 @@ use App\Models\Configuracion;
 use App\Models\ConfiguracionData;
 use App\Models\Ofertas;
 use App\Models\Carrito;
+use App\Models\Productos;
 use App\Models\OfertasControll AS OC;
 use Cookie;
 
@@ -46,19 +47,8 @@ class ProductosController extends Controller{
         }
     }
 
-
+    // * control de las ofertas
     function controll_time(){
-        // $desde = OC::first()->desde;
-        // $hasta = OC::first()->hasta;
-        // if($desde < now()){
-        //     if($hasta > now()){
-        //         return true;
-        //     }else{
-        //         return false;
-        //     }
-        // }else{
-        //     return false;
-        // }
         $inicio = OC::first()->desde;
         $termino = OC::first()->hasta;
         if($inicio < now()){
@@ -82,8 +72,18 @@ class ProductosController extends Controller{
         return $data;
     }
 
+
     public function value_oferta($id_producto){
-        return Ofertas::select("p_oferta")->where("id_producto", $id_producto)->first()->p_oferta;
+        // ? monto de oferta
+        // $p_oferta = Ofertas::select("p_oferta")->where("id_producto", $id_producto)->first()->p_oferta;
+        // ? porcentaje de descuento
+        $p_venta = Productos::select("p_venta")->where("id", $id_producto)->first()->p_venta;
+        $percent_oferta = Ofertas::select("desc")->where('id_producto', $id_producto)->first()->desc;
+        
+        $descount = $p_venta * ($percent_oferta / 100);
+
+
+        return round($descount);
     }
 
     // * retorla el nombre de la oferta

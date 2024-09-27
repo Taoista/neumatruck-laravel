@@ -40,6 +40,7 @@
                                 <div class="product-details">
                                     <h2 class="product-name">{{ $data->nombre }}</h2>
                                     <div>
+                                        {{-- * oferta --}}
                                         @if($data->oferta == true)
                                             @if($controller->state_oferta($data->id) == true)
                                                 <h3 class="product-price"> {{ set_money($controller->value_oferta($data->id)) }}
@@ -48,6 +49,7 @@
                                             @else
                                             <h3 class="product-price">{{ set_money($data->p_venta) }}</h3>
                                             @endif
+                                        {{-- * normal --}}
                                         @else
                                             <h3 class="product-price">{{ set_money($data->p_venta) }}</h3>
                                         @endif
