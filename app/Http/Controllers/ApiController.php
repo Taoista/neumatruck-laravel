@@ -568,7 +568,7 @@ class ApiController extends Controller
         function get_ofert_productos()
         {
             $data = Productos::select("o.id AS id_oferta","productos.id AS id_producto","productos.codigo", "productos.nombre", "productos.p_venta", "productos.p_venta","o.p_oferta",
-                                    "productos.oferta AS estado_oferta","o.controll", "ofertas_controll.desde", "ofertas_controll.hasta", "ot.id AS id_tipo_oferta",
+                                    "productos.oferta AS estado_oferta","o.desc AS perc_descount","o.controll", "ofertas_controll.desde", "ofertas_controll.hasta", "ot.id AS id_tipo_oferta",
                                     "ot.nombre AS nombre_oferta")
                     ->join("ofertas AS o", "productos.id", "o.id_producto")
                     ->leftJoin("ofertas_controll", function($join){
@@ -597,6 +597,7 @@ class ApiController extends Controller
             $estado = $request->estado == "1"? true : false;
             $id_tipo_oferta = $request->id_tipo_oferta;
             // $p_oferta = ceil($request->p_oferta / 1.19);
+            $percent_descount = $request->percent;
             $p_oferta = ceil($request->p_oferta / 1.19);
 
             $controll = OfertasTipo::select("control")->where("id", $id_tipo_oferta)->get()->first()->control;
@@ -606,7 +607,8 @@ class ApiController extends Controller
                             "id_tipo_oferta" => $id_tipo_oferta,
                             "estado" => $estado,
                             "controll" => $controll,
-                            "p_oferta" => $p_oferta
+                            "p_oferta" => $p_oferta,
+                            "desc" => $percent_descount
                         ]);
 
             Productos::where("id", $id_producto)->update(["oferta" => $estado]);
