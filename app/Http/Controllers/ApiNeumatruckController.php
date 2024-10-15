@@ -145,7 +145,7 @@ class ApiNeumatruckController extends Controller
                     $banner->activo = $activo;
                     $banner->img = "assets/img/banner/".$img;
                     $banner->title = $title;
-                    $banner->redireccion = $redireccion == null ? '#' : $redireccion;
+                    $banner->redireccion = $redireccion == null ? 1 : $redireccion;
                     $banner->save();
                 }
 
