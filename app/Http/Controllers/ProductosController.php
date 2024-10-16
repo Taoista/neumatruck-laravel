@@ -77,13 +77,17 @@ class ProductosController extends Controller{
         // ? monto de oferta
         // $p_oferta = Ofertas::select("p_oferta")->where("id_producto", $id_producto)->first()->p_oferta;
         // ? porcentaje de descuento
-        $p_venta = Productos::select("p_venta")->where("id", $id_producto)->first()->p_venta;
+        $p_venta = Productos::select("p_sistema")->where("id", $id_producto)->first()->p_sistema;
         $percent_oferta = Ofertas::select("desc")->where('id_producto', $id_producto)->first()->desc;
-        
+
         $descount = $p_venta * ($percent_oferta / 100);
+        // dd($percent_oferta / 100);
+        // dd($p_venta);
+        // $descount = $p_venta;
 
+        $final = $p_venta - $descount;
 
-        return round($descount);
+        return round($final);
     }
 
     // * retorla el nombre de la oferta
