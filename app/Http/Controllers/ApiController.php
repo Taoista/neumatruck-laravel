@@ -636,7 +636,8 @@ class ApiController extends Controller
         function insert_new_oferta_producto(Request $request)
         {
             $id_producto = $request->id_producto;
-            $p_oferta = ceil($request->p_oferta / 1.19);
+            // $p_oferta = ceil($request->p_oferta / 1.19);
+            $descuento = $request->descuento;
             $id_tipo_oferta = $request->id_tipo_oferta;
 
 
@@ -653,7 +654,8 @@ class ApiController extends Controller
             $oferta->estado = 1;
             $oferta->id_producto = $id_producto;
             $oferta->controll = $control;
-            $oferta->p_oferta = $p_oferta;
+            $oferta->p_oferta = 11111111;
+            $oferta->desc = $descuento;
             $oferta->save();
 
             Productos::where("id", $id_producto)->update(["oferta" => 1]);
