@@ -101,7 +101,7 @@ class ApiController extends Controller
 
 
     function get_all_product()
-{
+    {
     $min_stock = ConfiguracionData::select("result")->where("data", "minimo-stock")->get()->first()->result;
 
     $data = DB::table('productos')
@@ -109,7 +109,6 @@ class ApiController extends Controller
             $join->on('productos.id', '=', 'o.id_producto')
                 ->where('o.estado', '=', 1);
         })
-        // ->leftJoin('ofertas AS o', 'productos.id', '=', 'o.id_producto')
         ->leftJoin('marcas AS m', 'm.id2', '=', 'productos.id_marca')
         ->leftJoin('tipo AS t', 'productos.id_tipo', '=', 't.id')
         ->selectRaw('productos.*, IF(m.marca IS NULL, NULL,  m.marca) as marca')
@@ -120,6 +119,13 @@ class ApiController extends Controller
         ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.desde) as desde')
         ->selectRaw('productos.*, IF(o.controll IS NULL, 0, oc.hasta) as hasta')
         ->selectRaw('productos.*, t.nombre AS tipo')
+        ->selectRaw('productos.*, IF(o.desc IS NULL, NULL, o.desc) as descount')
+        ->selectRaw('
+            IF(o.desc IS NOT NULL, 
+                ROUND(productos.p_sistema - (productos.p_sistema * (o.desc / 100)), 0), 
+                0
+            ) as precio_con_descuento
+        ')
         ->addSelect(DB::raw($min_stock.' as limit_stock'))
         ->where("productos.estado", 1)
         ->get();
@@ -154,7 +160,7 @@ class ApiController extends Controller
         }
 
         return $data;
-}
+    }
 
 
 
@@ -636,10 +642,9 @@ class ApiController extends Controller
         function insert_new_oferta_producto(Request $request)
         {
             $id_producto = $request->id_producto;
-            // $p_oferta = ceil($request->p_oferta / 1.19);
             $descuento = $request->descuento;
             $id_tipo_oferta = $request->id_tipo_oferta;
-
+            
 
 
             $data = OfertasTipo::select("control")->where("id", $id_tipo_oferta)->get();
@@ -654,7 +659,7 @@ class ApiController extends Controller
             $oferta->estado = 1;
             $oferta->id_producto = $id_producto;
             $oferta->controll = $control;
-            $oferta->p_oferta = 11111111;
+            $oferta->p_oferta = 100;
             $oferta->desc = $descuento;
             $oferta->save();
 
