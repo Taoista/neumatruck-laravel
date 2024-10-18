@@ -235,19 +235,19 @@ class ApiController extends Controller
     
                 $prod = Productos::where("id", $data->first()->id);
 
-                if($prod->get()->first()->oferta == 0){
+                // if($prod->get()->first()->oferta == 0){
                     Productos::where("id", $data->first()->id)->update([
                         "estado" => $estado,
                         "stock" => $stock,
                         "p_sistema" => $p_venta,
                         "p_venta" => $val_descuento
                     ]);
-                }else{
-                    Productos::where("id", $data->first()->id)->update([
-                        "estado" => $estado,
-                        "stock" => $stock,
-                    ]);
-                }
+                // }else{
+                //     Productos::where("id", $data->first()->id)->update([
+                //         "estado" => $estado,
+                //         "stock" => $stock,
+                //     ]);
+                // }
 
             }
             DB::commit();
