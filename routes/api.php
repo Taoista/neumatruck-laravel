@@ -108,7 +108,7 @@ Route::get("get_tipo", [ApiController::class, "get_tipo"]);
 Route::post("/delete_oferta",[ApiController::class, "delete_oferta"]);
 
 
-// * actualziacion de los productos
+// * actualziacion de los productos de forma masiva
 Route::post('/update_productos',[ApiController::class, "update_productos"]);
 // * captura el control de la fecha
 Route::get("/get_date_controll", [ApiController::class, "get_date_controll"]);
