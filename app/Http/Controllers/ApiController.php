@@ -603,8 +603,10 @@ class ApiController extends Controller
             $estado = $request->estado == "1"? true : false;
             $id_tipo_oferta = $request->id_tipo_oferta;
             // $p_oferta = ceil($request->p_oferta / 1.19);
-            $percent_descount = $request->percent;
-            $p_oferta = ceil($request->p_oferta / 1.19);
+            // $percent_descount = $request->percent;
+            // $p_oferta = ceil($request->p_oferta / 1.19);
+            $descuento_percent =  $request->descuento_percent;
+            $descuento_total =  $request->descuento_total;
 
             $controll = OfertasTipo::select("control")->where("id", $id_tipo_oferta)->get()->first()->control;
 
@@ -613,8 +615,8 @@ class ApiController extends Controller
                             "id_tipo_oferta" => $id_tipo_oferta,
                             "estado" => $estado,
                             "controll" => $controll,
-                            "p_oferta" => $p_oferta,
-                            "desc" => $percent_descount
+                            "p_oferta" => $descuento_total,
+                            "desc" => $descuento_percent
                         ]);
 
             Productos::where("id", $id_producto)->update(["oferta" => $estado]);
