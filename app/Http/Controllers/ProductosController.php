@@ -74,21 +74,36 @@ class ProductosController extends Controller{
 
 
     public function value_oferta($id_producto){
-        // ? monto de oferta
-        // $p_oferta = Ofertas::select("p_oferta")->where("id_producto", $id_producto)->first()->p_oferta;
-        // ? porcentaje de descuento
-        $p_venta = Productos::select("p_sistema")->where("id", $id_producto)->first()->p_sistema;
-        $percent_oferta = Ofertas::select("desc")->where('id_producto', $id_producto)->first()->desc;
+        
+        $monto = $this->calculate_descuento($id_producto);
 
-        $descount = $p_venta * ($percent_oferta / 100);
-        // dd($percent_oferta / 100);
-        // dd($p_venta);
-        // $descount = $p_venta;
+        if($monto != 0){
+            return round($monto);
+        }
 
-        $final = $p_venta - $descount;
+        $final  = $this->calculate_percent($id_producto);
 
         return round($final);
     }
+
+
+    // * function que calucla el descuento del producot por porcentakje
+    function calculate_percent($id_producto)
+    {
+        $p_venta = Productos::select("p_sistema")->where("id", $id_producto)->first()->p_sistema;
+        $percent_oferta = Ofertas::select("desc")->where('id_producto', $id_producto)->first()->desc;
+        $descount = $p_venta * ($percent_oferta / 100);
+        $final = $p_venta - $descount;
+        return round($final);
+    }
+
+    function calculate_descuento($id_producto)
+    {
+        $p_oferta = Ofertas::select("p_oferta")->where("id_producto", $id_producto)->first()->p_oferta;
+        return $p_oferta;
+    }
+
+
 
     // * retorla el nombre de la oferta
     public function get_title_oferta($id_productos)
