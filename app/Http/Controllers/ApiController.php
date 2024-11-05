@@ -608,16 +608,20 @@ class ApiController extends Controller
             $descuento_percent =  $request->descuento_percent;
             $descuento_total =  $request->descuento_total;
 
-            $controll = OfertasTipo::select("control")->where("id", $id_tipo_oferta)->get()->first()->control;
 
+            $controll = OfertasTipo::select("control")->where("id", $id_tipo_oferta)->get()->first()->control;
+           
             Ofertas::where("id_producto", $id_producto)
                         ->update([
                             "id_tipo_oferta" => $id_tipo_oferta,
                             "estado" => $estado,
                             "controll" => $controll,
-                            "p_oferta" => $descuento_total,
-                            "desc" => $descuento_percent
+                            "p_oferta" => getNeto($descuento_percent),
+                            "desc" => $descuento_total
                         ]);
+
+         
+
 
             Productos::where("id", $id_producto)->update(["oferta" => $estado]);
 
