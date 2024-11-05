@@ -74,6 +74,12 @@ function set_total($price)
     return round($price * $iva);
 }
 
+function getNeto($price)
+{
+    $iva = 0.19; // Representa el 19% de IVA
+    return round($price / (1 + $iva));
+}
+
 // * toma los telefonos listados
 function get_phones()
 {

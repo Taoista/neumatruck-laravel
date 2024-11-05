@@ -642,7 +642,8 @@ class ApiController extends Controller
         function insert_new_oferta_producto(Request $request)
         {
             $id_producto = $request->id_producto;
-            $descuento_total = $request->descuento_total ?? 0;
+            // ? monto neto
+            $descuento_total = $request->descuento_total == 0 ? 0 :getNeto($request->descuento_total); 
             $descuento_percent = $request->descuento_percent ?? 0;
             $id_tipo_oferta = $request->id_tipo_oferta;
 
