@@ -13,7 +13,6 @@ use App\Http\Controllers\TransbankController;
 use App\Http\Controllers\SectionBrandsController;
 use App\Http\Controllers\GeneralesController;
 use App\Http\Controllers\PoliticasController;
-use App\Http\Controllers\TransbankAuxiliarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,4 +90,3 @@ Route::get('/demo-demo', [PoliticasController::class,"demo"]);
 // ? transbanc 
 
 
-Route::get('/transbank-pago', [TransbankAuxiliarController::class,"transbank_pago"]);

@@ -74,20 +74,20 @@
             </form>
           </div> --}}
           <div class="col-md-12 order-md-1">
-            <h4 class="mb-3">Total a pagar {{ $pago }}</h4>
+            <h4 class="mb-3">Total a pagar $ {{ $pago }}</h4>
             <h4 class="mb-3">Billing address</h4>
             {{-- <form class="needs-validation" novalidate=""> --}}
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="firstName">Nombre</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                  <input type="text" class="form-control" id="nombre" placeholder="" value="" required="">
                   <div class="invalid-feedback">
                    
                   </div>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="lastName">Apellido</label>
-                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                  <input type="text" class="form-control" id="apellido" placeholder="" value="" required="">
                   <div class="invalid-feedback">
                     
                   </div>
@@ -95,7 +95,13 @@
 
                 <div class="col-md-6 mb-3">
                     <label for="lastName">Rut</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <input type="text" class="form-control" id="rut" placeholder="" value="" required="">
+                    <div class="invalid-feedback">
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="lastName">telefono</label>
+                    <input type="text" class="form-control" id="telefono" placeholder="" value="" required="">
                     <div class="invalid-feedback">
                     </div>
                   </div>
@@ -114,10 +120,15 @@
   
               <div class="mb-3">
                 <label for="address">Direccion</label>
-                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                <input type="text" class="form-control" id="direccion" placeholder="1234 Main St" required="">
                 <div class="invalid-feedback">
 
                 </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Nota</label>
+                <textarea class="form-control" id="nota" rows="3"></textarea>
               </div>
   
               <div class="row">
@@ -146,14 +157,14 @@
           </div>
         </div>
   
-        <footer class="my-5 pt-5 text-muted text-center text-small">
+        {{-- <footer class="my-5 pt-5 text-muted text-center text-small">
           <p class="mb-1">© 2017-2018 Company Name</p>
           <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Privacy</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="#">Support</a></li>
           </ul>
-        </footer>
+        </footer> --}}
       </div>
 @endsection
 
@@ -161,8 +172,59 @@
 
       <script>
        
+       
+
         const pagoFinal = document.querySelector('#pgo-pago').addEventListener('click', ()=>{
-            alert('hola')
+            let nombre = document.querySelector('#nombre').value;
+            let apellido = document.querySelector('#apellido').value;
+            let email = document.querySelector('#email').value;
+            let telefono = document.querySelector('#telefono').value;
+            let rut = document.querySelector('#rut').value;
+            let direccion = document.querySelector('#direccion').value;
+            let nota = document.querySelector('#nota').value;
+            
+   
+
+            if(nombre == "" || apellido == "" || email == "" || telefono == "" || rut == ""){
+              Swal.fire({
+                title: "Error",
+                text: "Debe llenar todos los datos",
+                icon: "error"
+              });
+              return false;
+            }
+
+
+            const parameters = {
+                "nombre" : nombre,
+                "apellido" : apellido,
+                "email" : email,
+                "telefono" : telefono,
+                "rut" : rut,
+                "direccion" : direccion,
+                "nota" : nota,
+              }
+            
+
+            new Promise((resolve, reject) =>{
+              $.ajax({
+                        data: parameters,
+                        url:  _Url+"auxiliar-transbank/iniciar-compra",
+                        type: "POST",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        beforeSend:function(){
+                        },
+                        success:function(response){
+                            resolve(response);
+                        }
+                    })
+            }).then((res) =>{
+              window.location.href = res;
+            
+            })           
+
         })
 
       </script>
