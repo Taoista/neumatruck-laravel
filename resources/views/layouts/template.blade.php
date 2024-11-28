@@ -240,7 +240,8 @@
                                 <li><a href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
                                 {{-- <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li> --}}
                                 <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Retiro en tienda de Lunes a jueves: 11:00 a 16:30 hrs y viernes 11:00 a 16:00 hrs</a></li>
-                                {{-- <i class="fa fa-clock-o"></i>Retiro en tienda de lunes a jueves: 11:00 a 16:30 hrs y viernes 11:00 a 16:00 hrs</a> --}}
+                                <li><a href="tel:+56940757152"><i class="fa fa-phone"></i> +569 4075 7152</a>
+                                <li><a href="tel:+56950114182"><i class="fa fa-phone"></i> +569 5011 4182</a>
                             </ul>
                         </ul>
                     </div>
