@@ -20,7 +20,7 @@ class TransbankAuxiliarController extends Controller
     
     public function __construct()
     {
-        if(state_production() == true){
+        if(state_production() == false){
             $cc =  ConfiguracionData::select("result")->where("data", "tbk_cc_12")->get()->first()->result;
             $api = ConfiguracionData::select("result")->where("data", "tbk_apip_key_12")->get()->first()->result;
 
