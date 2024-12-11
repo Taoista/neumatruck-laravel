@@ -40,7 +40,8 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10981964957">
     </script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-10981964957'); 
     </script> 
-
+    {{-- ? metricool // bastian--}}
+    <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d80e9c7dbf22a93e51bc2a1a22d1762c"})});</script>
 
     @yield('finish-section-google')
 
