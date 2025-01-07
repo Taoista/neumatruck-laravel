@@ -216,7 +216,7 @@ class ApiController extends Controller
         // return $productos[0]["codigo"];
         // return "demo retornardo";
         // ? toma el tipo para el descuento
-
+        // return $productos[0];
         // $descuento = ConfiguracionDescuento::get();
         DB::beginTransaction();
         try {
@@ -228,27 +228,28 @@ class ApiController extends Controller
     
                 $data = Productos::select("id", "id_tipo", "oferta")->where("codigo",$codigo)->get();
     
-                $descuento = ConfiguracionDescuento::select("descuento")->where("id_categoria", $data->first()->id_tipo)->get()->first();
-                // return $descuento;
-                $val_descuento = $p_venta - round(intval($p_venta) * floatval("0.".$descuento->descuento));
-                // $val_descuento = $descuento;
+                if(count($data) != 0){
+                    $descuento = ConfiguracionDescuento::select("descuento")->where("id_categoria", $data->first()->id_tipo)->get()->first();
+                    // return $descuento;
+                    $val_descuento = $p_venta - round(intval($p_venta) * floatval("0.".$descuento->descuento));
+                    // $val_descuento = $descuento;
+        
+                    $prod = Productos::where("id", $data->first()->id);
     
-                $prod = Productos::where("id", $data->first()->id);
-
-                if($prod->get()->first()->oferta == 0){
-                    Productos::where("id", $data->first()->id)->update([
-                        "estado" => $estado,
-                        "stock" => $stock,
-                        "p_sistema" => $p_venta,
-                        "p_venta" => $val_descuento
-                    ]);
-                }else{
-                    Productos::where("id", $data->first()->id)->update([
-                        "estado" => $estado,
-                        "stock" => $stock,
-                    ]);
+                    if($prod->get()->first()->oferta == 0){
+                        Productos::where("id", $data->first()->id)->update([
+                            "estado" => $estado,
+                            "stock" => $stock,
+                            "p_sistema" => $p_venta,
+                            "p_venta" => $val_descuento
+                        ]);
+                    }else{
+                        Productos::where("id", $data->first()->id)->update([
+                            "estado" => $estado,
+                            "stock" => $stock,
+                        ]);
+                    }
                 }
-
             }
             DB::commit();
             return "ok";
