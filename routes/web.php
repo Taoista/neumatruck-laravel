@@ -23,6 +23,13 @@ use App\Http\Controllers\PoliticasController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::middleware([CheckReferrer::class])->group(function () {
+    // Aquí tus rutas que deseas proteger
+    Route::get('/', [HomeController::class, 'index']);
+});
+
+
 Route::get('/clear-cache', function () {
     echo Artisan::call('config:clear');
     echo Artisan::call('config:cache');
