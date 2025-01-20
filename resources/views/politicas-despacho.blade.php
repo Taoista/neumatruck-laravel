@@ -66,7 +66,6 @@
                                                 <thead class="thead-dark">
                                                     <tr>
                                                         <th scope="col">RM </th>
-                                                        <th scope="col">IV REGIÓN </th>
                                                         <th scope="col">V-CENTRO</th>
                                                         <th scope="col">V-NORTE</th>
                                                         <th scope="col">V-SUR </th>
@@ -76,7 +75,6 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>TODAS</td>
-                                                        <td>LOS VILOS</td>
                                                         <td>CASA BLANCA</td>
                                                         <td>CABILDO</td>
                                                         <td>ALGARROBO</td>
@@ -84,7 +82,6 @@
                                                     </tr>
                                                     <tr>
                                                         <td>-</td>
-                                                        <td>COQUIMBO</td>
                                                         <td>CON-CON</td>
                                                         <td>HIJUELAS</td>
                                                         <td>CARTAGENA</td>
@@ -92,7 +89,6 @@
                                                     </tr>
                                                     <tr>
                                                         <td>-</td>
-                                                        <td>LA SERENA </td>
                                                         <td>CURACAVI</td>
                                                         <td>LA CALERA</td>
                                                         <td>EL MONTE</td>
@@ -100,14 +96,12 @@
                                                     </tr>
                                                     <tr>
                                                         <td>-</td>
-                                                        <td>OVALLE</td>
                                                         <td>LIMACHE</td>
                                                         <td>LA LIGUA</td>
                                                         <td>EL QUISCO</td>
                                                         <td>COLTAUCO</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>OLMUE</td>
                                                         <td>PUCHUNCAV</td>
@@ -116,14 +110,12 @@
                                                     </tr>
                                                     <tr>
                                                         <td>-</td>
-                                                        <td>-</td>
                                                         <td>QUILPUE</td>
                                                         <td>QUILLOTA</td>
                                                         <td>LLO-LLEO</td>
                                                         <td>GRANEROS </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>VALPARAISO</td>
                                                         <td>SAN FELIPE</td>
@@ -133,14 +125,12 @@
                                                     </tr>
                                                     <tr>
                                                         <td>-</td>
-                                                        <td>-</td>
                                                         <td>VILLA ALEMANA</td>
                                                         <td>LOS ANDES</td>
                                                         <td>PEÑAFLOR</td>
                                                         <td>LITUECHE </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>VIÑA DEL MAR</td>
                                                         <td>LLAY-LLAY</td>
@@ -149,14 +139,12 @@
                                                     </tr>
                                                     <tr>
                                                         <td>-</td>
-                                                        <td>-</td>
                                                         <td>QUINTERO</td>
                                                         <td>CATEMU</td>
                                                         <td>SAN ANTONIO</td>
                                                         <td>MACHALI</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>PLACILLA</td>
                                                         <td>PANQUEHUE</td>
@@ -166,13 +154,11 @@
                                                     <tr>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <td>-</td>
                                                         <td>PETORCA</td>
                                                         <td>TABO</td>
                                                         <td>MARCHIHUE</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -184,11 +170,9 @@
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <td>-</td>
                                                         <td>NANCAGUA</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -200,11 +184,9 @@
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <td>-</td>
                                                         <td>PALMILLA</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -216,11 +198,9 @@
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <td>-</td>
                                                         <td>PERALILLO </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -232,7 +212,6 @@
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <td>-</td>
                                                         <td>PICHIDEGUA</td>
                                                     </tr>
                                                     <tr>
@@ -240,11 +219,9 @@
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <td>-</td>
                                                         <td>SANTA CRUZ </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -257,11 +234,9 @@
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <td>-</td>
                                                         <td>SAN VICENTE DE TAGUA</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
