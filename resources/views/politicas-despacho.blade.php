@@ -48,7 +48,7 @@
                                 <div id="tab1" class="tab-pane fade in active">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p> ● Bajo esta modalidad y sin un mínimo de compra el despacho de los productos será realizado en el domicilio que el cliente indique al momento del envío de su orden de compra. Cabe destacar que el domicilio debe estar dentro de las localidades informadas dentro de las regiones de La Serena a Los Ángeles. (Incluye ciudades principales, capitales regionales, no incluye ramales).</p>
+                                            <p> ● Bajo esta modalidad y sin un mínimo de compra el despacho de los productos será realizado en el domicilio que el cliente indique al momento del envío de su orden de compra. Cabe destacar que el domicilio debe estar dentro de las localidades informadas dentro de las regiones a Los Ángeles. (Incluye ciudades principales, capitales regionales, no incluye ramales).</p>
                                             <br>
                                             <p> ● La tienda está ubicada en: Santa Margarita 0448, San Bernardo.
                                                 Adicionalmente, el cliente, podrá autorizar a un tercero
@@ -60,7 +60,7 @@
                                             <br>
                                             <p> ● El despacho de los productos será realizado a través de servicios de Courier nacional, en el lugar que el cliente hubiere elegido, en un plazo de 1 a 5 días hábiles una vez validada la orden de compra y el pago. Tanto si es <strong style="font-size: 15px;"> Neumatruck </strong> o courier nacional, el despacho de productos se realiza de lunes a viernes, entre 9:30 y 18:30 horas. Una vez realizada la compra, se formalizará la fecha de despacho a través de correo electrónico, o llamada del ejecutivo de Ventas. El rango de hora será siempre entre las 9:30 y 19:30 hrs inclusive. </p>
                                             <br>
-                                            <p> ● Los despachos gratuitos dentro de la Región Metropolitana, IV, V y VI Región serán efectuados por transporte propio de <strong style="font-size: 15px;"> Neumatruck </strong> que incluye las siguientes localidades:</p>
+                                            <p> ● Los despachos gratuitos dentro de la Región Metropolitana, V y VI Región serán efectuados por transporte propio de <strong style="font-size: 15px;"> Neumatruck </strong> que incluye las siguientes localidades:</p>
                                             <br>
                                             <table class="table">
                                                 <thead class="thead-dark">
