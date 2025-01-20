@@ -41,27 +41,36 @@
                     <div class="col-md-12">
                         <div id="product-tab">
                             <ul class="tab-nav">
-                                <li class="active"><a data-toggle="tab" href="#tab1">Despacho Gratis desde $150.000 de La Serena a Los Ángeles</a></li>
+                                <li class="active"><a data-toggle="tab" href="#tab1">Despachos gratis desde $150.000 en la VI a la V de valparaíso (incluyendo RM)</a></li>
                                 <li><a data-toggle="tab" href="#tab2">Despacho Otras Regiones y Provincias por Pagar</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div id="tab1" class="tab-pane fade in active">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <p> ● Bajo esta modalidad y sin un mínimo de compra el despacho de los productos será realizado en el domicilio que el cliente indique al momento del envío de su orden de compra. Cabe destacar que el domicilio debe estar dentro de las localidades informadas dentro de las regiones a Los Ángeles. (Incluye ciudades principales, capitales regionales, no incluye ramales).</p>
+                                            <p> 
+                                                ● Bajo esta modalidad y sin un mínimo de compra el despacho de los productos será realizado en el domicilio que el cliente indique al momento del envío de su orden de compra. Cabe destacar que el domicilio debe estar dentro de las localidades informadas dentro de la VI Región a la V Región de Valparaíso. (Incluye ciudades principales, capitales regionales, no incluye ramales).
+                                            </p>
                                             <br>
-                                            <p> ● La tienda está ubicada en: Santa Margarita 0448, San Bernardo.
-                                                Adicionalmente, el cliente, podrá autorizar a un tercero
-                                                para efectuar el retiro del producto, debiendo indicar los datos de dicha
-                                                persona (nombre completo, Rut, número de teléfono y correo electrónico) al
-                                                ejecutivo de ventas. </p>
+                                            <p>
+                                                ● La tienda está ubicada en: Santa Margarita 0448, San Bernardo. Adicionalmente, el cliente, podrá autorizar a un tercero para efectuar el retiro del producto, debiendo indicar los datos de dicha persona (nombre completo, Rut, número de teléfono y correo electrónico) al ejecutivo de ventas.
+                                            </p>
                                             <br>
-                                            <p> ● Será responsabilidad del cliente la exactitud de los datos entregados en <strong style="font-size: 15px;"> Neumatruck </strong> para una correcta y oportuna entrega de los productos en el domicilio indicado o en el lugar de despacho elegido.</p>
+                                            <p>
+                                                ● Será responsabilidad del cliente la exactitud de los datos entregados en 
+                                                <strong>Neumatruck</strong>
+                                                para una correcta y oportuna entrega de los productos en el domicilio indicado o en el lugar de despacho elegido.
+                                            </p>
                                             <br>
-                                            <p> ● El despacho de los productos será realizado a través de servicios de Courier nacional, en el lugar que el cliente hubiere elegido, en un plazo de 1 a 5 días hábiles una vez validada la orden de compra y el pago. Tanto si es <strong style="font-size: 15px;"> Neumatruck </strong> o courier nacional, el despacho de productos se realiza de lunes a viernes, entre 9:30 y 18:30 horas. Una vez realizada la compra, se formalizará la fecha de despacho a través de correo electrónico, o llamada del ejecutivo de Ventas. El rango de hora será siempre entre las 9:30 y 19:30 hrs inclusive. </p>
+                                            <p>
+                                                ● El despacho de los productos será realizado a través de servicios de Courier nacional, en el lugar que el cliente hubiere elegido, en un plazo de 1 a 5 días hábiles una vez validada la orden de compra y el pago. Tanto si es Neumatruck o courier nacional, el despacho de productos se realiza de lunes a viernes, entre 9:30 y 18:30 horas. Una vez realizada la compra, se formalizará la fecha de despacho a través de correo electrónico, o llamada del ejecutivo de Ventas. El rango de hora será siempre entre las 9:30 y 19:30 hrs inclusive.
+                                            </p>
                                             <br>
-                                            <p> ● Los despachos gratuitos dentro de la Región Metropolitana, V y VI Región serán efectuados por transporte propio de <strong style="font-size: 15px;"> Neumatruck </strong> que incluye las siguientes localidades:</p>
+                                            <p>
+                                                ● Los despachos gratuitos dentro de la Región Metropolitana, V y VI Región serán efectuados por transporte propio de Neumatruck que incluye las siguientes localidades:
+                                            </p>
                                             <br>
+
                                             <table class="table">
                                                 <thead class="thead-dark">
                                                     <tr>
@@ -268,13 +277,19 @@
                                 <div id="tab2" class="tab-pane fade in">
                                     <div class="row">
                                         <br>
-                                        <p>Una vez realizado todo el proceso de compra indicando el lugar de despacho, el ejecutivo de ventas se pondrá en contacto con el cliente para consultar la empresa de transportes escogida por la cual quiere enviar la mercadería. Neumatruck entregará dicha mercadería en un plazo de 24 a 48 horas hábiles a la empresa de transporte para hacer el envío por pagar. Luego el cliente debe sumar el plazo de entrega de la empresa de envío.<br>
+                                        <p>
+                                            Una vez realizado todo el proceso de compra indicando el lugar de despacho, el ejecutivo de ventas se pondrá en contacto con el cliente para consultar la empresa de transportes escogida por la cual quiere enviar la mercadería. Neumatruck entregará dicha mercadería en un plazo de 24 a 48 horas hábiles a la empresa de transporte para hacer el envío por pagar. Luego el cliente debe sumar el plazo de entrega de la empresa de envío.
                                         </p>
                                         <br>
-                                        <p>Una vez constatados los procedimientos de seguridad para la verificación de la compra (el medio de pago utilizado y la confirmación de los datos personales suministrados por el cliente) el cliente recibirá un correo que le indicará el número de seguimiento de su despacho. En este caso y dado la naturaleza del despacho y disponibilidad del transporte escogido por el cliente, el envío podrá exceder del plazo establecido.<br>
+                                        <p>
+                                            Una vez constatados los procedimientos de seguridad para la verificación de la compra (el medio de pago utilizado y la confirmación de los datos personales suministrados por el cliente) el cliente recibirá un correo que le indicará el número de seguimiento de su despacho. En este caso y dado la naturaleza del despacho y disponibilidad del transporte escogido por el cliente, el envío podrá exceder del plazo establecido.
                                         </p>
-                                        <p>● Desde Temuco a Puerto Montt sugerimos la empresa de transportes el Arriero que hace entrega de los productos dentro de 48 a 72 horas hábiles.</p>
-                                        <p>● Para los despachos de la IV Región no incluidos en el transporte gratuito sugerimos realizarlos por transportes Huara quien hace entrega en un plazo de 48 a 96 horas hábiles. (Despacho gratis en Los Vilos, Coquimbo, La Serena, Ovalle).</p>
+                                        <p>
+                                            ● Desde Temuco a Puerto Montt sugerimos la empresa de transportes el Arriero que hace entrega de los productos dentro de 48 a 72 horas hábiles.
+                                        </p>
+                                        <p>
+                                            ● Para los despachos de la IV Región sugerimos la empresa de transporte el Arriero quien hace entrega en un plazo de 48 a 96 horas hábiles.
+                                        </p>
                                         <p>
                                             ● También para los despachos de la III a la II Región se sugiere realizarlos por transportes Huara quien hace entrega en un plazo de 48 a 96 horas hábiles.
                                         </p>
