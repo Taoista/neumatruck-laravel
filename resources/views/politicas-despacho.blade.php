@@ -58,7 +58,7 @@
                                             <br>
                                             <p>
                                                 ● Será responsabilidad del cliente la exactitud de los datos entregados en 
-                                                <strong>Neumatruck</strong>
+                                                <strong style="font-size: 15px;">Neumatruck</strong>
                                                 para una correcta y oportuna entrega de los productos en el domicilio indicado o en el lugar de despacho elegido.
                                             </p>
                                             <br>
