@@ -42,7 +42,7 @@ class Checkout extends Component
     public $mensaje;
 
     public $monto_minimo;
-
+    public $monot_minimo_regiones;
     // public $state_pay;
 
     public function  mount()
@@ -71,6 +71,7 @@ class Checkout extends Component
         $this->calculate_total_pago();
 
         $this->monto_minimo = min_monto();
+        $this->monot_minimo_regiones = min_mount_region();
 
         // $this->state_pay = false;
         // $this->state_final_pay();
@@ -109,7 +110,25 @@ class Checkout extends Component
     function state_final_pay()
     {
         $neto = $this->neto;
-        // dd($neto);
+        
+        $selected_delivery = intval($this->selected_delivery);
+        $id_region = intval($this->selected_region);
+
+        // ? seleccionado la region
+        if($selected_delivery == 2 AND $id_region != 14){
+            // ? controll de monto minimo regiones
+            if($neto < 200000){
+                $this->dispatchBrowserEvent("error_monto_minimo_region", 
+                ['monto_minimo' => '$ '.format_money('200000')]);
+            return false;
+                return false;
+            }
+
+            
+        }
+
+
+
         $controller = new PreciosController($neto);
 
         $state = $controller->state();
@@ -123,6 +142,7 @@ class Checkout extends Component
             return false;
         }
         // return false;
+        dd('terminar el mundo');
 
         $this->pgo_tbk();
     }

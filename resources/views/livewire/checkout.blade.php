@@ -221,6 +221,11 @@
                 Swal.fire('Monto Minimo',`el monto minimo debe de ser ${monto_minimo} neto`,'error')
             });
 
+            window.addEventListener("error_monto_minimo_region", (e) => {
+                const  monto_minimo = event.detail.monto_minimo
+                Swal.fire('Monto Mínimo', `El monto mínimo para la región es de ${monto_minimo} neto`, 'error');
+            });
+
             
 
             window.addEventListener("loading_tbk", (e) => {

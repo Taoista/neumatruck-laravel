@@ -41,6 +41,13 @@ function min_monto()
                             ->get()->first()->result;
 }
 
+function min_mount_region()
+{
+    return ConfiguracionDato::select("result")
+                            ->where("data", "monto-minimo-region")
+                            ->get()->first()->result;
+}
+
 
 // * toma las marcas del footer
 function get_marcas_footer()
