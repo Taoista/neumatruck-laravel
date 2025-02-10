@@ -142,7 +142,7 @@ class Checkout extends Component
             return false;
         }
         // return false;
-        dd('terminar el mundo');
+        // dd('terminar el mundo');
 
         $this->pgo_tbk();
     }

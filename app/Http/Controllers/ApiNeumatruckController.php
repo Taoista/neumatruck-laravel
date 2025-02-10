@@ -51,13 +51,13 @@ class ApiNeumatruckController extends Controller
             $title_imagen = $request->title_imagen;
             $codigo_new = $request->codigo_new;
             $id_seccion = $request->id_seccion;
+            $oferta = $request->oferta;
             try {
                 // $path = Enlaces::select("enlace")->where("id", $id_ruta)->get();
                 // $ruta = "#";
                 // if(count($path) > 0){
                 //     $ruta = $path->first()->enlace;
                 // }
-
                 if($id_enlace == 12){
                     Banners::where("id", $id_banner)->update([
                         "estado" => $estado,
@@ -68,7 +68,9 @@ class ApiNeumatruckController extends Controller
                     Enlaces::where("id", $id_enlace)->update([
                         'enlace' => './seccion-selected/'.base64_encode($id_seccion)
                     ]);
-                }elseif($id_enlace == 11){
+                }elseif($id_enlace == 10){
+
+                } elseif($id_enlace == 11){
                     Banners::where("id", $id_banner)->update([
                         "estado" => $estado,
                         "redireccion" => $id_enlace,
