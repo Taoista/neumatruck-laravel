@@ -137,3 +137,23 @@ pagination > .active > a, .pagination > .active > a:focus, .pagination > .active
    50% { opacity: 0.0; }
   100% { opacity: 1.0; }
 }
+
+/* ? estilos de filtros */
+
+.responsive-select {
+  display: none;
+}
+
+.normal-checkboxes {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .responsive-select {
+      display: block;
+  }
+
+  .normal-checkboxes {
+      display: none;
+  }
+}

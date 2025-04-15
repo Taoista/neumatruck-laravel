@@ -18,8 +18,15 @@ class Categoria extends Component
 
     public $filter_key;
 
+    public $id_brands_select;
+    public $id_sizes_select;
+
+
     public function mount(){
         $this->filter_key = null;
+
+        $this->id_brands_select = "0";
+        $this->id_sizes_select = "0";
     }
 
     public function render()
@@ -68,5 +75,37 @@ class Categoria extends Component
                             ->where("productos.id_tipo", $this->id_categoria )
                             ->get();
     }
+
+       // * filtro de marcas
+       function add_key_search()
+       {
+           $id_brand = $this->id_brands_select;
+   
+           if($id_brand == "0" OR $id_brand == null){
+               $this->imputs_brands = [];
+               return false;
+           }
+   
+           $brands = [];
+           array_push($brands, $id_brand);
+           $this->imputs_brands = $brands;
+       }
+   
+   
+       // * filtro de productos
+       function add_key_search_size()
+       {
+            $sizes = $this->id_sizes_select;
+   
+
+           if($sizes == "0" OR $sizes == null){
+               $this->imputs_sizes = [];
+               return false;
+           }
+   
+           $sizes_list = [];
+           array_push($sizes_list, $sizes);
+           $this->imputs_sizes = $sizes_list;
+       }
 
 }

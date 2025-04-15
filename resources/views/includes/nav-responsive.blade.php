@@ -14,7 +14,8 @@
                     @endforeach
                     <li><a href="{{ url("./contacto") }}">Contacto</a></li>
                     @if(oferta_primaria() == true)
-                    <li><a  href="{{ url("./ofertas") }}" style="color: #FFB03D;">{{ get_title_oferta_ptimaria() }}</a></li>
+                    {{-- <li><a  href="{{ url("./ofertas") }}" style="color: #FFB03D;">{{ get_title_oferta_ptimaria() }}</a></li> --}}
+                    <li><a  href="{{ url("./ofertas-seccion").'/Mg==/OFERTAS' }}" style="color: #FFB03D;">{{ get_title_oferta_ptimaria() }}</a></li>
                     @endif
                  
                     <li><a href="{{ url("./carrito") }}">Carrito</a></li>
