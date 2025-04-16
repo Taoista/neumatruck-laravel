@@ -5,7 +5,7 @@ btn_search.addEventListener("click", (e) => {
     e.preventDefault();
 
     if(keyworks.value == "" || keyworks.value == false || keyworks.value == null ){
-        Swal.fire('Error','Debe agregar una memdida para buscar','error')
+        Swal.fire('Error','Debe agregar una medida valida para buscar','error')
     }else{
         window.location.href = `${_Url}busqueda/${btoa(keyworks.value)}`
     }
