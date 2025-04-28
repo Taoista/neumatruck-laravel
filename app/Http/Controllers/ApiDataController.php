@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Transbank;
 use App\Models\Compras;
+use App\Models\Marcas;
 use App\Models\SeccionTipo;
 use App\Models\SeccionTipoProductos;
 
@@ -159,6 +160,29 @@ class ApiDataController extends Controller
 
         }
 
+    }
+
+
+    function create_marca(Request $request)
+    {
+
+        $id2 = $request->id2;
+        $marca = $request->marca;
+
+        $data = Marcas::where("id2", $id2)->first();
+        if ($data) {
+            return response()->json(["response" => "error", "data" => "Ya existe una marca con el id2: $id2"]);
+        }
+
+        $brand = new Marcas();
+        $brand->id2 = $id2;
+        $brand->estado = 1;
+        $brand->marca = $marca;
+        $brand->nav = 0;
+        $brand->prioridad = 0;
+        $brand->save();
+
+        return response()->json(["response" => "success", "data" => $brand]);
     }
 
 }

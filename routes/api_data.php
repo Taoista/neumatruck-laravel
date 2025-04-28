@@ -18,5 +18,6 @@ Route::post("/create-seccions",[ApiDataController::class, "create_seccion"]);
 Route::post("/create-producto-section",[ApiDataController::class, "create_producto_section"]);
 Route::post("/delete-seccions",[ApiDataController::class, "delete_seccion"]);
 Route::post("/delete-producto-seccion",[ApiDataController::class, "delete_producto_seccion"]);
-
+// * crea una marca
+Route::post("/create-marca",[ApiDataController::class, "create_marca"]);
 
