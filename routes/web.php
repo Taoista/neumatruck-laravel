@@ -64,9 +64,6 @@ Route::get("/contacto",[ContactoController::class, "contacto"]);
 // * carrito
 Route::get("/carrito",[CarritoController::class, "carrito"]);
 
-// * ficha del producto 
-// ! Deprecated
-Route::get("/ficha/{id_producto}",[FichaController::class, "ficha"]);
 // * cambio en la ficha por el estado del producto
 Route::get("/producto/{codigo}",[FichaController::class, "producto"]);
 

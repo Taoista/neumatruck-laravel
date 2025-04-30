@@ -12,9 +12,11 @@ use Illuminate\Support\Facades\Redirect;
 class SeccionController extends Controller
 {
  
-    function categoria($id_seccion){
+    function categoria($id_tipe){
 
-        $id_seccion = base64_decode($id_seccion);
+        $id_seccion = Tipo::select("id")->where("url", $id_tipe)->get()->first()->id;
+
+        // $id_seccion = base64_decode($id_seccion);
 
         $name = $this->get_name($id_seccion);
         

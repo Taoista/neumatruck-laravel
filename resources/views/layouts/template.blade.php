@@ -213,7 +213,7 @@
                         <h3 class="footer-title">Categorías</h3>
                         <ul class="footer-links">
                             @foreach (get_categoria_footer() as $item )
-                            <li><a href="{{ url('./categoria').'/'.base64_encode($item->id) }}" >{{ strtoupper($item->nombre) }}</a></li>
+                            <li><a href="{{ url('./categoria').'/'.$item->url }}" >{{ strtoupper($item->nombre) }}</a></li>
                             @endforeach
                         </ul>
                     </div>

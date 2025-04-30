@@ -62,7 +62,7 @@ function get_marcas_footer()
 // * toma las categorias que se van a mostrar en el footer
 function get_categoria_footer()
 {
-    return CategoriaFotter::select("t.id", "t.nombre")
+    return CategoriaFotter::select("t.id", "t.nombre", "t.url")
             ->join("tipo AS t", "t.id", "categoria_footer.id_tipo")
             ->where("categoria_footer.estado", 1)
             ->orderby("categoria_footer.orden", 'ASC')
@@ -72,7 +72,7 @@ function get_categoria_footer()
 // * toma las categorias
 function get_categorias()
 {
-    return Tipo::select("id", "nombre")->where("ver", 1)->get();
+    return Tipo::select("id", "nombre", "url")->where("ver", 1)->get();
 }
 
 function set_total($price)

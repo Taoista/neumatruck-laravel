@@ -22,7 +22,7 @@ style="border-color: transparent; background-color:transparent; border-top: 1px 
 
             @endif
             @foreach (get_categorias() as $item)
-            <li><a class="section-selector" data-type="{{ $item->id }}" href="#">{{ $item->nombre }}</a></li>
+            <li><a class="section-selector" data-type="{{ $item->url }}" href="#">{{ $item->nombre }}</a></li>
             <li class="divider-vertical"></li>
             @endforeach
             <li><a href="{{ url("./contacto") }}">Contacto</a></li>
