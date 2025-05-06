@@ -138,3 +138,5 @@ Route::post("/update-pop-up",[ApiController::class,"update_pop_up"]);
 // * 
 // * 
 Route::get("/get-banner-mobil",[PoliticasController::class, "get_banner_mobil"]);
+// *
+Route::get("/marca/get-brand/{id2}",[ApiController::class, "get_brand"]);

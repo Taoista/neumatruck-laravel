@@ -1036,6 +1036,14 @@ class ApiController extends Controller
         }
 
 
+        function get_brand($id2)
+        {
+            $data = Marcas::where("id2", $id2)->get();
+
+            return response()->json(['message' => 'success','data'=> $data]);
+
+        }
+
 
 }
 
