@@ -20,4 +20,6 @@ Route::post("/delete-seccions",[ApiDataController::class, "delete_seccion"]);
 Route::post("/delete-producto-seccion",[ApiDataController::class, "delete_producto_seccion"]);
 // * crea una marca
 Route::post("/create-marca",[ApiDataController::class, "create_marca"]);
+// ? configuracion de telefonos
+Route::get("/phones/get-all-phones",[ApiDataController::class, "get_all_phones"]);
 

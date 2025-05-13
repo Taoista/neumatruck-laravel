@@ -8,6 +8,7 @@ use App\Models\Compras;
 use App\Models\Marcas;
 use App\Models\SeccionTipo;
 use App\Models\SeccionTipoProductos;
+use App\Models\ConfiguracionPhono;
 
 
 class ApiDataController extends Controller
@@ -183,6 +184,15 @@ class ApiDataController extends Controller
         $brand->save();
 
         return response()->json(["response" => "success", "data" => $brand]);
+    }
+
+
+    function get_all_phones()
+    {
+        $data = ConfiguracionPhono::orderby("orden","asc")->get();
+
+        return response()->json(["response" => "success", "data" => $data]);
+
     }
 
 }
