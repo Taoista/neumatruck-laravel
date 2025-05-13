@@ -52,7 +52,7 @@
 
     <div class="icon-bar text-center">
         <a target="_blank" style="background-color:#3b5998;" href="{{ facebook() }}" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a target="_blank" style="background-color:blue;" href="tel:{{ phone_main() }}" class="google"><i class="fa fa-phone"></i></a>
+        <a target="_blank" style="background-color:blue;" href="tel:{{ phone_main()[0]['telefono'] }}" class="google"><i class="fa fa-phone"></i></a>
         <a target="_blank" style="background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);" href="{{ instagram() }}" class="youtube"><i class="fa fa-instagram"></i></a>
     </div>
 
@@ -64,7 +64,12 @@
             <div id="div-interno-header" class="container" style="display:flex;justify-content:center">
                 <ul class="header-links pull-left">
                     <li><a id="tel-text-fono" class="ul-telefonos" href="#">Fono ventas:</a></li>
-                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:{{ phone_main() }}"><i class="fa fa-phone"></i>{{ phone_main() }}</a></li>
+                    @for ($i = 0; $i < count(phone_main()); $i ++)
+                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:{{ phone_main()[$i]['telefono'] }}"><i class="fa fa-phone"></i>{{ phone_main()[$i]['telefono'] }}</a></li>
+                    @endfor
+                    {{-- @foreach ( phone_main() as $item )
+                    <li><a id="tel-max-firts" class="ul-telefonos" href="tel:{{ $item->telefono }}"><i class="fa fa-phone"></i>{{ $item->telefono }}</a></li>
+                    @endforeach --}}
                 </ul>
             </div>
 
@@ -235,15 +240,13 @@
                         <ul class="footer-links">
                             <ul class="footer-links">
                                 <li><a href="assets/contacto.php"><i class="fa fa-map-marker"></i>Santa Margarita 0448 - San bernardo - Rm</a></li>
-                                @foreach (get_phones() as $item )
-                                <li><a href="tel:{{ $item->telefono }}"><i class="fa fa-phone"></i>{{ $item->telefono }}</a></li>
-                                @endforeach
+                             
                                 <li><a href="mailto:contacto@neumatruck.cl"><i class="fa fa-envelope-o"></i>contacto@neumatruck.cl</a></li>
                                 {{-- <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Lunes a Viernes: 09:00 a 18:00 hrs</a></li> --}}
                                 <li><a href="javascript:void(0);"><i class="fa fa-clock-o"></i>Retiro en tienda de Lunes a jueves: 11:00 a 16:30 hrs y viernes 11:00 a 16:00 hrs</a></li>
-                                <li><a href="tel:+56940757152"><i class="fa fa-phone"></i> +569 4075 7152</a>
-                                <li><a href="tel:+56950114182"><i class="fa fa-phone"></i> +569 5011 4182</a>
-                                    <li><a href="tel:+56950114182"><i class="fa fa-phone"></i> +569 4664 9909 </a>
+                                   @foreach (get_phones() as $item )
+                                <li><a href="tel:{{ $item->telefono }}"><i class="fa fa-phone"></i>{{ $item->telefono }}</a></li>
+                                @endforeach
                             </ul>
                         </ul>
                     </div>

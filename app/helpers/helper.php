@@ -27,9 +27,12 @@ function urlImg()
 // * wahhsap
 function  get_whatsapp()
 {
-    return ConfiguracionDato::select("result")
-                            ->where("data", "wp")
-                            ->get()->first()->result;
+    try {
+        $data = ConfiguracionPhono::select("telefono")->where("wsp", 1)->first();
+        return $data->telefono;
+    } catch (\Throwable $th) {
+        return '+5624846000';
+    }
 }
 
 
@@ -90,13 +93,22 @@ function getNeto($price)
 // * toma los telefonos listados
 function get_phones()
 {
-    return ConfiguracionPhono::orderby("orden", "desc")->get();
+    return ConfiguracionPhono::orderby("orden", "asc")->get();
 }
 
 // * telefono header de ventas
 function phone_main()
 {
-    return ConfiguracionDato::select("result")->where("data", "fono-venta")->get()->first()->result;
+    try {
+        $data = ConfiguracionPhono::select("telefono")->where("header", 1)->get();
+        return $data;
+    } catch (\Throwable $th) {
+
+        $data = [
+            ['telefono' => '+5624846000']
+        ];
+        return $data;
+    }
 }
 
 function format_money($val)
