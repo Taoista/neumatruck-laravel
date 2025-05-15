@@ -195,4 +195,78 @@ class ApiDataController extends Controller
 
     }
 
+    function update_order_phone(Request $request)
+    {
+        $data = $request->data;
+        $order = 1;
+
+        for ($i=0; $i < count($data) ; $i++) { 
+            $id = $data[$i]['order'];    
+            ConfiguracionPhono::where("id", $id)->update(
+                ["orden" => $order]
+            );            
+            $order++;
+        }
+
+        return response()->json(["response" => "success", "data" => 'success']);
+
+    }
+
+    function update_phone_one(Request $request)
+    {
+        $id = $request->id;
+        $phone = $request->phone;
+        $header = $request->header;
+
+        ConfiguracionPhono::where("id", $id)->update([
+            'header' => $header,
+            'telefono' => $phone,
+        ]);
+
+        return response()->json(["response" => "success", "data" => 'success']);
+
+    }
+
+    function delete_phone_one(Request $request)
+    {
+        $id = $request->id;
+        
+        ConfiguracionPhono::where("id", $id)->delete();
+
+        return response()->json(["response" => "success", "data" => 'success']);
+
+    }
+
+    function update_phone_wsp(Request $request)
+    {
+        $id = $request->id;
+
+        ConfiguracionPhono::query()->update(['wsp' => 0]);
+        ConfiguracionPhono::where("id", $id)->update(["wsp" => 1]);
+
+        return response()->json(["response" => "success", "data" => 'success']);
+
+    }
+
+    function add_new_phone_wsp(Request $request)
+    {
+
+        $phone = $request->phone;
+        $checked = $request->chk_new_phone;
+
+        $maxOrden = ConfiguracionPhono::max('orden');
+
+        $data = new ConfiguracionPhono();
+        $data->orden = $maxOrden + 1;
+        $data->header = $checked;
+        $data->wsp = 0;
+        $data->telefono = $phone;
+        $data->detalle = "none";
+        $data->save();
+
+        return response()->json(["response" => "success", "data" => $data]);
+
+    }
+
+
 }

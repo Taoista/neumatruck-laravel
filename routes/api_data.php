@@ -22,4 +22,13 @@ Route::post("/delete-producto-seccion",[ApiDataController::class, "delete_produc
 Route::post("/create-marca",[ApiDataController::class, "create_marca"]);
 // ? configuracion de telefonos
 Route::get("/phones/get-all-phones",[ApiDataController::class, "get_all_phones"]);
-
+// * update order numberphone
+Route::post("/phone/update-order-phone",[ApiDataController::class,"update_order_phone"]);
+// * update unic phone
+Route::post("/phone/update-phone-one",[ApiDataController::class,"update_phone_one"]);
+// * delete a phone
+Route::post("/phone/delete-phone-one",[ApiDataController::class,"delete_phone_one"]);
+// * update wasap phone
+Route::post("/phone/update-phone-wsp",[ApiDataController::class,"update_phone_wsp"]);
+// * agrega nuevo numero
+Route::post("/phone/add-new-phone-wsp",[ApiDataController::class,"add_new_phone_wsp"]);
