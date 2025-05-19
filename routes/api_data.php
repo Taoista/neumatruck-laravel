@@ -24,11 +24,15 @@ Route::post("/create-marca",[ApiDataController::class, "create_marca"]);
 Route::get("/phones/get-all-phones",[ApiDataController::class, "get_all_phones"]);
 // * update order numberphone
 Route::post("/phone/update-order-phone",[ApiDataController::class,"update_order_phone"]);
+// * ordena los telefonos SOLO EN EL V2
+Route::post("/phone/update-order-phone2",[ApiDataController::class,"update_order_phone_2"]);
 // * update unic phone
 Route::post("/phone/update-phone-one",[ApiDataController::class,"update_phone_one"]);
 // * delete a phone
 Route::post("/phone/delete-phone-one",[ApiDataController::class,"delete_phone_one"]);
 // * update wasap phone
 Route::post("/phone/update-phone-wsp",[ApiDataController::class,"update_phone_wsp"]);
-// * agrega nuevo numero
+// * agrega nuevo numero a watsap
 Route::post("/phone/add-new-phone-wsp",[ApiDataController::class,"add_new_phone_wsp"]);
+// * agrega un numero
+Route::post("/phone/add-new-phone",[ApiDataController::class,"add_new_phone"]);

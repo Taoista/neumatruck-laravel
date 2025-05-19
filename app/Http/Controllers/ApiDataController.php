@@ -212,6 +212,33 @@ class ApiDataController extends Controller
 
     }
 
+    function update_order_phone_2(Request $request)
+    {
+        $data = $request->data;
+        $contador = 1;
+        for ($i=0; $i <count($data) ; $i++) { 
+            $id = $data[$i]['id'];
+            $orden = $contador;
+            $header = $data[$i]['header'];
+            $telefono = $data[$i]['telefono'];
+            $wsp = $data[$i]['wsp'];
+            ConfiguracionPhono::where("id", $id)->update(
+                [
+                    'orden'=> $orden,
+                    'header' => $header,
+                    'wsp' => $wsp,
+                    'telefono' => $telefono,
+                    'detalle' => ''
+                ]
+            );
+            $contador ++;
+        }
+
+        $phones = ConfiguracionPhono::get();
+        return response()->json(["response" => "success", "data" => $phones]);
+    }
+
+
     function update_phone_one(Request $request)
     {
         $id = $request->id;
@@ -268,5 +295,22 @@ class ApiDataController extends Controller
 
     }
 
+    function add_new_phone(Request $request)
+    {
+        $phone = $request->phone;
+
+        $maxOrden = ConfiguracionPhono::max('orden');
+
+        $data = new ConfiguracionPhono();
+        $data->orden = $maxOrden + 1;
+        $data->header = 0;
+        $data->wsp = 0;
+        $data->telefono = $phone;
+        $data->detalle = "none";
+        $data->save();
+
+        return response()->json(["response" => "success", "data" => $data]);
+
+    }
 
 }
