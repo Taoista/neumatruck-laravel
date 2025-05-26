@@ -3,9 +3,7 @@
 Manual Proyecto NEUMATRUCK con Laravel y Docker  
 > ⚠️ **Advertencia:** este contenedor no ejecuta las migraciones, ya que la base de datos fue tomada por la versión anterior con PHP 5.
 
-
-![Neumatruck  Laravel](https://i.ibb.co/tTYDVBBP/images.png)
-
+![Project Banner](https://i.ibb.co/tTYDVBBP/images.png)
 ---
 
 ## 📦 Estructura del Proyecto
