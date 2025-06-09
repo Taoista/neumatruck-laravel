@@ -1,0 +1,36 @@
+name: Deploy premium Laravel
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to VPS
+      env:
+        VPS_USER: root
+        VPS_HOST: 162.240.226.208
+        PROJECT_PATH: /home/wwneum/test.neumatruck.cl
+        VPS_PASSWORD: ${{ secrets.VPS_PASSWORD }}
+      run: |
+        export LC_ALL=C.UTF-8
+        export LANG=C.UTF-8
+        sshpass -p "$VPS_PASSWORD" ssh -o StrictHostKeyChecking=no -p 22022 $VPS_USER@$VPS_HOST "
+          cd $PROJECT_PATH &&
+          git stash &&
+          git pull origin master &&
+          git stash pop &&
+          composer install --no-dev
+        "
