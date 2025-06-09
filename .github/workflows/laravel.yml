@@ -22,7 +22,7 @@ jobs:
       env:
         VPS_USER: root
         VPS_HOST: 162.240.226.208
-        PROJECT_PATH: /home/wwneum/test.neumatruck.cl
+        PROJECT_PATH: /home/wwneum/public_html
         VPS_PASSWORD: ${{ secrets.VPS_PASSWORD }}
       run: |
         export LC_ALL=C.UTF-8
