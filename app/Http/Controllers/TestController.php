@@ -19,7 +19,7 @@ class TestController extends Controller
         Mail::to($email)->send($correo);
 
 
-        return "send email test";
+        return "send email test=> ".$email;
     }
 
 }
