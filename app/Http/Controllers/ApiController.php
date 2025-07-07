@@ -854,10 +854,12 @@ class ApiController extends Controller
         }
 
 
-        function delete_oferta_products()
+        function delete_oferta_products(Request $request)
         {
             $id_oferta = $request->id_oferta;
-            $productos = Ofertas::select("id_producto")->where("id_tipo_oferta", $id_oferta)->get();
+            $productos = Ofertas::select("id_producto")
+                            ->where("id_tipo_oferta", $id_oferta)
+                            ->get();
             foreach ($productos AS $item) {
                     Productos::where("id", $item->id_producto)->update(["oferta" => 0]);                
             }
