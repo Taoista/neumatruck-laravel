@@ -1061,6 +1061,39 @@ class ApiController extends Controller
         }
 
 
+        function update_oferta_volumen(Request $request)
+        {
+            $id_oferta = $reqiest->id_oferta;
+            $productos = $reqiest->productos;
+
+            for ($i=0; $i < count($productos) ; $i++) { 
+                $codigo = $productos[$i]['codigo'];
+                $p_oferta = $productos[$i]['p_oferta'];
+
+                $productoEncontrado  = Productos::select("id")->where("codigo", $codigo)->first()->id;
+
+                if($productoEncontrado ){
+                    $id_producto = $productoEncontrado->id;
+                    
+                    Productos::where("id_producto", $id_producto)->update(['oferta' => 1]);
+                    Ofertas::where("id_producto", $id_producto)->delete();
+
+                    $oferta = new Ofertas();
+                    $oferta->id_tipo_oferta = $id_oferta;
+                    $oferta->estado = 1;
+                    $oferta->id_producto = $id_producto;
+                    $oferta->controll = 0;
+                    $oferta->p_oferta = $p_oferta;
+                    $oferta->desc = 0;
+                    $oferta->save();
+                }
+            }
+
+            return response()->json(['message' => 'success','data'=> "succes_add_oferta"]);
+
+        }
+
+
 }
 
 

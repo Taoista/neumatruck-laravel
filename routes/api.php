@@ -86,7 +86,7 @@ Route::post("/update_erp_codigo",[ApiController::class, "update_erp_codigo"]);
 Route::post("/update_n_factura",[ApiController::class, "update_n_factura"]);
 // * toma los productos que estan en oferta
 Route::get("/get_ofert_productos",[ApiController::class, "get_ofert_productos"]);
-// * toma los tipos de ofertas
+// * toma los tipos de ofertas , diseno y estados
 Route::get("/get_tipo_ofertas",[ApiController::class, "get_tipo_ofertas"]);
 // * toma los productos segun familia y cantidad
 Route::get("/get_products_tipe/{id_tipo}/{cantidad}",[ApiController::class, "get_products_tipe"]);
@@ -102,7 +102,7 @@ Route::post("/delete_oferta_producto", [ApiController::class, "delete_oferta_pro
 Route::post("/insert_new_oferta_producto", [ApiController::class, "insert_new_oferta_producto"]);
 // * eleimian todas las ofertas
 Route::post("delete_all_ofertas", [ApiController::class, "delete_all_ofertas"]);
-// * get tipos
+// * get tipos de sub familia productos
 Route::get("get_tipo", [ApiController::class, "get_tipo"]);
 // * elemina una oferta y los productos asociados a esta oferta
 Route::post("/delete_oferta",[ApiController::class, "delete_oferta"]);
@@ -133,6 +133,15 @@ Route::get("/get-data-pop-up", [ApiController::class,"get_data_pop_up"]);
 Route::post("/update-sku",[ApiController::class,"update_sku"]);
 // * update productos 
 Route::post("/update-pop-up",[ApiController::class,"update_pop_up"]);
+
+// * 
+// * ofertas
+// * 
+// * 
+// * agrega ofertas en volumen
+Route::post("/ofertas/update-ofertas-volumen",[ApiController::class,"update_oferta_volumen"]);
+
+
 
 
 // * 
