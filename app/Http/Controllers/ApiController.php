@@ -1066,16 +1066,16 @@ class ApiController extends Controller
             $id_oferta = $request->id_oferta;
             $productos = $request->productos;
 
-            for ($i=0; $i < count($productos) ; $i++) { 
-                $codigo = $productos[$i]['codigo'];
-                $p_oferta = $productos[$i]['p_oferta'];
+            foreach ($productos as $producto) {
+                $codigo = $producto['codigo'];
+                $p_oferta = $producto['p_oferta'];
 
-                $productoEncontrado  = Productos::select("id")->where("codigo", $codigo)->first()->id;
+                $productoEncontrado = Productos::select("id")->where("codigo", $codigo)->first();
 
-                if($productoEncontrado ){
+                if ($productoEncontrado) {
                     $id_producto = $productoEncontrado->id;
-                    
-                    Productos::where("id_producto", $id_producto)->update(['oferta' => 1]);
+
+                    Productos::where("id", $id_producto)->update(['oferta' => 1]);
                     Ofertas::where("id_producto", $id_producto)->delete();
 
                     $oferta = new Ofertas();
@@ -1089,8 +1089,7 @@ class ApiController extends Controller
                 }
             }
 
-            return response()->json(['message' => 'success','data'=> "succes_add_oferta"]);
-
+            return response()->json(['message' => 'success', 'data' => "succes_add_oferta"]);
         }
 
 
