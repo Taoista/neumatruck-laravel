@@ -1068,7 +1068,10 @@ class ApiController extends Controller
 
             foreach ($productos as $producto) {
                 $codigo = $producto['codigo'];
-                $p_oferta = $producto['p_oferta'];
+                $precio = $producto['p_oferta'];
+
+                $p_oferta = round($precio / 1.19, 0, PHP_ROUND_HALF_UP);
+                
 
                 $productoEncontrado = Productos::select("id")->where("codigo", $codigo)->first();
 
