@@ -1068,7 +1068,7 @@ class ApiController extends Controller
 
             foreach ($productos as $producto) {
                 $codigo = $producto['codigo'];
-                $precio = $producto['p_oferta'];
+                $precio = intval($producto['p_oferta']);
 
                 // $p_oferta = round($precio / 1.19, 0, PHP_ROUND_HALF_UP);
                 $p_oferta = getNeto($precio);
