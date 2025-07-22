@@ -1070,8 +1070,9 @@ class ApiController extends Controller
                 $codigo = $producto['codigo'];
                 $precio = $producto['p_oferta'];
 
-                $p_oferta = round($precio / 1.19, 0, PHP_ROUND_HALF_UP);
-                
+                // $p_oferta = round($precio / 1.19, 0, PHP_ROUND_HALF_UP);
+                $iva = 1.19;
+                $p_oferta = round($precio * $iva);
 
                 $productoEncontrado = Productos::select("id")->where("codigo", $codigo)->first();
 
