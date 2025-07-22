@@ -1063,8 +1063,8 @@ class ApiController extends Controller
 
         function update_oferta_volumen(Request $request)
         {
-            $id_oferta = $reqiest->id_oferta;
-            $productos = $reqiest->productos;
+            $id_oferta = $request->id_oferta;
+            $productos = $request->productos;
 
             for ($i=0; $i < count($productos) ; $i++) { 
                 $codigo = $productos[$i]['codigo'];
