@@ -26,11 +26,11 @@
                     <h4 class="product-price">{{ "$ ".format_money(set_total($item->p_venta)) }} C/IVA</h4>
                 @endif
                 <p style="color:red;margin-top:0px;margin-bottom:0px">Precio Lista <del>{{ "$ ".format_money(set_total($item->p_sistema)) }}  </del>
-                {{-- @if($item->stock >= 100){
+                 @if($item->stock >= 100)
                     </p><span>COD:{{ $item->codigo }}</span><br><span> Stock: +100</span>
-                }@else{
+                @else
                     </p><span>COD:{{ $item->codigo }}</span><br><span> Stock: {{ $item->stock }}</span>
-                } --}}
+                @endif
             </div>
             @if($item->stock > 2)
             <div class="add-to-cart" wire:click="add_producto('{{ $item->id }}')" wire:loading.remove><button  class="add-to-cart-btn agregacarro"><i class="fa fa-shopping-cart"></i>Agregar Al Carro</button></div>
