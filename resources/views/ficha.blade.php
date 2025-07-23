@@ -59,11 +59,11 @@
                                                 <h5 class=" lbl-ferta">{{ $controller->get_title_oferta($data->id) }} </h5>
                                             @endif
                                         @endif
-                                        <ul class="product-links" style="margin-top: 20px;">
+                                        {{-- <ul class="product-links" style="margin-top: 20px;">
                                             <li>Stock:</li>
                                             <li>{{ $data->stock }}</li>
                                             <li>Stock sujeto a cambios sin previo aviso </li>
-                                        </ul>
+                                        </ul> --}}
                                         <ul class="product-links" style="margin-top: 20px;">
                                             <li>Categoria:</li>
                                             <li>{{ $data->tipo }}</li>
