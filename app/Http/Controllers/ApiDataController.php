@@ -242,7 +242,7 @@ class ApiDataController extends Controller
     function update_phone_one(Request $request)
     {
         $id = $request->id;
-        $phone = $request->phone;
+        $phone = str_replace($request->phone);
         $header = $request->header;
 
         ConfiguracionPhono::where("id", $id)->update([
