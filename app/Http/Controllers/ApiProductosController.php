@@ -27,9 +27,6 @@ class ApiProductosController extends Controller
 
             // ? verificar familia y sub familia
 
-            $busqueda = "";
-            $id_familia = '';
-            $id_sub_familia = '';
 
             $id_tipo = get_category($id_familia, $id_sub_familia);
 
@@ -48,7 +45,7 @@ class ApiProductosController extends Controller
                 ]
             );
 
-            $brand_data = Marcas::where("id2", $id_marca)->first();
+            $brand_data = Marcas::where("id2", $id_brands)->first();
             
             $filter = create_filter($codigo, $id_brands, $brand_data->marca);
             
