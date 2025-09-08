@@ -8,8 +8,27 @@ use App\Models\Tipo;
 use App\Models\OfertasTipo;
 use App\Models\Productos;
 use App\Models\Marcas;
+use App\Models\ConfiguracionDescuento;
 use Illuminate\Support\Str;
 use App\Http\Controllers\ProductosController;
+
+
+
+// * entrega el precio de descuento
+function get_descount($p_sistema, $id_tipo)
+{
+    try {
+        $descuento = ConfiguracionDescuento::where("id", $id_tipo)->first();
+    
+        $descount = $p_sistema * ($descuento->descuento / 100);
+        $final = $p_sistema - $descount;
+    
+        return $final;
+    } catch (\Throwable $th) {
+        return $p_sistema;
+    }
+
+}
 
 
 function generate_toke()
@@ -293,6 +312,43 @@ function create_filter($codigo, $id_marca, $marca_name)
 
     return $value;
 
+}
+
+// * selecciona la caracteristica
+function get_category($id_familia, $id_sub_familia)
+{
+    // ? 1 Camión y Bus
+    // ? 2 Industrial
+    // ? 3 Agricola
+    // ? 4 Otr
+    // ? 5 Bateria
+    // ? 6 Aceite
+    // ? 7 Grua Horquilla
+    if($id_familia == 1){
+        if($id_sub_familia == 2){ // Camión y Bus
+            return 1;
+        }
+        if($id_sub_familia == 5){ // Industrial
+            return 2;
+        }
+        if($id_sub_familia == 1){ // Agricola
+            return 3;
+        }
+        if($id_sub_familia == 6){ // Agricola
+            return 4;
+        }
+        if($id_sub_familia == 4){ // Agricola
+            return 7;
+        }
+    }
+    if($id_familia == 6){
+       return 5;
+    }
+
+    if($id_familia == 2){
+        return 6;
+    }
+    return 1
 }
 
 
