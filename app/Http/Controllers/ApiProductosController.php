@@ -11,7 +11,6 @@ class ApiProductosController extends Controller
     function update_product(Request $request)
     {
 
-        try {
             $img_not = "https://assets.neumachile.cl/assets/productos/nc_not_found.webp";
 
             $codigo = $request->codigo;
@@ -62,10 +61,7 @@ class ApiProductosController extends Controller
             $producto = Poructos::where("codigo", $codigo)->get();
 
             return response()->json(['message' => 'success','data'=> $producto]);
-        } catch (\Throwable $th) {
-            
-            return response()->json(['message' => 'error','data'=> $th]);
-        }
+       
 
        
         
