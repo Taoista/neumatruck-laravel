@@ -37,7 +37,7 @@ class ApiProductosController extends Controller
             Productos::where("codigo", $codigo)->update(
                 [
                     'estado' => $estado,
-                    'detalle' => $detalle,
+                    'nombre' => $detalle,
                     'stock' => $stock,
                     'id_marca' => $id_brands,
                     'id_tipo' => $id_tipo,
