@@ -18,7 +18,7 @@ class ApiProductosController extends Controller
             $estado = $request->estado;
             $id_brands = $request->id_brands;
             $id_familia = $request->id_familia;
-            $id_sub_familia = $request->$id_sub_familia;
+            $id_sub_familia = $request->id_sub_familia;
             $p_sistema = $request->p_venta;
             $stock = $request->stock;
             $top = $request->top;
