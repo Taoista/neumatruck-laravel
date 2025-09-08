@@ -38,7 +38,6 @@ class ApiProductosController extends Controller
                 [
                     'estado' => $estado,
                     'detalle' => $detalle,
-                    'busqueda' => $busqueda,
                     'stock' => $stock,
                     'id_marca' => $id_brands,
                     'id_tipo' => $id_tipo,
