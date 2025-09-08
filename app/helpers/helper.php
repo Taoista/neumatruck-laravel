@@ -348,7 +348,7 @@ function get_category($id_familia, $id_sub_familia)
     if($id_familia == 2){
         return 6;
     }
-    return 1
+    return 1;
 }
 
 
