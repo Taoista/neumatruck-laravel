@@ -55,7 +55,7 @@ class ApiProductosController extends Controller
                 ]
             );
 
-            $producto = Poructos::where("codigo", $codigo)->get();
+            $producto = Productos::where("codigo", $codigo)->get();
 
             return response()->json(['message' => 'success','data'=> $producto]);
        
