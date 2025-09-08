@@ -153,4 +153,4 @@ Route::get("/get-banner-mobil",[PoliticasController::class, "get_banner_mobil"])
 // *
 Route::get("/marca/get-brand/{id2}",[ApiController::class, "get_brand"]);
 // * actualzia un producto completo
-Route::post("/productos/update-product",[ApiProductosController::class, "update_product"]);
+// Route::post("/productos/update-product",[ApiProductosController::class, "update_product"]);
