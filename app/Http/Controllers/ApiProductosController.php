@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Productos;
+use App\Models\Marcas;
 
 class ApiProductosController extends Controller
 {
