@@ -83,6 +83,10 @@
                                             @endif
                                         </ul>
                                         @if($data->estado == true AND $data->stock > min_stock())
+                                         </ul>
+                                            <ul class="product-links" style="margin-top: 0px;">
+                                            <li> <strong>disponibilidad: Con Stock</strong>  </li> <br>
+                                        </ul>
                                         <ul>
                                             <li>
                                                 <br>
@@ -92,10 +96,15 @@
                                             </li>
                                         </ul>
                                         @else
+                                        </ul>
+                                            <ul class="product-links" style="margin-top: 0px;">
+                                            <li> <strong>disponibilidad: SIN STOCK</strong>  </li> <br>
+                                        </ul>
                                         <br>
                                         <div class="add-to-cart">
 											<button class="add-to-cart-btn2">Consulta Stock</button>
 										</div>
+                                         
                                          @endif
                                         <br><br>
                                     </div>
